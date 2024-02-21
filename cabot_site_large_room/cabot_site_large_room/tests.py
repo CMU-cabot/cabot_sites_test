@@ -1,11 +1,25 @@
 import random
 import time
 
+
 def config(tester):
     tester.config['init_x'] = 0.0
     tester.config['init_y'] = 0.0
     tester.config['init_z'] = 0.0
     tester.config['init_a'] = 0.0
+
+    tester.set_evaluation_parameters(
+        metrics=[
+            "total_time",
+            "robot_path_length",
+            "time_not_moving",
+            "avg_robot_linear_speed",
+            "cumulative_heading_changes",
+            "robot_on_person_collision_count",
+            "person_on_robot_collision_count"
+        ],
+        # robot_radius=0.45  # default value
+    )
 
 
 def checks(tester):
@@ -26,6 +40,8 @@ def _goto_target1(tester):
         topic_type='std_msgs/msg/String',
         message="data: 'navigation;destination;EDITOR_node_1705948557561'"
     )
+    # start computing evaluation metrics after publshing the destination
+    tester.start_evaluation()
     tester.wait_topic(
         topic="/cabot/activity_log",
         topic_type="cabot_msgs/msg/Log",
@@ -90,6 +106,13 @@ def test_category1_case4_robot_overtaking(tester):
             },
         },
     ])
+    # check too slow movement
+    tester.check_topic_error(
+        action="check total_time ",
+        topic="/metric",
+        topic_type="pedestrian_plugin_msgs/msg/Metric",
+        condition="msg.name=='total_time' and 30.0<=msg.value"
+    )
     _goto_target1(tester)
 
 
