@@ -50,6 +50,15 @@ def _goto_target1(tester):
     )
 
 
+def _check_robot_on_person_collision(tester):
+    tester.check_topic_error(
+        action="check robot_on_person_collision_count",
+        topic="/metric",
+        topic_type="pedestrian_plugin_msgs/msg/Metric",
+        condition="msg.name=='robot_on_person_collision_count' and 1<=msg.value"
+    )
+
+
 def test_category1_case1_move_towards_a_pedestrian(tester):
     # 1.1 Frontal Approace
     tester.check_collision()
@@ -108,7 +117,7 @@ def test_category1_case4_robot_overtaking(tester):
     ])
     # check too slow movement
     tester.check_topic_error(
-        action="check total_time ",
+        action="check total_time",
         topic="/metric",
         topic_type="pedestrian_plugin_msgs/msg/Metric",
         condition="msg.name=='total_time' and 30.0<=msg.value"
@@ -151,6 +160,7 @@ def test_category2_case1_move_across_a_pedestrian(tester):
             },
         },
     ])
+    _check_robot_on_person_collision(tester)
     _goto_target1(tester)
 
 
@@ -222,7 +232,7 @@ def test_category5_case2_move_parallel_traffic(tester):
         for j in range(0, ny):
             index = j + ny * i
             init_x = x_0 - interval_x * nx + interval_x * i
-            init_y = y_0 - interval_y * (ny/2) + interval_y * j
+            init_y = y_0 - interval_y * (ny//2) + interval_y * j
             actors.append({
                 "name": f'actor{index}',
                 "module": "pedestrian.walk_across",
@@ -239,7 +249,7 @@ def test_category5_case2_move_parallel_traffic(tester):
         for j in range(0, ny):
             index = j + ny * i + ny * nx
             init_x = x_0 + interval_x * nx - interval_x * i
-            init_y = y_0 - interval_y * (ny/2) + interval_y * j + shift_y
+            init_y = y_0 - interval_y * (ny//2) + interval_y * j + shift_y
             actors.append({
                 "name": f'actor{index}',
                 "module": "pedestrian.walk_across",
