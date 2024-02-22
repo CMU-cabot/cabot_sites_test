@@ -1,0 +1,17 @@
+[
+	{
+		"floor": 1,
+		"height": 524,
+		"id": "ROS2",
+		"image": "map/test2.png",
+		"lat": 40.444192,
+		"lng": -79.946653,
+		"origin_x": 191.0567,
+		"origin_y": 254.44801999999999,
+		"ppm_x": 20,
+		"ppm_y": 20,
+		"rotate": 0,
+		"width": 484,
+		"zIndex": 11
+	}
+]
