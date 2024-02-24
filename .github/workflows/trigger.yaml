@@ -1,0 +1,24 @@
+name: Trigger Webhook
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '**'
+      - '!.github/**'
+
+jobs:
+  trigger:
+    runs-on: ubuntu-20.04
+    steps:
+    # run test
+    - name: Trigger Workflow in Sandbox
+      run: |
+        curl -X POST \
+        -H "Accept: application/vnd.github.v3+json" \
+        -H "Authorization: token ${{ secrets.TOKEN }}" \
+        https://api.github.com/repos/cmu-cabot/sandbox/dispatches \
+        -d '{"event_type": "build-and-test"}'
+      env:
+        PAT: ${{ secrets.TOKEN }}
+
