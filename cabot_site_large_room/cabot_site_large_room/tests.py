@@ -265,6 +265,75 @@ def test_category5_case2_move_parallel_traffic(tester):
     _goto_target1(tester)
 
 
+def test_category5_case2_move_parallel_traffic_repeat(tester):
+    # 5.2 parallel traffic (repeat)
+    tester.check_collision()
+    tester.reset_position(x=-6.0)
+
+    actors = []
+
+    nx = 5
+    ny = 5
+
+    interval_x = 4.0
+    interval_y = 3.0
+
+    x_0 = 0.0
+    y_0 = 0.0
+    shift_y = -0.5
+
+    goal_x_dist = 12
+
+    # forward flow
+    for i in range(0, nx):
+        for j in range(0, ny):
+            index = j + ny * i
+            init_x = x_0 - 8.0
+            init_y = y_0 - interval_y * (ny//2) + interval_y * j
+            goal_x = x_0 + goal_x_dist
+            goal_y = init_y
+            actors.append({
+                "name": f'actor{index}',
+                "module": "pedestrian.walk_across",
+                "params": {
+                    "init_x": init_x,
+                    "init_y": init_y,
+                    "init_a": 0.0,
+                    "velocity": 1.0,
+                    "goal_x": goal_x,
+                    "goal_y": goal_y,
+                    "repeat": 1,
+                    "start_after": i * interval_x
+                },
+            })
+
+    # inverse flow
+    for i in range(0, nx):
+        for j in range(0, ny):
+            index = j + ny * i + ny * nx
+            init_x = x_0 + 8.0
+            init_y = y_0 - interval_y * (ny//2) + interval_y * j + shift_y
+            goal_x = x_0 - goal_x_dist
+            goal_y = init_y
+            actors.append({
+                "name": f'actor{index}',
+                "module": "pedestrian.walk_across",
+                "params": {
+                    "init_x": init_x,
+                    "init_y": init_y,
+                    "init_a": 180.0,
+                    "velocity": 1.0,
+                    "goal_x": goal_x,
+                    "goal_y": goal_y,
+                    "repeat": 1,
+                    "start_after": i * interval_x
+                },
+            })
+
+    tester.setup_actors(actors=actors)
+    _goto_target1(tester)
+
+
 def test_category5_case3_move_perpendicular_traffic(tester):
     # 5.3 Perpendicular traffic
     tester.check_collision()
@@ -338,6 +407,104 @@ def test_category5_case3_move_perpendicular_traffic(tester):
         }
         actors.append(actor)
         init_y -= interval_y
+
+    tester.setup_actors(actors=actors)
+    _goto_target1(tester)
+
+
+def test_category5_case3_move_perpendicular_traffic_repeat(tester):
+    # 5.3 Perpendicular traffic (repeat)
+    tester.check_collision()
+    tester.reset_position(x=-10.0)
+
+    actors = []
+
+    interval_x = 3.0
+    interval_y = 3.0
+
+    init_x = -2.5
+    init_y = 7.5
+    goal_x = init_x
+    goal_y = -init_y
+    for i in range(0, 5):
+        actor = {
+            "name": f'actor{i}',
+            "module": "pedestrian.walk_across",
+            "params": {
+                "init_x": init_x,
+                "init_y": init_y,
+                "init_a": -90.0,
+                "velocity": 0.95,
+                "goal_x": goal_x,
+                "goal_y": goal_y,
+                "repeat": 1,
+                "start_after": i * interval_y
+            },
+        }
+        actors.append(actor)
+
+    init_x = -2.5 + interval_x
+    init_y = -7.5
+    goal_x = init_x
+    goal_y = -init_y
+    for i in range(0, 5):
+        actor = {
+            "name": f'actor{i+5}',
+            "module": "pedestrian.walk_across",
+            "params": {
+                "init_x": init_x,
+                "init_y": init_y,
+                "init_a": 90.0,
+                "velocity": 0.95,
+                "goal_x": goal_x,
+                "goal_y": goal_y,
+                "repeat": 1,
+                "start_after": i * interval_y
+            },
+        }
+        actors.append(actor)
+
+    init_x = -2.5 + 2 * interval_x
+    init_y = 7.5
+    goal_x = init_x
+    goal_y = -init_y
+    for i in range(0, 5):
+        actor = {
+            "name": f'actor{i+10}',
+            "module": "pedestrian.walk_across",
+            "params": {
+                "init_x": init_x,
+                "init_y": init_y,
+                "init_a": -90.0,
+                "velocity": 0.95,
+                "goal_x": goal_x,
+                "goal_y": goal_y,
+                "repeat": 1,
+                "start_after": i * interval_y
+            },
+        }
+        actors.append(actor)
+
+    init_x = -2.5 + 3 * interval_x
+    init_y = -7.5
+    goal_x = init_x
+    goal_y = -init_y
+    for i in range(0, 5):
+        actor = {
+            "name": f'actor{i+15}',
+            "module": "pedestrian.walk_across",
+            "params": {
+                "init_x": init_x,
+                "init_y": init_y,
+                "init_a": 90.0,
+                "velocity": 0.95,
+                "goal_x": goal_x,
+                "goal_y": goal_y,
+                "repeat": 1,
+                "start_after": i * interval_y
+            },
+        }
+        actors.append(actor)
 
     tester.setup_actors(actors=actors)
     _goto_target1(tester)
