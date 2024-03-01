@@ -1,0 +1,6 @@
+image: mapping_2024-02-29-09-40-19.carto-converted.pgm
+resolution: 0.050000
+origin: [-29.414771, -15.616711, 0.0]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196

@@ -1,0 +1,5 @@
+origin_x: 588.2954199999999
+origin_y: 312.33422
+ppm: 20.0
+width: 1058
+height: 519

@@ -1,0 +1,20 @@
+# anchor of F4-NSH-Gates-Wean-T2-_2020-03-10-17-15-31
+anchor:
+  latitude: 40.444192
+  # Adjusted to match cartographer origin and gazebo origin
+  # The simualation started (0, 0), but the robot moved too early and the origin might be shifted
+  longitude: -79.946654
+  rotate: 0
+  floor: 0
+  area: 0
+map_list:
+  - node_id: "carto1_1"
+    frame_id: "map_carto1_1"
+    latitude: 40.444192
+    longitude: -79.946654
+    rotate: 0
+    floor: 0
+    area: 0
+    load_state_filename: "package://cabot_site_test2_room/maps/mapping_2024-02-29-09-40-19.carto-converted.pbstream"
+    samples_filename: "package://cabot_site_test2_room/maps/mapping_2024-02-29-09-40-19.carto-converted.loc.samples.json"
+    map_filename: "package://cabot_site_test2_room/maps/mapping_2024-02-29-09-40-19.carto-converted.yaml"
