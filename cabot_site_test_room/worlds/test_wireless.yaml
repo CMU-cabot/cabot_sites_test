@@ -5,6 +5,8 @@ robot:
 floor_list:
   - floor: 0
     height: 0.00
+  - floor: 2
+    height: 10.00
 beacons:
   file: ../models/beacons_test.csv
   parameters:
