@@ -3,6 +3,7 @@ def config(tester):
     tester.config['init_y'] = 0.0
     tester.config['init_z'] = 0.0
     tester.config['init_a'] = 0.0
+    tester.config['init_floor'] = 0
 
 
 def wait_ready(tester):
