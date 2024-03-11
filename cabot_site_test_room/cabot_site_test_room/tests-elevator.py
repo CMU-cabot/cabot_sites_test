@@ -19,11 +19,10 @@ def test7_start_in_front_of_elevator(tester):
     tester.wait_navigation_arrived(timeout=60)
 
 
-def test6_elevator_skip_and_resume_elevator(tester):
+def test6_elevator_skip_and_resume_in_elevator(tester):
     tester.reset_position()
     tester.goto_node('EDITOR_node_1709594309586')
     tester.wait_goal("ElevatorWaitGoal")
-    tester.wait_for(seconds=1)
     tester.button_down(3)
     tester.reset_position(x=13, y=8.5, z=0)
     tester.floor_change(+1)
@@ -35,9 +34,9 @@ def test5_elevator_skip(tester):
     tester.reset_position()
     tester.goto_node('EDITOR_node_1709594309586')
     tester.wait_goal("ElevatorWaitGoal")
-    tester.wait_for(seconds=1)
     tester.button_down(3)
     tester.floor_change(+1)
+    tester.wait_for(seconds=10)
     tester.button_down(4)
     tester.wait_navigation_arrived(timeout=60)
 
@@ -64,8 +63,8 @@ def test4_cancel_while_elevator_floor_goal(tester):
     cancel()
     tester.info("push right button to resume")
     tester.button_down(4)
-    tester.wait_goal("ElevatorFloorGoal")
-    tester.wait_navigation_arrived(timeout=60)
+    tester.wait_goal("ElevatorFloorGoal", timeout=10)
+    tester.wait_navigation_arrived(timeout=30)
 
 
 def test3_door_close_while_elevator_out(tester):
