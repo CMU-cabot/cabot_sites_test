@@ -1153,7 +1153,7 @@
 				"rt_struct": 7,
 				"route_type": 1,
 				"width": 99,
-				"hulop_road_width": 0.5,
+				"hulop_road_width": 1.1,
 				"lev_diff": 99,
 				"direction": 1
 			},

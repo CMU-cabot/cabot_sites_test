@@ -11,11 +11,42 @@ def wait_ready(tester):
     # tester.wait_ready()
 
 
-def test2_cancel_while_elevator_floor_goal(tester):
+def test7_start_in_front_of_elevator(tester):
+    tester.reset_position(x=11.5, y=8.5, z=0)
+    tester.goto_node('EDITOR_node_1709594309586')
+    tester.wait_goal("ElevatorTurnGoal")
+    tester.floor_change(+1)
+    tester.wait_navigation_arrived(timeout=60)
+
+
+def test6_elevator_skip_and_resume_elevator(tester):
+    tester.reset_position()
+    tester.goto_node('EDITOR_node_1709594309586')
+    tester.wait_goal("ElevatorWaitGoal")
+    tester.wait_for(seconds=1)
+    tester.button_down(3)
+    tester.reset_position(x=13, y=8.5, z=0)
+    tester.floor_change(+1)
+    tester.button_down(4)
+    tester.wait_navigation_arrived(timeout=60)
+
+
+def test5_elevator_skip(tester):
+    tester.reset_position()
+    tester.goto_node('EDITOR_node_1709594309586')
+    tester.wait_goal("ElevatorWaitGoal")
+    tester.wait_for(seconds=1)
+    tester.button_down(3)
+    tester.floor_change(+1)
+    tester.button_down(4)
+    tester.wait_navigation_arrived(timeout=60)
+
+
+def test4_cancel_while_elevator_floor_goal(tester):
     tester.clean_door()
     tester.reset_position()
     tester.goto_node('EDITOR_node_1709594309586')
-    tester.wait_elevator_goal("ElevatorTurnGoal", timeout=60)
+    tester.wait_goal("ElevatorTurnGoal", timeout=60)
     tester.info("cancel elevator floor goal")
     tester.wait_for(seconds=2)
     tester.info("push left button to pause")
@@ -33,21 +64,21 @@ def test2_cancel_while_elevator_floor_goal(tester):
     cancel()
     tester.info("push right button to resume")
     tester.button_down(4)
-    tester.wait_elevator_goal("ElevatorFloorGoal")
+    tester.wait_goal("ElevatorFloorGoal")
     tester.wait_navigation_arrived(timeout=60)
 
 
-def test1_door_close_while_elevator_out(tester):
+def test3_door_close_while_elevator_out(tester):
     tester.clean_door()
     tester.reset_position()
     tester.goto_node('EDITOR_node_1709594309586')
     tester.info("close elvator doors")
     tester.spawn_door(name="f1_door", x=12, y=8.5, z=0, yaw=0)
     tester.spawn_door(name="f3_door", x=12, y=8.5, z=10, yaw=0)
-    tester.wait_elevator_goal("ElevatorWaitGoal")
+    tester.wait_goal("ElevatorWaitGoal")
     tester.wait_for(seconds=5)
     tester.delete_door(name="f1_door")
-    tester.wait_elevator_goal("ElevatorTurnGoal", timeout=60)
+    tester.wait_goal("ElevatorTurnGoal", timeout=60)
     tester.floor_change(+1)
     tester.wait_for(seconds=5)
     tester.info("open 3F door")
@@ -60,14 +91,14 @@ def test1_door_close_while_elevator_out(tester):
     tester.wait_navigation_arrived(timeout=30)
 
 
-def test1_door_close_while_elevator_in(tester):
+def test2_door_close_while_elevator_in(tester):
     tester.clean_door()
     tester.reset_position()
     tester.goto_node('EDITOR_node_1709594309586')
     tester.info("close elvator doors")
     tester.spawn_door(name="f1_door", x=12, y=8.5, z=0, yaw=0)
     tester.spawn_door(name="f3_door", x=12, y=8.5, z=10, yaw=0)
-    tester.wait_elevator_goal("ElevatorWaitGoal")
+    tester.wait_goal("ElevatorWaitGoal")
     tester.wait_for(seconds=5)
     for i in range(0, 3):
         tester.info("open/close 1F door")
@@ -76,25 +107,25 @@ def test1_door_close_while_elevator_in(tester):
         tester.wait_for(seconds=5)
     tester.info("open 1F door again")
     tester.delete_door(name="f1_door")
-    tester.wait_elevator_goal("ElevatorTurnGoal", timeout=30)
+    tester.wait_goal("ElevatorTurnGoal", timeout=30)
     tester.floor_change(+1)
     tester.wait_for(seconds=5)
     tester.delete_door(name="f3_door")
     tester.wait_navigation_arrived(timeout=60)
 
 
-def test0_navigation_to_a_goal_with_doors(tester):
+def test1_navigation_to_a_goal_with_doors(tester):
     tester.clean_door()
     tester.reset_position()
     tester.goto_node('EDITOR_node_1709594309586')
     tester.info("close elvator doors")
     tester.spawn_door(name="f1_door", x=12, y=8.5, z=0, yaw=0)
     tester.spawn_door(name="f3_door", x=12, y=8.5, z=10, yaw=0)
-    tester.wait_elevator_goal("ElevatorWaitGoal")
+    tester.wait_goal("ElevatorWaitGoal")
     tester.wait_for(seconds=5)
     tester.info("open 1F door")
     tester.delete_door(name="f1_door")
-    tester.wait_elevator_goal("ElevatorTurnGoal")
+    tester.wait_goal("ElevatorTurnGoal")
     tester.floor_change(+1)
     tester.wait_for(seconds=5)
     tester.info("open 3F door")
@@ -106,6 +137,6 @@ def test0_navigation_to_a_goal(tester):
     tester.clean_door()
     tester.reset_position()
     tester.goto_node('EDITOR_node_1709594309586')
-    tester.wait_elevator_goal("ElevatorTurnGoal")
+    tester.wait_goal("ElevatorTurnGoal")
     tester.floor_change(+1)
     tester.wait_navigation_arrived(timeout=180)
