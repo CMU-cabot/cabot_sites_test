@@ -52,3 +52,32 @@ def test2_navigation_to_a_goal_and_check_event(tester):
     cancel()
     _check_cabot_event(tester, "navigation_arrived")
     tester.wait_navigation_completed()
+
+
+# navigation starts from leaf and narrow link
+def test3_navigation_to_a_goal(tester):
+    tester.reset_position(x=-8.0, y=-4.25, a=0.0)
+    tester.goto_node('EDITOR_node_1710181919804')
+    tester.wait_goal('NarrowGoal', timeout=15)
+    tester.wait_navigation_arrived(timeout=15)
+
+
+# navigation starts from leaf and narrow link and goal
+def test4_navigation_to_a_goal(tester):
+    tester.reset_position(x=-8.0, y=-4.25, a=0.0)
+    tester.goto_node('EDITOR_node_1710181891921')
+    tester.wait_goal('NarrowGoal', timeout=15)
+
+
+# navigation starts from leaf and end at the nodea
+def test5_navigation_to_a_goal(tester):
+    tester.reset_position(x=-8.0, y=-4.25, a=0.0)
+    tester.goto_node('EDITOR_node_1708914021679')
+    tester.wait_navigation_arrived(timeout=15)
+
+
+# navigation starts from leaf and normal link and goal
+def test6_navigation_to_a_goal(tester):
+    tester.reset_position(x=-5.5, y=-1.5, a=-90.0)
+    tester.goto_node('EDITOR_node_1710181891921')
+    tester.wait_navigation_arrived(timeout=15)
