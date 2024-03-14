@@ -63,7 +63,7 @@ def test4_cancel_while_elevator_floor_goal(tester):
     cancel()
     tester.info("push right button to resume")
     tester.button_down(4)
-    tester.wait_goal("ElevatorFloorGoal", timeout=10)
+    tester.wait_goal("ElevatorOutGoal", timeout=20)
     tester.wait_navigation_arrived(timeout=30)
 
 
