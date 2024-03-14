@@ -7,25 +7,77 @@ def config(tester):
 
 
 def wait_ready(tester):
-    tester.wait_ready()
+    tester.wait_localization_started()
 
 
-def test0_navigation_to_a_goal(tester):
-    tester.reset_position()
-    tester.goto_node('EDITOR_node_1707899365026')
+def _check_cabot_event(tester, event, **kwargs):
+    return tester.check_topic(**dict(
+        dict(
+            action_name=f'check_interface_{event}',
+            topic='/cabot/event',
+            topic_type='std_msgs/msg/String',
+            condition=f"msg.data=='{event}'",
+            timeout=60
+        ),
+        **kwargs)
+    )
+
+
+def _check_cabot_event_error(tester, event, **kwargs):
+    return tester.check_topic_error(**dict(
+        dict(
+            action_name=f'check_interface_{event}_error',
+            topic='/cabot/event',
+            topic_type='std_msgs/msg/String',
+            condition=f"msg.data=='{event}'",
+            timeout=60
+        ),
+        **kwargs)
+    )
+
+
+def test1_navigation_to_a_goal(tester):
+    tester.reset_position(x=1.0, y=-1.0, a=0.0)
+    tester.goto_node('EDITOR_node_1707899314416')
     tester.wait_navigation_arrived(timeout=90)
 
 
-# cabot planner can be dead due to a goal that is too close to the current position
-def test1_start_on_narrow_path_start(tester):
-    tester.reset_position(x=-0.7, y=0.7, a=90.0)
-    tester.goto_node('EDITOR_node_1707899365026')
-    tester.wait_navigation_arrived(timeout=90)
+# navigation_arrived event should be issued after navigation is completed
+def test2_navigation_to_a_goal_and_check_event(tester):
+    tester.reset_position(x=1.0, y=-1.0, a=0.0)
+    tester.goto_node('EDITOR_node_1707899314416@-90')
+    cancel = _check_cabot_event_error(tester, "navigation_arrived")
+    tester.wait_navigation_arrived()
+    tester.wait_for(seconds=1)
+    cancel()
+    _check_cabot_event(tester, "navigation_arrived")
+    tester.wait_navigation_completed()
 
 
-def test2_navigation_to_a_goal_and_return(tester):
-    tester.reset_position()
-    tester.goto_node('EDITOR_node_1707899365026')
-    tester.wait_navigation_arrived(timeout=90)
-    tester.goto_node('EDITOR_node_1707899162797')
-    tester.wait_navigation_arrived(timeout=90)
+# navigation starts from leaf and narrow link
+def test3_navigation_to_a_goal(tester):
+    tester.reset_position(x=-8.0, y=-4.25, a=0.0)
+    tester.goto_node('EDITOR_node_1710181919804')
+    tester.wait_goal('NarrowGoal', timeout=15)
+    tester.wait_navigation_arrived(timeout=15)
+
+
+# navigation starts from leaf and narrow link and goal
+def test4_navigation_to_a_goal(tester):
+    tester.reset_position(x=-8.0, y=-4.25, a=0.0)
+    tester.goto_node('EDITOR_node_1710181891921')
+    tester.wait_goal('NarrowGoal', timeout=15)
+
+
+# navigation starts from leaf and end at the nodea
+def test5_navigation_to_a_goal(tester):
+    tester.reset_position(x=-8.0, y=-4.25, a=0.0)
+    tester.goto_node('EDITOR_node_1708914021679')
+    tester.wait_navigation_arrived(timeout=15)
+
+
+# navigation starts from leaf and normal link and goal
+def test6_navigation_to_a_goal(tester):
+    tester.reset_position(x=-5.5, y=-1.5, a=-90.0)
+    tester.goto_node('EDITOR_node_1710181891921')
+    tester.wait_navigation_arrived(timeout=15)

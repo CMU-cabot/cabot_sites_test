@@ -23,6 +23,7 @@ ament_python_install_package(${PROJECT_NAME})
 install(DIRECTORY config/ DESTINATION share/${PROJECT_NAME}/config/)
 install(DIRECTORY maps/ DESTINATION share/${PROJECT_NAME}/maps/)
 install(DIRECTORY models/ DESTINATION share/${PROJECT_NAME}/models/)
+install(DIRECTORY queue/ DESTINATION share/${PROJECT_NAME}/queue/)
 install(DIRECTORY worlds/ DESTINATION share/${PROJECT_NAME}/worlds/)
 
 ament_package()

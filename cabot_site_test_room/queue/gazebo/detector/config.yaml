@@ -1,0 +1,5 @@
+queue_list:
+  - frame_id: "map_carto1_1"
+    frame_queue_list:
+      - queue_expected_path_filename: "package://cabot_site_test_room/queue/gazebo/detector/map_carto1_1/queue-expected-path.json"
+        queue_obstacle_polygon_filename: "package://cabot_site_test_room/queue/gazebo/detector/map_carto1_1/queue-obstacle-polygon.json"
