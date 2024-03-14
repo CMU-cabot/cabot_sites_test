@@ -1,0 +1,111 @@
+def config(tester):
+    tester.config['init_x'] = 10.0
+    tester.config['init_y'] = 5.0
+    tester.config['init_z'] = 0.0
+    tester.config['init_a'] = 90.0
+    tester.config['init_floor'] = 0
+
+
+def wait_ready(tester):
+    tester.wait_localization_started()
+    # tester.wait_ready()
+
+
+def test2_cancel_while_elevator_floor_goal(tester):
+    tester.clean_door()
+    tester.reset_position()
+    tester.goto_node('EDITOR_node_1709594309586')
+    tester.wait_elevator_goal("ElevatorTurnGoal", timeout=60)
+    tester.info("cancel elevator floor goal")
+    tester.wait_for(seconds=2)
+    tester.info("push left button to pause")
+    tester.button_down(3)
+    tester.wait_for(seconds=3)
+    # navigation is paused, so ElevatorFloorGoal should not be published
+    cancel = tester.check_topic_error(
+        action="check_elevator_floor_goal_error",
+        topic="/cabot/activity_log",
+        topic_type="cabot_msgs/msg/Log",
+        condition="msg.category=='cabot/navigation' and msg.text=='goal_canceled' and msg.memo=='ElevatorFloorGoal'",
+    )
+    tester.floor_change(+1)
+    tester.wait_for(seconds=10)
+    cancel()
+    tester.info("push right button to resume")
+    tester.button_down(4)
+    tester.wait_elevator_goal("ElevatorFloorGoal")
+    tester.wait_navigation_arrived(timeout=60)
+
+
+def test1_door_close_while_elevator_out(tester):
+    tester.clean_door()
+    tester.reset_position()
+    tester.goto_node('EDITOR_node_1709594309586')
+    tester.info("close elvator doors")
+    tester.spawn_door(name="f1_door", x=12, y=8.5, z=0, yaw=0)
+    tester.spawn_door(name="f3_door", x=12, y=8.5, z=10, yaw=0)
+    tester.wait_elevator_goal("ElevatorWaitGoal")
+    tester.wait_for(seconds=5)
+    tester.delete_door(name="f1_door")
+    tester.wait_elevator_goal("ElevatorTurnGoal", timeout=60)
+    tester.floor_change(+1)
+    tester.wait_for(seconds=5)
+    tester.info("open 3F door")
+    tester.delete_door(name="f3_door")
+    tester.info("close 3F door to abort Elevator Out")
+    tester.spawn_door(name="f3_door", x=12, y=8.5, z=10, yaw=0)
+    tester.wait_for(seconds=5)
+    tester.info("open 3F door again")
+    tester.delete_door(name="f3_door")
+    tester.wait_navigation_arrived(timeout=30)
+
+
+def test1_door_close_while_elevator_in(tester):
+    tester.clean_door()
+    tester.reset_position()
+    tester.goto_node('EDITOR_node_1709594309586')
+    tester.info("close elvator doors")
+    tester.spawn_door(name="f1_door", x=12, y=8.5, z=0, yaw=0)
+    tester.spawn_door(name="f3_door", x=12, y=8.5, z=10, yaw=0)
+    tester.wait_elevator_goal("ElevatorWaitGoal")
+    tester.wait_for(seconds=5)
+    for i in range(0, 3):
+        tester.info("open/close 1F door")
+        tester.delete_door(name="f1_door")
+        tester.spawn_door(name="f1_door", x=12, y=8.5, z=0, yaw=0)
+        tester.wait_for(seconds=5)
+    tester.info("open 1F door again")
+    tester.delete_door(name="f1_door")
+    tester.wait_elevator_goal("ElevatorTurnGoal", timeout=30)
+    tester.floor_change(+1)
+    tester.wait_for(seconds=5)
+    tester.delete_door(name="f3_door")
+    tester.wait_navigation_arrived(timeout=60)
+
+
+def test0_navigation_to_a_goal_with_doors(tester):
+    tester.clean_door()
+    tester.reset_position()
+    tester.goto_node('EDITOR_node_1709594309586')
+    tester.info("close elvator doors")
+    tester.spawn_door(name="f1_door", x=12, y=8.5, z=0, yaw=0)
+    tester.spawn_door(name="f3_door", x=12, y=8.5, z=10, yaw=0)
+    tester.wait_elevator_goal("ElevatorWaitGoal")
+    tester.wait_for(seconds=5)
+    tester.info("open 1F door")
+    tester.delete_door(name="f1_door")
+    tester.wait_elevator_goal("ElevatorTurnGoal")
+    tester.floor_change(+1)
+    tester.wait_for(seconds=5)
+    tester.info("open 3F door")
+    tester.delete_door(name="f3_door")
+    tester.wait_navigation_arrived(timeout=60)
+
+
+def test0_navigation_to_a_goal(tester):
+    tester.clean_door()
+    tester.reset_position()
+    tester.goto_node('EDITOR_node_1709594309586')
+    tester.wait_elevator_goal("ElevatorTurnGoal")
+    tester.floor_change(+1)
+    tester.wait_navigation_arrived(timeout=180)

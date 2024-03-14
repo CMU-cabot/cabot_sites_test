@@ -18,3 +18,13 @@ map_list:
     load_state_filename: "package://cabot_site_test_room/maps/mapping_2024-02-14-13-17-55.carto-converted.pbstream"
     samples_filename: "package://cabot_site_test_room/maps/mapping_2024-02-14-13-17-55.carto-converted.loc.samples.json"
     map_filename: "package://cabot_site_test_room/maps/mapping_2024-02-14-13-17-55.carto-converted.yaml"
+  - node_id: "carto3_1"
+    frame_id: "map_carto3_1"
+    latitude: 40.444192
+    longitude: -79.946654
+    rotate: 0
+    floor: 2
+    area: 0
+    load_state_filename: "package://cabot_site_test_room/maps/mapping_2024-02-14-13-17-55.carto-converted.pbstream"
+    samples_filename: "package://cabot_site_test_room/maps/mapping_2024-02-14-13-17-55.carto-converted.loc.samples-3F.json"
+    map_filename: "package://cabot_site_test_room/maps/mapping_2024-02-14-13-17-55.carto-converted.yaml"
