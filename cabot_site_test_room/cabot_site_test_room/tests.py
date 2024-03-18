@@ -81,3 +81,44 @@ def test6_navigation_to_a_goal(tester):
     tester.reset_position(x=-5.5, y=-1.5, a=-90.0)
     tester.goto_node('EDITOR_node_1710181891921')
     tester.wait_navigation_arrived(timeout=15)
+
+
+def test7_read_facility_right(tester):
+    tester.reset_position(x=10.0, y=-1.0, a=0.0)
+    tester.goto_node('EDITOR_node_1707899216479')
+    tester.wait_topic(
+        action_name=f'check_speech',
+        topic='/cabot/activity_log',
+        topic_type='cabot_msgs/msg/Log',
+        condition=f"msg.category=='speech request' and msg.text=='Test Exhibit is on your right'",
+        timeout=30
+    )
+    tester.wait_navigation_arrived(timeout=30)
+
+
+def test8_facility_left(tester):
+    tester.reset_position(x=10.0, y=5.0, a=-90.0)
+    tester.goto_node('EDITOR_node_1707899150598')
+    tester.wait_topic(
+        action_name=f'check_speech',
+        topic='/cabot/activity_log',
+        topic_type='cabot_msgs/msg/Log',
+        condition=f"msg.category=='speech request' and msg.text=='Test Exhibit is on your left'",
+        timeout=30
+    )
+    tester.wait_navigation_arrived(timeout=30)
+
+
+def test9_navcog_path_bug(tester):
+    tester.reset_position(x=1.0, y=-1.0, a=0.0)
+    tester.goto_node('EDITOR_node_1707899239144')
+    tester.wait_navigation_arrived(timeout=30)
+    tester.goto_node('EDITOR_node_1707899150598')
+    tester.wait_topic(
+        action_name=f'check_path',
+        topic='/path',
+        topic_type='nav_msgs/msg/Path',
+        condition=f"msg.poses[0].pose.position.x > 5",
+        timeout=30
+    )
+    tester.wait_navigation_arrived(timeout=30)

@@ -47,9 +47,11 @@
 				"ent1_node": "EDITOR_node_1707899335297",
 				"ent1_lon": -79.94650930166242,
 				"ent1_n": "",
+				"name_ja": "テスト展示",
 				"nursing": 99,
 				"brail_tile": 99,
 				"lon": -79.9464999139309,
+				"ent1_n_en": "Entracne",
 				"facil_id": "EDITOR_facil_1707899343545",
 				"toilet": 99,
 				"elevator": 99,
@@ -57,7 +59,10 @@
 				"ent1_lat": 40.44421820193011,
 				"ent1_fl": 1,
 				"facil_type": 99,
-				"lat": 40.444219732877116
+				"lat": 40.444219732877116,
+				"ent1_n_ja": "入口",
+				"name_en": "Test Exhibit",
+				"hulop_tags": "read"
 			},
 			"_id": "EDITOR_facil_1707899343545"
 		},
@@ -87,7 +92,9 @@
 				"ent1_lat": 40.44423682962085,
 				"ent1_fl": 1,
 				"facil_type": 99,
-				"lat": 40.44423721118628
+				"lat": 40.44423721118628,
+				"name_ja": "テスト展示2",
+				"name_en": "Test Exhibit 2"
 			},
 			"_id": "EDITOR_facil_1707899347122"
 		},
@@ -1454,9 +1461,9 @@
 				"rt_struct": 7,
 				"route_type": 1,
 				"width": 99,
+				"hulop_road_width": 1,
 				"lev_diff": 99,
-				"direction": 1,
-				"hulop_road_width": 1
+				"direction": 1
 			},
 			"_id": "EDITOR_link_1710181891933"
 		},
@@ -1711,7 +1718,7 @@
 				"type": "LineString",
 				"coordinates": [
 					[
-						-79.94671625085175,
+						-79.94671625085174,
 						40.44417265624077
 					],
 					[
@@ -1721,22 +1728,22 @@
 				]
 			},
 			"properties": {
-				"link_id": "EDITOR_link_1710303206016",
-				"start_id": "EDITOR_node_1710303204012",
-				"end_id": "EDITOR_node_1710181891921",
-				"rt_struct": 7,
-				"route_type": 1,
-				"direction": 1,
-				"width": 99,
-				"vtcl_slope": 99,
-				"lev_diff": 99,
-				"tfc_signal": 99,
-				"tfc_s_type": 99,
-				"brail_tile": 99,
-				"elevator": 99,
 				"roof": 99,
 				"hulop_file": "EDITOR",
-				"distance": 1.9
+				"start_id": "EDITOR_node_1710303204012",
+				"distance": 1.9,
+				"vtcl_slope": 99,
+				"end_id": "EDITOR_node_1710181891921",
+				"tfc_s_type": 99,
+				"brail_tile": 99,
+				"link_id": "EDITOR_link_1710303206016",
+				"tfc_signal": 99,
+				"elevator": 99,
+				"rt_struct": 7,
+				"route_type": 1,
+				"width": 99,
+				"lev_diff": 99,
+				"direction": 1
 			},
 			"_id": "EDITOR_link_1710303206016"
 		},
@@ -2523,18 +2530,18 @@
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-79.94671625085175,
+					-79.94671625085174,
 					40.44417265624077
 				]
 			},
 			"properties": {
-				"node_id": "EDITOR_node_1710303204012",
-				"floor": 1,
 				"in_out": 3,
 				"hulop_file": "EDITOR",
-				"lat": 40.44417265624077,
 				"lon": -79.94671625085175,
-				"link1_id": "EDITOR_link_1710303206016"
+				"floor": 1,
+				"lat": 40.44417265624077,
+				"link1_id": "EDITOR_link_1710303206016",
+				"node_id": "EDITOR_node_1710303204012"
 			},
 			"_id": "EDITOR_node_1710303204012"
 		}
