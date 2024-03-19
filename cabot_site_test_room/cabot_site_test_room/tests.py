@@ -11,9 +11,9 @@ def wait_ready(tester):
 
 
 def _check_cabot_event(tester, event, **kwargs):
-    return tester.check_topic(**dict(
+    tester.check_topic(**dict(
         dict(
-            action_name=f'check_interface_{event}',
+            action_name=f'check_cabot_event_{event}',
             topic='/cabot/event',
             topic_type='std_msgs/msg/String',
             condition=f"msg.data=='{event}'",
@@ -26,7 +26,7 @@ def _check_cabot_event(tester, event, **kwargs):
 def _check_cabot_event_error(tester, event, **kwargs):
     return tester.check_topic_error(**dict(
         dict(
-            action_name=f'check_interface_{event}_error',
+            action_name=f'check_cabot_event_{event}_error',
             topic='/cabot/event',
             topic_type='std_msgs/msg/String',
             condition=f"msg.data=='{event}'",
@@ -59,6 +59,7 @@ def test3_navigation_to_a_goal(tester):
     tester.reset_position(x=-8.0, y=-4.25, a=0.0)
     tester.goto_node('EDITOR_node_1710181919804')
     tester.wait_goal('NarrowGoal', timeout=15)
+    tester.check_position(x=-5.4, y=-4.2, floor=1, tolerance=0.2)
     tester.wait_navigation_arrived(timeout=15)
 
 
