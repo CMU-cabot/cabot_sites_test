@@ -112,14 +112,14 @@ def test8_facility_left(tester):
 
 def test9_navcog_path_bug(tester):
     tester.reset_position(x=1.0, y=-1.0, a=0.0)
-    tester.goto_node('EDITOR_node_1707899239144')
+    tester.goto_node('EDITOR_node_1710807879215')
     tester.wait_navigation_arrived(timeout=30)
     tester.goto_node('EDITOR_node_1707899150598')
     tester.wait_topic(
-        action_name=f'check_path',
+        action_name='check_path',
         topic='/path',
         topic_type='nav_msgs/msg/Path',
-        condition=f"msg.poses[0].pose.position.x > 5",
+        condition="msg.poses[0].pose.position.x > 5",
         timeout=30
     )
     tester.wait_navigation_arrived(timeout=30)

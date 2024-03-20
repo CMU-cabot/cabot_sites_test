@@ -91,3 +91,11 @@ def test5_start_and_goal_partway_along_the_narrow_path(tester):
     _check_interface_event(tester, "please_follow_behind")
     _check_interface_event(tester, "please_return_position")
     tester.wait_navigation_arrived(timeout=90)
+
+
+def test6_start_partway_along_the_narrow_path_2(tester):
+    tester.reset_position(x=10.0, y=5.0, a=90.0)
+    tester.goto_node('EDITOR_node_1707899239144')
+    _check_interface_event_error(tester, "please_follow_behind")
+    _check_interface_event_error(tester, "please_return_position")
+    tester.wait_navigation_arrived(timeout=60)
