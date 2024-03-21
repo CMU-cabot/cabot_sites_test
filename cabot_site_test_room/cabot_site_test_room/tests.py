@@ -123,3 +123,37 @@ def test9_navcog_path_bug(tester):
         timeout=30
     )
     tester.wait_navigation_arrived(timeout=30)
+
+
+def test10_speed_poi(tester):
+    tester.reset_position(x=1.0, y=2.0, a=0.0)
+    tester.goto_node('EDITOR_node_1711038743066')
+    tester.wait_topic(
+        action_name='check_speed',
+        topic='/odom',
+        topic_type='nav_msgs/msg/Odometry',
+        condition="msg.twist.twist.linear.x > 0.5",
+        timeout=10
+    )
+    tester.wait_topic(
+        action_name='check_speed',
+        topic='/odom',
+        topic_type='nav_msgs/msg/Odometry',
+        condition="msg.twist.twist.linear.x < 0.12",
+        timeout=10
+    )
+    tester.wait_topic(
+        action_name='check_speed',
+        topic='/odom',
+        topic_type='nav_msgs/msg/Odometry',
+        condition="msg.twist.twist.linear.x > 0.5",
+        timeout=10
+    )
+    tester.wait_topic(
+        action_name='check_speed',
+        topic='/odom',
+        topic_type='nav_msgs/msg/Odometry',
+        condition="msg.twist.twist.linear.x < 0.12",
+        timeout=10
+    )
+    tester.wait_navigation_arrived(timeout=20)
