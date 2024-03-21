@@ -36,14 +36,14 @@ def _check_cabot_event_error(tester, event, **kwargs):
     )
 
 
-def test1_navigation_to_a_goal(tester):
+def test01_navigation_to_a_goal(tester):
     tester.reset_position(x=1.0, y=-1.0, a=0.0)
     tester.goto_node('EDITOR_node_1707899314416')
     tester.wait_navigation_arrived(timeout=90)
 
 
 # navigation_arrived event should be issued after navigation is completed
-def test2_navigation_to_a_goal_and_check_event(tester):
+def test02_navigation_to_a_goal_and_check_event(tester):
     tester.reset_position(x=1.0, y=-1.0, a=0.0)
     tester.goto_node('EDITOR_node_1707899314416@-90')
     cancel = _check_cabot_event_error(tester, "navigation_arrived")
@@ -55,7 +55,7 @@ def test2_navigation_to_a_goal_and_check_event(tester):
 
 
 # navigation starts from leaf and narrow link
-def test3_navigation_to_a_goal(tester):
+def test03_navigation_to_a_goal(tester):
     tester.reset_position(x=-8.0, y=-4.25, a=0.0)
     tester.goto_node('EDITOR_node_1710181919804')
     tester.wait_goal('NarrowGoal', timeout=15)
@@ -64,27 +64,27 @@ def test3_navigation_to_a_goal(tester):
 
 
 # navigation starts from leaf and narrow link and goal
-def test4_navigation_to_a_goal(tester):
+def test04_navigation_to_a_goal(tester):
     tester.reset_position(x=-8.0, y=-4.25, a=0.0)
     tester.goto_node('EDITOR_node_1710181891921')
     tester.wait_goal('NarrowGoal', timeout=15)
 
 
 # navigation starts from leaf and end at the nodea
-def test5_navigation_to_a_goal(tester):
+def test05_navigation_to_a_goal(tester):
     tester.reset_position(x=-8.0, y=-4.25, a=0.0)
     tester.goto_node('EDITOR_node_1708914021679')
     tester.wait_navigation_arrived(timeout=15)
 
 
 # navigation starts from leaf and normal link and goal
-def test6_navigation_to_a_goal(tester):
+def test06_navigation_to_a_goal(tester):
     tester.reset_position(x=-5.5, y=-1.5, a=-90.0)
     tester.goto_node('EDITOR_node_1710181891921')
     tester.wait_navigation_arrived(timeout=15)
 
 
-def test7_read_facility_right(tester):
+def test07_read_facility_right(tester):
     tester.reset_position(x=10.0, y=-1.0, a=0.0)
     tester.goto_node('EDITOR_node_1707899216479')
     tester.wait_topic(
@@ -97,7 +97,7 @@ def test7_read_facility_right(tester):
     tester.wait_navigation_arrived(timeout=30)
 
 
-def test8_facility_left(tester):
+def test08_facility_left(tester):
     tester.reset_position(x=10.0, y=5.0, a=-90.0)
     tester.goto_node('EDITOR_node_1707899150598')
     tester.wait_topic(
@@ -110,7 +110,7 @@ def test8_facility_left(tester):
     tester.wait_navigation_arrived(timeout=30)
 
 
-def test9_navcog_path_bug(tester):
+def test09_navcog_path_bug(tester):
     tester.reset_position(x=1.0, y=-1.0, a=0.0)
     tester.goto_node('EDITOR_node_1710807879215')
     tester.wait_navigation_arrived(timeout=30)
