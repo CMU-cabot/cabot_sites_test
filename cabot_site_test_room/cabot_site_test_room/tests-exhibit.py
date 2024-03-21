@@ -21,20 +21,24 @@ def test2_navigation_to_an_exhibit(tester):
     tester.setup_actors(actors=[
         {
             "name": 'actor0',
-            "module": "pedestrian.pool",
+            "module": "pedestrian.stand_with_noise",
             "params": {
                 "init_x": 10.0,
                 "init_y": 11.0,
-                "init_a": -90.0
+                "init_a": -90.0,
+                "std_x": 0.01,
+                "std_y": 0.01,
             },
         },
         {
             "name": 'actor1',
-            "module": "pedestrian.pool",
+            "module": "pedestrian.stand_with_noise",
             "params": {
                 "init_x": 10.0,
                 "init_y": 12.0,
-                "init_a": 0.0
+                "init_a": 0.0,
+                "std_x": 0.01,
+                "std_y": 0.01,
             },
         },
     ])
@@ -52,11 +56,13 @@ def test2_navigation_to_an_exhibit(tester):
         },
         {
             "name": 'actor1',
-            "module": "pedestrian.pool",
+            "module": "pedestrian.stand_with_noise",
             "params": {
                 "init_x": 10.0,
                 "init_y": 12.0,
-                "init_a": 0.0
+                "init_a": 0.0,
+                "std_x": 0.01,
+                "std_y": 0.01,
             },
         },
     ])
@@ -68,7 +74,7 @@ def test2_navigation_to_an_exhibit(tester):
             "params": {
                 "init_x": 14.0,
                 "init_y": 11.0,
-                "init_a": -90.0
+                "init_a": -90.0,
             },
         },
         {
@@ -77,7 +83,7 @@ def test2_navigation_to_an_exhibit(tester):
             "params": {
                 "init_x": 14.0,
                 "init_y": 12.0,
-                "init_a": 0.0
+                "init_a": 0.0,
             },
         },
     ])
