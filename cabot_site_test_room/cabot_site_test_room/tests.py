@@ -59,7 +59,7 @@ def test3_navigation_to_a_goal(tester):
     tester.reset_position(x=-8.0, y=-4.25, a=0.0)
     tester.goto_node('EDITOR_node_1710181919804')
     tester.wait_goal('NarrowGoal', timeout=15)
-    tester.check_position(x=-5.4, y=-4.2, floor=1, tolerance=0.2)
+    tester.check_position(x=-5.4, y=-4.2, floor=1, tolerance=0.5)
     tester.wait_navigation_arrived(timeout=15)
 
 

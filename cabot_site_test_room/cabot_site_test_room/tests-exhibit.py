@@ -10,7 +10,6 @@ def wait_ready(tester):
     tester.wait_localization_started()
 
 
-
 def test1_navigation_to_an_exhibit(tester):
     tester.reset_position()
     tester.goto_node('EDITOR_node_1710807829757')
@@ -24,7 +23,7 @@ def test2_navigation_to_an_exhibit(tester):
             "name": 'actor0',
             "module": "pedestrian.pool",
             "params": {
-                "init_x": 9.0,
+                "init_x": 10.0,
                 "init_y": 11.0,
                 "init_a": -90.0
             },
