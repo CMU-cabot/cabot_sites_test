@@ -9,10 +9,29 @@ def config(tester):
 def wait_ready(tester):
     tester.wait_localization_started()
 
-
-def test1_navigation_to_an_exhibit(tester):
+def test4_navigation_to_an_exhibit_and_then_elevator(tester):
     tester.reset_position()
-    tester.goto_node('EDITOR_node_1710807829757')
+    tester.goto_node('EDITOR_node_1707899235671')
+    cancel = tester.check_topic_error(
+        action="check_last_pose",
+        topic="/path",
+        topic_type="nav_msgs/msg/Path",
+        condition="math.sqrt((msg.poses[-1].pose.position.x - 10.804997353263879)**2 + (msg.poses[-1].pose.position.y - 8.395464385083699)**2) < 0.1"
+    )
+    tester.wait_goal("NarrowGoal")
+    cancel()
+    tester.wait_navigation_arrived(timeout=60)
+
+
+def test3_navigation_to_an_exhibit_and_then_elevator(tester):
+    tester.reset_position(y=4.0)
+    tester.goto_node('EDITOR_node_1707899235671')
+    tester.check_topic_error(
+        action="check_last_pose",
+        topic="/path",
+        topic_type="nav_msgs/msg/Path",
+        condition="math.sqrt((msg.poses[-1].pose.position.x - 10.804997353263879)**2 + (msg.poses[-1].pose.position.y - 8.395464385083699)**2) > 0.1"
+    )
     tester.wait_navigation_arrived(timeout=60)
 
 
@@ -90,3 +109,8 @@ def test2_navigation_to_an_exhibit(tester):
 
     tester.wait_navigation_arrived(timeout=60)
 
+
+def test1_navigation_to_an_exhibit(tester):
+    tester.reset_position()
+    tester.goto_node('EDITOR_node_1710807829757')
+    tester.wait_navigation_arrived(timeout=60)
