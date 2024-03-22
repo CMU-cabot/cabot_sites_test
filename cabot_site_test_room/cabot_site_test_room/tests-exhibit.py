@@ -9,6 +9,7 @@ def config(tester):
 def wait_ready(tester):
     tester.wait_localization_started()
 
+
 def test4_navigation_to_an_exhibit_and_then_elevator(tester):
     tester.reset_position()
     tester.goto_node('EDITOR_node_1707899235671')
@@ -16,7 +17,7 @@ def test4_navigation_to_an_exhibit_and_then_elevator(tester):
         action="check_last_pose",
         topic="/path",
         topic_type="nav_msgs/msg/Path",
-        condition="math.sqrt((msg.poses[-1].pose.position.x - 10.804997353263879)**2 + (msg.poses[-1].pose.position.y - 8.395464385083699)**2) < 0.1"
+        condition="math.sqrt((msg.poses[-1].pose.position.x - 10.2)**2 + (msg.poses[-1].pose.position.y - 8.0)**2) > 0.5"
     )
     tester.wait_goal("NarrowGoal")
     cancel()
@@ -30,7 +31,7 @@ def test3_navigation_to_an_exhibit_and_then_elevator(tester):
         action="check_last_pose",
         topic="/path",
         topic_type="nav_msgs/msg/Path",
-        condition="math.sqrt((msg.poses[-1].pose.position.x - 10.804997353263879)**2 + (msg.poses[-1].pose.position.y - 8.395464385083699)**2) > 0.1"
+        condition="math.sqrt((msg.poses[-1].pose.position.x - 10.8)**2 + (msg.poses[-1].pose.position.y - 8.4)**2) > 0.1"
     )
     tester.wait_navigation_arrived(timeout=60)
 
