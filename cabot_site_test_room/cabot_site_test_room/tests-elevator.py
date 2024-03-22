@@ -11,6 +11,27 @@ def wait_ready(tester):
     # tester.wait_ready()
 
 
+def test9_go_to_elevator_out(tester):
+    tester.reset_position()
+    tester.goto_node('EDITOR_node_1709594305617')
+    tester.wait_goal("ElevatorTurnGoal")
+    tester.floor_change(+1)
+    tester.wait_navigation_arrived(timeout=60)
+
+
+def test8_check_elevator_button_direction_and_goal_in_the_cab(tester):
+    tester.reset_position()
+    tester.goto_node('EDITOR_node_1707899235671')
+    tester.wait_goal("NavGoal")
+    tester.wait_topic(
+        action="check_button_direction",
+        topic="/cabot/activity_log",
+        topic_type="cabot_msgs/msg/Log",
+        condition="msg.memo != 'en' or (msg.category=='speech request' and 'front left' in msg.text)"
+    )
+    tester.wait_navigation_arrived(timeout=60)
+
+
 def test7_start_in_front_of_elevator(tester):
     tester.reset_position(x=11.5, y=8.5, z=0)
     tester.goto_node('EDITOR_node_1709594309586')
