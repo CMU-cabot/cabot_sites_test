@@ -127,7 +127,7 @@ def test09_navcog_path_bug(tester):
 
 def test10_speed_poi(tester):
     tester.reset_position(x=1.0, y=2.0, a=0.0)
-    tester.goto_node('EDITOR_node_1711038743066')
+    tester.goto_node('EDITOR_node_1711172494427')
     tester.wait_topic(
         action_name='check_speed',
         topic='/odom',
