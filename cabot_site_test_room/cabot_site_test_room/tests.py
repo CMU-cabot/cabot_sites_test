@@ -112,7 +112,7 @@ def test08_facility_left(tester):
 
 def test09_navcog_path_bug(tester):
     tester.reset_position(x=1.0, y=-1.0, a=0.0)
-    tester.goto_node('EDITOR_node_1710807879215')
+    tester.goto_node('EDITOR_node_1707899216479')
     tester.wait_navigation_arrived(timeout=30)
     tester.goto_node('EDITOR_node_1707899150598')
     tester.wait_topic(
