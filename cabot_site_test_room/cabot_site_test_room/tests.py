@@ -157,3 +157,41 @@ def test10_speed_poi(tester):
         timeout=10
     )
     tester.wait_navigation_arrived(timeout=20)
+
+
+def test11_skip_in_navgoal(tester):
+    tester.reset_position(x=0.0, y=0.0)
+    tester.goto_node('EDITOR_node_1710181891921')
+    tester.wait_for(10)
+    tester.info("push left button to pause")
+    tester.button_down(3)
+    tester.wait_for(2)
+    tester.reset_position(x=4.0, y=-4.0, a=-180.0)
+    tester.info("push right button to resume")
+    tester.button_down(4)
+    tester.check_topic_error(
+        action_name='check_path',
+        topic='/path',
+        topic_type='nav_msgs/msg/Path',
+        condition="msg.poses[0].pose.position.y > -3",
+        timeout=30
+    )
+    tester.wait_navigation_arrived(timeout=30)
+
+
+def test12_skip_in_navgoal(tester):
+    tester.reset_position(x=4.0, y=-4.0, a=-180.0)
+    tester.goto_node('EDITOR_node_1710181891921')
+    tester.wait_goal("NarrowGoal")
+    tester.info("push left button to pause")
+    tester.button_down(3)
+    tester.wait_for(2)
+    tester.info("push right button to resume")
+    tester.button_down(4)
+    tester.check_topic_error(
+        action_name='check_path',
+        topic='/cabot/activity_log',
+        topic_type='cabot_msgs/msg/Log',
+        condition="msg.category=='cabot/navigation' and msg.text=='goal_completed' and msg.memo=='NarrowGoal'",
+    )
+    tester.wait_navigation_arrived(timeout=30)
