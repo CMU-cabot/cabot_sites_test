@@ -10,6 +10,70 @@ def wait_ready(tester):
     tester.wait_localization_started()
 
 
+def test6_navigation_to_an_exhibit_without_social_announce(tester):
+    tester.reset_position()
+    tester.setup_actors(actors=[
+        {
+            "name": 'actor0',
+            "module": "pedestrian.stand_with_noise",
+            "params": {
+                "init_x": 10.0,
+                "init_y": 11.0,
+                "init_a": -90.0,
+                "std_x": 0.01,
+                "std_y": 0.01,
+            },
+        },
+        {
+            "name": 'actor1',
+            "module": "pedestrian.stand_with_noise",
+            "params": {
+                "init_x": 10.0,
+                "init_y": 12.0,
+                "init_a": 0.0,
+                "std_x": 0.01,
+                "std_y": 0.01,
+            },
+        },
+    ])
+    tester.goto_node('EDITOR_node_1710807829757')
+    cancel = tester.check_topic_error(
+        action="check_no_social",
+        topic="/cabot/activity_log",
+        topic_type="cabot_msgs/msg/Log",
+        condition="msg.category == 'cabot/interface' and msg.text == 'social'"
+    )
+    tester.check_topic(
+        action="check_stop_reason",
+        topic="/cabot/activity_log",
+        topic_type="cabot_msgs/msg/Log",
+        condition="msg.category == 'cabot/interface' and msg.text == 'stop-reason'"
+    )
+    tester.wait_for(15)
+    cancel()
+    tester.setup_actors(actors=[
+        {
+            "name": 'actor0',
+            "module": "pedestrian.pool",
+            "params": {
+                "init_x": 14.0,
+                "init_y": 11.0,
+                "init_a": -90.0,
+            },
+        },
+        {
+            "name": 'actor1',
+            "module": "pedestrian.pool",
+            "params": {
+                "init_x": 14.0,
+                "init_y": 12.0,
+                "init_a": 0.0,
+            },
+        },
+    ])
+    tester.wait_navigation_arrived(timeout=30)
+
+
 def test5_navigation_to_an_exhibit_complete_stop(tester):
     tester.reset_position()
     tester.setup_actors(actors=[
