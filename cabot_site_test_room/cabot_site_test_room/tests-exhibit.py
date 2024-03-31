@@ -49,7 +49,7 @@ def test6_navigation_to_an_exhibit_without_social_announce(tester):
         topic_type="cabot_msgs/msg/Log",
         condition="msg.category == 'cabot/interface' and msg.text == 'stop-reason'"
     )
-    tester.wait_for(15)
+    tester.wait_for(30)
     cancel()
     tester.setup_actors(actors=[
         {
