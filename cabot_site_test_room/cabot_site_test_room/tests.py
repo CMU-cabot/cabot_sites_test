@@ -195,3 +195,9 @@ def test12_skip_in_navgoal(tester):
         condition="msg.category=='cabot/navigation' and msg.text=='goal_completed' and msg.memo=='NarrowGoal'",
     )
     tester.wait_navigation_arrived(timeout=30)
+
+
+def test13_rotation_shim(tester):
+    tester.reset_position(x=0.0, y=0.0, a=-180.0)
+    tester.goto_node('EDITOR_node_1707899314416')
+    tester.wait_navigation_arrived(timeout=30)

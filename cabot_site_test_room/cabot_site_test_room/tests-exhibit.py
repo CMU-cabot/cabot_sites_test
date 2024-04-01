@@ -9,6 +9,11 @@ def config(tester):
 def wait_ready(tester):
     tester.wait_localization_started()
 
+def test7_navigation_to_an_exhibit(tester):
+    tester.reset_position(x=0.0, y=-4.0, z=10.0, a=180.0)
+    tester.goto_node("EDITOR_node_1711930827334")
+    tester.wait_navigation_arrived(timeout=45)
+
 
 def test6_navigation_to_an_exhibit_without_social_announce(tester):
     tester.reset_position()
