@@ -144,7 +144,7 @@ def test_category1_case5_down_the_path(tester):
     _goto_target1(tester)
 
 
-def test_category2_case1_move_across_a_pedestrian(tester):
+def test_category2_case1_move_across_a_pedestrian1(tester):
     # 2.1 Intersection
     tester.check_collision()
     tester.reset_position()
@@ -156,6 +156,106 @@ def test_category2_case1_move_across_a_pedestrian(tester):
                 "init_x": 5.0,
                 "init_y": 5.0,
                 "init_a": -90.0,
+                "velocity": 0.95,
+            },
+        },
+    ])
+    _check_robot_on_person_collision(tester)
+    _goto_target1(tester)
+
+
+def test_category2_case1_move_across_a_pedestrian2(tester):
+    # 2.1 Intersection
+    tester.check_collision()
+    tester.reset_position()
+    tester.setup_actors(actors=[
+        {
+            "name": 'actor0',
+            "module": "pedestrian.walk_across",
+            "params": {
+                "init_x": 5.0,
+                "init_y": -5.0,
+                "init_a": 90.0,
+                "velocity": 0.95,
+            },
+        },
+    ])
+    _check_robot_on_person_collision(tester)
+    _goto_target1(tester)
+
+
+def test_category2_case1_move_across_a_pedestrian3(tester):
+    # 2.1 Intersection
+    tester.check_collision()
+    tester.reset_position()
+    tester.setup_actors(actors=[
+        {
+            "name": 'actor0',
+            "module": "pedestrian.walk_across",
+            "params": {
+                "init_x": 5.0,
+                "init_y": 6.0,
+                "init_a": -90.0,
+                "velocity": 0.95,
+            },
+        },
+    ])
+    _check_robot_on_person_collision(tester)
+    _goto_target1(tester)
+
+
+def test_category2_case1_move_across_a_pedestrian4(tester):
+    # 2.1 Intersection
+    tester.check_collision()
+    tester.reset_position()
+    tester.setup_actors(actors=[
+        {
+            "name": 'actor0',
+            "module": "pedestrian.walk_across",
+            "params": {
+                "init_x": 5.0,
+                "init_y": -6.0,
+                "init_a": 90.0,
+                "velocity": 0.95,
+            },
+        },
+    ])
+    _check_robot_on_person_collision(tester)
+    _goto_target1(tester)
+
+
+def test_category2_case1_move_across_a_pedestrian5(tester):
+    # 2.1 Intersection
+    tester.check_collision()
+    tester.reset_position()
+    tester.setup_actors(actors=[
+        {
+            "name": 'actor0',
+            "module": "pedestrian.walk_across",
+            "params": {
+                "init_x": 5.0,
+                "init_y": 7.0,
+                "init_a": -90.0,
+                "velocity": 0.95,
+            },
+        },
+    ])
+    _check_robot_on_person_collision(tester)
+    _goto_target1(tester)
+
+
+def test_category2_case1_move_across_a_pedestrian6(tester):
+    # 2.1 Intersection
+    tester.check_collision()
+    tester.reset_position()
+    tester.setup_actors(actors=[
+        {
+            "name": 'actor0',
+            "module": "pedestrian.walk_across",
+            "params": {
+                "init_x": 5.0,
+                "init_y": -7.0,
+                "init_a": 90.0,
                 "velocity": 0.95,
             },
         },
