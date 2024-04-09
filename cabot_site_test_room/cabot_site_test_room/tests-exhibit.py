@@ -9,6 +9,17 @@ def config(tester):
 def wait_ready(tester):
     tester.wait_localization_started()
 
+
+def test8_navigation_to_an_exhibit_and_pause_and_move_manually_and_resume(tester):
+    tester.reset_position()
+    tester.goto_node('EDITOR_node_1710807829757')
+    tester.wait_for(12)
+    tester.button_down(3)
+    tester.reset_position(x=10.0, y=7.0)
+    tester.button_down(4)
+    tester.wait_navigation_arrived(timeout=60)
+
+
 def test7_navigation_to_an_exhibit(tester):
     tester.reset_position(x=0.0, y=-4.0, z=10.0, a=180.0)
     tester.goto_node("EDITOR_node_1711930827334")
