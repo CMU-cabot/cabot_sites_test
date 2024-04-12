@@ -207,6 +207,57 @@ def test3_navigation_to_an_exhibit_and_then_elevator(tester):
     tester.wait_navigation_arrived(timeout=60)
 
 
+
+def test2_2_navigation_to_an_exhibit_check_social_navigation(tester):
+    tester.reset_position()
+    tester.setup_actors(actors=[
+        {
+            "name": 'actor1',
+            "module": "pedestrian.stand_with_noise",
+            "params": {
+                "init_x": 10.0,
+                "init_y": 12.0,
+                "init_a": 0.0,
+                "std_x": 0.01,
+                "std_y": 0.01,
+            },
+        },
+    ])
+    tester.goto_node('EDITOR_node_1710807829757')
+    tester.wait_topic(
+        action="check_social_navigation",
+        topic="/cabot/activity_log",
+        topic_type="cabot_msgs/msg/Log",
+        condition="msg.category=='cabot/interface' and msg.text=='Message' and msg.memo=='PERSON_AHEAD'"
+    )
+    cancel = tester.check_topic_error(
+        action="check_social_navigation",
+        topic="/cabot/activity_log",
+        topic_type="cabot_msgs/msg/Log",
+        condition="msg.category=='cabot/interface' and msg.text=='Message' and msg.memo=='PERSON_AHEAD'"
+    )
+    tester.wait_for(28)
+    cancel()
+    tester.wait_topic(
+        action="check_social_navigation",
+        topic="/cabot/activity_log",
+        topic_type="cabot_msgs/msg/Log",
+        condition="msg.category=='cabot/interface' and msg.text=='Message' and msg.memo=='PERSON_AHEAD'"
+    )
+    tester.setup_actors(actors=[
+        {
+            "name": 'actor1',
+            "module": "pedestrian.pool",
+            "params": {
+                "init_x": 14.0,
+                "init_y": 12.0,
+                "init_a": 0.0,
+            },
+        },
+    ])
+    tester.wait_navigation_arrived(timeout=60)
+
+
 def test2_navigation_to_an_exhibit(tester):
     tester.reset_position()
     tester.setup_actors(actors=[
