@@ -24,7 +24,7 @@ def _check_interface_event(tester, event, **kwargs):
 
 
 def _check_interface_event_error(tester, event, **kwargs):
-    tester.check_topic_error(**dict(
+    return tester.check_topic_error(**dict(
         dict(
             action_name=f'check_interface_{event}_error',
             topic='/cabot/activity_log',
@@ -98,4 +98,24 @@ def test6_start_partway_along_the_narrow_path_2(tester):
     tester.goto_node('EDITOR_node_1707899239144')
     _check_interface_event_error(tester, "please_follow_behind")
     _check_interface_event_error(tester, "please_return_position")
+    tester.wait_navigation_arrived(timeout=60)
+
+
+def test7_pause_in_tight_path(tester):
+    tester.reset_position(x=0.0, y=0.0, a=90.0)
+    tester.goto_node('EDITOR_node_1707898959554')
+    tester.wait_topic(
+            action_name='check_interface',
+            topic='/cabot/activity_log',
+            topic_type='cabot_msgs/msg/Log',
+            condition="msg.category=='cabot/interface' and msg.text=='navigation' and msg.memo=='please_follow_behind'",
+            timeout=60
+        )
+    tester.button_down(3)
+    cancel = _check_interface_event_error(tester, "please_return_position")
+    tester.wait_for(5)
+    tester.button_down(4)
+    tester.wait_for(5)
+    cancel()
+    _check_interface_event(tester, "please_return_position")
     tester.wait_navigation_arrived(timeout=60)
