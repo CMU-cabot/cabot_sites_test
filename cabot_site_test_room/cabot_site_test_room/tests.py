@@ -201,3 +201,22 @@ def test13_rotation_shim(tester):
     tester.reset_position(x=0.0, y=0.0, a=-180.0)
     tester.goto_node('EDITOR_node_1707899314416')
     tester.wait_navigation_arrived(timeout=30)
+
+
+def test14_check_footprint_size(tester):
+    tester.reset_position(x=1.0, y=-1.0, a=0.0)
+    tester.goto_node('EDITOR_node_1707899314416')
+    tester.wait_for(5)
+    tester.button_down(3)
+    tester.cancel_navigation()
+    tester.wait_for(2)
+    tester.goto_node('EDITOR_node_1707899314416')
+    tester.wait_navigation_completed(timeout=90)
+    tester.wait_for(2)
+    tester.wait_topic(
+        action_name='check_footprint_size',
+        topic='/global_costmap/footprint',
+        topic_type='geometry_msgs/msg/Polygon',
+        condition="abs(msg.points[0].x - 0.2) < 0.001",
+        timeout=5,
+    )
