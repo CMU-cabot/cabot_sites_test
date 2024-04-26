@@ -220,3 +220,28 @@ def test14_check_footprint_size(tester):
         condition="abs(msg.points[0].x - 0.2) < 0.001",
         timeout=5,
     )
+
+
+def test15_check_short_link_before_narrow(tester):
+    for i in range(3):
+        tester.reset_position(x=-0.75, y=0.62, a=-90)
+        tester.goto_node("EDITOR_node_1707899105269")
+        tester.wait_navigation_completed(timeout=30)
+
+
+
+def test16_robot_pause_change_destination_and_resume(tester):
+    tester.reset_position(x=-0.5, y=1.0)
+    tester.goto_node("EDITOR_node_1707899105269")
+    tester.wait_for(5)
+    tester.button_down(3)
+    tester.wait_for(2)
+    tester.cancel_navigation()
+    tester.check_topic(
+        action_name="check navigation_next",
+        topic="/cabot/event",
+        topic_type="std_msgs/msg/String",
+        condition="msg.data=='navigation_next'"
+    )
+    tester.button_down(4)
+    tester.wait_for(2)
