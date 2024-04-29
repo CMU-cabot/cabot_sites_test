@@ -119,3 +119,4 @@ def test7_pause_in_tight_path(tester):
     cancel()
     _check_interface_event(tester, "please_return_position")
     tester.wait_navigation_arrived(timeout=60)
+    tester.wait_for(5)

@@ -243,5 +243,6 @@ def test16_robot_pause_change_destination_and_resume(tester):
         topic_type="std_msgs/msg/String",
         condition="msg.data=='navigation_next'"
     )
+    tester.wait_for(2)
     tester.button_down(4)
     tester.wait_for(2)
