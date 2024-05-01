@@ -2078,22 +2078,22 @@
 				]
 			},
 			"properties": {
-				"link_id": "EDITOR_link_1711930855236",
-				"start_id": "EDITOR_node_1709594309586",
-				"end_id": "EDITOR_node_1711930775148",
-				"rt_struct": 7,
-				"route_type": 1,
-				"direction": 1,
-				"width": 99,
-				"vtcl_slope": 99,
-				"lev_diff": 99,
-				"tfc_signal": 99,
-				"tfc_s_type": 99,
-				"brail_tile": 99,
-				"elevator": 99,
 				"roof": 99,
 				"hulop_file": "EDITOR",
-				"distance": 5.3
+				"start_id": "EDITOR_node_1709594309586",
+				"distance": 5.3,
+				"vtcl_slope": 99,
+				"end_id": "EDITOR_node_1711930775148",
+				"tfc_s_type": 99,
+				"brail_tile": 99,
+				"link_id": "EDITOR_link_1711930855236",
+				"tfc_signal": 99,
+				"elevator": 99,
+				"rt_struct": 7,
+				"route_type": 1,
+				"width": 99,
+				"lev_diff": 99,
+				"direction": 1
 			},
 			"_id": "EDITOR_link_1711930855236"
 		},
@@ -2113,22 +2113,22 @@
 				]
 			},
 			"properties": {
-				"link_id": "EDITOR_link_1711930858007",
-				"start_id": "EDITOR_node_1711930775148",
-				"end_id": "EDITOR_node_1711930811130",
-				"rt_struct": 7,
-				"route_type": 1,
-				"direction": 1,
-				"width": 99,
-				"vtcl_slope": 99,
-				"lev_diff": 99,
-				"tfc_signal": 99,
-				"tfc_s_type": 99,
-				"brail_tile": 99,
-				"elevator": 99,
 				"roof": 99,
 				"hulop_file": "EDITOR",
-				"distance": 12.5
+				"start_id": "EDITOR_node_1711930775148",
+				"distance": 12.5,
+				"vtcl_slope": 99,
+				"end_id": "EDITOR_node_1711930811130",
+				"tfc_s_type": 99,
+				"brail_tile": 99,
+				"link_id": "EDITOR_link_1711930858007",
+				"tfc_signal": 99,
+				"elevator": 99,
+				"rt_struct": 7,
+				"route_type": 1,
+				"width": 99,
+				"lev_diff": 99,
+				"direction": 1
 			},
 			"_id": "EDITOR_link_1711930858007"
 		},
@@ -2148,22 +2148,22 @@
 				]
 			},
 			"properties": {
-				"link_id": "EDITOR_link_1711930859587",
-				"start_id": "EDITOR_node_1711930811130",
-				"end_id": "EDITOR_node_1711930778800",
-				"rt_struct": 7,
-				"route_type": 1,
-				"direction": 1,
-				"width": 99,
-				"vtcl_slope": 99,
-				"lev_diff": 99,
-				"tfc_signal": 99,
-				"tfc_s_type": 99,
-				"brail_tile": 99,
-				"elevator": 99,
 				"roof": 99,
 				"hulop_file": "EDITOR",
-				"distance": 4.6
+				"start_id": "EDITOR_node_1711930811130",
+				"distance": 4.6,
+				"vtcl_slope": 99,
+				"end_id": "EDITOR_node_1711930778800",
+				"tfc_s_type": 99,
+				"brail_tile": 99,
+				"link_id": "EDITOR_link_1711930859587",
+				"tfc_signal": 99,
+				"elevator": 99,
+				"rt_struct": 7,
+				"route_type": 1,
+				"width": 99,
+				"lev_diff": 99,
+				"direction": 1
 			},
 			"_id": "EDITOR_link_1711930859587"
 		},
@@ -2183,23 +2183,23 @@
 				]
 			},
 			"properties": {
-				"link_id": "EDITOR_link_1711930861396",
-				"start_id": "EDITOR_node_1711930778800",
-				"end_id": "EDITOR_node_1711930781734",
-				"rt_struct": 7,
-				"route_type": 1,
-				"direction": 1,
-				"width": 99,
-				"vtcl_slope": 99,
-				"lev_diff": 99,
-				"tfc_signal": 99,
-				"tfc_s_type": 99,
-				"brail_tile": 99,
-				"elevator": 99,
 				"roof": 99,
 				"hulop_file": "EDITOR",
+				"start_id": "EDITOR_node_1711930778800",
 				"distance": 6,
-				"hulop_road_width": 1
+				"vtcl_slope": 99,
+				"end_id": "EDITOR_node_1711930781734",
+				"tfc_s_type": 99,
+				"brail_tile": 99,
+				"link_id": "EDITOR_link_1711930861396",
+				"tfc_signal": 99,
+				"elevator": 99,
+				"rt_struct": 7,
+				"route_type": 1,
+				"width": 99,
+				"hulop_road_width": 1,
+				"lev_diff": 99,
+				"direction": 1
 			},
 			"_id": "EDITOR_link_1711930861396"
 		},
@@ -2219,23 +2219,23 @@
 				]
 			},
 			"properties": {
-				"link_id": "EDITOR_link_1711930863382",
-				"start_id": "EDITOR_node_1711930781734",
-				"end_id": "EDITOR_node_1711930827334",
-				"rt_struct": 7,
-				"route_type": 1,
-				"direction": 1,
-				"width": 99,
-				"vtcl_slope": 99,
-				"lev_diff": 99,
-				"tfc_signal": 99,
-				"tfc_s_type": 99,
-				"brail_tile": 99,
-				"elevator": 99,
 				"roof": 99,
 				"hulop_file": "EDITOR",
+				"start_id": "EDITOR_node_1711930781734",
 				"distance": 2.3,
-				"hulop_road_width": 1
+				"vtcl_slope": 99,
+				"end_id": "EDITOR_node_1711930827334",
+				"tfc_s_type": 99,
+				"brail_tile": 99,
+				"link_id": "EDITOR_link_1711930863382",
+				"tfc_signal": 99,
+				"elevator": 99,
+				"rt_struct": 7,
+				"route_type": 1,
+				"width": 99,
+				"hulop_road_width": 1,
+				"lev_diff": 99,
+				"direction": 1
 			},
 			"_id": "EDITOR_link_1711930863382"
 		},
@@ -2255,23 +2255,23 @@
 				]
 			},
 			"properties": {
-				"link_id": "EDITOR_link_1711930864829",
-				"start_id": "EDITOR_node_1711930827334",
-				"end_id": "EDITOR_node_1711930809219",
-				"rt_struct": 7,
-				"route_type": 1,
-				"direction": 1,
-				"width": 99,
-				"vtcl_slope": 99,
-				"lev_diff": 99,
-				"tfc_signal": 99,
-				"tfc_s_type": 99,
-				"brail_tile": 99,
-				"elevator": 99,
 				"roof": 99,
 				"hulop_file": "EDITOR",
+				"start_id": "EDITOR_node_1711930827334",
 				"distance": 2.5,
-				"hulop_road_width": 1
+				"vtcl_slope": 99,
+				"end_id": "EDITOR_node_1711930809219",
+				"tfc_s_type": 99,
+				"brail_tile": 99,
+				"link_id": "EDITOR_link_1711930864829",
+				"tfc_signal": 99,
+				"elevator": 99,
+				"rt_struct": 7,
+				"route_type": 1,
+				"width": 99,
+				"hulop_road_width": 1,
+				"lev_diff": 99,
+				"direction": 1
 			},
 			"_id": "EDITOR_link_1711930864829"
 		},
@@ -2291,9 +2291,45 @@
 				]
 			},
 			"properties": {
-				"link_id": "EDITOR_link_1711930868167",
+				"roof": 99,
+				"hulop_file": "EDITOR",
 				"start_id": "EDITOR_node_1711930809219",
+				"distance": 6.1,
+				"vtcl_slope": 99,
 				"end_id": "EDITOR_node_1711930811130",
+				"tfc_s_type": 99,
+				"brail_tile": 99,
+				"link_id": "EDITOR_link_1711930868167",
+				"tfc_signal": 99,
+				"elevator": 99,
+				"rt_struct": 7,
+				"route_type": 1,
+				"width": 99,
+				"hulop_road_width": 1,
+				"lev_diff": 99,
+				"direction": 1
+			},
+			"_id": "EDITOR_link_1711930868167"
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-79.94653067551553,
+						40.44419823582638
+					],
+					[
+						-79.94656898081303,
+						40.444176483610846
+					]
+				]
+			},
+			"properties": {
+				"link_id": "EDITOR_link_1714592762484",
+				"start_id": "EDITOR_node_1707899150598",
+				"end_id": "EDITOR_node_1714592758467",
 				"rt_struct": 7,
 				"route_type": 1,
 				"direction": 1,
@@ -2306,10 +2342,9 @@
 				"elevator": 99,
 				"roof": 99,
 				"hulop_file": "EDITOR",
-				"distance": 6.1,
-				"hulop_road_width": 1
+				"distance": 4
 			},
-			"_id": "EDITOR_link_1711930868167"
+			"_id": "EDITOR_link_1714592762484"
 		},
 		{
 			"type": "Feature",
@@ -2561,7 +2596,8 @@
 				"lat": 40.44419823582638,
 				"link1_id": "EDITOR_link_1707899162805",
 				"node_id": "EDITOR_node_1707899150598",
-				"link3_id": "EDITOR_link_1708914061207"
+				"link3_id": "EDITOR_link_1708914061207",
+				"link4_id": "EDITOR_link_1714592762484"
 			},
 			"_id": "EDITOR_node_1707899150598"
 		},
@@ -2934,10 +2970,10 @@
 				"hulop_file": "EDITOR",
 				"lon": -79.94653344154358,
 				"floor": 3,
+				"link2_id": "EDITOR_link_1711930855236",
 				"lat": 40.4442043808792,
 				"link1_id": "EDITOR_link_1709594313116",
-				"node_id": "EDITOR_node_1709594309586",
-				"link2_id": "EDITOR_link_1711930855236"
+				"node_id": "EDITOR_node_1709594309586"
 			},
 			"_id": "EDITOR_node_1709594309586"
 		},
@@ -3267,14 +3303,14 @@
 				]
 			},
 			"properties": {
-				"node_id": "EDITOR_node_1711930775148",
-				"floor": 3,
 				"in_out": 3,
 				"hulop_file": "EDITOR",
-				"lat": 40.444156836442346,
 				"lon": -79.94653293862939,
+				"floor": 3,
+				"link2_id": "EDITOR_link_1711930858007",
+				"lat": 40.444156836442346,
 				"link1_id": "EDITOR_link_1711930855236",
-				"link2_id": "EDITOR_link_1711930858007"
+				"node_id": "EDITOR_node_1711930775148"
 			},
 			"_id": "EDITOR_node_1711930775148"
 		},
@@ -3288,14 +3324,14 @@
 				]
 			},
 			"properties": {
-				"node_id": "EDITOR_node_1711930778800",
-				"floor": 3,
 				"in_out": 3,
 				"hulop_file": "EDITOR",
-				"lat": 40.44415581581006,
 				"lon": -79.94673410430548,
+				"floor": 3,
+				"link2_id": "EDITOR_link_1711930861396",
+				"lat": 40.44415581581006,
 				"link1_id": "EDITOR_link_1711930859587",
-				"link2_id": "EDITOR_link_1711930861396"
+				"node_id": "EDITOR_node_1711930778800"
 			},
 			"_id": "EDITOR_node_1711930778800"
 		},
@@ -3309,14 +3345,14 @@
 				]
 			},
 			"properties": {
-				"node_id": "EDITOR_node_1711930781734",
-				"floor": 3,
 				"in_out": 3,
 				"hulop_file": "EDITOR",
-				"lat": 40.444101722276685,
 				"lon": -79.94673276320098,
+				"floor": 3,
+				"link2_id": "EDITOR_link_1711930863382",
+				"lat": 40.444101722276685,
 				"link1_id": "EDITOR_link_1711930861396",
-				"link2_id": "EDITOR_link_1711930863382"
+				"node_id": "EDITOR_node_1711930781734"
 			},
 			"_id": "EDITOR_node_1711930781734"
 		},
@@ -3330,14 +3366,14 @@
 				]
 			},
 			"properties": {
-				"node_id": "EDITOR_node_1711930809219",
-				"floor": 3,
 				"in_out": 3,
 				"hulop_file": "EDITOR",
-				"lat": 40.44410070164352,
 				"lon": -79.94667911902069,
+				"floor": 3,
+				"link2_id": "EDITOR_link_1711930868167",
+				"lat": 40.44410070164352,
 				"link1_id": "EDITOR_link_1711930864829",
-				"link2_id": "EDITOR_link_1711930868167"
+				"node_id": "EDITOR_node_1711930809219"
 			},
 			"_id": "EDITOR_node_1711930809219"
 		},
@@ -3351,14 +3387,14 @@
 				]
 			},
 			"properties": {
-				"node_id": "EDITOR_node_1711930811130",
-				"floor": 3,
 				"in_out": 3,
 				"hulop_file": "EDITOR",
-				"lat": 40.44415505033584,
 				"lon": -79.94668012484907,
-				"link1_id": "EDITOR_link_1711930858007",
+				"floor": 3,
 				"link2_id": "EDITOR_link_1711930859587",
+				"lat": 40.44415505033584,
+				"link1_id": "EDITOR_link_1711930858007",
+				"node_id": "EDITOR_node_1711930811130",
 				"link3_id": "EDITOR_link_1711930868167"
 			},
 			"_id": "EDITOR_node_1711930811130"
@@ -3373,16 +3409,36 @@
 				]
 			},
 			"properties": {
-				"node_id": "EDITOR_node_1711930827334",
-				"floor": 3,
 				"in_out": 3,
 				"hulop_file": "EDITOR",
-				"lat": 40.44410835639161,
 				"lon": -79.94670728221533,
+				"floor": 3,
+				"link2_id": "EDITOR_link_1711930864829",
+				"lat": 40.44410835639161,
 				"link1_id": "EDITOR_link_1711930863382",
-				"link2_id": "EDITOR_link_1711930864829"
+				"node_id": "EDITOR_node_1711930827334"
 			},
 			"_id": "EDITOR_node_1711930827334"
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-79.94656898081303,
+					40.444176483610846
+				]
+			},
+			"properties": {
+				"node_id": "EDITOR_node_1714592758467",
+				"floor": 1,
+				"in_out": 3,
+				"hulop_file": "EDITOR",
+				"lat": 40.444176483610846,
+				"lon": -79.94656898081303,
+				"link1_id": "EDITOR_link_1714592762484"
+			},
+			"_id": "EDITOR_node_1714592758467"
 		}
 	]
 }

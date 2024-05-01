@@ -246,3 +246,9 @@ def test16_robot_pause_change_destination_and_resume(tester):
     tester.wait_for(2)
     tester.button_down(4)
     tester.wait_for(2)
+
+
+def test17_sharp_turn(tester):
+    tester.reset_position(a=90)
+    tester.goto_node("EDITOR_node_1714592758467")
+    tester.wait_navigation_completed(timeout=30)
