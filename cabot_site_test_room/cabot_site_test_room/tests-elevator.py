@@ -11,6 +11,19 @@ def wait_ready(tester):
     # tester.wait_ready()
 
 
+def test11_retry_elevator(tester):
+    tester.reset_position()
+    tester.goto_node('EDITOR_node_1709594309586')
+    tester.wait_goal("ElevatorWaitGoal")
+    tester.button_down(3)
+    tester.reset_position()
+    tester.button_down(4)
+    tester.wait_goal("ElevatorTurnGoal")
+    tester.floor_change(+1)
+    tester.wait_for(3)
+    tester.wait_navigation_arrived(timeout=60)
+
+
 def test10_elevator_skip_and_resume_in_front_of_elevator(tester):
     tester.reset_position()
     tester.goto_node('EDITOR_node_1709594309586')
