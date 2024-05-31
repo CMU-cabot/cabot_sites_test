@@ -123,3 +123,21 @@ def test2_limit_speed_when_people_topic_is_dead_and_restored(tester):
         timeout=10
     )
     tester.wait_navigation_arrived(timeout=90)
+
+def test3_obstacle_avoidance(tester):
+    tester.check_collision()
+    tester.reset_position()
+    tester.setup_actors(actors=[
+        {
+            "name": 'actor9',
+            "module": "pedestrian.obstacle",
+            "params": {
+                "init_x": 5.0,
+                "init_y": 2.5,
+                "init_a": 180.0,
+                "velocity": 0.5,
+                "decel_distance": 1.5,
+                "pause_distance": 1.0
+            },
+        },
+    ])
