@@ -17,6 +17,13 @@ def config(tester):
         # robot_radius=0.45  # default value
     )
 
+    tester.set_people_detection_range(
+        min_range=1.0,
+        max_range=10.0,
+        min_angle=-1.0,
+        max_angle=1.0
+    )
+
 
 def checks(tester):
     tester.check_topic_error(
