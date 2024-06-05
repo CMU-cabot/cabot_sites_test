@@ -21,7 +21,8 @@ def config(tester):
         min_range=1.0,
         max_range=10.0,
         min_angle=-1.0,
-        max_angle=1.0
+        max_angle=1.0,
+        occlusion_radius=0.25
     )
 
 
