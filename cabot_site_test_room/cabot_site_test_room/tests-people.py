@@ -129,11 +129,11 @@ def test3_obstacle_avoidance(tester):
     tester.reset_position()
     tester.setup_actors(actors=[
         {
-            "name": 'actor9',
+            "name": 'actor8',
             "module": "pedestrian.obstacle",
             "params": {
-                "init_x": 5.0,
-                "init_y": 2.5,
+                "init_x": 3.0,
+                "init_y": 0.5,
                 "init_a": 180.0,
                 "velocity": 0.5,
                 "decel_distance": 1.5,
@@ -141,3 +141,6 @@ def test3_obstacle_avoidance(tester):
             },
         },
     ])
+    tester.spawn_obstacle(name="10mm_step", x=5.0, y=0., z=0., yaw=0.,\
+                          width=1., height=1., depth=0.2)
+    tester.check_collision()
