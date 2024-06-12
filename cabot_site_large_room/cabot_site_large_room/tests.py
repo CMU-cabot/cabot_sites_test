@@ -18,11 +18,13 @@ def config(tester):
     )
 
     tester.set_people_detection_range(
-        min_range=1.0,
+        occlusion_ray_range=2,
+        min_range=0.1,
         max_range=10.0,
         min_angle=-1.0,
         max_angle=1.0,
-        occlusion_radius=0.25
+        divider_distance_m=0.05,
+        divider_angle_deg=1.0
     )
 
 
