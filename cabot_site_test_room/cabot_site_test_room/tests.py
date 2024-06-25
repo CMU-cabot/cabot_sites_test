@@ -110,6 +110,19 @@ def test08_facility_left(tester):
     tester.wait_navigation_arrived(timeout=30)
 
 
+def test08_2_ignore_facility_nearby_goal(tester):
+    tester.reset_position(x=10.0, y=5.0, a=-90.0)
+    tester.goto_node('EDITOR_node_1707899314416@90')
+    tester.check_topic_error(
+        action_name=f'check_speech',
+        topic='/cabot/activity_log',
+        topic_type='cabot_msgs/msg/Log',
+        condition=f"msg.category=='speech request' and msg.text=='Test Exhibit is on your left'",
+        timeout=30
+    )
+    tester.wait_navigation_completed(timeout=30)
+
+
 def test09_navcog_path_bug(tester):
     tester.reset_position(x=1.0, y=-1.0, a=0.0)
     tester.goto_node('EDITOR_node_1707899216479')
