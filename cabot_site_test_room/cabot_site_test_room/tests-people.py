@@ -125,22 +125,45 @@ def test2_limit_speed_when_people_topic_is_dead_and_restored(tester):
     tester.wait_navigation_arrived(timeout=90)
 
 def test3_obstacle_avoidance(tester):
+    tester.wait_topic(
+        # tester.clean_obstacle() needs tester.remaining to information of all obstacles
+        topic='/obstacle_states',
+        topic_type='pedestrian_plugin_msgs/msg/Agents',
+        condition="True",
+        timeout=10
+    )
+    tester.clean_obstacle()
     tester.check_collision()
     tester.reset_position()
     tester.setup_actors(actors=[
         {
             "name": 'actor8',
-            "module": "pedestrian.obstacle",
+            "module": "pedestrian.pool",
             "params": {
-                "init_x": 3.0,
-                "init_y": 0.5,
+                "init_x": 3.5,
+                "init_y": 0.0,
                 "init_a": 180.0,
-                "velocity": 0.5,
-                "decel_distance": 1.5,
-                "pause_distance": 1.0
             },
         },
     ])
-    tester.spawn_obstacle(name="10mm_step", x=5.0, y=0., z=0., yaw=0.,\
-                          width=1., height=1., depth=0.2)
     tester.check_collision()
+    tester.spawn_obstacle(name="10mm_step", x=10.0, y=0., z=0., yaw=0.,\
+                          width=1., height=1., depth=0.2)
+    tester.wait_for(8)
+    tester.clean_obstacle()
+
+def test4_delete_obstacle(tester):
+    # 0.45 (default robot_radius) + 0.5 (obstacle width/2) = 0.55
+    # obstacle returns true if x < 0.55 and false if x >= 0.55
+    tester.wait_topic(
+        # tester.clean_obstacle() needs tester.remaining to information of all obstacles
+        topic='/obstacle_states',
+        topic_type='pedestrian_plugin_msgs/msg/Agents',
+        condition="True",
+        timeout=10
+    )
+    tester.clean_obstacle()
+    tester.spawn_obstacle(name="10mm_step", x=0.6, y=0., z=0., yaw=0.,\
+                          width=1., height=1., depth=0.2)
+    #tester.wait_for(5)
+    #tester.clean_obstacle()
