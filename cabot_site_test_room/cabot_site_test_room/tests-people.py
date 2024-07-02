@@ -197,5 +197,7 @@ def test5(tester):
             x=0, y=0, z=0., yaw=0., \
             width=5, height=5, depth=0.2 \
             )
+    tester.reset_position(x=10.0, y=0.0, a=0.0)
+    tester.check_no_collision_obstacle()
     tester.reset_position(x=0.0, y=0.0, a=0.0)
     tester.check_collision_obstacle()
