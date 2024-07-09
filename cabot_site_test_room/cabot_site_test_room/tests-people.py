@@ -182,22 +182,43 @@ def test4_collision_module_test(tester):
                       'y':obstacle_pos_y+lim_collision_y*0.8,
                       'a':0.0}
         tester.reset_position(**robot_pose)
-        tester.check_collision_obstacle()
-    #    ## Place robot outside. Collision must NOT be detected.
-    #    #robot_pose = {'x':obstacle_pos_x+lim_collision_x*1.1,
-    #    #              'y':obstacle_pos_y+lim_collision_y*1.1,
-    #    #              'a':0.0}
-    #    #tester.reset_position(**robot_pose)
-    #    ## tester.check_no_collision_obstacle()
-    #tester.clean_obstacle()
+        cancel = tester.check_collision_obstacle()
+        tester.wait_for(1)
+        cancel()
+        # Place robot outside. Collision must NOT be detected.
+        robot_pose = {'x':obstacle_pos_x+lim_collision_x*1.1,
+                      'y':obstacle_pos_y+lim_collision_y*1.1,
+                      'a':0.0}
+        tester.reset_position(**robot_pose)
+        cancel = tester.check_no_collision_obstacle()
+        tester.wait_for(1)
+        cancel()
+    tester.clean_obstacle()
 
 def test5(tester):
     tester.spawn_obstacle(
             name="10mm_step", \
-            x=0, y=0, z=0., yaw=0., \
-            width=5, height=5, depth=0.2 \
+            x=0, y=-1, z=0., yaw=math.pi/4, \
+            width=5, height=6, depth=0.2 \
             )
+    tester.wait_for(1)
     tester.reset_position(x=10.0, y=0.0, a=0.0)
-    tester.check_no_collision_obstacle()
-    tester.reset_position(x=0.0, y=0.0, a=0.0)
+    cancel = tester.check_no_collision_obstacle()
+    tester.wait_for(1)
+    cancel()
+
+    tester.reset_position(x=0.0, y=-3.5, a=0.0)
     tester.check_collision_obstacle()
+    tester.wait_for(1)
+
+    #tester.clean_obstacle()
+
+def test6_clean(tester):
+    tester.wait_topic(
+        action_name='check_speed4',
+        topic='/obstacle_states',
+        topic_type='pedestrian_plugin_msgs/msg/Agents',
+        condition="True",
+        timeout=10
+    )
+    tester.clean_obstacle()
