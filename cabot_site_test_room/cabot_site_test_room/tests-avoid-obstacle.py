@@ -7,7 +7,6 @@ def config(tester):
     tester.config['init_a'] = 0.0
     tester.config['init_floor'] = 0
 
-
 def wait_ready(tester):
     tester.wait_localization_started()
 
@@ -82,3 +81,13 @@ def test5_recognize_step_higher_than_or_equal_to_20cm_and_avoid_step(tester):
     tester.wait_navigation_arrived()
     tester.clean_obstacle()
     cancel()
+
+def test999_clean_obstacles(tester):
+    tester.wait_topic(
+        action_name='check_obstacle_states',
+        topic='/obstacle_states',
+        topic_type='pedestrian_plugin_msgs/msg/Agents',
+        condition="True",
+        timeout=10
+    )
+    tester.clean_obstacle()
