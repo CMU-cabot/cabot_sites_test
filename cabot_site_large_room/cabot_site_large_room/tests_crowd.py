@@ -23,8 +23,8 @@ def config(tester):
     )
 
     tester.set_people_detection_range(
-        min_range=0.67,
-        max_range=6.07,
+        min_range=0.29, # 0.07 is the distance from the center of the LiDAR to the front of the front camera.
+        max_range=7.07, # 0.07 is the distance from the center of the LiDAR to the front of the front camera.
         min_angle=-2.28,
         max_angle=2.28,
         occlusion_radius=0.25,
