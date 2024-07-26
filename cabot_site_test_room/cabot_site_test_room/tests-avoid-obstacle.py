@@ -1,4 +1,5 @@
 import math
+from cabot_ui.geojson import NavigationMode
 
 def config(tester):
     tester.config['init_x'] = 0.0
@@ -9,6 +10,25 @@ def config(tester):
 
 def wait_ready(tester):
     tester.wait_localization_started()
+
+def test0(tester):
+    #tester.reset_position(x=-7.5,y=-1.0, a=0.0) # left end position
+    #tester.reset_position(x=2.5,y=-1.0, a=180.0) # right end position
+    tester.wait_for(1)
+
+def test1_climb_step_lower_than_5cm_and_slow_down(tester):
+    STEP_HEIGHT = 0.030 # 3.0cm=30mm
+    tester.reset_position(x=-7.5,y=-1.0,a=0.0)
+    tester.spawn_obstacle(
+            name="10mm_step", \
+            x=-2.75, y=-1.0, z=0., yaw=0., \
+            width=4.5, height=2, depth=STEP_HEIGHT \
+            )
+    tester.goto_node('EDITOR_node_1720772383943')
+    tester.wait_mode_changed(NavigationMode.ClimbUpStep,timeout=20)
+    tester.wait_mode_changed(NavigationMode.ClimbDownStep,timeout=20)
+    tester.wait_navigation_arrived()
+    tester.clean_obstacle()
 
 def test1_recognize_step_higher_than_1cm_and_slow_down(tester):
     # this does NOT check if the robot slow down yet
