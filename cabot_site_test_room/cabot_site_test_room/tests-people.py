@@ -1,5 +1,3 @@
-import math
-
 def config(tester):
     tester.config['init_x'] = 0.0
     tester.config['init_y'] = 0.0
