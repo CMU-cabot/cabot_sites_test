@@ -267,6 +267,11 @@ def test17_sharp_turn(tester):
     tester.wait_navigation_completed(timeout=30)
     tester.cancel_navigation()
 
+def test17_sharp_turn_case2(tester):
+    tester.reset_position(x=9.0, y=2.5, a=-90, z=10)
+    tester.goto_node("EDITOR_node_1709594307711")
+    tester.wait_navigation_completed(timeout=30)
+    tester.cancel_navigation()
 
 def test18_across_static_with_narrow(tester):
     tester.reset_position(a=-180, x=-0.5, y=2.5, z=10, floor=2)
