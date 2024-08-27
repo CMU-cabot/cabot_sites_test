@@ -160,6 +160,7 @@ def test_category1_case4_robot_overtaking(tester):
             },
         },
     ])
+    _check_metric(tester, "total_time", 11, condition_operator=">=") # 11 is the average value of 5 runs (actor's speed is set to 0 and actor's init_x is set to 5.0) with a 40% margin removed.
     _check_metric(tester, "total_time", 26) # 26 is the average value of 5 runs (actor's speed is set to 0 and actor's init_x is set to 5.0) with a 40% margin added.
     _check_metric(tester, "robot_path_length", 15.6) # 15.6 is the average value of 5 runs (actor's speed is set to 0 and actor's init_x is set to 5.0) with a 40% margin added.
     _check_metric(tester, "maximum_distance_to_people", 7.5) # 7.5 is the average value of 5 runs (actor's speed is set to 0 and actor's init_x is set to 5.0) with a 40% margin added.
@@ -183,6 +184,7 @@ def test_category1_case5_down_the_path(tester):
             },
         },
     ])
+    _check_metric(tester, "total_time", 16, condition_operator=">=") # 16 is the average value of 5 runs with a 10% margin removed.
     _check_metric(tester, "total_time", 20) # 20 is the average value of 5 runs with a 10% margin added.
     _check_metric(tester, "robot_path_length", 11.9) # 11.9 is the average value of 5 runs with a 10% margin added.
     _check_metric(tester, "cumulative_heading_changes", 0.23) # 0.23 is the average value of 5 runs with a 10% margin added.
