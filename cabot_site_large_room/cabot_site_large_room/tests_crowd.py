@@ -262,9 +262,9 @@ def test_category5_case2_move_parallel_traffic_repeat(tester):
 
     _setup_actors_with_allocation(tester, actors=actors)
     _check_metric(tester, "total_time", 120) # 120 is the test case timeout value.
-    _check_metric(tester, "robot_path_length", 43.7) # 43.7 is set to the same value as test_category5_case2_move_parallel_traffic
-    _check_metric(tester, "time_not_moving", 14.6) # 14.6 is set to the same value as test_category5_case2_move_parallel_traffic
-    _check_metric(tester, "cumulative_heading_changes", 9.6) # 9.6 is set to the same value as test_category5_case2_move_parallel_traffic
+    _check_metric(tester, "robot_path_length", 43.7) # 43.7 is set to the same value as test_category5_case2_move_parallel_traffic.
+    _check_metric(tester, "time_not_moving", 14.6) # 14.6 is set to the same value as test_category5_case2_move_parallel_traffic.
+    _check_metric(tester, "cumulative_heading_changes", 9.6) # 9.6 is set to the same value as test_category5_case2_move_parallel_traffic.
     _check_metric(tester, "robot_on_person_collision_count", 1)
     _goto_target1(tester)
 
@@ -447,8 +447,8 @@ def test_category5_case3_move_perpendicular_traffic_repeat(tester):
 
     _setup_actors_with_allocation(tester, actors=actors)
     _check_metric(tester, "total_time", 120) # 120 is the test case timeout value.
-    _check_metric(tester, "robot_path_length", 107.6) # 107.6 is set to the same value as test_category5_case3_move_perpendicular_traffic
-    _check_metric(tester, "time_not_moving", 26.7) # 26.7 is set to the same value as test_category5_case3_move_perpendicular_traffic
+    _check_metric(tester, "robot_path_length", 107.6) # 107.6 is set to the same value as test_category5_case3_move_perpendicular_traffic.
+    _check_metric(tester, "time_not_moving", 26.7) # 26.7 is set to the same value as test_category5_case3_move_perpendicular_traffic.
     _check_metric(tester, "robot_on_person_collision_count", 1)
     _goto_target1(tester)
 
@@ -638,6 +638,6 @@ def test_category6_case3_sfm_perpendicular_traffic(tester):
 
     _setup_actors_with_allocation(tester, actors=actors)
     _check_metric(tester, "total_time", 120) # 120 is the test case timeout value.
-    _check_metric(tester, "robot_path_length", 107.6) # 107.6 is set to the same value as test_category5_case3_move_perpendicular_traffic
+    _check_metric(tester, "robot_path_length", 107.6) # 107.6 is set to the same value as test_category5_case3_move_perpendicular_traffic.
     _check_metric(tester, "robot_on_person_collision_count", 1)
     _goto_target1(tester)
