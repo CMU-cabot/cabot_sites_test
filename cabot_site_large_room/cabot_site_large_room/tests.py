@@ -80,19 +80,18 @@ def _goto_target1(tester):
     )
 
 
-def _check_metric(tester, metric_name, fail_threshold, condition_operator="<="):
+def _check_metric(tester, metric_name, success_threshold, condition_operator=">"):
     """
-    Generic function to check if a given metric meets the failure threshold.
+    Generic function to check if a given metric meets the success threshold.
     :param tester: The tester object
     :param metric_name: The name of the metric to check
-    :param fail_threshold: The threshold value for the metric
+    :param success_threshold: The threshold value for the metric
     :param condition_operator: The operator to use in the condition string
     """
-    condition = f"msg.name=='{metric_name}' and {fail_threshold}{condition_operator}msg.value"
-    tester.check_topic_error(
-        action=f"check {metric_name}",
-        topic="/metric",
-        topic_type="pedestrian_plugin_msgs/msg/Metric",
+    condition = f"{success_threshold}{condition_operator}msg.value"
+    tester.check_metric_successful(
+        action_name=f"check_{metric_name}",
+        metric_name=f"{metric_name}",
         condition=condition
     )
 
@@ -115,10 +114,10 @@ def test_category1_case1_move_towards_a_pedestrian(tester):
             },
         },
     ])
+    _goto_target1(tester)
     _check_metric(tester, "total_time", 26) # 26 is the average value of 5 runs with a 10% margin added.
     _check_metric(tester, "robot_path_length", 12.6) # 12.6 is the average value of 5 runs with a 10% margin added.
     _check_metric(tester, "robot_on_person_collision_count", 1)
-    _goto_target1(tester)
 
 
 def test_category1_case2_move_towards_a_pedestrian_and_avoid(tester):
@@ -137,11 +136,11 @@ def test_category1_case2_move_towards_a_pedestrian_and_avoid(tester):
             },
         },
     ])
+    _goto_target1(tester)
     _check_metric(tester, "total_time", 21) # 21 is the average value of 5 runs with a 10% margin added.
     _check_metric(tester, "robot_path_length", 12.2) # 12.2 is the average value of 5 runs with a 10% margin added.
     _check_metric(tester, "time_not_moving", 4.3) # 4.3 is the average value of 5 runs with a 10% margin added.
     _check_metric(tester, "robot_on_person_collision_count", 1)
-    _goto_target1(tester)
 
 
 def test_category1_case4_robot_overtaking(tester):
@@ -160,12 +159,12 @@ def test_category1_case4_robot_overtaking(tester):
             },
         },
     ])
-    _check_metric(tester, "total_time", 11, condition_operator=">=") # 11 is the average value of 5 runs (actor's speed is set to 0 and actor's init_x is set to 5.0) with a 40% margin removed.
+    _goto_target1(tester)
+    _check_metric(tester, "total_time", 11, condition_operator="<") # 11 is the average value of 5 runs (actor's speed is set to 0 and actor's init_x is set to 5.0) with a 40% margin removed.
     _check_metric(tester, "total_time", 26) # 26 is the average value of 5 runs (actor's speed is set to 0 and actor's init_x is set to 5.0) with a 40% margin added.
     _check_metric(tester, "robot_path_length", 15.6) # 15.6 is the average value of 5 runs (actor's speed is set to 0 and actor's init_x is set to 5.0) with a 40% margin added.
     _check_metric(tester, "maximum_distance_to_people", 7.5) # 7.5 is the average value of 5 runs (actor's speed is set to 0 and actor's init_x is set to 5.0) with a 40% margin added.
     _check_metric(tester, "robot_on_person_collision_count", 1)
-    _goto_target1(tester)
 
 
 def test_category1_case5_down_the_path(tester):
@@ -184,13 +183,13 @@ def test_category1_case5_down_the_path(tester):
             },
         },
     ])
-    _check_metric(tester, "total_time", 16, condition_operator=">=") # 16 is the average value of 5 runs with a 10% margin removed.
+    _goto_target1(tester)
+    _check_metric(tester, "total_time", 16, condition_operator="<") # 16 is the average value of 5 runs with a 10% margin removed.
     _check_metric(tester, "total_time", 20) # 20 is the average value of 5 runs with a 10% margin added.
     _check_metric(tester, "robot_path_length", 11.9) # 11.9 is the average value of 5 runs with a 10% margin added.
     _check_metric(tester, "cumulative_heading_changes", 0.23) # 0.23 is the average value of 5 runs with a 10% margin added.
-    _check_metric(tester, "minimum_distance_to_people", 0.28, condition_operator=">=") # 0.28 is the average value of 5 runs with a 10% margin removed.
+    _check_metric(tester, "minimum_distance_to_people", 0.28, condition_operator="<") # 0.28 is the average value of 5 runs with a 10% margin removed.
     _check_metric(tester, "robot_on_person_collision_count", 1)
-    _goto_target1(tester)
 
 
 def test_category2_case1_move_across_a_pedestrian1(tester):
@@ -209,10 +208,10 @@ def test_category2_case1_move_across_a_pedestrian1(tester):
             },
         },
     ])
+    _goto_target1(tester)
     _check_metric(tester, "total_time", 22) # 22 is the average value of 5 runs with a 10% margin added.
     _check_metric(tester, "robot_path_length", 11.9) # 11.9 is the average value of 5 runs with a 10% margin added.
     _check_metric(tester, "robot_on_person_collision_count", 1)
-    _goto_target1(tester)
 
 
 def test_category2_case1_move_across_a_pedestrian2(tester):
@@ -231,10 +230,10 @@ def test_category2_case1_move_across_a_pedestrian2(tester):
             },
         },
     ])
+    _goto_target1(tester)
     _check_metric(tester, "total_time", 21) # 21 is the average value of 5 runs with a 10% margin added.
     _check_metric(tester, "robot_path_length", 11.9) # 11.9 is the average value of 5 runs with a 10% margin added.
     _check_metric(tester, "robot_on_person_collision_count", 1)
-    _goto_target1(tester)
 
 
 def test_category2_case1_move_across_a_pedestrian3(tester):
@@ -253,10 +252,10 @@ def test_category2_case1_move_across_a_pedestrian3(tester):
             },
         },
     ])
+    _goto_target1(tester)
     _check_metric(tester, "total_time", 22) # 22 is the average value of 5 runs with a 10% margin added.
     _check_metric(tester, "robot_path_length", 11.9) # 11.9 is the average value of 5 runs with a 10% margin added.
     _check_metric(tester, "robot_on_person_collision_count", 1)
-    _goto_target1(tester)
 
 
 def test_category2_case1_move_across_a_pedestrian4(tester):
@@ -275,10 +274,10 @@ def test_category2_case1_move_across_a_pedestrian4(tester):
             },
         },
     ])
+    _goto_target1(tester)
     _check_metric(tester, "total_time", 22) # 22 is the average value of 5 runs with a 10% margin added.
     _check_metric(tester, "robot_path_length", 11.9) # 11.9 is the average value of 5 runs with a 10% margin added.
     _check_metric(tester, "robot_on_person_collision_count", 1)
-    _goto_target1(tester)
 
 
 def test_category2_case1_move_across_a_pedestrian5(tester):
@@ -297,10 +296,10 @@ def test_category2_case1_move_across_a_pedestrian5(tester):
             },
         },
     ])
+    _goto_target1(tester)
     _check_metric(tester, "total_time", 18) # 18 is the average value of 5 runs with a 10% margin added.
     _check_metric(tester, "robot_path_length", 11.9) # 11.9 is the average value of 5 runs with a 10% margin added.
     _check_metric(tester, "robot_on_person_collision_count", 1)
-    _goto_target1(tester)
 
 
 def test_category2_case1_move_across_a_pedestrian6(tester):
@@ -319,10 +318,10 @@ def test_category2_case1_move_across_a_pedestrian6(tester):
             },
         },
     ])
+    _goto_target1(tester)
     _check_metric(tester, "total_time", 23) # 23 is the average value of 5 runs with a 10% margin added.
     _check_metric(tester, "robot_path_length", 11.9) # 11.9 is the average value of 5 runs with a 10% margin added.
     _check_metric(tester, "robot_on_person_collision_count", 1)
-    _goto_target1(tester)
 
 
 def test_category3_case1_move_across_a_pedestrian_proceed(tester):
@@ -342,8 +341,8 @@ def test_category3_case1_move_across_a_pedestrian_proceed(tester):
             },
         },
     ])
+    _goto_target1(tester)
     _check_metric(tester, "total_time", 20) # 20 is the average value of 5 runs with a 10% margin added.
     _check_metric(tester, "robot_path_length", 11.9) # 11.9 is the average value of 5 runs with a 10% margin added.
-    _check_metric(tester, "time_not_moving", "3.8") # 3.8 is the average value of 5 runs with a 10% margin added.
+    _check_metric(tester, "time_not_moving", 3.8) # 3.8 is the average value of 5 runs with a 10% margin added.
     _check_metric(tester, "robot_on_person_collision_count", 1)
-    _goto_target1(tester)

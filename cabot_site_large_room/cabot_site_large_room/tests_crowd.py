@@ -82,22 +82,20 @@ def _goto_target1(tester):
     )
 
 
-def _check_metric(tester, metric_name, fail_threshold, condition_operator="<="):
+def _check_metric(tester, metric_name, success_threshold, condition_operator=">"):
     """
-    Generic function to check if a given metric meets the failure threshold.
+    Generic function to check if a given metric meets the success threshold.
     :param tester: The tester object
     :param metric_name: The name of the metric to check
-    :param fail_threshold: The threshold value for the metric
+    :param success_threshold: The threshold value for the metric
     :param condition_operator: The operator to use in the condition string
     """
-    condition = f"msg.name=='{metric_name}' and {fail_threshold}{condition_operator}msg.value"
-    tester.check_topic_error(
-        action=f"check {metric_name}",
-        topic="/metric",
-        topic_type="pedestrian_plugin_msgs/msg/Metric",
+    condition = f"{success_threshold}{condition_operator}msg.value"
+    tester.check_metric_successful(
+        action_name=f"check_{metric_name}",
+        metric_name=f"{metric_name}",
         condition=condition
     )
-
 
 # global variable
 n_max_actors = 10
@@ -187,12 +185,12 @@ def test_category5_case2_move_parallel_traffic(tester):
             })
 
     _setup_actors_with_allocation(tester, actors=actors)
+    _goto_target1(tester)
     _check_metric(tester, "total_time", 120) # 120 is the test case timeout value.
     _check_metric(tester, "robot_path_length", 43.7) # 43.7 is the average value of 5 runs (actor's speed is set to 0 and nx is set to 2) with a 200% margin added.
     _check_metric(tester, "time_not_moving", 14.6) # 14.6 is the average value of 5 runs (actor's speed is set to 0 and nx is set to 2) with a 200% margin added.
     _check_metric(tester, "cumulative_heading_changes", 9.6) # 9.6 is the average value of 5 runs (actor's speed is set to 0 and nx is set to 2) with a 200% margin added.
     _check_metric(tester, "robot_on_person_collision_count", 1)
-    _goto_target1(tester)
 
 
 def test_category5_case2_move_parallel_traffic_repeat(tester):
@@ -261,12 +259,12 @@ def test_category5_case2_move_parallel_traffic_repeat(tester):
             })
 
     _setup_actors_with_allocation(tester, actors=actors)
+    _goto_target1(tester)
     _check_metric(tester, "total_time", 120) # 120 is the test case timeout value.
     _check_metric(tester, "robot_path_length", 43.7) # 43.7 is set to the same value as test_category5_case2_move_parallel_traffic.
     _check_metric(tester, "time_not_moving", 14.6) # 14.6 is set to the same value as test_category5_case2_move_parallel_traffic.
     _check_metric(tester, "cumulative_heading_changes", 9.6) # 9.6 is set to the same value as test_category5_case2_move_parallel_traffic.
     _check_metric(tester, "robot_on_person_collision_count", 1)
-    _goto_target1(tester)
 
 
 def test_category5_case3_move_perpendicular_traffic(tester):
@@ -344,11 +342,11 @@ def test_category5_case3_move_perpendicular_traffic(tester):
         init_y -= interval_y
 
     _setup_actors_with_allocation(tester, actors=actors)
+    _goto_target1(tester)
     _check_metric(tester, "total_time", 120) # 120 is the test case timeout value.
     _check_metric(tester, "robot_path_length", 107.6) # 107.6 is the average value of 5 runs (actor's speed is set to 0 and actor is set to advance 8m) with a 400% margin added.
     _check_metric(tester, "time_not_moving", 26.7) # 26.7 is the average value of 5 runs (actor's speed is set to 0 and actor is set to advance 8m) with a 400% margin added.
     _check_metric(tester, "robot_on_person_collision_count", 1)
-    _goto_target1(tester)
 
 
 def test_category5_case3_move_perpendicular_traffic_repeat(tester):
@@ -446,11 +444,11 @@ def test_category5_case3_move_perpendicular_traffic_repeat(tester):
         actors.append(actor)
 
     _setup_actors_with_allocation(tester, actors=actors)
+    _goto_target1(tester)
     _check_metric(tester, "total_time", 120) # 120 is the test case timeout value.
     _check_metric(tester, "robot_path_length", 107.6) # 107.6 is set to the same value as test_category5_case3_move_perpendicular_traffic.
     _check_metric(tester, "time_not_moving", 26.7) # 26.7 is set to the same value as test_category5_case3_move_perpendicular_traffic.
     _check_metric(tester, "robot_on_person_collision_count", 1)
-    _goto_target1(tester)
 
 
 def test_category6_case1_sfm_actors(tester):
@@ -477,9 +475,9 @@ def test_category6_case1_sfm_actors(tester):
         })
     tester.reset_position(x=-6.0)
     _setup_actors_with_allocation(tester, actors=actors)
+    _goto_target1(tester)
     _check_metric(tester, "total_time", 120) # 120 is the test case timeout value.
     _check_metric(tester, "robot_on_person_collision_count", 1)
-    _goto_target1(tester)
 
 
 def test_category6_case2_sfm_parallel_traffic(tester):
@@ -544,9 +542,9 @@ def test_category6_case2_sfm_parallel_traffic(tester):
 
     tester.reset_position(x=-3.0)
     _setup_actors_with_allocation(tester, actors=actors)
+    _goto_target1(tester)
     _check_metric(tester, "total_time", 120) # 120 is the test case timeout value.
     _check_metric(tester, "robot_on_person_collision_count", 1)
-    _goto_target1(tester)
 
 
 def test_category6_case3_sfm_perpendicular_traffic(tester):
@@ -637,7 +635,7 @@ def test_category6_case3_sfm_perpendicular_traffic(tester):
         init_y -= interval_y
 
     _setup_actors_with_allocation(tester, actors=actors)
+    _goto_target1(tester)
     _check_metric(tester, "total_time", 120) # 120 is the test case timeout value.
     _check_metric(tester, "robot_path_length", 107.6) # 107.6 is set to the same value as test_category5_case3_move_perpendicular_traffic.
     _check_metric(tester, "robot_on_person_collision_count", 1)
-    _goto_target1(tester)
