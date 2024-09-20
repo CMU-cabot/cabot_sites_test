@@ -20,6 +20,9 @@
 #  SOFTWARE.
 # ******************************************************************************
 
+import time
+
+
 def config(tester):
     tester.config['init_x'] = 0.0
     tester.config['init_y'] = 0.0
@@ -80,20 +83,21 @@ def _goto_target1(tester):
     )
 
 
-def _check_metric(tester, metric_name, success_threshold, condition_operator=">"):
+def _add_metric_condition(tester, metric_name, success_threshold, condition_operator=">"):
     """
-    Generic function to check if a given metric meets the success threshold.
+    Generic function to add a metric condition to the tester.
     :param tester: The tester object
-    :param metric_name: The name of the metric to check
+    :param metric_name: The name of the metric
     :param success_threshold: The threshold value for the metric
     :param condition_operator: The operator to use in the condition string
     """
-    condition = f"{success_threshold}{condition_operator}msg.value"
-    tester.check_metric_successful(
-        action_name=f"check_{metric_name}",
-        metric_name=f"{metric_name}",
-        condition=condition
-    )
+    condition = f"{success_threshold} {condition_operator} value"
+    tester.add_metric_condition({"name": metric_name, "condition": condition})
+
+
+def _setup_actors(tester, actors):
+    tester.setup_actors(actors=actors)
+    time.sleep(5)
 
 
 def test_category1_case1_move_towards_a_pedestrian(tester):
@@ -110,21 +114,23 @@ def test_category1_case1_move_towards_a_pedestrian(tester):
                 "init_a": 180.0,
                 "velocity": 0.5,
                 "decel_distance": 1.5,
-                "pause_distance": 1.0
+                "pause_distance": 1.0,
+                "stop_time": 3.0
             },
         },
     ])
+    _add_metric_condition(tester, "total_time", 26) # 26 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition(tester, "robot_path_length", 12.6) # 12.6 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition(tester, "robot_on_person_collision_count", 1)
     _goto_target1(tester)
-    _check_metric(tester, "total_time", 26) # 26 is the average value of 5 runs with a 10% margin added.
-    _check_metric(tester, "robot_path_length", 12.6) # 12.6 is the average value of 5 runs with a 10% margin added.
-    _check_metric(tester, "robot_on_person_collision_count", 1)
 
 
 def test_category1_case2_move_towards_a_pedestrian_and_avoid(tester):
     # 1.2 Pedestrian Obstruction
     tester.check_collision()
     tester.reset_position(x=-5.0)
-    tester.setup_actors(actors=[
+
+    actors = [
         {
             "name": 'actor0',
             "module": "pedestrian.walk_straight",
@@ -132,22 +138,25 @@ def test_category1_case2_move_towards_a_pedestrian_and_avoid(tester):
                 "init_x": 5.0,
                 "init_y": -0.5,
                 "init_a": 180.0,
-                "velocity": 0.0  # does not move
+                "velocity": 0.0,  # does not move
             },
         },
-    ])
+    ]
+
+    _setup_actors(tester, actors=actors)
+    _add_metric_condition(tester, "total_time", 21) # 21 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition(tester, "robot_path_length", 12.2) # 12.2 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition(tester, "time_not_moving", 4.3) # 4.3 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition(tester, "robot_on_person_collision_count", 1)
     _goto_target1(tester)
-    _check_metric(tester, "total_time", 21) # 21 is the average value of 5 runs with a 10% margin added.
-    _check_metric(tester, "robot_path_length", 12.2) # 12.2 is the average value of 5 runs with a 10% margin added.
-    _check_metric(tester, "time_not_moving", 4.3) # 4.3 is the average value of 5 runs with a 10% margin added.
-    _check_metric(tester, "robot_on_person_collision_count", 1)
 
 
 def test_category1_case4_robot_overtaking(tester):
     # 1.4 robot overtaking
     tester.check_collision()
     tester.reset_position()
-    tester.setup_actors(actors=[
+
+    actors = [
         {
             "name": 'actor0',
             "module": "pedestrian.walk_straight",
@@ -155,23 +164,27 @@ def test_category1_case4_robot_overtaking(tester):
                 "init_x": 1.0,
                 "init_y": -0.5,
                 "init_a": 0.0,
-                "velocity": 0.25  # very slow
+                "velocity": 0.25,  # very slow
+                "stop_time": 5.0
             },
         },
-    ])
+    ]
+
+    _setup_actors(tester, actors=actors)
+    _add_metric_condition(tester, "total_time", 11, condition_operator="<") # 11 is the average value of 5 runs (actor's speed is set to 0 and actor's init_x is set to 5.0) with a 40% margin removed.
+    _add_metric_condition(tester, "total_time", 26) # 26 is the average value of 5 runs (actor's speed is set to 0 and actor's init_x is set to 5.0) with a 40% margin added.
+    _add_metric_condition(tester, "robot_path_length", 15.6) # 15.6 is the average value of 5 runs (actor's speed is set to 0 and actor's init_x is set to 5.0) with a 40% margin added.
+    _add_metric_condition(tester, "maximum_distance_to_people", 7.5) # 7.5 is the average value of 5 runs (actor's speed is set to 0 and actor's init_x is set to 5.0) with a 40% margin added.
+    _add_metric_condition(tester, "robot_on_person_collision_count", 1)
     _goto_target1(tester)
-    _check_metric(tester, "total_time", 11, condition_operator="<") # 11 is the average value of 5 runs (actor's speed is set to 0 and actor's init_x is set to 5.0) with a 40% margin removed.
-    _check_metric(tester, "total_time", 26) # 26 is the average value of 5 runs (actor's speed is set to 0 and actor's init_x is set to 5.0) with a 40% margin added.
-    _check_metric(tester, "robot_path_length", 15.6) # 15.6 is the average value of 5 runs (actor's speed is set to 0 and actor's init_x is set to 5.0) with a 40% margin added.
-    _check_metric(tester, "maximum_distance_to_people", 7.5) # 7.5 is the average value of 5 runs (actor's speed is set to 0 and actor's init_x is set to 5.0) with a 40% margin added.
-    _check_metric(tester, "robot_on_person_collision_count", 1)
 
 
 def test_category1_case5_down_the_path(tester):
     # 1.5 Down path
     tester.check_collision()
     tester.reset_position()
-    tester.setup_actors(actors=[
+
+    actors = [
         {
             "name": 'actor0',
             "module": "pedestrian.walk_straight",
@@ -179,24 +192,28 @@ def test_category1_case5_down_the_path(tester):
                 "init_x": 1.0,
                 "init_y": -0.5,
                 "init_a": 0.0,
-                "velocity": 0.75
+                "velocity": 0.75,
+                "stop_time": 5.0
             },
         },
-    ])
+    ]
+
+    _setup_actors(tester, actors=actors)
+    _add_metric_condition(tester, "total_time", 16, condition_operator="<") # 16 is the average value of 5 runs with a 10% margin removed.
+    _add_metric_condition(tester, "total_time", 20) # 20 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition(tester, "robot_path_length", 11.9) # 11.9 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition(tester, "cumulative_heading_changes", 0.23) # 0.23 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition(tester, "minimum_distance_to_people", 0.28, condition_operator="<") # 0.28 is the average value of 5 runs with a 10% margin removed.
+    _add_metric_condition(tester, "robot_on_person_collision_count", 1)
     _goto_target1(tester)
-    _check_metric(tester, "total_time", 16, condition_operator="<") # 16 is the average value of 5 runs with a 10% margin removed.
-    _check_metric(tester, "total_time", 20) # 20 is the average value of 5 runs with a 10% margin added.
-    _check_metric(tester, "robot_path_length", 11.9) # 11.9 is the average value of 5 runs with a 10% margin added.
-    _check_metric(tester, "cumulative_heading_changes", 0.23) # 0.23 is the average value of 5 runs with a 10% margin added.
-    _check_metric(tester, "minimum_distance_to_people", 0.28, condition_operator="<") # 0.28 is the average value of 5 runs with a 10% margin removed.
-    _check_metric(tester, "robot_on_person_collision_count", 1)
 
 
 def test_category2_case1_move_across_a_pedestrian1(tester):
     # 2.1 Intersection
     tester.check_collision()
     tester.reset_position()
-    tester.setup_actors(actors=[
+
+    actors = [
         {
             "name": 'actor0',
             "module": "pedestrian.walk_across",
@@ -207,18 +224,21 @@ def test_category2_case1_move_across_a_pedestrian1(tester):
                 "velocity": 0.95,
             },
         },
-    ])
+    ]
+
+    _setup_actors(tester, actors=actors)
+    _add_metric_condition(tester, "total_time", 22) # 22 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition(tester, "robot_path_length", 11.9) # 11.9 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition(tester, "robot_on_person_collision_count", 1)
     _goto_target1(tester)
-    _check_metric(tester, "total_time", 22) # 22 is the average value of 5 runs with a 10% margin added.
-    _check_metric(tester, "robot_path_length", 11.9) # 11.9 is the average value of 5 runs with a 10% margin added.
-    _check_metric(tester, "robot_on_person_collision_count", 1)
 
 
 def test_category2_case1_move_across_a_pedestrian2(tester):
     # 2.1 Intersection
     tester.check_collision()
     tester.reset_position()
-    tester.setup_actors(actors=[
+
+    actors = [
         {
             "name": 'actor0',
             "module": "pedestrian.walk_across",
@@ -229,18 +249,21 @@ def test_category2_case1_move_across_a_pedestrian2(tester):
                 "velocity": 0.95,
             },
         },
-    ])
+    ]
+
+    _setup_actors(tester, actors=actors)
+    _add_metric_condition(tester, "total_time", 21) # 21 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition(tester, "robot_path_length", 11.9) # 11.9 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition(tester, "robot_on_person_collision_count", 1)
     _goto_target1(tester)
-    _check_metric(tester, "total_time", 21) # 21 is the average value of 5 runs with a 10% margin added.
-    _check_metric(tester, "robot_path_length", 11.9) # 11.9 is the average value of 5 runs with a 10% margin added.
-    _check_metric(tester, "robot_on_person_collision_count", 1)
 
 
 def test_category2_case1_move_across_a_pedestrian3(tester):
     # 2.1 Intersection
     tester.check_collision()
     tester.reset_position()
-    tester.setup_actors(actors=[
+
+    actors = [
         {
             "name": 'actor0',
             "module": "pedestrian.walk_across",
@@ -251,18 +274,21 @@ def test_category2_case1_move_across_a_pedestrian3(tester):
                 "velocity": 0.95,
             },
         },
-    ])
+    ]
+
+    _setup_actors(tester, actors=actors)
+    _add_metric_condition(tester, "total_time", 22) # 22 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition(tester, "robot_path_length", 11.9) # 11.9 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition(tester, "robot_on_person_collision_count", 1)
     _goto_target1(tester)
-    _check_metric(tester, "total_time", 22) # 22 is the average value of 5 runs with a 10% margin added.
-    _check_metric(tester, "robot_path_length", 11.9) # 11.9 is the average value of 5 runs with a 10% margin added.
-    _check_metric(tester, "robot_on_person_collision_count", 1)
 
 
 def test_category2_case1_move_across_a_pedestrian4(tester):
     # 2.1 Intersection
     tester.check_collision()
     tester.reset_position()
-    tester.setup_actors(actors=[
+
+    actors = [
         {
             "name": 'actor0',
             "module": "pedestrian.walk_across",
@@ -273,18 +299,21 @@ def test_category2_case1_move_across_a_pedestrian4(tester):
                 "velocity": 0.95,
             },
         },
-    ])
+    ]
+
+    _setup_actors(tester, actors=actors)
+    _add_metric_condition(tester, "total_time", 22) # 22 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition(tester, "robot_path_length", 11.9) # 11.9 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition(tester, "robot_on_person_collision_count", 1)
     _goto_target1(tester)
-    _check_metric(tester, "total_time", 22) # 22 is the average value of 5 runs with a 10% margin added.
-    _check_metric(tester, "robot_path_length", 11.9) # 11.9 is the average value of 5 runs with a 10% margin added.
-    _check_metric(tester, "robot_on_person_collision_count", 1)
 
 
 def test_category2_case1_move_across_a_pedestrian5(tester):
     # 2.1 Intersection
     tester.check_collision()
     tester.reset_position()
-    tester.setup_actors(actors=[
+
+    actors=[
         {
             "name": 'actor0',
             "module": "pedestrian.walk_across",
@@ -295,18 +324,21 @@ def test_category2_case1_move_across_a_pedestrian5(tester):
                 "velocity": 0.95,
             },
         },
-    ])
+    ]
+
+    _setup_actors(tester, actors=actors)
+    _add_metric_condition(tester, "total_time", 18) # 18 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition(tester, "robot_path_length", 11.9) # 11.9 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition(tester, "robot_on_person_collision_count", 1)
     _goto_target1(tester)
-    _check_metric(tester, "total_time", 18) # 18 is the average value of 5 runs with a 10% margin added.
-    _check_metric(tester, "robot_path_length", 11.9) # 11.9 is the average value of 5 runs with a 10% margin added.
-    _check_metric(tester, "robot_on_person_collision_count", 1)
 
 
 def test_category2_case1_move_across_a_pedestrian6(tester):
     # 2.1 Intersection
     tester.check_collision()
     tester.reset_position()
-    tester.setup_actors(actors=[
+
+    actors=[
         {
             "name": 'actor0',
             "module": "pedestrian.walk_across",
@@ -317,18 +349,21 @@ def test_category2_case1_move_across_a_pedestrian6(tester):
                 "velocity": 0.95,
             },
         },
-    ])
+    ]
+
+    _setup_actors(tester, actors=actors)
+    _add_metric_condition(tester, "total_time", 23) # 23 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition(tester, "robot_path_length", 11.9) # 11.9 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition(tester, "robot_on_person_collision_count", 1)
     _goto_target1(tester)
-    _check_metric(tester, "total_time", 23) # 23 is the average value of 5 runs with a 10% margin added.
-    _check_metric(tester, "robot_path_length", 11.9) # 11.9 is the average value of 5 runs with a 10% margin added.
-    _check_metric(tester, "robot_on_person_collision_count", 1)
 
 
 def test_category3_case1_move_across_a_pedestrian_proceed(tester):
     # 2.3 Intersection Proceed
     tester.check_collision()
     tester.reset_position()
-    tester.setup_actors(actors=[
+
+    actors=[
         {
             "name": 'actor0',
             "module": "pedestrian.walk_across",
@@ -340,9 +375,11 @@ def test_category3_case1_move_across_a_pedestrian_proceed(tester):
                 "pause_distance": 3.0
             },
         },
-    ])
+    ]
+
+    _setup_actors(tester, actors=actors)
+    _add_metric_condition(tester, "total_time", 20) # 20 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition(tester, "robot_path_length", 11.9) # 11.9 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition(tester, "time_not_moving", 3.8) # 3.8 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition(tester, "robot_on_person_collision_count", 1)
     _goto_target1(tester)
-    _check_metric(tester, "total_time", 20) # 20 is the average value of 5 runs with a 10% margin added.
-    _check_metric(tester, "robot_path_length", 11.9) # 11.9 is the average value of 5 runs with a 10% margin added.
-    _check_metric(tester, "time_not_moving", 3.8) # 3.8 is the average value of 5 runs with a 10% margin added.
-    _check_metric(tester, "robot_on_person_collision_count", 1)
