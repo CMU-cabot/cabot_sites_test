@@ -267,13 +267,60 @@ def test17_sharp_turn(tester):
     tester.wait_navigation_completed(timeout=30)
     tester.cancel_navigation()
 
+
 def test17_sharp_turn_case2(tester):
     tester.reset_position(x=9.0, y=2.5, a=-90, z=10)
     tester.goto_node("EDITOR_node_1709594307711")
     tester.wait_navigation_completed(timeout=30)
     tester.cancel_navigation()
 
+
 def test18_across_static_with_narrow(tester):
     tester.reset_position(a=-180, x=-0.5, y=2.5, z=10, floor=2)
     tester.goto_node("EDITOR_node_1719362182201")
     tester.wait_navigation_completed(timeout=30)
+
+
+def test21_people_walks_near_robots(tester):
+    tester.reset_position(a=90)
+    tester.setup_actors(actors=[
+        {
+            "name": 'actor0',
+            "module": "cabot_site_test_room.walk_near_robot",
+            "params": {
+                "init_y": -1.0,
+                "relative_x": -0.5,
+                "relative_y": -0.0,
+            },
+        },
+        {
+            "name": 'actor1',
+            "module": "cabot_site_test_room.walk_near_robot",
+            "params": {
+                "init_y": -1.0,
+                "relative_x": -0.1,
+                "relative_y": 1.0,
+            },
+        },
+        {
+            "name": 'actor2',
+            "module": "cabot_site_test_room.walk_near_robot",
+            "params": {
+                "init_y": -1.0,
+                "relative_x": 2.0,
+                "relative_y": -1.0,
+            },
+        },
+        {
+            "name": 'actor3',
+            "module": "cabot_site_test_room.walk_near_robot",
+            "params": {
+                "init_y": -1.0,
+                "relative_x": 2.0,
+                "relative_y": 1.0,
+            },
+        },
+    ])
+    tester.goto_node("EDITOR_node_1707899216479")
+    tester.wait_navigation_completed(timeout=120)
+    tester.cancel_navigation()
