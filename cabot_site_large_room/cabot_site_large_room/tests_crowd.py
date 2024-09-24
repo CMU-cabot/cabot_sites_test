@@ -81,6 +81,13 @@ def _goto_target1(tester):
         timeout=120
     )
 
+    # Send navigation cancellation in case it ends due to timeout
+    tester.pub_topic(
+        topic='/cabot/event',
+        topic_type='std_msgs/msg/String',
+        message="data: 'navigation;cancel'"
+    )
+
 
 def _add_metric_condition_lt(tester, metric_name, success_threshold):
     """
