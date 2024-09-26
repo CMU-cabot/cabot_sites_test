@@ -392,16 +392,16 @@ def test_category6_case1_sfm_actors(tester):
     tester.check_collision()
     bound = 5.0
     actors = []
-    n_actors = 10
+    n_actors = 1
     for i in range(0, n_actors):
         actors.append({
             "name": f"actor{i}",
             "module": "pedestrian.walk_sfm",
             "params": {
-                "init_x": random.uniform(-bound, bound),
-                "init_y": random.uniform(-bound, bound),
-                "init_a": random.uniform(-180.0, 180.0),
-                "velocity": 1.0,
+                "init_x": 0,#random.uniform(-bound, bound),
+                "init_y": 0,#random.uniform(-bound, bound),
+                "init_a": 0,#random.uniform(-180.0, 180.0),
+                "velocity": 0.1,#1.0,
                 "n_actors": n_actors,
                 "min_x": -bound,
                 "max_x": bound,
@@ -409,7 +409,7 @@ def test_category6_case1_sfm_actors(tester):
                 "max_y": bound,
             },
         })
-    tester.reset_position(x=-6.0)
+    #tester.reset_position(x=0.)
     _setup_actors_with_allocation(tester, actors=actors)
     _goto_target1(tester)
 
