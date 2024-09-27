@@ -1,3 +1,28 @@
+# ******************************************************************************
+#  Copyright (c) 2024  Carnegie Mellon University and Miraikan
+#
+#  Permission is hereby granted, free of charge, to any person obtaining a copy
+#  of this software and associated documentation files (the "Software"), to deal
+#  in the Software without restriction, including without limitation the rights
+#  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#  copies of the Software, and to permit persons to whom the Software is
+#  furnished to do so, subject to the following conditions:
+#
+#  The above copyright notice and this permission notice shall be included in all
+#  copies or substantial portions of the Software.
+#
+#  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+#  SOFTWARE.
+# ******************************************************************************
+
+import time
+
+
 def config(tester):
     tester.config['init_x'] = 0.0
     tester.config['init_y'] = 0.0
@@ -11,6 +36,8 @@ def config(tester):
             "time_not_moving",
             "avg_robot_linear_speed",
             "cumulative_heading_changes",
+            "minimum_distance_to_people",
+            "maximum_distance_to_people",
             "robot_on_person_collision_count",
             "person_on_robot_collision_count"
         ],
@@ -55,14 +82,39 @@ def _goto_target1(tester):
         timeout=120
     )
 
-
-def _check_robot_on_person_collision(tester):
-    tester.check_topic_error(
-        action="check robot_on_person_collision_count",
-        topic="/metric",
-        topic_type="pedestrian_plugin_msgs/msg/Metric",
-        condition="msg.name=='robot_on_person_collision_count' and 1<=msg.value"
+    # Send navigation cancellation in case it ends due to timeout
+    tester.pub_topic(
+        topic='/cabot/event',
+        topic_type='std_msgs/msg/String',
+        message="data: 'navigation;cancel'"
     )
+
+
+def _add_metric_condition_lt(tester, metric_name, success_threshold):
+    """
+    Adds a metric condition to the tester where the metric value must be less than the specified threshold.
+    :param tester: The tester object that handles the metric conditions.
+    :param metric_name: The name of the metric to evaluate.
+    :param success_threshold: The threshold value that the metric must be less than to meet the condition.
+    """
+    condition = f"{success_threshold} > value"
+    tester.add_metric_condition({"name": metric_name, "condition": condition})
+
+
+def _add_metric_condition_gt(tester, metric_name, success_threshold):
+    """
+    Adds a metric condition to the tester where the metric value must be greater than the specified threshold.
+    :param tester: The tester object that handles the metric conditions.
+    :param metric_name: The name of the metric to evaluate.
+    :param success_threshold: The threshold value that the metric must be greater than to meet the condition.
+    """
+    condition = f"{success_threshold} < value"
+    tester.add_metric_condition({"name": metric_name, "condition": condition})
+
+
+def _setup_actors(tester, actors):
+    tester.setup_actors(actors=actors)
+    time.sleep(5)
 
 
 def test_category1_case1_move_towards_a_pedestrian(tester):
@@ -79,11 +131,14 @@ def test_category1_case1_move_towards_a_pedestrian(tester):
                 "init_a": 180.0,
                 "velocity": 0.5,
                 "decel_distance": 1.5,
-                "pause_distance": 1.0
+                "pause_distance": 1.0,
+                "stop_time": 3.0
             },
         },
     ])
-    _check_robot_on_person_collision(tester)
+    _add_metric_condition_lt(tester, "total_time", 26) # 26 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition_lt(tester, "robot_path_length", 12.6) # 12.6 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
     _goto_target1(tester)
 
 
@@ -91,7 +146,8 @@ def test_category1_case2_move_towards_a_pedestrian_and_avoid(tester):
     # 1.2 Pedestrian Obstruction
     tester.check_collision()
     tester.reset_position(x=-5.0)
-    tester.setup_actors(actors=[
+
+    actors = [
         {
             "name": 'actor0',
             "module": "pedestrian.walk_straight",
@@ -99,11 +155,16 @@ def test_category1_case2_move_towards_a_pedestrian_and_avoid(tester):
                 "init_x": 5.0,
                 "init_y": -0.5,
                 "init_a": 180.0,
-                "velocity": 0.0  # does not move
+                "velocity": 0.0,  # does not move
             },
         },
-    ])
-    _check_robot_on_person_collision(tester)
+    ]
+
+    _setup_actors(tester, actors=actors)
+    _add_metric_condition_lt(tester, "total_time", 21) # 21 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition_lt(tester, "robot_path_length", 12.2) # 12.2 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition_lt(tester, "time_not_moving", 4.3) # 4.3 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
     _goto_target1(tester)
 
 
@@ -111,7 +172,8 @@ def test_category1_case4_robot_overtaking(tester):
     # 1.4 robot overtaking
     tester.check_collision()
     tester.reset_position()
-    tester.setup_actors(actors=[
+
+    actors = [
         {
             "name": 'actor0',
             "module": "pedestrian.walk_straight",
@@ -119,18 +181,18 @@ def test_category1_case4_robot_overtaking(tester):
                 "init_x": 1.0,
                 "init_y": -0.5,
                 "init_a": 0.0,
-                "velocity": 0.25  # very slow
+                "velocity": 0.25,  # very slow
+                "stop_time": 5.0
             },
         },
-    ])
-    # check too slow movement
-    tester.check_topic_error(
-        action="check total_time",
-        topic="/metric",
-        topic_type="pedestrian_plugin_msgs/msg/Metric",
-        condition="msg.name=='total_time' and 30.0<=msg.value"
-    )
-    _check_robot_on_person_collision(tester)
+    ]
+
+    _setup_actors(tester, actors=actors)
+    _add_metric_condition_gt(tester, "total_time", 11) # 11 is the average value of 5 runs (actor's speed is set to 0 and actor's init_x is set to 5.0) with a 40% margin removed.
+    _add_metric_condition_lt(tester, "total_time", 26) # 26 is the average value of 5 runs (actor's speed is set to 0 and actor's init_x is set to 5.0) with a 40% margin added.
+    _add_metric_condition_lt(tester, "robot_path_length", 15.6) # 15.6 is the average value of 5 runs (actor's speed is set to 0 and actor's init_x is set to 5.0) with a 40% margin added.
+    _add_metric_condition_lt(tester, "maximum_distance_to_people", 7.5) # 7.5 is the average value of 5 runs (actor's speed is set to 0 and actor's init_x is set to 5.0) with a 40% margin added.
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
     _goto_target1(tester)
 
 
@@ -138,7 +200,8 @@ def test_category1_case5_down_the_path(tester):
     # 1.5 Down path
     tester.check_collision()
     tester.reset_position()
-    tester.setup_actors(actors=[
+
+    actors = [
         {
             "name": 'actor0',
             "module": "pedestrian.walk_straight",
@@ -146,11 +209,19 @@ def test_category1_case5_down_the_path(tester):
                 "init_x": 1.0,
                 "init_y": -0.5,
                 "init_a": 0.0,
-                "velocity": 0.75
+                "velocity": 0.75,
+                "stop_time": 5.0
             },
         },
-    ])
-    _check_robot_on_person_collision(tester)
+    ]
+
+    _setup_actors(tester, actors=actors)
+    _add_metric_condition_gt(tester, "total_time", 16) # 16 is the average value of 5 runs with a 10% margin removed.
+    _add_metric_condition_lt(tester, "total_time", 20) # 20 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition_lt(tester, "robot_path_length", 11.9) # 11.9 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition_lt(tester, "cumulative_heading_changes", 0.23) # 0.23 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition_gt(tester, "minimum_distance_to_people", 0.28) # 0.28 is the average value of 5 runs with a 10% margin removed.
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
     _goto_target1(tester)
 
 
@@ -158,7 +229,8 @@ def test_category2_case1_move_across_a_pedestrian1(tester):
     # 2.1 Intersection
     tester.check_collision()
     tester.reset_position()
-    tester.setup_actors(actors=[
+
+    actors = [
         {
             "name": 'actor0',
             "module": "pedestrian.walk_across",
@@ -169,8 +241,12 @@ def test_category2_case1_move_across_a_pedestrian1(tester):
                 "velocity": 0.95,
             },
         },
-    ])
-    _check_robot_on_person_collision(tester)
+    ]
+
+    _setup_actors(tester, actors=actors)
+    _add_metric_condition_lt(tester, "total_time", 22) # 22 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition_lt(tester, "robot_path_length", 11.9) # 11.9 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
     _goto_target1(tester)
 
 
@@ -178,7 +254,8 @@ def test_category2_case1_move_across_a_pedestrian2(tester):
     # 2.1 Intersection
     tester.check_collision()
     tester.reset_position()
-    tester.setup_actors(actors=[
+
+    actors = [
         {
             "name": 'actor0',
             "module": "pedestrian.walk_across",
@@ -189,8 +266,12 @@ def test_category2_case1_move_across_a_pedestrian2(tester):
                 "velocity": 0.95,
             },
         },
-    ])
-    _check_robot_on_person_collision(tester)
+    ]
+
+    _setup_actors(tester, actors=actors)
+    _add_metric_condition_lt(tester, "total_time", 21) # 21 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition_lt(tester, "robot_path_length", 11.9) # 11.9 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
     _goto_target1(tester)
 
 
@@ -198,7 +279,8 @@ def test_category2_case1_move_across_a_pedestrian3(tester):
     # 2.1 Intersection
     tester.check_collision()
     tester.reset_position()
-    tester.setup_actors(actors=[
+
+    actors = [
         {
             "name": 'actor0',
             "module": "pedestrian.walk_across",
@@ -209,8 +291,12 @@ def test_category2_case1_move_across_a_pedestrian3(tester):
                 "velocity": 0.95,
             },
         },
-    ])
-    _check_robot_on_person_collision(tester)
+    ]
+
+    _setup_actors(tester, actors=actors)
+    _add_metric_condition_lt(tester, "total_time", 22) # 22 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition_lt(tester, "robot_path_length", 11.9) # 11.9 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
     _goto_target1(tester)
 
 
@@ -218,7 +304,8 @@ def test_category2_case1_move_across_a_pedestrian4(tester):
     # 2.1 Intersection
     tester.check_collision()
     tester.reset_position()
-    tester.setup_actors(actors=[
+
+    actors = [
         {
             "name": 'actor0',
             "module": "pedestrian.walk_across",
@@ -229,8 +316,12 @@ def test_category2_case1_move_across_a_pedestrian4(tester):
                 "velocity": 0.95,
             },
         },
-    ])
-    _check_robot_on_person_collision(tester)
+    ]
+
+    _setup_actors(tester, actors=actors)
+    _add_metric_condition_lt(tester, "total_time", 22) # 22 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition_lt(tester, "robot_path_length", 11.9) # 11.9 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
     _goto_target1(tester)
 
 
@@ -238,7 +329,8 @@ def test_category2_case1_move_across_a_pedestrian5(tester):
     # 2.1 Intersection
     tester.check_collision()
     tester.reset_position()
-    tester.setup_actors(actors=[
+
+    actors=[
         {
             "name": 'actor0',
             "module": "pedestrian.walk_across",
@@ -249,8 +341,12 @@ def test_category2_case1_move_across_a_pedestrian5(tester):
                 "velocity": 0.95,
             },
         },
-    ])
-    _check_robot_on_person_collision(tester)
+    ]
+
+    _setup_actors(tester, actors=actors)
+    _add_metric_condition_lt(tester, "total_time", 18) # 18 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition_lt(tester, "robot_path_length", 11.9) # 11.9 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
     _goto_target1(tester)
 
 
@@ -258,7 +354,8 @@ def test_category2_case1_move_across_a_pedestrian6(tester):
     # 2.1 Intersection
     tester.check_collision()
     tester.reset_position()
-    tester.setup_actors(actors=[
+
+    actors=[
         {
             "name": 'actor0',
             "module": "pedestrian.walk_across",
@@ -269,8 +366,12 @@ def test_category2_case1_move_across_a_pedestrian6(tester):
                 "velocity": 0.95,
             },
         },
-    ])
-    _check_robot_on_person_collision(tester)
+    ]
+
+    _setup_actors(tester, actors=actors)
+    _add_metric_condition_lt(tester, "total_time", 23) # 23 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition_lt(tester, "robot_path_length", 11.9) # 11.9 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
     _goto_target1(tester)
 
 
@@ -278,7 +379,8 @@ def test_category3_case1_move_across_a_pedestrian_proceed(tester):
     # 2.3 Intersection Proceed
     tester.check_collision()
     tester.reset_position()
-    tester.setup_actors(actors=[
+
+    actors=[
         {
             "name": 'actor0',
             "module": "pedestrian.walk_across",
@@ -287,9 +389,14 @@ def test_category3_case1_move_across_a_pedestrian_proceed(tester):
                 "init_y": 5.0,
                 "init_a": -90.0,
                 "velocity": 0.95,
-                "pause_distance": 1.5
+                "pause_distance": 3.0
             },
         },
-    ])
-    _check_robot_on_person_collision(tester)
+    ]
+
+    _setup_actors(tester, actors=actors)
+    _add_metric_condition_lt(tester, "total_time", 20) # 20 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition_lt(tester, "robot_path_length", 11.9) # 11.9 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition_lt(tester, "time_not_moving", 3.8) # 3.8 is the average value of 5 runs with a 10% margin added.
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
     _goto_target1(tester)
