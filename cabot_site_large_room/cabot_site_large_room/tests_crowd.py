@@ -515,6 +515,9 @@ def test_category6_case1_sfm_actors_variant1_perfect_people_detection(tester):
         })
     tester.reset_position(x=-6.0)
     _setup_actors_with_allocation(tester, actors=actors)
+    _add_metric_condition_lt(tester, "total_time", 120) # 120 is the test case timeout value.
+    _add_metric_condition_lt(tester, "time_not_moving", 3.6) # 3.6 is the average value of 5 runs in test_category6_case1_sfm_actors with a 100% margin added.
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
     _goto_target1(tester)
     tester.set_people_detection_range(
         min_range=0.29, # 0.07 is the distance from the center of the LiDAR to the front of the front camera.
