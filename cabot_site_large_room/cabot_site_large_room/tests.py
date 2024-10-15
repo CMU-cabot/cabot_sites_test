@@ -400,3 +400,31 @@ def test_category3_case1_move_across_a_pedestrian_proceed(tester):
     _add_metric_condition_lt(tester, "time_not_moving", 3.8) # 3.8 is the average value of 5 runs with a 10% margin added.
     _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
     _goto_target1(tester)
+
+def test_category3_case2_approach_a_stationary_robot_repeat(tester):
+    tester.check_collision()
+    tester.reset_position()
+
+    actors=[
+        {
+            "name": 'actor0',
+            "module": "pedestrian.walk_across",
+            "params": {
+                "init_x": -0.5,
+                "init_y": 5.0,
+                "init_a": -90.0,
+                "velocity": 0.95,
+                "goal_x": -0.5,
+                "goal_y": 3.0,
+                "repeat": 1,
+                "pause_distance": 3.0
+            },
+        },
+    ]
+
+    _setup_actors(tester, actors=actors)
+    _add_metric_condition_lt(tester, "total_time", 18) # 18 is the average value of 5 runs with a 10% margin added when the actor is stationary.
+    _add_metric_condition_lt(tester, "robot_path_length", 11.9) # 11.9 is the average value of 5 runs with a 10% margin added when the actor is stationary.
+    _add_metric_condition_lt(tester, "time_not_moving", 3.6) # 3.6 is the average value of 5 runs with a 10% margin added when the actor is stationary.
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    _goto_target1(tester)
