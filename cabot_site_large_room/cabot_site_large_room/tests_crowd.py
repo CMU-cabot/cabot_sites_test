@@ -482,6 +482,54 @@ def test_category6_case1_sfm_actors(tester):
     _goto_target1(tester)
 
 
+def test_category6_case1_sfm_actors_variant1_perfect_people_detection(tester):
+    # 6.1 crowd navigation
+    tester.set_people_detection_range(
+        min_range=0.0,
+        max_range=100.0,
+        min_angle=-3.142,
+        max_angle=3.142,
+        occlusion_radius=0.25,
+        divider_distance_m=0.05,
+        divider_angle_deg=1.0
+    )
+    tester.check_collision()
+    bound = 5.0
+    actors = []
+    n_actors = 10
+    for i in range(0, n_actors):
+        actors.append({
+            "name": f"actor{i}",
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "init_x": random.uniform(-bound, bound),
+                "init_y": random.uniform(-bound, bound),
+                "init_a": random.uniform(-180.0, 180.0),
+                "velocity": 1.0,
+                "n_actors": n_actors,
+                "min_x": -bound,
+                "max_x": bound,
+                "min_y": -bound,
+                "max_y": bound,
+            },
+        })
+    tester.reset_position(x=-6.0)
+    _setup_actors_with_allocation(tester, actors=actors)
+    _add_metric_condition_lt(tester, "total_time", 120) # 120 is the test case timeout value.
+    _add_metric_condition_lt(tester, "time_not_moving", 3.6) # 3.6 is the average value of 5 runs in test_category6_case1_sfm_actors with a 100% margin added.
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    _goto_target1(tester)
+    tester.set_people_detection_range(
+        min_range=0.29, # 0.07 is the distance from the center of the LiDAR to the front of the front camera.
+        max_range=7.07, # 0.07 is the distance from the center of the LiDAR to the front of the front camera.
+        min_angle=-2.28,
+        max_angle=2.28,
+        occlusion_radius=0.25,
+        divider_distance_m=0.05,
+        divider_angle_deg=1.0
+    )
+
+
 def test_category6_case2_sfm_parallel_traffic(tester):
     # 6.2 parallel traffic
     tester.check_collision()

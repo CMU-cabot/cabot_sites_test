@@ -400,3 +400,141 @@ def test_category3_case1_move_across_a_pedestrian_proceed(tester):
     _add_metric_condition_lt(tester, "time_not_moving", 3.8) # 3.8 is the average value of 5 runs with a 10% margin added.
     _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
     _goto_target1(tester)
+
+def test_category3_case2_approach_the_stationary_robot_from_left_repeat(tester):
+    tester.set_people_detection_range(
+        min_range=0.0,
+        max_range=100.0,
+        min_angle=-3.142,
+        max_angle=3.142,
+        occlusion_radius=0.25,
+        divider_distance_m=0.05,
+        divider_angle_deg=1.0
+    )
+    tester.check_collision()
+    tester.reset_position()
+
+    actors=[
+        {
+            "name": 'actor0',
+            "module": "pedestrian.walk_across",
+            "params": {
+                "init_x": -0.5,
+                "init_y": 5.0,
+                "init_a": -90.0,
+                "velocity": 0.95,
+                "goal_x": -0.5,
+                "goal_y": 3.0,
+                "repeat": 1,
+                "pause_distance": 3.0
+            },
+        },
+    ]
+
+    _setup_actors(tester, actors=actors)
+    _add_metric_condition_lt(tester, "total_time", 18) # 18 is the average value of 5 runs with a 10% margin added when the actor is stationary.
+    _add_metric_condition_lt(tester, "robot_path_length", 11.9) # 11.9 is the average value of 5 runs with a 10% margin added when the actor is stationary.
+    _add_metric_condition_lt(tester, "time_not_moving", 3.6) # 3.6 is the average value of 5 runs with a 10% margin added when the actor is stationary.
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    _goto_target1(tester)
+    tester.set_people_detection_range(
+        min_range=0.29, # 0.07 is the distance from the center of the LiDAR to the front of the front camera.
+        max_range=7.07, # 0.07 is the distance from the center of the LiDAR to the front of the front camera.
+        min_angle=-2.28,
+        max_angle=2.28,
+        occlusion_radius=0.25,
+        divider_distance_m=0.05,
+        divider_angle_deg=1.0
+    )
+
+def test_category3_case2_approach_the_stationary_robot_from_right_repeat(tester):
+    tester.set_people_detection_range(
+        min_range=0.0,
+        max_range=100.0,
+        min_angle=-3.142,
+        max_angle=3.142,
+        occlusion_radius=0.25,
+        divider_distance_m=0.05,
+        divider_angle_deg=1.0
+    )
+    tester.check_collision()
+    tester.reset_position()
+
+    actors=[
+        {
+            "name": 'actor0',
+            "module": "pedestrian.walk_across",
+            "params": {
+                "init_x": -0.5,
+                "init_y": -5.0,
+                "init_a": 90.0,
+                "velocity": 0.95,
+                "goal_x": -0.5,
+                "goal_y": -3.0,
+                "repeat": 1,
+                "pause_distance": 3.0
+            },
+        },
+    ]
+
+    _setup_actors(tester, actors=actors)
+    _add_metric_condition_lt(tester, "total_time", 18) # 18 is the average value of 5 runs with a 10% margin added when the actor is stationary.
+    _add_metric_condition_lt(tester, "robot_path_length", 11.9) # 11.9 is the average value of 5 runs with a 10% margin added when the actor is stationary.
+    _add_metric_condition_lt(tester, "time_not_moving", 3.6) # 3.6 is the average value of 5 runs with a 10% margin added when the actor is stationary.
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    _goto_target1(tester)
+    tester.set_people_detection_range(
+        min_range=0.29, # 0.07 is the distance from the center of the LiDAR to the front of the front camera.
+        max_range=7.07, # 0.07 is the distance from the center of the LiDAR to the front of the front camera.
+        min_angle=-2.28,
+        max_angle=2.28,
+        occlusion_radius=0.25,
+        divider_distance_m=0.05,
+        divider_angle_deg=1.0
+    )
+
+def test_category3_case2_approach_the_stationary_robot_from_behind_repeat(tester):
+    tester.set_people_detection_range(
+        min_range=0.0,
+        max_range=100.0,
+        min_angle=-3.142,
+        max_angle=3.142,
+        occlusion_radius=0.25,
+        divider_distance_m=0.05,
+        divider_angle_deg=1.0
+    )
+    tester.check_collision()
+    tester.reset_position()
+
+    actors=[
+        {
+            "name": 'actor0',
+            "module": "pedestrian.walk_across",
+            "params": {
+                "init_x": -5.0,
+                "init_y": -0.5,
+                "init_a": 0.0,
+                "velocity": 0.95,
+                "goal_x": -3.0,
+                "goal_y": -0.5,
+                "repeat": 1,
+                "pause_distance": 3.0
+            },
+        },
+    ]
+
+    _setup_actors(tester, actors=actors)
+    _add_metric_condition_lt(tester, "total_time", 18) # 18 is the average value of 5 runs with a 10% margin added when the actor is stationary.
+    _add_metric_condition_lt(tester, "robot_path_length", 11.9) # 11.9 is the average value of 5 runs with a 10% margin added when the actor is stationary.
+    _add_metric_condition_lt(tester, "time_not_moving", 3.6) # 3.6 is the average value of 5 runs with a 10% margin added when the actor is stationary.
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    _goto_target1(tester)
+    tester.set_people_detection_range(
+        min_range=0.29, # 0.07 is the distance from the center of the LiDAR to the front of the front camera.
+        max_range=7.07, # 0.07 is the distance from the center of the LiDAR to the front of the front camera.
+        min_angle=-2.28,
+        max_angle=2.28,
+        occlusion_radius=0.25,
+        divider_distance_m=0.05,
+        divider_angle_deg=1.0
+    )
