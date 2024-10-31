@@ -41,24 +41,25 @@ def test0(tester):
 def test1_climb_step_lower_than_5cm_and_slow_down(tester):
     STEP_HEIGHT = 0.030 # 3.0cm=30mm
     tester.reset_position(x=-7.5,y=-1.0,a=0.0)
+    tester.floor_change(+1)
     tester.spawn_obstacle(
             name="10mm_step", \
-            x=-2.75, y=-1.0, z=0., yaw=0., \
+            x=-2.75, y=-1.0, z=15., yaw=0., \
             width=4.5, height=2, depth=STEP_HEIGHT \
             )
 
-    tester.goto_node('EDITOR_node_1720772383943')
+    tester.goto_node('EDITOR_node_1730277138101')
 
     max_speed = 1.0
     cancel = tester.check_topic(
-        action_name='is_speed_under_limit_goto_EDITOR_node_1720767181153',
+        action_name='is_speed_under_limit_goto_EDITOR_node_1730277130501',
         topic='/odom',
         topic_type='nav_msgs/msg/Odometry',
         condition=f"msg.twist.twist.linear.x <= {max_speed}",
         timeout=10
     )
     tester.wait_topic(
-        action_name='is_speed_closeto_limit_goto_EDITOR_node_1720767181153',
+        action_name='is_speed_closeto_limit_goto_EDITOR_node_1730277130501',
         topic='/odom',
         topic_type='nav_msgs/msg/Odometry',
         condition="msg.twist.twist.linear.x > 0.3",
@@ -70,14 +71,14 @@ def test1_climb_step_lower_than_5cm_and_slow_down(tester):
 
     max_speed = 0.3
     cancel = tester.check_topic(
-        action_name='is_speed_closeto_limit_goto_EDITOR_node_1720767185067',
+        action_name='is_speed_closeto_limit_goto_EDITOR_node_1730277132929',
         topic='/odom',
         topic_type='nav_msgs/msg/Odometry',
         condition=f"msg.twist.twist.linear.x <= {max_speed}",
         timeout=10
     )
     tester.wait_topic(
-        action_name='is_speed_under_limit_goto_EDITOR_node_1720767185067',
+        action_name='is_speed_under_limit_goto_EDITOR_node_1730277132929',
         topic='/odom',
         topic_type='nav_msgs/msg/Odometry',
         condition=f"msg.twist.twist.linear.x > ({max_speed}-0.1)",
@@ -89,14 +90,14 @@ def test1_climb_step_lower_than_5cm_and_slow_down(tester):
 
     max_speed = 1.0
     cancel = tester.check_topic(
-        action_name='is_speed_closeto_limit_goto_EDITOR_node_1720767023704',
+        action_name='is_speed_closeto_limit_goto_EDITOR_node_1730277134693',
         topic='/odom',
         topic_type='nav_msgs/msg/Odometry',
         condition=f"msg.twist.twist.linear.x <= {max_speed}",
         timeout=10
     )
     tester.wait_topic(
-        action_name='is_speed_under_limit_goto_EDITOR_node_1720767023704',
+        action_name='is_speed_under_limit_goto_EDITOR_node_1730277134693',
         topic='/odom',
         topic_type='nav_msgs/msg/Odometry',
         condition=f"msg.twist.twist.linear.x > ({max_speed}-0.1)",
@@ -108,14 +109,14 @@ def test1_climb_step_lower_than_5cm_and_slow_down(tester):
 
     max_speed = 0.3
     cancel = tester.check_topic(
-        action_name='is_speed_closeto_limit_goto_EDITOR_node_1720772172279',
+        action_name='is_speed_closeto_limit_goto_EDITOR_node_1730277136174',
         topic='/odom',
         topic_type='nav_msgs/msg/Odometry',
         condition=f"msg.twist.twist.linear.x <= {max_speed}",
         timeout=10
     )
     tester.wait_topic(
-        action_name='is_speed_under_limit_goto_EDITOR_node_1720772172279',
+        action_name='is_speed_under_limit_goto_EDITOR_node_1730277136174',
         topic='/odom',
         topic_type='nav_msgs/msg/Odometry',
         condition=f"msg.twist.twist.linear.x > ({max_speed}-0.1)",
