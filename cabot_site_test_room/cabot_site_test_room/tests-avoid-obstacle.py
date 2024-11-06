@@ -40,12 +40,11 @@ def test0(tester):
 
 def test1_climb_step_lower_than_5cm_and_slow_down(tester):
     STEP_HEIGHT = 0.015 # 1.5cm=15mm
-    tester.reset_position(x=-7.5,y=-1.0,a=0.0)
-    tester.floor_change(+1)
+    tester.reset_position(x=-7.5,y=-1.0,z=10,a=0.0,floor=2)
     tester.spawn_obstacle(
-            name="10mm_step", \
-            x=-2.75, y=-1.0, z=10., yaw=0., \
-            width=4.5, height=2, depth=STEP_HEIGHT \
+            name="15mm_step", \
+            x=-1.25, y=-1.0, z=10., yaw=0., \
+            width=5.5, height=2, depth=STEP_HEIGHT \
             )
 
     tester.goto_node('EDITOR_node_1730277138101')
