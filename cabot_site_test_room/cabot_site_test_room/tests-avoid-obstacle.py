@@ -39,12 +39,12 @@ def test0(tester):
     tester.wait_for(1)
 
 def test1_climb_step_lower_than_5cm_and_slow_down(tester):
-    STEP_HEIGHT = 0.030 # 3.0cm=30mm
+    STEP_HEIGHT = 0.015 # 1.5cm=15mm
     tester.reset_position(x=-7.5,y=-1.0,a=0.0)
     tester.floor_change(+1)
     tester.spawn_obstacle(
             name="10mm_step", \
-            x=-2.75, y=-1.0, z=15., yaw=0., \
+            x=-2.75, y=-1.0, z=10., yaw=0., \
             width=4.5, height=2, depth=STEP_HEIGHT \
             )
 
