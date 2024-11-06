@@ -2541,23 +2541,23 @@
 				]
 			},
 			"properties": {
-				"link_id": "EDITOR_link_1728329877329",
-				"start_id": "EDITOR_node_1708914054400",
-				"end_id": "EDITOR_node_1728329875251",
-				"rt_struct": 7,
-				"route_type": 1,
-				"direction": 1,
-				"width": 99,
-				"vtcl_slope": 99,
-				"lev_diff": 99,
-				"tfc_signal": 99,
-				"tfc_s_type": 99,
-				"brail_tile": 99,
-				"elevator": 99,
 				"roof": 99,
 				"hulop_file": "EDITOR",
+				"start_id": "EDITOR_node_1708914054400",
 				"distance": 0.2,
-				"hulop_road_width": 1
+				"vtcl_slope": 99,
+				"end_id": "EDITOR_node_1728329875251",
+				"tfc_s_type": 99,
+				"brail_tile": 99,
+				"link_id": "EDITOR_link_1728329877329",
+				"tfc_signal": 99,
+				"elevator": 99,
+				"rt_struct": 7,
+				"route_type": 1,
+				"width": 99,
+				"hulop_road_width": 1,
+				"lev_diff": 99,
+				"direction": 1
 			},
 			"_id": "EDITOR_link_1728329877329"
 		},
@@ -2577,9 +2577,45 @@
 				]
 			},
 			"properties": {
-				"link_id": "EDITOR_link_1728329882501",
+				"roof": 99,
+				"hulop_file": "EDITOR",
 				"start_id": "EDITOR_node_1728329875251",
+				"distance": 1.7,
+				"vtcl_slope": 99,
 				"end_id": "EDITOR_node_1728329879720",
+				"tfc_s_type": 99,
+				"brail_tile": 99,
+				"link_id": "EDITOR_link_1728329882501",
+				"tfc_signal": 99,
+				"elevator": 99,
+				"rt_struct": 7,
+				"route_type": 1,
+				"width": 99,
+				"hulop_road_width": 1,
+				"lev_diff": 99,
+				"direction": 1
+			},
+			"_id": "EDITOR_link_1728329882501"
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-79.94674429514554,
+						40.444205168063036
+					],
+					[
+						-79.94674365967512,
+						40.44418120403361
+					]
+				]
+			},
+			"properties": {
+				"link_id": "EDITOR_link_1730277170610",
+				"start_id": "EDITOR_node_1719362182201",
+				"end_id": "EDITOR_node_1730277126679",
 				"rt_struct": 7,
 				"route_type": 1,
 				"direction": 1,
@@ -2592,10 +2628,186 @@
 				"elevator": 99,
 				"roof": 99,
 				"hulop_file": "EDITOR",
-				"distance": 1.7,
-				"hulop_road_width": 1
+				"distance": 2.7
 			},
-			"_id": "EDITOR_link_1728329882501"
+			"_id": "EDITOR_link_1730277170610"
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-79.94674365967512,
+						40.44418120403361
+					],
+					[
+						-79.94670644402504,
+						40.4441822246655
+					]
+				]
+			},
+			"properties": {
+				"link_id": "EDITOR_link_1730277172651",
+				"start_id": "EDITOR_node_1730277126679",
+				"end_id": "EDITOR_node_1730277130501",
+				"rt_struct": 7,
+				"route_type": 1,
+				"direction": 1,
+				"width": 99,
+				"vtcl_slope": 99,
+				"lev_diff": 99,
+				"tfc_signal": 99,
+				"tfc_s_type": 99,
+				"brail_tile": 99,
+				"elevator": 99,
+				"roof": 99,
+				"hulop_file": "EDITOR",
+				"distance": 3.2
+			},
+			"_id": "EDITOR_link_1730277172651"
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-79.94670644402504,
+						40.4441822246655
+					],
+					[
+						-79.94667258113623,
+						40.444181969507525
+					]
+				]
+			},
+			"properties": {
+				"link_id": "EDITOR_link_1730277175127",
+				"start_id": "EDITOR_node_1730277130501",
+				"end_id": "EDITOR_node_1730277132929",
+				"rt_struct": 7,
+				"route_type": 1,
+				"direction": 1,
+				"width": 99,
+				"vtcl_slope": 99,
+				"lev_diff": 99,
+				"tfc_signal": 99,
+				"tfc_s_type": 99,
+				"brail_tile": 99,
+				"elevator": 99,
+				"roof": 99,
+				"hulop_file": "EDITOR",
+				"distance": 2.9,
+				"levDif_max": 3
+			},
+			"_id": "EDITOR_link_1730277175127"
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-79.94667258113623,
+						40.444181969507525
+					],
+					[
+						-79.94664207100868,
+						40.44418299013944
+					]
+				]
+			},
+			"properties": {
+				"link_id": "EDITOR_link_1730277177084",
+				"start_id": "EDITOR_node_1730277132929",
+				"end_id": "EDITOR_node_1730277134693",
+				"rt_struct": 7,
+				"route_type": 1,
+				"direction": 1,
+				"width": 99,
+				"vtcl_slope": 99,
+				"lev_diff": 99,
+				"tfc_signal": 99,
+				"tfc_s_type": 99,
+				"brail_tile": 99,
+				"elevator": 99,
+				"roof": 99,
+				"hulop_file": "EDITOR",
+				"distance": 2.6
+			},
+			"_id": "EDITOR_link_1730277177084"
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-79.94661457836628,
+						40.44418350045538
+					],
+					[
+						-79.94664207100868,
+						40.44418299013944
+					]
+				]
+			},
+			"properties": {
+				"link_id": "EDITOR_link_1730277179290",
+				"start_id": "EDITOR_node_1730277136174",
+				"end_id": "EDITOR_node_1730277134693",
+				"rt_struct": 7,
+				"route_type": 1,
+				"direction": 1,
+				"width": 99,
+				"vtcl_slope": 99,
+				"lev_diff": 99,
+				"tfc_signal": 99,
+				"tfc_s_type": 99,
+				"brail_tile": 99,
+				"elevator": 99,
+				"roof": 99,
+				"hulop_file": "EDITOR",
+				"distance": 2.3,
+				"levDif_max": 3
+			},
+			"_id": "EDITOR_link_1730277179290"
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-79.94661457836628,
+						40.44418350045538
+					],
+					[
+						-79.94658440351486,
+						40.444183755613324
+					]
+				]
+			},
+			"properties": {
+				"link_id": "EDITOR_link_1730277181644",
+				"start_id": "EDITOR_node_1730277136174",
+				"end_id": "EDITOR_node_1730277138101",
+				"rt_struct": 7,
+				"route_type": 1,
+				"direction": 1,
+				"width": 99,
+				"vtcl_slope": 99,
+				"lev_diff": 99,
+				"tfc_signal": 99,
+				"tfc_s_type": 99,
+				"brail_tile": 99,
+				"elevator": 99,
+				"roof": 99,
+				"hulop_file": "EDITOR",
+				"distance": 2.6
+			},
+			"_id": "EDITOR_link_1730277181644"
 		},
 		{
 			"type": "Feature",
@@ -3793,7 +4005,8 @@
 				"floor": 3,
 				"lat": 40.444205168063036,
 				"link1_id": "EDITOR_link_1719362192861",
-				"node_id": "EDITOR_node_1719362182201"
+				"node_id": "EDITOR_node_1719362182201",
+				"link2_id": "EDITOR_link_1730277170610"
 			},
 			"_id": "EDITOR_node_1719362182201"
 		},
@@ -3807,14 +4020,14 @@
 				]
 			},
 			"properties": {
-				"node_id": "EDITOR_node_1728329875251",
-				"floor": 1,
 				"in_out": 3,
 				"hulop_file": "EDITOR",
-				"lat": 40.44415546496768,
 				"lon": -79.94652950204907,
+				"floor": 1,
+				"link2_id": "EDITOR_link_1728329882501",
+				"lat": 40.44415546496768,
 				"link1_id": "EDITOR_link_1728329877329",
-				"link2_id": "EDITOR_link_1728329882501"
+				"node_id": "EDITOR_node_1728329875251"
 			},
 			"_id": "EDITOR_node_1728329875251"
 		},
@@ -3828,15 +4041,140 @@
 				]
 			},
 			"properties": {
-				"node_id": "EDITOR_node_1728329879720",
-				"floor": 1,
 				"in_out": 3,
 				"hulop_file": "EDITOR",
-				"lat": 40.444140633902975,
 				"lon": -79.94652983732519,
-				"link1_id": "EDITOR_link_1728329882501"
+				"floor": 1,
+				"lat": 40.444140633902975,
+				"link1_id": "EDITOR_link_1728329882501",
+				"node_id": "EDITOR_node_1728329879720"
 			},
 			"_id": "EDITOR_node_1728329879720"
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-79.94674365967512,
+					40.44418120403361
+				]
+			},
+			"properties": {
+				"node_id": "EDITOR_node_1730277126679",
+				"floor": 3,
+				"in_out": 3,
+				"hulop_file": "EDITOR",
+				"lat": 40.44418120403361,
+				"lon": -79.94674365967512,
+				"link1_id": "EDITOR_link_1730277170610",
+				"link2_id": "EDITOR_link_1730277172651"
+			},
+			"_id": "EDITOR_node_1730277126679"
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-79.94670644402504,
+					40.4441822246655
+				]
+			},
+			"properties": {
+				"node_id": "EDITOR_node_1730277130501",
+				"floor": 3,
+				"in_out": 3,
+				"hulop_file": "EDITOR",
+				"lat": 40.4441822246655,
+				"lon": -79.94670644402504,
+				"link1_id": "EDITOR_link_1730277172651",
+				"link2_id": "EDITOR_link_1730277175127"
+			},
+			"_id": "EDITOR_node_1730277130501"
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-79.94667258113623,
+					40.444181969507525
+				]
+			},
+			"properties": {
+				"node_id": "EDITOR_node_1730277132929",
+				"floor": 3,
+				"in_out": 3,
+				"hulop_file": "EDITOR",
+				"lat": 40.444181969507525,
+				"lon": -79.94667258113623,
+				"link1_id": "EDITOR_link_1730277175127",
+				"link2_id": "EDITOR_link_1730277177084"
+			},
+			"_id": "EDITOR_node_1730277132929"
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-79.94664207100868,
+					40.44418299013944
+				]
+			},
+			"properties": {
+				"node_id": "EDITOR_node_1730277134693",
+				"floor": 3,
+				"in_out": 3,
+				"hulop_file": "EDITOR",
+				"lat": 40.44418299013944,
+				"lon": -79.94664207100868,
+				"link1_id": "EDITOR_link_1730277177084",
+				"link2_id": "EDITOR_link_1730277179290"
+			},
+			"_id": "EDITOR_node_1730277134693"
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-79.94661457836628,
+					40.44418350045538
+				]
+			},
+			"properties": {
+				"node_id": "EDITOR_node_1730277136174",
+				"floor": 3,
+				"in_out": 3,
+				"hulop_file": "EDITOR",
+				"lat": 40.44418350045538,
+				"lon": -79.94661457836628,
+				"link1_id": "EDITOR_link_1730277179290",
+				"link2_id": "EDITOR_link_1730277181644"
+			},
+			"_id": "EDITOR_node_1730277136174"
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-79.94658440351486,
+					40.444183755613324
+				]
+			},
+			"properties": {
+				"node_id": "EDITOR_node_1730277138101",
+				"floor": 3,
+				"in_out": 3,
+				"hulop_file": "EDITOR",
+				"lat": 40.444183755613324,
+				"lon": -79.94658440351486,
+				"link1_id": "EDITOR_link_1730277181644"
+			},
+			"_id": "EDITOR_node_1730277138101"
 		}
 	]
 }
