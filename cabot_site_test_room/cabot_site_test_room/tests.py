@@ -283,3 +283,12 @@ def test19_stack_at_start(tester):
     tester.reset_position(x=9.95, y=-4.5, a=135)
     tester.goto_node("EDITOR_node_1708914074632")
     tester.wait_navigation_completed(timeout=90)
+
+
+def test20_crosswalk(tester):
+    tester.reset_position(x=-5.0, y=-5.0, a=90)
+    tester.goto_node("EDITOR_node_1730941779856")
+    tester.wait_navigation_completed(timeout=90)
+    tester.wait_for(2)
+    tester.goto_node("EDITOR_node_1710181899531")
+    tester.wait_navigation_completed(timeout=90)
