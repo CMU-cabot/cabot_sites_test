@@ -283,3 +283,43 @@ def test19_stack_at_start(tester):
     tester.reset_position(x=9.95, y=-4.5, a=135)
     tester.goto_node("EDITOR_node_1708914074632")
     tester.wait_navigation_completed(timeout=90)
+
+
+def test20_retry_goal(tester):
+    tester.reset_position(x=1.0, y=-1.0, a=0.0)
+    tester.goto_node('EDITOR_node_1707899216479')
+
+    # error if navigation completed is coming after retry
+    cancel = tester.check_topic_error(
+        action_name='check_wrong_goal',
+        topic='/cabot/activity_log',
+        topic_type='cabot_msgs/msg/Log',
+        condition="msg.category=='cabot/navigation' and msg.text=='completed'"
+    )
+
+    # subscribe to debug/goal_id to cancel goal intentionally
+    from unique_identifier_msgs.msg import UUID
+    from rclpy.action import ActionClient
+    from rclpy.action.client import ClientGoalHandle
+    from nav2_msgs.action import NavigateToPose
+    client = ActionClient(tester.node, NavigateToPose, "/navigate_to_pose")
+    client.count = 0
+    def goal_id_callback(msg):
+        client.handle = ClientGoalHandle(client, msg, None)
+    sub = tester.node.create_subscription(UUID, "/debug/goal_id", goal_id_callback, 10)
+
+    # try to cancel goal 3 times
+    tester.wait_for(5)
+    client.handle.cancel_goal_async()
+    tester.wait_for(5)
+    client.handle.cancel_goal_async()
+    tester.wait_for(5)
+    client.handle.cancel_goal_async()
+    tester.wait_for(5)
+    # cancel check
+    cancel()
+
+    tester.wait_navigation_completed(timeout=90)
+    # need to destroy created client and subscription
+    client.destroy()
+    sub.destroy()
