@@ -24,5 +24,6 @@ install(DIRECTORY config/ DESTINATION share/${PROJECT_NAME}/config/)
 install(DIRECTORY maps/ DESTINATION share/${PROJECT_NAME}/maps/)
 install(DIRECTORY models/ DESTINATION share/${PROJECT_NAME}/models/)
 install(DIRECTORY worlds/ DESTINATION share/${PROJECT_NAME}/worlds/)
+install(DIRECTORY server_data/ DESTINATION share/${PROJECT_NAME}/server_data/)
 
 ament_package()

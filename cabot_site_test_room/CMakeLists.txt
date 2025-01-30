@@ -25,5 +25,6 @@ install(DIRECTORY maps/ DESTINATION share/${PROJECT_NAME}/maps/)
 install(DIRECTORY models/ DESTINATION share/${PROJECT_NAME}/models/)
 install(DIRECTORY queue/ DESTINATION share/${PROJECT_NAME}/queue/)
 install(DIRECTORY worlds/ DESTINATION share/${PROJECT_NAME}/worlds/)
+install(DIRECTORY server_data/ DESTINATION share/${PROJECT_NAME}/server_data/)
 
 ament_package()
