@@ -172,6 +172,59 @@ def test10_speed_poi(tester):
     tester.wait_navigation_arrived(timeout=20)
 
 
+def test10_2_check_poi_with_line_mode(tester):
+    tester.reset_position(x=1.0, y=2.0, a=0.0)
+    tester.spawn_obstacle(
+        name="obstacle10_2",
+        x=4.0,
+        y=2.0,
+        z=0,
+        width=0.2,
+        height=3.0,
+        depth=1,
+        yaw=0)
+    tester.wait_for(3)
+    tester.goto_node('EDITOR_node_1711172494427')
+    cancel = tester.check_topic(
+        action_name='check_info',
+        topic='/cabot/activity_log',
+        topic_type='cabot_msgs/msg/Log',
+        condition="msg.category == 'speech request' and msg.text == 'Hello'",
+        timeout=10
+    )
+    tester.wait_topic(
+        action_name='check_speed',
+        topic='/odom',
+        topic_type='nav_msgs/msg/Odometry',
+        condition="msg.twist.twist.linear.x > 0.5",
+        timeout=10
+    )
+    tester.wait_topic(
+        action_name='check_speed',
+        topic='/odom',
+        topic_type='nav_msgs/msg/Odometry',
+        condition="msg.twist.twist.linear.x < 0.12",
+        timeout=10
+    )
+    tester.wait_topic(
+        action_name='check_speed',
+        topic='/odom',
+        topic_type='nav_msgs/msg/Odometry',
+        condition="msg.twist.twist.linear.x > 0.5",
+        timeout=10
+    )
+    tester.wait_topic(
+        action_name='check_speed',
+        topic='/odom',
+        topic_type='nav_msgs/msg/Odometry',
+        condition="msg.twist.twist.linear.x < 0.12",
+        timeout=10
+    )
+    tester.wait_navigation_arrived(timeout=30)
+    tester.delete_obstacle(name="obstacle10_2")
+    cancel()
+
+
 def test11_skip_in_navgoal(tester):
     tester.reset_position(x=0.0, y=0.0)
     tester.goto_node('EDITOR_node_1710181891921')
