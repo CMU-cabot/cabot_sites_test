@@ -24,7 +24,7 @@
 
 <package format="3">
   <name>cabot_site_large_room</name>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
   <description>A package of cabot_site for testing</description>
   <maintainer email="daisukes@cmu.edu">Daisuke Sato</maintainer>
   <license>MIT</license>
