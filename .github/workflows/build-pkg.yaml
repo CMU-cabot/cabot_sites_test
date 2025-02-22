@@ -15,12 +15,12 @@ jobs:
 
       - name: Create zip file
         run: |
-          ./build-pkg.sh cabot_site_test_room
-          ./build-pkg.sh cabot_site_large_room
+          ./build-pkg.sh cabot_site_test_room ${{ github.ref_name }}
+          ./build-pkg.sh cabot_site_large_room ${{ github.ref_name }}
 
       - name: Create GitHub Release
         id: create_release
         uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          artifacts: ./pkg/cabot_site_test_room.zip,./pkg/cabot_site_large_room.zip
+          artifacts: ./pkg/cabot_site_test_room-${{ github.ref_name }}.zip,./pkg/cabot_site_large_room-${{ github.ref_name }}.zip
