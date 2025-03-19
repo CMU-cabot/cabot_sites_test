@@ -323,3 +323,46 @@ def test20_retry_goal(tester):
     # need to destroy created client and subscription
     client.destroy()
     sub.destroy()
+
+
+def test21_gradient_topic(tester):
+    tester.reset_position(x=10.0, y=-2.0, z=10.0, a=180.0, floor=2)
+    tester.goto_node('EDITOR_node_1742329422364')
+    cancel = tester.check_topic(
+        action_name='check_gradient up',
+        topic='/cabot/gradient',
+        topic_type='std_msgs/msg/Float32',
+        condition="msg.data > 0.1"
+    )
+    tester.wait_navigation_arrived(timeout=30)
+    cancel()
+
+    tester.goto_node('EDITOR_node_1742329308446')
+    cancel = tester.check_topic(
+        action_name='check_gradient down',
+        topic='/cabot/gradient',
+        topic_type='std_msgs/msg/Float32',
+        condition="msg.data < -0.1"
+    )
+    tester.wait_navigation_arrived(timeout=30)
+    cancel()
+
+    tester.goto_node('EDITOR_node_1742329422364')
+    cancel = tester.check_topic(
+        action_name='check_gradient up 2',
+        topic='/cabot/gradient',
+        topic_type='std_msgs/msg/Float32',
+        condition="msg.data > 0.1"
+    )
+    tester.wait_navigation_arrived(timeout=30)
+    cancel()
+
+    tester.goto_node('EDITOR_node_1742328173374')
+    cancel = tester.check_topic(
+        action_name='check_gradient down 2',
+        topic='/cabot/gradient',
+        topic_type='std_msgs/msg/Float32',
+        condition="msg.data < -0.1"
+    )
+    tester.wait_navigation_arrived(timeout=30)
+    cancel()
