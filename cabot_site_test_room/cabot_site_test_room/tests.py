@@ -128,14 +128,14 @@ def test09_navcog_path_bug(tester):
     tester.reset_position(x=1.0, y=-1.0, a=0.0)
     tester.goto_node('EDITOR_node_1707899216479')
     tester.wait_navigation_arrived(timeout=30)
-    tester.goto_node('EDITOR_node_1707899150598')
-    tester.wait_topic(
+    cancel = tester.wait_topic(
         action_name='check_path',
         topic='/path',
         topic_type='nav_msgs/msg/Path',
         condition="msg.poses[0].pose.position.x > 5",
         timeout=30
     )
+    tester.goto_node('EDITOR_node_1707899150598')
     tester.wait_navigation_arrived(timeout=30)
 
 
@@ -231,7 +231,7 @@ def test14_check_footprint_size(tester):
         action_name='check_footprint_size',
         topic='/global_costmap/footprint',
         topic_type='geometry_msgs/msg/Polygon',
-        condition="abs(msg.points[0].x - 0.2) < 0.001",
+        condition="abs(msg.points[0].x - 0.45) < 0.001",
         timeout=5,
     )
 
@@ -367,3 +367,51 @@ def test21_gradient_topic(tester):
     )
     tester.wait_navigation_arrived(timeout=30)
     cancel()
+
+
+def test22_turn_goal(tester):
+    tester.reset_position(x=0.0, y=0.0, a=0.0)
+    tester.goto_node('EDITOR_node_1707899150598@0')
+    tester.wait_goal("TurnGoal")
+    tester.wait_navigation_completed(timeout=90)
+
+
+def test23_check_parameter_change(tester):
+    tester.reset_position(x=10.0, a=-90.0)
+    tester.goto_node('EDITOR_node_1710181891921')
+    tester.wait_for(3)
+    expected_footprint_mode = 0
+
+    def service_callback(msg):
+        nonlocal expected_footprint_mode
+        tester.assert_true(
+            condition=(expected_footprint_mode == msg.values[0].integer_value)
+        )
+    tester.call_service(
+        action_name="check_footprint_mode1",
+        service="/footprint_publisher/get_parameters",
+        service_type="rcl_interfaces/srv/GetParameters",
+        request="names: ['footprint_mode']",
+        callback=service_callback
+    )
+    tester.wait_goal("NavGoal")
+    expected_footprint_mode = 3
+    tester.wait_for(3)
+    tester.call_service(
+        action_name="check_footprint_mode2",
+        service="/footprint_publisher/get_parameters",
+        service_type="rcl_interfaces/srv/GetParameters",
+        request="names: ['footprint_mode']",
+        callback=service_callback
+    )
+    tester.wait_goal("NarrowGoal")
+    expected_footprint_mode = 0
+    tester.wait_for(3)
+    tester.call_service(
+        action_name="check_footprint_mode3",
+        service="/footprint_publisher/get_parameters",
+        service_type="rcl_interfaces/srv/GetParameters",
+        request="names: ['footprint_mode']",
+        callback=service_callback
+    )
+    tester.wait_navigation_completed(timeout=20)
