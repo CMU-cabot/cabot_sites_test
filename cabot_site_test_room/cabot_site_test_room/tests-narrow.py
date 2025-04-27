@@ -7,7 +7,8 @@ def config(tester):
 
 
 def wait_ready(tester):
-    tester.wait_localization_started()
+    # tester.wait_localization_started()
+    tester.wait_ready()
 
 
 def _check_interface_event(tester, event, **kwargs):

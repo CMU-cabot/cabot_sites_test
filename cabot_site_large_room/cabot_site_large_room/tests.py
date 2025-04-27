@@ -64,7 +64,8 @@ def checks(tester):
 
 
 def wait_ready(tester):
-    tester.wait_localization_started()
+    # tester.wait_localization_started()
+    tester.wait_ready()
 
 
 def _goto_target1(tester):

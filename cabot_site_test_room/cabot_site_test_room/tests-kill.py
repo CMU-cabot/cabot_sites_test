@@ -20,7 +20,8 @@ def config(tester):
 
 
 def wait_ready(tester):
-    tester.wait_localization_started()
+    # tester.wait_localization_started()
+    tester.wait_ready()
 
 
 def test1_kill_planner(tester):
