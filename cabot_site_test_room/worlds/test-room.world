@@ -8,6 +8,14 @@
       <uri>model://sun</uri>
     </include>
 
+    <model name='person-shadow-1'>
+      <static>true</static>
+      <include>
+        <uri>model://person-shadow</uri>
+      </include>
+      <pose>2.0 1.0 0.01 0 0 -1.57</pose>
+    </model>
+
     <physics type='ode'>
       <max_step_size>0.01</max_step_size>
       <real_time_factor>1</real_time_factor>
