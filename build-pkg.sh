@@ -6,7 +6,7 @@ VERSION=$2
 
 if [[ -z $VERSION ]]; then
     echo "Usage:"
-    echo " $0 <cabot_site pkg version>"
+    echo " $0 <cabot_site pkg> <version>"
     exit
 fi
 
@@ -32,7 +32,7 @@ docker run --rm \
     ros:humble \
     /bin/sh -c "\
         . /opt/ros/humble/setup.sh && \
-        cd /opt/build_ws && colcon build \
+        cd /opt/build_ws && colcon build && chown -R $(id -u):$(id -g) . \
     "
 
 pushd pkg
