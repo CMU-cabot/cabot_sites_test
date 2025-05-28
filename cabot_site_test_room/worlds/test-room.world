@@ -8,6 +8,62 @@
       <uri>model://sun</uri>
     </include>
 
+    <actor name="actor0">
+      <static>true</static>
+      <skin>
+        <filename>walk.dae</filename>
+      </skin>
+      <animation name="walking">
+        <filename>walk.dae</filename>
+        <interpolate_x>true</interpolate_x>
+      </animation>
+      <script>
+        <ignore_obstacles>
+          <model>ground_plane</model>
+          <model>actor0_collision_model</model>
+          <model>pillar</model>
+        </ignore_obstacles>
+        <trajectory id="0" type="walking">
+          <waypoint>
+            <time>0</time>
+            <pose>5 0 0 0 0 3.14</pose>
+          </waypoint>
+          <waypoint>
+            <time>5</time>
+            <pose>2 0 0 0 0 3.14</pose>
+          </waypoint>
+          <waypoint>
+            <time>7.5</time>
+            <pose>2 2 0 0 0 0</pose>
+          </waypoint>
+          <waypoint>
+            <time>12.5</time>
+            <pose>5 2 0 0 0 0</pose>
+          </waypoint>
+          <waypoint>
+            <time>15.0</time>
+            <pose>5 0 0 0 0 -3.14</pose>
+          </waypoint>
+        </trajectory>
+      </script>
+    </actor>
+
+    <model name='cube_1f'>
+      <static>true</static>Add commentMore actions
+      <include>
+        <uri>model://cube</uri>
+      </include>
+      <pose>5.0 1.0 0.05 0 0 0</pose>
+    </model>
+
+    <model name='cube_3f'>
+      <static>true</static>
+      <include>
+        <uri>model://cube</uri>
+      </include>
+      <pose>11.5 8.7 10.05 0 0 0</pose>
+    </model>
+
     <physics type='ode'>
       <max_step_size>0.01</max_step_size>
       <real_time_factor>1</real_time_factor>
