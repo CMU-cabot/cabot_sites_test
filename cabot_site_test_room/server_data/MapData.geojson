@@ -483,6 +483,42 @@
 		{
 			"type": "Feature",
 			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-79.94660628028214,
+					40.444210802352444
+				]
+			},
+			"properties": {
+				"facil_id": "EDITOR_facil_1739369665769",
+				"facil_type": 3,
+				"toilet": 99,
+				"elevator": 99,
+				"escalator": 99,
+				"parking": 99,
+				"barrier": 99,
+				"nursing": 99,
+				"brail_tile": 99,
+				"hulop_height": 1,
+				"hulop_file": "EDITOR",
+				"hulop_heading": -90,
+				"subject": 99,
+				"hulop_content": "",
+				"hulop_sub_category": "_nav_info_",
+				"hulop_angle": 90,
+				"hulop_major_category": "_nav_poi_",
+				"close_day": "99",
+				"hulop_minor_category": "_line_, _priority_low_",
+				"lat": 40.444210802352444,
+				"lon": -79.94660628028214,
+				"name_ja": "Hello",
+				"name_en": "Hello"
+			},
+			"_id": "EDITOR_facil_1739369665769"
+		},
+		{
+			"type": "Feature",
+			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[
