@@ -33,3 +33,8 @@ def wait_ready(tester):
     # tester.wait_localization_started()
     tester.wait_ready()
 
+
+def test01_navigation_to_a_goal(tester):
+    tester.reset_position(x=2.0, y=6.0, a=0.0)
+    tester.goto_node('EDITOR_node_1757425364512')
+    tester.wait_navigation_arrived(timeout=90)
