@@ -1,0 +1,4 @@
+map_server_host: localhost:9090/map
+initial_floor: 4
+lookup_dist: 1000
+protocol: http
