@@ -20,7 +20,10 @@
 #  SOFTWARE.
 # ******************************************************************************
 
-import time
+import json
+from cabot_common.util import setInterval as _setInterval
+from .signals import SignalGeneratorDummy001RedFirst
+from .signals import SignalGeneratorDummy001GreenFirst
 
 
 def config(tester):
@@ -29,12 +32,76 @@ def config(tester):
     tester.config['init_z'] = 0.0
     tester.config['init_a'] = 0.0
 
+
 def wait_ready(tester):
     # tester.wait_localization_started()
     tester.wait_ready()
 
 
-def test01_navigation_to_a_goal(tester):
-    tester.reset_position(x=2.0, y=6.0, a=0.0)
+@_setInterval(0.5)
+def _publish_signals(tester, signal_generator):
+    status = signal_generator.next()
+    tester.pub_topic(
+        action_name='sending intersection status',
+        topic='/signal_response_intersection_status',
+        topic_type='std_msgs/msg/String',
+        message=f"data: '{json.dumps(status)}'",
+    )
+
+
+def _wait_moved(tester):
+    tester.wait_topic(
+        action_name='check_speed nonzero speed',
+        topic='/odom',
+        topic_type='nav_msgs/msg/Odometry',
+        condition="msg.twist.twist.linear.x > 0.1",
+        timeout=10
+    )
+
+
+def _wait_stopped(tester):
+    tester.wait_topic(
+        action_name='check_speed stopped',
+        topic='/odom',
+        topic_type='nav_msgs/msg/Odometry',
+        condition="msg.twist.twist.linear.x < 0.001",
+        timeout=10
+    )
+
+
+def _check_navigation_arrived_error(tester):
+    return tester.check_topic_error(
+        action_name='check_navigation_arrived error',
+        topic='/cabot/activity_log',
+        topic_type='cabot_msgs/msg/Log',
+        condition="msg.category=='cabot/navigation' and msg.text=='navigation' and msg.memo=='arrived'",
+        timeout=60
+    )
+
+
+def test01_stop_by_red_signal(tester):
+    tester.reset_position(x=7.0, y=6.5, a=0.0)
+    stop = _publish_signals(tester, SignalGeneratorDummy001RedFirst())
     tester.goto_node('EDITOR_node_1757425364512')
+    _wait_moved(tester)
+    _wait_stopped(tester)
     tester.wait_navigation_arrived(timeout=90)
+    stop.set()
+
+
+def test02_stop_without_signal_info(tester):
+    tester.reset_position(x=7.0, y=6.5, a=0.0)
+    # publish signal status for a while and then stop publishing
+    stop = _publish_signals(tester, SignalGeneratorDummy001GreenFirst())
+    tester.wait_for(5)
+    stop.set()
+    tester.wait_for(5)
+
+    # SignalPOI should invalidate the old signal info
+    cancel = _check_navigation_arrived_error(tester)
+    tester.goto_node('EDITOR_node_1757425364512')
+    _wait_moved(tester)
+    _wait_stopped(tester)
+    tester.wait_for(30)
+    _wait_stopped(tester)
+    cancel()
