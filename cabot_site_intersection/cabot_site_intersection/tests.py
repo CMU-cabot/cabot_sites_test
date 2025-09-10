@@ -94,7 +94,7 @@ def test01_stop_by_red_signal(tester):
     stop = _publish_signals(tester, SignalGeneratorDummy001RedFirst())
     tester.goto_node('EDITOR_node_1757425364512')
     _wait_moved(tester, 10)
-    _check_stopped(tester, 10)
+    _wait_stopped(tester, 10)
     tester.wait_navigation_arrived(timeout=90)
     stop.set()
 
