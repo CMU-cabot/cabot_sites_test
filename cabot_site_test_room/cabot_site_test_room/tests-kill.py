@@ -69,7 +69,7 @@ def test3_kill_navigator_after_sending_goal(tester):
         except:
             pass
     tester.wait_for(2)
-    tester.button_down(3)  # pause
+    tester.send_navigation_event("pause")  # pause
     tester.wait_for(2)
     cancel = tester.check_topic(
         action_name='wait_pausing_message',
@@ -77,8 +77,8 @@ def test3_kill_navigator_after_sending_goal(tester):
         topic_type='cabot_msgs/msg/Log',
         condition="msg.category=='cabot/interface' and msg.text=='navigation' and msg.memo=='pausing'",
     )
-    tester.button_down(4)  # resume - will timeout to cancel
+    tester.send_navigation_event("resume")  # resume - will timeout to cancel
     tester.wait_for(7)
     cancel()
-    tester.button_down(4)  # resume - this may fail due to delay of lifecycle bond check, and will retry to resume
+    tester.send_navigation_event("resume")  # resume - this may fail due to delay of lifecycle bond check, and will retry to resume
     tester.wait_navigation_arrived(timeout=30)

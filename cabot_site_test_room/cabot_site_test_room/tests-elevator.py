@@ -15,9 +15,9 @@ def test11_retry_elevator(tester):
     tester.reset_position()
     tester.goto_node('EDITOR_node_1709594309586')
     tester.wait_goal("ElevatorWaitGoal")
-    tester.button_down(3)
+    tester.send_navigation_event("pause")
     tester.reset_position()
-    tester.button_down(4)
+    tester.send_navigation_event("resume")
     tester.wait_goal("ElevatorTurnGoal")
     tester.floor_change(+1)
     tester.wait_for(3)
@@ -28,11 +28,11 @@ def test10_elevator_skip_and_resume_in_front_of_elevator(tester):
     tester.reset_position()
     tester.goto_node('EDITOR_node_1709594309586')
     tester.wait_goal("ElevatorWaitGoal")
-    tester.button_down(3)
+    tester.send_navigation_event("pause")
     tester.reset_position(x=11, y=8.5, z=0)
     tester.floor_change(+1)
     tester.wait_for(3)
-    tester.button_down(4)
+    tester.send_navigation_event("resume")
     tester.wait_navigation_arrived(timeout=60)
 
 
@@ -69,10 +69,10 @@ def test6_elevator_skip_and_resume_in_elevator(tester):
     tester.reset_position()
     tester.goto_node('EDITOR_node_1709594309586')
     tester.wait_goal("ElevatorWaitGoal")
-    tester.button_down(3)
+    tester.send_navigation_event("pause")
     tester.reset_position(x=13, y=8.5, z=0)
     tester.floor_change(+1)
-    tester.button_down(4)
+    tester.send_navigation_event("resume")
     tester.wait_navigation_arrived(timeout=60)
 
 
@@ -80,10 +80,10 @@ def test5_elevator_skip(tester):
     tester.reset_position()
     tester.goto_node('EDITOR_node_1709594309586')
     tester.wait_goal("ElevatorWaitGoal")
-    tester.button_down(3)
+    tester.send_navigation_event("pause")
     tester.floor_change(+1)
     tester.wait_for(seconds=10)
-    tester.button_down(4)
+    tester.send_navigation_event("resume")
     tester.wait_navigation_arrived(timeout=60)
 
 
@@ -95,7 +95,7 @@ def test4_cancel_while_elevator_floor_goal(tester):
     tester.info("cancel elevator floor goal")
     tester.wait_for(seconds=2)
     tester.info("push left button to pause")
-    tester.button_down(3)
+    tester.send_navigation_event("pause")
     tester.wait_for(seconds=3)
     # navigation is paused, so ElevatorFloorGoal should not be published
     cancel = tester.check_topic_error(
@@ -108,7 +108,7 @@ def test4_cancel_while_elevator_floor_goal(tester):
     tester.wait_for(seconds=10)
     cancel()
     tester.info("push right button to resume")
-    tester.button_down(4)
+    tester.send_navigation_event("resume")
     tester.wait_goal("ElevatorOutGoal", timeout=20)
     tester.wait_navigation_arrived(timeout=30)
 
@@ -144,12 +144,12 @@ def test2_door_close_while_elevator_in(tester):
     tester.spawn_door(name="f1_door", x=12, y=8.5, z=0, yaw=0)
     tester.spawn_door(name="f3_door", x=12, y=8.5, z=10, yaw=0)
     tester.wait_goal("ElevatorWaitGoal")
-    tester.wait_for(seconds=5)
+    tester.wait_for(seconds=1)
     for i in range(0, 3):
         tester.info("open/close 1F door")
         tester.delete_door(name="f1_door")
         tester.spawn_door(name="f1_door", x=12, y=8.5, z=0, yaw=0)
-        tester.wait_for(seconds=5)
+        tester.wait_for(seconds=1)
     tester.info("open 1F door again")
     tester.delete_door(name="f1_door")
     tester.wait_goal("ElevatorTurnGoal", timeout=30)
