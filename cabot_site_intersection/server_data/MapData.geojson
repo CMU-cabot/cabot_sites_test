@@ -268,6 +268,138 @@
 		{
 			"type": "Feature",
 			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-79.94681624696342,
+					40.444036741936856
+				]
+			},
+			"properties": {
+				"facil_id": "EDITOR_facil_1757532651043",
+				"facil_type": 3,
+				"toilet": 99,
+				"elevator": 99,
+				"escalator": 99,
+				"parking": 99,
+				"barrier": 99,
+				"nursing": 99,
+				"brail_tile": 99,
+				"hulop_height": 1,
+				"hulop_file": "EDITOR",
+				"hulop_heading": 55,
+				"subject": 99,
+				"hulop_content": "{\"id\":\"dummy-id-001\",\"group\":1}",
+				"hulop_sub_category": "_nav_signal_",
+				"hulop_angle": 90,
+				"hulop_major_category": "_nav_poi_",
+				"close_day": "99",
+				"lat": 40.444036741936856,
+				"lon": -79.94681624696342
+			},
+			"_id": "EDITOR_facil_1757532651043"
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-79.94667319580913,
+					40.44386323392584
+				]
+			},
+			"properties": {
+				"facil_id": "EDITOR_facil_1757532656413",
+				"facil_type": 3,
+				"toilet": 99,
+				"elevator": 99,
+				"escalator": 99,
+				"parking": 99,
+				"barrier": 99,
+				"nursing": 99,
+				"brail_tile": 99,
+				"hulop_height": 1,
+				"hulop_file": "EDITOR",
+				"hulop_heading": 55,
+				"subject": 99,
+				"hulop_content": "{\"id\":\"dummy-id-001\",\"group\":1}",
+				"hulop_sub_category": "_nav_signal_",
+				"hulop_angle": 90,
+				"hulop_major_category": "_nav_poi_",
+				"close_day": "99",
+				"lat": 40.44386323392584,
+				"lon": -79.94667319580913
+			},
+			"_id": "EDITOR_facil_1757532656413"
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-79.9467575736412,
+					40.44406757358627
+				]
+			},
+			"properties": {
+				"facil_id": "EDITOR_facil_1757532660788",
+				"facil_type": 3,
+				"toilet": 99,
+				"elevator": 99,
+				"escalator": 99,
+				"parking": 99,
+				"barrier": 99,
+				"nursing": 99,
+				"brail_tile": 99,
+				"hulop_height": 1,
+				"hulop_file": "EDITOR",
+				"hulop_heading": -125,
+				"subject": 99,
+				"hulop_content": "{\"id\":\"dummy-id-001\",\"group\":1}",
+				"hulop_sub_category": "_nav_signal_",
+				"hulop_angle": 90,
+				"hulop_major_category": "_nav_poi_",
+				"close_day": "99",
+				"lat": 40.44406757358627,
+				"lon": -79.9467575736412
+			},
+			"_id": "EDITOR_facil_1757532660788"
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-79.94661424307651,
+					40.44389215195531
+				]
+			},
+			"properties": {
+				"facil_id": "EDITOR_facil_1757532663226",
+				"facil_type": 3,
+				"toilet": 99,
+				"elevator": 99,
+				"escalator": 99,
+				"parking": 99,
+				"barrier": 99,
+				"nursing": 99,
+				"brail_tile": 99,
+				"hulop_height": 1,
+				"hulop_file": "EDITOR",
+				"hulop_heading": -125,
+				"subject": 99,
+				"hulop_content": "{\"id\":\"dummy-id-001\",\"group\":1}",
+				"hulop_sub_category": "_nav_signal_",
+				"hulop_angle": 90,
+				"hulop_major_category": "_nav_poi_",
+				"close_day": "99",
+				"lat": 40.44389215195531,
+				"lon": -79.94661424307651
+			},
+			"_id": "EDITOR_facil_1757532663226"
+		},
+		{
+			"type": "Feature",
+			"geometry": {
 				"type": "LineString",
 				"coordinates": [
 					[

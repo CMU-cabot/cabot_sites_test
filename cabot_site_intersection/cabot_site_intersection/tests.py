@@ -91,11 +91,11 @@ def _check_navigation_arrived_error(tester):
 
 def test01_stop_by_red_signal(tester):
     tester.reset_position(x=7.0, y=6.5, a=0.0)
-    stop = _publish_signals(tester, SignalGeneratorDummy001RedFirst())
+    stop = _publish_signals(tester, SignalGeneratorDummy001RedFirst(start=15))
     tester.goto_node('EDITOR_node_1757425364512')
     _wait_moved(tester, 10)
     _wait_stopped(tester, 10)
-    tester.wait_navigation_arrived(timeout=90)
+    tester.wait_navigation_arrived(timeout=30)
     stop.set()
 
 
@@ -117,12 +117,48 @@ def test02_stop_without_signal_info(tester):
     cancel()
 
 
-def test03_check_remaining_time(tester):
+def test03_check_remaining_time_stop(tester):
     tester.reset_position(x=7.0, y=6.5, a=0.0)
     tester.set_speed(1.0)
+    stop = _publish_signals(tester, SignalGeneratorDummy001GreenFirst(start=15))
+    tester.goto_node('EDITOR_node_1757425364512')
+    tester.wait_for(5)
+    _check_stopped(tester)
+    tester.wait_navigation_arrived(timeout=60)
+    stop.set()
+
+
+def test04_1_check_remaining_time_go(tester):
+    tester.reset_position(x=7.0, y=6.5, a=0.0)
+    tester.set_speed(1.0)
+    stop = _publish_signals(tester, SignalGeneratorDummy001GreenFirst(start=10))
+    tester.goto_node('EDITOR_node_1757425364512')
+    tester.wait_navigation_arrived(timeout=30)
+    stop.set()
+
+
+def test04_2_check_remaining_time_go(tester):
+    tester.reset_position(x=7.0, y=6.5, a=0.0)
+    tester.set_speed(0.5)
     stop = _publish_signals(tester, SignalGeneratorDummy001GreenFirst(start=10))
     tester.goto_node('EDITOR_node_1757425364512')
     tester.wait_for(5)
     _check_stopped(tester)
     tester.wait_navigation_arrived(timeout=90)
+    stop.set()
+
+
+def test05_cross_two_crossings(tester):
+    tester.reset_position(x=7.0, y=6.5, a=0.0)
+    tester.set_speed(1.0)
+    stop = _publish_signals(tester, SignalGeneratorDummy001RedFirst(start=15))
+    tester.goto_node('EDITOR_node_1757425176316')
+    tester.wait_for(5)
+    _check_stopped(tester)
+    tester.wait_goal("CrosswalkGoal")
+    tester.wait_goal("NavGoal")
+    tester.info("Reached first goal, going to the next crossing")
+    _wait_moved(tester, 5)
+    _wait_stopped(tester, 5)
+    tester.wait_goal("CrosswalkGoal")
     stop.set()
