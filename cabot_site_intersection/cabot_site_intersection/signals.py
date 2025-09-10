@@ -3,11 +3,11 @@ import time
 
 
 class SignalGenerator:
-    def __init__(self, id, cycles, step):
+    def __init__(self, id, cycles, step, start=0):
         self.id = id
         self.cycles = cycles
         self.total = sum(phase["duration"] for phase in cycles[0])
-        self.tick = 0
+        self.tick = start
         self.step = step
 
     def next(self):
@@ -17,7 +17,7 @@ class SignalGenerator:
 
 
 class SignalGeneratorDummy001GreenFirst(SignalGenerator):
-    def __init__(self):
+    def __init__(self, start=0):
         cycles = [
             [
                 {"state": "green", "duration": 20},
@@ -30,11 +30,11 @@ class SignalGeneratorDummy001GreenFirst(SignalGenerator):
                 {"state": "green_blinking", "duration": 6},
             ],
         ]
-        super().__init__("dummy-id-001", cycles, 0.5)
+        super().__init__("dummy-id-001", cycles, 0.5, start)
 
 
 class SignalGeneratorDummy001RedFirst(SignalGenerator):
-    def __init__(self):
+    def __init__(self, start=0):
         cycles = [
             [
                 {"state": "red", "duration": 25},
@@ -47,7 +47,7 @@ class SignalGeneratorDummy001RedFirst(SignalGenerator):
                 {"state": "red", "duration": 25},
             ],
         ]
-        super().__init__("dummy-id-001", cycles, 0.5)
+        super().__init__("dummy-id-001", cycles, 0.5, start)
 
 
 def get_state(cycle, tick, total):

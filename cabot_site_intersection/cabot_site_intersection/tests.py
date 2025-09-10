@@ -49,23 +49,33 @@ def _publish_signals(tester, signal_generator):
     )
 
 
-def _wait_moved(tester):
+def _wait_moved(tester, timeout=10):
     tester.wait_topic(
         action_name='check_speed nonzero speed',
         topic='/odom',
         topic_type='nav_msgs/msg/Odometry',
         condition="msg.twist.twist.linear.x > 0.1",
-        timeout=10
+        timeout=timeout
     )
 
 
-def _wait_stopped(tester):
+def _wait_stopped(tester, timeout=10):
+    tester.wait_topic(
+        action_name='check_speed nonzero speed',
+        topic='/odom',
+        topic_type='nav_msgs/msg/Odometry',
+        condition="msg.twist.twist.linear.x < 0.001",
+        timeout=timeout
+    )
+
+
+def _check_stopped(tester):
     tester.wait_topic(
         action_name='check_speed stopped',
         topic='/odom',
         topic_type='nav_msgs/msg/Odometry',
         condition="msg.twist.twist.linear.x < 0.001",
-        timeout=10
+        once=True,
     )
 
 
@@ -83,8 +93,8 @@ def test01_stop_by_red_signal(tester):
     tester.reset_position(x=7.0, y=6.5, a=0.0)
     stop = _publish_signals(tester, SignalGeneratorDummy001RedFirst())
     tester.goto_node('EDITOR_node_1757425364512')
-    _wait_moved(tester)
-    _wait_stopped(tester)
+    _wait_moved(tester, 10)
+    _check_stopped(tester, 10)
     tester.wait_navigation_arrived(timeout=90)
     stop.set()
 
@@ -100,8 +110,19 @@ def test02_stop_without_signal_info(tester):
     # SignalPOI should invalidate the old signal info
     cancel = _check_navigation_arrived_error(tester)
     tester.goto_node('EDITOR_node_1757425364512')
-    _wait_moved(tester)
+    _wait_moved(tester, 10)
     _wait_stopped(tester)
     tester.wait_for(30)
-    _wait_stopped(tester)
+    _check_stopped(tester)
     cancel()
+
+
+def test03_check_remaining_time(tester):
+    tester.reset_position(x=7.0, y=6.5, a=0.0)
+    tester.set_speed(1.0)
+    stop = _publish_signals(tester, SignalGeneratorDummy001GreenFirst(start=10))
+    tester.goto_node('EDITOR_node_1757425364512')
+    tester.wait_for(5)
+    _check_stopped(tester)
+    tester.wait_navigation_arrived(timeout=90)
+    stop.set()
