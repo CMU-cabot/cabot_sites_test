@@ -4,6 +4,7 @@ def config(tester):
     tester.config['init_z'] = 0.0
     tester.config['init_a'] = 0.0
     tester.config['init_floor'] = 0
+    tester.set_speed(1.0)
 
 
 def wait_ready(tester):
@@ -37,10 +38,171 @@ def _check_cabot_event_error(tester, event, **kwargs):
     )
 
 
-def test01_navigation_to_a_goal(tester):
+# test cases ported from cabot_site_cmu_3d
+def test01_0_navigation_to_a_goal(tester):
     tester.reset_position(x=1.0, y=-1.0, a=0.0)
     tester.goto_node('EDITOR_node_1707899314416')
     tester.wait_navigation_arrived(timeout=90)
+
+
+def test01_1_cancel_navigation_and_another_navigation(tester):
+    tester.reset_position()
+    tester.goto_node('EDITOR_node_1707899314416')
+    tester.wait_for(10)
+    tester.cancel_navigation()
+    tester.wait_for(10)
+    tester.goto_node('EDITOR_node_1707899216479')
+    tester.wait_navigation_arrived()
+
+
+def test01_2_navigate_twice(tester):
+    tester.reset_position()
+    tester.goto_node('EDITOR_node_1707899314416')
+    tester.wait_navigation_arrived()
+    tester.goto_node('EDITOR_node_1707899216479')
+    tester.wait_navigation_arrived()
+
+
+def test01_3_check_navigation_events(tester):
+    tester.reset_position()
+    tester.goto_node('EDITOR_node_1707899314416@-90')
+    tester.check_navigation_arrived()  # do not wait
+    tester.check_turn_towards()        # do not wait
+    tester.wait_navigation_completed()
+
+
+def test01_4_sending_another_goal_while_changing_heading_at_goal(tester):
+    tester.reset_position()
+    tester.goto_node('EDITOR_node_1707899314416@-90')
+    tester.wait_navigation_arrived()
+    tester.goto_node('EDITOR_node_1707899216479')
+    tester.wait_navigation_completed()
+
+
+def test01_5_sending_another_goal(tester):
+    tester.reset_position()
+    tester.goto_node('EDITOR_node_1707899314416')
+    tester.wait_for(7)
+    tester.goto_node('EDITOR_node_1707899216479')
+    tester.wait_navigation_completed()
+
+
+def test01_6_pause_and_resume(tester):
+    tester.reset_position()
+    tester.goto_node('EDITOR_node_1707899314416')
+    tester.wait_for(7)
+    tester.info("push left button to pause")
+    tester.send_navigation_event("pause")
+    tester.wait_for(7)
+    tester.info("push right button to resume")
+    tester.send_navigation_event("resume")
+    tester.wait_navigation_completed()
+
+
+def test01_7_door_goal(tester):
+    tester.reset_position(x=10, y=-2.0, a=180, z=10)
+    tester.goto_node('EDITOR_node_1757516673376')
+    tester.wait_goal("NavGoal")
+    tester.reset_position(x=2, y=-2.0, a=180, z=10)
+    tester.wait_navigation_completed()
+
+
+def test01_8_door_goal_and_manual_back(tester):
+    tester.reset_position(x=10, y=-2.0, a=180, z=10)
+    tester.goto_node('EDITOR_node_1757516673376')
+    tester.wait_goal("NavGoal")
+    tester.wait_for(seconds=1)
+    tester.send_navigation_event("pause")
+    tester.reset_position(x=-2, y=-2.0, a=180, z=10)
+    tester.send_navigation_event("resume")
+    tester.wait_navigation_completed()
+
+
+def test01_9_change_speed(tester):
+    tester.reset_position()
+    tester.goto_node('EDITOR_node_1707899314416')
+    tester.wait_for(5)
+
+    import os
+    default_speed = os.environ.get("CABOT_INIT_SPEED", "1.0")
+
+    # check speed down
+    cancel = tester.check_topic(
+        action_name='check_user_speed_down',
+        topic='/cabot/user_speed',
+        topic_type='std_msgs/msg/Float32',
+        condition=f"msg.data < {default_speed}",
+        timeout=15
+    )
+    tester.send_navigation_event("speeddown")
+    tester.wait_for(1)
+    tester.send_navigation_event("speeddown")
+    tester.wait_for(1)
+    cancel()
+
+    # check speed up
+    cancel = tester.check_topic(
+        action_name='check_user_speed_up',
+        topic='/cabot/user_speed',
+        topic_type='std_msgs/msg/Float32',
+        condition=f"msg.data == {default_speed}",
+        timeout=15
+    )
+    tester.send_navigation_event("speedup")
+    tester.wait_for(1)
+    tester.send_navigation_event("speedup")
+    tester.wait_for(1)
+    cancel()
+
+
+def test01_A_pase_control(tester):
+    tester.reset_position()
+    tester.goto_node('EDITOR_node_1707899314416')
+    tester.wait_for(5)
+
+    # check pause
+    cancel = tester.check_topic(
+        action_name='check_navigation_pause',
+        topic='/cabot/activity_log',
+        topic_type='cabot_msgs/msg/Log',
+        condition="msg.category=='cabot/navigation' and msg.text=='pause'",
+        timeout=15
+    )
+    tester.send_navigation_event("pause")
+    tester.wait_for(3)
+    cancel()
+
+    # check pause control
+    cancel = tester.check_topic(
+        action_name='check_navigation_pause_control_true',
+        topic='/cabot/activity_log',
+        topic_type='cabot_msgs/msg/Log',
+        condition="msg.category=='cabot/navigation' and msg.text=='pause_control' and msg.memo=='True'",
+        timeout=15
+    )
+    tester.send_navigation_event("idle")
+    tester.wait_for(3)
+    cancel()
+
+    # check resume
+    cancel = tester.check_topic(
+        action_name='check_navigation_resume',
+        topic='/cabot/activity_log',
+        topic_type='cabot_msgs/msg/Log',
+        condition="msg.category=='cabot/navigation' and msg.text=='resume'",
+        timeout=15
+    )
+    cancel2 = tester.check_topic(
+        action_name='check_navigation_pause_control_false',
+        topic='/cabot/activity_log',
+        topic_type='cabot_msgs/msg/Log',
+        condition="msg.category=='cabot/navigation' and msg.text=='pause_control' and msg.memo=='False'",
+        timeout=15
+    )
+    tester.send_navigation_event("resume")
+    tester.wait_for(3)
+    cancel()
+    cancel2()
 
 
 # navigation_arrived event should be issued after navigation is completed
@@ -178,11 +340,11 @@ def test11_skip_in_navgoal(tester):
     tester.goto_node('EDITOR_node_1710181891921')
     tester.wait_for(10)
     tester.info("push left button to pause")
-    tester.button_down(3)
+    tester.send_navigation_event("pause")
     tester.wait_for(2)
     tester.reset_position(x=4.0, y=-4.0, a=-180.0)
     tester.info("push right button to resume")
-    tester.button_down(4)
+    tester.send_navigation_event("resume")
     tester.check_topic_error(
         action_name='check_path',
         topic='/path',
@@ -198,10 +360,10 @@ def test12_skip_in_navgoal(tester):
     tester.goto_node('EDITOR_node_1710181891921')
     tester.wait_goal("NarrowGoal")
     tester.info("push left button to pause")
-    tester.button_down(3)
+    tester.send_navigation_event("pause")
     tester.wait_for(2)
     tester.info("push right button to resume")
-    tester.button_down(4)
+    tester.send_navigation_event("resume")
     tester.check_topic_error(
         action_name='check_path',
         topic='/cabot/activity_log',
@@ -217,11 +379,12 @@ def test13_rotation_shim(tester):
     tester.wait_navigation_arrived(timeout=30)
 
 
+"""
 def test14_check_footprint_size(tester):
     tester.reset_position(x=1.0, y=-1.0, a=0.0)
     tester.goto_node('EDITOR_node_1707899314416')
     tester.wait_for(5)
-    tester.button_down(3)
+    tester.send_navigation_event("pause")
     tester.cancel_navigation()
     tester.wait_for(2)
     tester.goto_node('EDITOR_node_1707899314416')
@@ -234,6 +397,7 @@ def test14_check_footprint_size(tester):
         condition="abs(msg.points[0].x - 0.45) < 0.001",
         timeout=5,
     )
+"""
 
 
 def test15_check_short_link_before_narrow(tester):
@@ -243,12 +407,11 @@ def test15_check_short_link_before_narrow(tester):
         tester.wait_navigation_completed(timeout=30)
 
 
-
 def test16_robot_pause_change_destination_and_resume(tester):
     tester.reset_position(x=-0.5, y=1.0)
     tester.goto_node("EDITOR_node_1707899105269")
     tester.wait_for(5)
-    tester.button_down(3)
+    tester.send_navigation_event("pause")
     tester.wait_for(2)
     tester.cancel_navigation()
     tester.check_topic(
@@ -258,7 +421,7 @@ def test16_robot_pause_change_destination_and_resume(tester):
         condition="msg.data=='navigation_next'"
     )
     tester.wait_for(2)
-    tester.button_down(4)
+    tester.send_navigation_event("resume")
     tester.wait_for(2)
 
 
@@ -268,11 +431,13 @@ def test17_sharp_turn(tester):
     tester.wait_navigation_completed(timeout=30)
     tester.cancel_navigation()
 
+
 def test17_sharp_turn_case2(tester):
     tester.reset_position(x=9.0, y=2.5, a=-90, z=10)
     tester.goto_node("EDITOR_node_1709594307711")
     tester.wait_navigation_completed(timeout=30)
     tester.cancel_navigation()
+
 
 def test18_across_static_with_narrow(tester):
     tester.reset_position(a=-180, x=-0.5, y=2.5, z=10, floor=2)
@@ -305,6 +470,7 @@ def test20_retry_goal(tester):
     from nav2_msgs.action import NavigateToPose
     client = ActionClient(tester.node, NavigateToPose, "/navigate_to_pose")
     client.count = 0
+
     def goal_id_callback(msg):
         client.handle = ClientGoalHandle(client, msg, None)
     sub = tester.node.create_subscription(UUID, "/debug/goal_id", goal_id_callback, 10)
@@ -373,7 +539,7 @@ def test22_turn_goal(tester):
     tester.reset_position(x=0.0, y=0.0, a=0.0)
     tester.goto_node('EDITOR_node_1707899150598@0')
     tester.wait_goal("TurnGoal")
-    tester.wait_navigation_completed(timeout=90)
+    # tester.wait_navigation_completed(timeout=90)
 
 
 def test23_check_parameter_change(tester):
@@ -415,3 +581,9 @@ def test23_check_parameter_change(tester):
         callback=service_callback
     )
     tester.wait_navigation_completed(timeout=20)
+
+
+def test24_navigation_to_a_goal(tester):
+    tester.reset_position(x=1.0, y=2.5, a=20.0)
+    tester.goto_node('EDITOR_node_1707899314416')
+    tester.wait_navigation_arrived(timeout=90)

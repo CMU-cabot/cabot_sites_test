@@ -112,10 +112,10 @@ def test7_pause_in_tight_path(tester):
             condition="msg.category=='cabot/interface' and msg.text=='navigation' and msg.memo=='please_follow_behind'",
             timeout=60
         )
-    tester.button_down(3)
+    tester.send_navigation_event("pause")
     cancel = _check_interface_event_error(tester, "please_return_position")
     tester.wait_for(5)
-    tester.button_down(4)
+    tester.send_navigation_event("resume")
     tester.wait_for(5)
     cancel()
     _check_interface_event(tester, "please_return_position")
