@@ -162,3 +162,45 @@ def test05_cross_two_crossings(tester):
     _wait_stopped(tester, 5)
     tester.wait_goal("CrosswalkGoal")
     stop.set()
+
+
+def test06_announce_red_signal(tester):
+    tester.reset_position(x=7.0, y=6.5, a=0.0)
+    stop = _publish_signals(tester, SignalGeneratorDummy001RedFirst(start=0))
+    tester.goto_node('EDITOR_node_1757425364512')
+    tester.wait_topic(
+        action_name='check_announce red signal',
+        topic='/cabot/activity_log',
+        topic_type='cabot_msgs/msg/Log',
+        condition="msg.category=='cabot/interface' and msg.text=='Message' andmsg.memo=='RED_SIGNAL'",
+        timeout=60
+    )
+    stop.set()
+
+
+def test07_announce_green_signal_short(tester):
+    tester.reset_position(x=7.0, y=6.5, a=0.0)
+    tester.set_speed(0.5)
+    stop = _publish_signals(tester, SignalGeneratorDummy001GreenFirst(start=10))
+    tester.goto_node('EDITOR_node_1757425364512')
+    tester.wait_topic(
+        action_name='check_announce red signal',
+        topic='/cabot/activity_log',
+        topic_type='cabot_msgs/msg/Log',
+        condition="msg.category=='cabot/interface' and msg.text=='Message' and msg.memo=='GREEN_SIGNAL_SHORT'",
+        timeout=60
+    )
+    stop.set()
+
+
+def test08_announce_green_signal_short(tester):
+    tester.reset_position(x=7.0, y=6.5, a=0.0)
+    tester.set_speed(0.5)
+    tester.goto_node('EDITOR_node_1757425364512')
+    tester.wait_topic(
+        action_name='check_announce red signal',
+        topic='/cabot/activity_log',
+        topic_type='cabot_msgs/msg/Log',
+        condition="msg.category=='cabot/interface' and msg.text=='Message' and msg.memo=='NO_SIGNAL_INFO'",
+        timeout=60
+    )
