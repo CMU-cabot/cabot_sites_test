@@ -79,6 +79,16 @@ def _check_stopped(tester):
     )
 
 
+def _check_moved(tester):
+    tester.wait_topic(
+        action_name='check_speed moved',
+        topic='/odom',
+        topic_type='nav_msgs/msg/Odometry',
+        condition="msg.twist.twist.linear.x > 0.1",
+        once=True,
+    )
+
+
 def _check_navigation_arrived_error(tester):
     return tester.check_topic_error(
         action_name='check_navigation_arrived error',
@@ -91,6 +101,7 @@ def _check_navigation_arrived_error(tester):
 
 def test01_stop_by_red_signal(tester):
     tester.reset_position(x=7.0, y=6.5, a=0.0)
+    tester.set_speed(1.0)
     stop = _publish_signals(tester, SignalGeneratorDummy001RedFirst(start=15))
     tester.goto_node('EDITOR_node_1757425364512')
     _wait_moved(tester, 10)
@@ -101,6 +112,7 @@ def test01_stop_by_red_signal(tester):
 
 def test02_stop_without_signal_info(tester):
     tester.reset_position(x=7.0, y=6.5, a=0.0)
+    tester.set_speed(1.0)
     # publish signal status for a while and then stop publishing
     stop = _publish_signals(tester, SignalGeneratorDummy001GreenFirst())
     tester.wait_for(5)
@@ -166,6 +178,7 @@ def test05_cross_two_crossings(tester):
 
 def test06_announce_red_signal(tester):
     tester.reset_position(x=7.0, y=6.5, a=0.0)
+    tester.set_speed(1.0)
     stop = _publish_signals(tester, SignalGeneratorDummy001RedFirst(start=0))
     tester.goto_node('EDITOR_node_1757425364512')
     tester.wait_topic(
@@ -184,7 +197,7 @@ def test07_announce_green_signal_short(tester):
     stop = _publish_signals(tester, SignalGeneratorDummy001GreenFirst(start=10))
     tester.goto_node('EDITOR_node_1757425364512')
     tester.wait_topic(
-        action_name='check_announce red signal',
+        action_name='check_announce green signal short',
         topic='/cabot/activity_log',
         topic_type='cabot_msgs/msg/Log',
         condition="msg.category=='cabot/interface' and msg.text=='Message' and msg.memo=='GREEN_SIGNAL_SHORT'",
@@ -198,9 +211,26 @@ def test08_announce_no_signal_info(tester):
     tester.set_speed(0.5)
     tester.goto_node('EDITOR_node_1757425364512')
     tester.wait_topic(
-        action_name='check_announce red signal',
+        action_name='check_announce no signal info',
         topic='/cabot/activity_log',
         topic_type='cabot_msgs/msg/Log',
         condition="msg.category=='cabot/interface' and msg.text=='Message' and msg.memo=='NO_SIGNAL_INFO'",
         timeout=60
     )
+
+
+def test09_do_not_stop_red_while_crossing(tester):
+    stop = _publish_signals(tester, SignalGeneratorDummy001RedFirst(start=15))
+    tester.reset_position(x=7.0, y=6.5, a=0.0)
+    tester.set_speed(1.0)
+    tester.goto_node('EDITOR_node_1757425364512')
+    _wait_moved(tester, 10)
+    _wait_stopped(tester, 10)
+    _wait_moved(tester, 10)
+    tester.wait_for(3)
+    tester.set_speed(0.15)
+    for i in range(10):
+        tester.wait_for(3)
+        _check_moved(tester)
+    tester.wait_navigation_arrived(timeout=90)
+    stop.set()
