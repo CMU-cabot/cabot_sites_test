@@ -172,7 +172,7 @@ def test06_announce_red_signal(tester):
         action_name='check_announce red signal',
         topic='/cabot/activity_log',
         topic_type='cabot_msgs/msg/Log',
-        condition="msg.category=='cabot/interface' and msg.text=='Message' andmsg.memo=='RED_SIGNAL'",
+        condition="msg.category=='cabot/interface' and msg.text=='Message' and msg.memo=='RED_SIGNAL'",
         timeout=60
     )
     stop.set()
@@ -193,7 +193,7 @@ def test07_announce_green_signal_short(tester):
     stop.set()
 
 
-def test08_announce_green_signal_short(tester):
+def test08_announce_no_signal_info(tester):
     tester.reset_position(x=7.0, y=6.5, a=0.0)
     tester.set_speed(0.5)
     tester.goto_node('EDITOR_node_1757425364512')
