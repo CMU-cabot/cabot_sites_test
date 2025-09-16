@@ -153,6 +153,7 @@ def test01_9_change_speed(tester):
     tester.send_navigation_event("speedup")
     tester.wait_for(1)
     cancel()
+    tester.cancel_navigation()
 
 
 def test01_A_pase_control(tester):
@@ -203,6 +204,7 @@ def test01_A_pase_control(tester):
     tester.wait_for(3)
     cancel()
     cancel2()
+    tester.cancel_navigation()
 
 
 # navigation_arrived event should be issued after navigation is completed
@@ -488,8 +490,8 @@ def test20_retry_goal(tester):
 
     tester.wait_navigation_completed(timeout=90)
     # need to destroy created client and subscription
-    client.destroy()
-    sub.destroy()
+    # client.destroy()
+    # sub.destroy()
 
 
 def test21_gradient_topic(tester):
