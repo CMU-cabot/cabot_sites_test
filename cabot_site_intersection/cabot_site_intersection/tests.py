@@ -127,6 +127,7 @@ def test02_stop_without_signal_info(tester):
     tester.wait_for(30)
     _check_stopped(tester)
     cancel()
+    tester.cancel_navigation()
 
 
 def test03_check_remaining_time_stop(tester):
@@ -174,6 +175,7 @@ def test05_cross_two_crossings(tester):
     _wait_stopped(tester, 5)
     tester.wait_goal("CrosswalkGoal")
     stop.set()
+    tester.cancel_navigation()
 
 
 def test06_announce_red_signal(tester):
@@ -189,6 +191,7 @@ def test06_announce_red_signal(tester):
         timeout=60
     )
     stop.set()
+    tester.cancel_navigation()
 
 
 def test07_announce_green_signal_short(tester):
@@ -204,6 +207,7 @@ def test07_announce_green_signal_short(tester):
         timeout=60
     )
     stop.set()
+    tester.cancel_navigation()
 
 
 def test08_announce_no_signal_info(tester):
@@ -217,6 +221,7 @@ def test08_announce_no_signal_info(tester):
         condition="msg.category=='cabot/interface' and msg.text=='Message' and msg.memo=='NO_SIGNAL_INFO'",
         timeout=60
     )
+    tester.cancel_navigation()
 
 
 def test09_do_not_stop_red_while_crossing(tester):
