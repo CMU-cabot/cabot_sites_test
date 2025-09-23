@@ -1,0 +1,19 @@
+---
+map_list:
+- node_id: "carto0_0"
+  frame_id: "map_carto0_0"
+  latitude: 40.444192
+  longitude: -79.946654
+  rotate: 145
+  floor: 0
+  area: 0
+  load_state_filename: "package://cabot_site_intersection/maps/mapping_2025-09-09-05-29-14.pbstream"
+  samples_filename: "package://cabot_site_intersection/maps/mapping_2025-09-09-05-29-14.loc.samples.json"
+  map_filename: "package://cabot_site_intersection/maps/mapping_2025-09-09-05-29-14.yaml"
+  cartographer:
+    TRAJECTORY_BUILDER_2D.max_range: 50.0
+anchor:
+  latitude: 40.444192
+  longitude: -79.946654
+  rotate: 145
+  floor: 0
