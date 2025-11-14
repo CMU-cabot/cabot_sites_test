@@ -236,3 +236,13 @@ def test09_do_not_stop_red_while_crossing(tester):
         _check_moved(tester)
     tester.wait_navigation_arrived(timeout=90)
     stop.set()
+
+
+def test10_keep_going(tester):
+    stop = _publish_signals(tester, SignalGeneratorDummy001RedFirst(start=20))
+    tester.reset_position(x=7.0, y=6.5, a=0.0)
+    # 9.0m x 0.51m/s x 0.9(rate) + 3.0(margin) = 22.607 < 23.0
+    tester.set_speed(0.51)
+    tester.goto_node('EDITOR_node_1757429043944')
+    tester.wait_navigation_arrived(timeout=30)
+    stop.set()
