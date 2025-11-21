@@ -23,6 +23,7 @@
 import json
 from cabot_common.util import setInterval as _setInterval
 from .signals import SignalGeneratorDummy001RedFirst
+from .signals import SignalGeneratorDummy002RedFirst
 from .signals import SignalGeneratorDummy001GreenFirst
 
 
@@ -246,3 +247,20 @@ def test10_keep_going(tester):
     tester.goto_node('EDITOR_node_1757429043944')
     tester.wait_navigation_arrived(timeout=30)
     stop.set()
+
+    
+def test11_cross_two_crossings_stop_middle(tester):
+    tester.reset_position(x=7.0, y=6.5, a=0.0)
+    tester.set_speed(1.0)
+    stop = _publish_signals(tester, SignalGeneratorDummy002RedFirst(start=15))
+    tester.goto_node('EDITOR_node_1757425176316')
+    tester.wait_for(5)
+    _check_stopped(tester)
+    _wait_moved(tester, 15)
+    _wait_stopped(tester, 15)
+    _wait_moved(tester, 15)
+    tester.wait_goal("CrosswalkGoal")
+    stop.set()
+    tester.cancel_navigation()
+
+

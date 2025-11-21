@@ -50,6 +50,23 @@ class SignalGeneratorDummy001RedFirst(SignalGenerator):
         super().__init__("dummy-id-001", cycles, step, start)
 
 
+class SignalGeneratorDummy002RedFirst(SignalGenerator):
+    def __init__(self, start=0, step=0.5):
+        cycles = [
+            [
+                {"state": "green", "duration": 20},
+                {"state": "green_blinking", "duration": 8},
+                {"state": "red", "duration": 25},
+            ],
+            [
+                {"state": "red", "duration": 25},
+                {"state": "green", "duration": 20},
+                {"state": "green_blinking", "duration": 8},
+            ],
+        ]
+        super().__init__("dummy-id-001", cycles, step, start)
+
+
 def get_state(cycle, tick, total):
     t = tick % total
     for i, phase in enumerate(cycle):
