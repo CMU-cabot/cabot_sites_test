@@ -1,23 +1,37 @@
 import json
+import random
 import time
 
 
 class SignalGenerator:
-    def __init__(self, id, cycles, step, start=0):
+    def __init__(self, id, cycles, step, start=0, delay_stddev=0.0):
         self.id = id
         self.cycles = cycles
         self.total = sum(phase["duration"] for phase in cycles[0])
         self.tick = start
         self.step = step
+        self.delay_stddev = delay_stddev
+        self.next_emit_at = time.time()
+
+    def _delay(self):
+        if self.delay_stddev <= 0:
+            return 0.0
+        delay = random.gauss(0.0, self.delay_stddev)
+        return abs(delay)
 
     def next(self):
+        now = time.time()
+        if now < self.next_emit_at:
+            return None
         status = generate_intersection_status(self.id, self.cycles, self.tick, self.total)
-        self.tick += self.step
+        delay = self._delay()
+        self.tick += self.step + delay
+        self.next_emit_at = now + self.step + delay
         return status
 
 
 class SignalGeneratorDummy001GreenFirst(SignalGenerator):
-    def __init__(self, start=0, step=0.5):
+    def __init__(self, start=0, step=0.5, delay_stddev=0.0):
         cycles = [
             [
                 {"state": "red", "duration": 25},
@@ -30,11 +44,11 @@ class SignalGeneratorDummy001GreenFirst(SignalGenerator):
                 {"state": "red", "duration": 25},
             ],
         ]
-        super().__init__("dummy-id-001", cycles, step, start)
+        super().__init__("dummy-id-001", cycles, step, start, delay_stddev)
 
 
 class SignalGeneratorDummy001RedFirst(SignalGenerator):
-    def __init__(self, start=0, step=0.5):
+    def __init__(self, start=0, step=0.5, delay_stddev=0.0):
         cycles = [
             [
                 {"state": "green", "duration": 20},
@@ -47,11 +61,16 @@ class SignalGeneratorDummy001RedFirst(SignalGenerator):
                 {"state": "green_blinking", "duration": 3},
             ],
         ]
-        super().__init__("dummy-id-001", cycles, step, start)
+        super().__init__("dummy-id-001", cycles, step, start, delay_stddev)
+
+
+class SignalGeneratorDummy001RedFirstDelay(SignalGeneratorDummy001RedFirst):
+    def __init__(self, start=0, step=0.5, delay_stddev=0.5):
+        super().__init__(start=start, step=step, delay_stddev=delay_stddev)
 
 
 class SignalGeneratorDummy002RedFirst(SignalGenerator):
-    def __init__(self, start=0, step=0.5):
+    def __init__(self, start=0, step=0.5, delay_stddev=0.0):
         cycles = [
             [
                 {"state": "green", "duration": 20},
@@ -64,7 +83,7 @@ class SignalGeneratorDummy002RedFirst(SignalGenerator):
                 {"state": "green_blinking", "duration": 8},
             ],
         ]
-        super().__init__("dummy-id-001", cycles, step, start)
+        super().__init__("dummy-id-001", cycles, step, start, delay_stddev)
 
 
 def get_state(cycle, tick, total):
@@ -118,6 +137,9 @@ def generate_intersection_status(id, cycles, tick, total):
 
 
 if __name__ == "__main__":
-    generator = SignalGeneratorDummy001GreenFirst()
+    generator = SignalGeneratorDummy001RedFirstDelay05()
     for tick in range(0, 101):
-        print(json.dumps(generator.next()))
+        status = generator.next()
+        if status is not None:
+            print(json.dumps(status))
+        time.sleep(0.1)

@@ -25,6 +25,7 @@ from cabot_common.util import setInterval as _setInterval
 from .signals import SignalGeneratorDummy001RedFirst
 from .signals import SignalGeneratorDummy002RedFirst
 from .signals import SignalGeneratorDummy001GreenFirst
+from .signals import SignalGeneratorDummy001RedFirstDelay
 
 
 def config(tester):
@@ -39,15 +40,16 @@ def wait_ready(tester):
     tester.wait_ready()
 
 
-@_setInterval(0.5)
+@_setInterval(0.01)
 def _publish_signals(tester, signal_generator):
     status = signal_generator.next()
-    tester.pub_topic(
-        action_name='sending intersection status',
-        topic='/signal_response_intersection_status',
-        topic_type='std_msgs/msg/String',
-        message=f"data: '{json.dumps(status)}'",
-    )
+    if status:
+        tester.pub_topic(
+            action_name='sending intersection status',
+            topic='/signal_response_intersection_status',
+            topic_type='std_msgs/msg/String',
+            message=f"data: '{json.dumps(status)}'",
+        )
 
 
 def _wait_moved(tester, timeout=10):
@@ -87,6 +89,16 @@ def _check_moved(tester):
         topic_type='nav_msgs/msg/Odometry',
         condition="msg.twist.twist.linear.x > 0.1",
         once=True,
+    )
+
+
+def _check_dont_move(tester, timeout=10):
+    return tester.check_topic_error(
+        action_name='check_dont_move',
+        topic='/odom',
+        topic_type='nav_msgs/msg/Odometry',
+        condition='msg.twist.twist.linear.x > 0.1',
+        timeout=timeout,
     )
 
 
@@ -264,3 +276,44 @@ def test11_cross_two_crossings_stop_middle(tester):
     tester.cancel_navigation()
 
 
+def test12_signal_cutoff_during_red_with_delay(tester):
+    tester.reset_position(x=7.0, y=6.5, a=0.0)
+    tester.set_speed(1.0)
+    stop = _publish_signals(tester, SignalGeneratorDummy001RedFirstDelay(start=0, delay_stddev=1))
+    tester.goto_node('EDITOR_node_1757425364512')
+    tester.wait_topic(
+        action_name='check_announce red signal',
+        topic='/cabot/activity_log',
+        topic_type='cabot_msgs/msg/Log',
+        condition="msg.category=='cabot/interface' and msg.text=='Message' and msg.memo=='RED_SIGNAL_DETAIL'",
+        timeout=60
+    )
+    no_signal_info = tester.check_topic_error(
+        action_name='check_announce no no-signal info',
+        topic='/cabot/activity_log',
+        topic_type='cabot_msgs/msg/Log',
+        condition="msg.category=='cabot/interface' and msg.text=='Message' and msg.memo=='NO_SIGNAL_INFO'",
+        timeout=60
+    )
+    dont_move = _check_dont_move(tester, timeout=15)
+    tester.wait_for(10)
+    dont_move()
+    no_signal_info()
+    stop.set()
+    tester.cancel_navigation()
+
+
+def test13_signal_cutoff_during_red_with_delay(tester):
+    tester.reset_position(x=7.0, y=6.5, a=0.0)
+    tester.set_speed(1.0)
+    stop = _publish_signals(tester, SignalGeneratorDummy001RedFirstDelay(start=0, delay_stddev=10))
+    tester.goto_node('EDITOR_node_1757425364512')
+    tester.wait_topic(
+        action_name='wait no-signal info',
+        topic='/cabot/activity_log',
+        topic_type='cabot_msgs/msg/Log',
+        condition="msg.category=='cabot/interface' and msg.text=='Message' and msg.memo=='NO_SIGNAL_INFO'",
+        timeout=60
+    )
+    stop.set()
+    tester.cancel_navigation()
