@@ -338,3 +338,33 @@ def test14_localization_off_while_red_signal(tester):
     cancel_dont_move()
     stop.set()
     tester.cancel_navigation()
+
+
+def test15_go_after_short_red(tester):
+    tester.reset_position(x=7.0, y=6.5, a=0.0)
+    tester.set_speed(0.5)
+    stop = _publish_signals(tester, SignalGeneratorDummy001RedFirst(start=20))
+    tester.goto_node('EDITOR_node_1757425364512')
+    tester.wait_topic(
+        action_name='check_announce red signal',
+        topic='/cabot/activity_log',
+        topic_type='cabot_msgs/msg/Log',
+        condition="msg.category=='cabot/interface' and msg.text=='Message' and msg.memo=='RED_SIGNAL_DETAIL'",
+        timeout=10
+    )
+    tester.wait_topic(
+        action_name='check_announce green signal',
+        topic='/cabot/activity_log',
+        topic_type='cabot_msgs/msg/Log',
+        condition="msg.category=='cabot/interface' and msg.text=='Message' and msg.memo=='GREEN_SIGNAL'",
+        timeout=10
+    )
+    tester.wait_topic(
+        action_name='check_announce poi on',
+        topic='/cabot/activity_log',
+        topic_type='cabot_msgs/msg/Log',
+        condition="msg.category=='cabot/interface' and msg.text=='poi' and msg.memo=='on'",
+        timeout=10
+    )
+    tester.wait_navigation_arrived(timeout=90)
+    stop.set()
