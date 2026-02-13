@@ -319,29 +319,7 @@ def test13_signal_cutoff_during_red_with_delay(tester):
     tester.cancel_navigation()
 
 
-def test14_localization_off_while_red_signal(tester):
-    tester.reset_position(x=7.0, y=6.5, a=0.0)
-    tester.set_speed(1.0)
-    stop = _publish_signals(tester, SignalGeneratorDummy001RedFirstDelay(start=0, delay_stddev=0))
-    tester.goto_node('EDITOR_node_1757425364512')
-    tester.wait_topic(
-        action_name='check_announce red signal',
-        topic='/cabot/activity_log',
-        topic_type='cabot_msgs/msg/Log',
-        condition="msg.category=='cabot/interface' and msg.text=='Message' and msg.memo=='RED_SIGNAL_DETAIL'",
-        timeout=60
-    )
-    cancel_dont_move = _check_dont_move(tester, timeout=15)
-    tester.wait_for(5)
-    tester.reset_position(x=8.0, y=6.5, a=0.0)
-    tester.wait_for(5)
-    cancel_dont_move()
-    stop.set()
-    tester.cancel_navigation()
-    tester.wait_for(30)
-
-
-def test15_go_after_short_red(tester):
+def test14_go_after_short_red(tester):
     tester.reset_position(x=7.0, y=6.5, a=0.0)
     tester.set_speed(0.5)
     stop = _publish_signals(tester, SignalGeneratorDummy001RedFirst(start=20))
@@ -369,6 +347,27 @@ def test15_go_after_short_red(tester):
     )
     tester.wait_navigation_arrived(timeout=90)
     stop.set()
+
+
+def test15_localization_off_while_red_signal(tester):
+    tester.reset_position(x=7.0, y=6.5, a=0.0)
+    tester.set_speed(1.0)
+    stop = _publish_signals(tester, SignalGeneratorDummy001RedFirstDelay(start=0, delay_stddev=0))
+    tester.goto_node('EDITOR_node_1757425364512')
+    tester.wait_topic(
+        action_name='check_announce red signal',
+        topic='/cabot/activity_log',
+        topic_type='cabot_msgs/msg/Log',
+        condition="msg.category=='cabot/interface' and msg.text=='Message' and msg.memo=='RED_SIGNAL_DETAIL'",
+        timeout=60
+    )
+    cancel_dont_move = _check_dont_move(tester, timeout=15)
+    tester.wait_for(5)
+    tester.reset_position(x=8.0, y=6.5, a=0.0)
+    tester.wait_for(5)
+    cancel_dont_move()
+    stop.set()
+    tester.cancel_navigation()
 
 
 def test16_no_green_signal_short_info_after_crossing(tester):
