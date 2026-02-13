@@ -368,3 +368,30 @@ def test15_go_after_short_red(tester):
     )
     tester.wait_navigation_arrived(timeout=90)
     stop.set()
+
+
+def test16_no_green_signal_short_info_after_crossing(tester):
+    tester.reset_position(x=0.0, y=10.0, a=0.0)
+    tester.set_speed(1.0)
+    stop = _publish_signals(tester, SignalGeneratorDummy001GreenFirst(start=0))
+    tester.goto_node('EDITOR_node_1757425395964')
+    tester.wait_topic(
+        action_name='check green short',
+        topic='/cabot/signal_state',
+        topic_type='cabot_msgs/msg/SignalState',
+        condition="msg.state=='GREEN_SIGNAL_SHORT'",
+        timeout=60
+    )
+    no_signal_info = tester.check_topic_error(
+        action_name='check_announce no signal info',
+        topic='/cabot/activity_log',
+        topic_type='cabot_msgs/msg/Log',
+        condition="msg.category=='cabot/interface' and msg.text=='Message' and msg.memo=='GREEN_SIGNAL_SHORT'",
+        timeout=60
+    )
+    tester.set_speed(0.0)
+    tester.wait_for(10)
+    no_signal_info()
+    tester.set_speed(1.0)
+    tester.wait_navigation_arrived(timeout=30)
+    stop.set()
