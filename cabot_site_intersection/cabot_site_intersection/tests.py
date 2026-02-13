@@ -338,6 +338,7 @@ def test14_localization_off_while_red_signal(tester):
     cancel_dont_move()
     stop.set()
     tester.cancel_navigation()
+    tester.wait_for(30)
 
 
 def test15_go_after_short_red(tester):
