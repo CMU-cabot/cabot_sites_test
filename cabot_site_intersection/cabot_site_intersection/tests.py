@@ -143,11 +143,41 @@ def test02_stop_without_signal_info(tester):
     tester.cancel_navigation()
 
 
-def test03_check_remaining_time_stop(tester):
+def test03_1_check_remaining_time_stop(tester):
     tester.reset_position(x=7.0, y=6.5, a=0.0)
     tester.set_speed(1.0)
     stop = _publish_signals(tester, SignalGeneratorDummy001GreenFirst(start=15))
     tester.goto_node('EDITOR_node_1757425364512')
+    tester.wait_for(5)
+    _check_stopped(tester)
+    tester.wait_navigation_arrived(timeout=60)
+    stop.set()
+
+def test03_2_check_remaining_time_stop(tester):
+    tester.reset_position(x=6.0, y=6.5, a=0.0)
+    tester.set_speed(1.0)
+    tester.wait_for(3)
+    stop = _publish_signals(tester, SignalGeneratorDummy001GreenFirst(start=9.8))
+    tester.goto_node('EDITOR_node_1757425364512')
+    tester.wait_for(5)
+    _check_stopped(tester)
+    tester.wait_for(5)
+    _check_stopped(tester)
+    tester.wait_for(5)
+    _check_stopped(tester)
+    tester.wait_navigation_arrived(timeout=60)
+    stop.set()
+
+def test03_3_check_remaining_time_stop(tester):
+    tester.reset_position(x=6.0, y=6.5, a=0.0)
+    tester.set_speed(1.0)
+    tester.wait_for(3)
+    stop = _publish_signals(tester, SignalGeneratorDummy001GreenFirst(start=9.15))
+    tester.goto_node('EDITOR_node_1757425364512')
+    tester.wait_for(5)
+    _check_stopped(tester)
+    tester.wait_for(5)
+    _check_stopped(tester)
     tester.wait_for(5)
     _check_stopped(tester)
     tester.wait_navigation_arrived(timeout=60)
