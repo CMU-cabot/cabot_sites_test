@@ -108,356 +108,8 @@ def _setup_actors(tester, actors):
     tester.setup_actors(actors=actors)
     time.sleep(5)
 
-def tests_adult_10_child_90_test_case_01_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 9
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.94,
-                "init_y": -3.35,
-                "init_a": -133.08,
-                "velocity": 0.99,
-                "goals": [[1.51, 1.45], [-3.46, 5.58], [3.17, 3.58], [4.55, 4.29]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair0_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.21,
-                "init_y": -4.31,
-                "init_a": -133.08,
-                "velocity": 0.99,
-                "goals": [[1.51, 1.45], [-1.70, -0.14], [5.34, 2.10], [5.16, 2.68]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair1_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.78,
-                "init_y": -5.42,
-                "init_a": -98.83,
-                "velocity": 1.12,
-                "goals": [[-0.95, 0.78], [-5.27, 2.47], [-1.25, 4.82], [2.93, 3.66]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair1_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.22,
-                "init_y": -6.32,
-                "init_a": -98.83,
-                "velocity": 1.12,
-                "goals": [[-0.95, 0.78], [-5.29, 0.72], [-2.05, -0.88], [-5.26, 2.18]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single0',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.08,
-                "init_y": -4.05,
-                "init_a": -12.16,
-                "velocity": 1.06,
-                "goal_x": 5.22,
-                "goal_y": -2.63,
-                "n_actors": 9,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.81,
-                "init_y": 4.19,
-                "init_a": 8.81,
-                "velocity": 1.03,
-                "goals": [[5.23, -0.72], [5.86, -3.31], [0.35, -5.87], [-5.89, -1.71]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.53,
-                "init_y": 3.57,
-                "init_a": -143.55,
-                "velocity": 1.09,
-                "goals": [[1.74, -1.30], [3.00, -4.28], [5.22, 1.79], [-2.53, -2.48]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.27,
-                "init_y": 1.31,
-                "init_a": -124.26,
-                "velocity": 0.97,
-                "goals": [[5.45, -4.98], [2.74, 2.76], [3.96, 5.51], [4.92, 5.56]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.72,
-                "init_y": 0.59,
-                "init_a": 107.08,
-                "velocity": 1.17,
-                "goals": [[-4.99, -0.87], [-1.68, -3.48], [-1.10, 0.77], [-0.72, -3.75]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_02_stopped_high(tester):
+def tests_adult_20_child_80_test_case_01_stopped_high(tester):
     # Pairs Moving: False
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 9
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.65,
-                "init_y": -5.37,
-                "init_a": 54.41,
-                "velocity": 1.18,
-                "goals": [[1.12, 0.83], [4.54, -4.50], [5.76, -5.95], [-0.17, 0.42]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.95,
-                "init_y": 1.53,
-                "init_a": 43.23,
-                "velocity": 0.90,
-                "goals": [[-4.18, 1.70], [2.74, -2.61], [5.77, -4.47], [0.12, 3.15]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.97,
-                "init_y": 5.15,
-                "init_a": -23.13,
-                "velocity": 1.06,
-                "goals": [[-1.76, -1.49], [-2.03, -0.01], [3.65, -2.09], [-5.87, 4.75]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.09,
-                "init_y": -0.34,
-                "init_a": -88.48,
-                "velocity": 1.08,
-                "goals": [[-0.46, -3.01], [3.65, -0.35], [0.15, -3.35], [-1.57, 0.50]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.46,
-                "init_y": -4.37,
-                "init_a": 105.64,
-                "velocity": 1.13,
-                "goals": [[-4.04, -3.38], [3.28, -4.98], [1.47, -2.66], [-3.84, -4.73]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.27,
-                "init_y": -2.56,
-                "init_a": 108.41,
-                "velocity": 1.06,
-                "goals": [[-2.23, 2.26], [1.22, -0.05], [-1.63, -2.75], [4.71, 5.24]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.71,
-                "init_y": -2.03,
-                "init_a": 116.17,
-                "velocity": 1.19,
-                "goals": [[2.72, -1.70], [-3.29, -0.22], [3.38, -5.91], [5.52, -3.21]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single7',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.27,
-                "init_y": 1.45,
-                "init_a": 149.62,
-                "velocity": 1.12,
-                "goal_x": 0.42,
-                "goal_y": -1.76,
-                "n_actors": 9,
-            },
-        },
-        {
-            "name": 'actor_single8_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.06,
-                "init_y": 3.08,
-                "init_a": -82.31,
-                "velocity": 1.09,
-                "goals": [[3.59, -1.67], [1.99, -5.35], [-2.92, -5.95], [5.23, -4.21]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_03_walking_high(tester):
-    # Pairs Moving: True
     tester.check_collision()
     tester.reset_position()
     
@@ -469,11 +121,11 @@ def tests_adult_10_child_90_test_case_03_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 1.60,
-                "init_y": -1.22,
-                "init_a": -157.57,
-                "velocity": 0.95,
-                "goals": [[0.97, 2.64], [-4.82, -1.51], [1.59, -4.27], [-2.79, 1.02]],
+                "init_x": 5.80,
+                "init_y": -4.90,
+                "init_a": 144.90,
+                "velocity": 1.11,
+                "goals": [[5.80, -4.90], [3.37, -1.70], [0.01, 2.52], [3.91, 4.63]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -487,11 +139,11 @@ def tests_adult_10_child_90_test_case_03_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 1.68,
-                "init_y": -2.21,
-                "init_a": -157.57,
-                "velocity": 0.95,
-                "goals": [[0.97, 2.64], [1.63, 0.22], [5.71, -4.20], [5.54, 0.00]],
+                "init_x": 4.97,
+                "init_y": -4.35,
+                "init_a": 144.90,
+                "velocity": 1.11,
+                "goals": [[5.80, -4.90], [3.93, 2.67], [0.90, -4.95], [0.74, -5.46]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -501,21 +153,17 @@ def tests_adult_10_child_90_test_case_03_walking_high(tester):
             },
         },
         {
-            "name": 'actor_pair1_0_child',
-            "module": "pedestrian.walk_sfm_child",
+            "name": 'actor_pair1_0',
+            "module": "pedestrian.walk_sfm",
             "params": {
                 "radius": 0.25,
-                "init_x": -4.06,
-                "init_y": -5.87,
-                "init_a": 112.37,
-                "velocity": 0.94,
-                "goals": [[-4.52, 0.47], [-0.82, -0.14], [0.04, -4.57], [1.92, -2.19]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
+                "init_x": -2.01,
+                "init_y": 1.79,
+                "init_a": -35.67,
+                "velocity": 1.03,
+                "goal_x": -2.01,
+                "goal_y": 1.79,
                 "n_actors": 7,
-                "random_seed": 100,
             },
         },
         {
@@ -523,11 +171,11 @@ def tests_adult_10_child_90_test_case_03_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -4.98,
-                "init_y": -5.49,
-                "init_a": 112.37,
-                "velocity": 0.94,
-                "goals": [[-4.52, 0.47], [-0.60, -2.51], [-2.68, -5.20], [4.63, -2.79]],
+                "init_x": -2.79,
+                "init_y": 1.16,
+                "init_a": -35.67,
+                "velocity": 1.03,
+                "goals": [[-2.01, 1.79], [-1.93, -0.24], [3.03, 5.04], [4.93, 4.44]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -541,11 +189,11 @@ def tests_adult_10_child_90_test_case_03_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 3.44,
-                "init_y": -4.66,
-                "init_a": -10.54,
-                "velocity": 1.12,
-                "goals": [[3.29, 3.65], [4.37, 5.13], [-1.17, 0.93], [-3.50, -3.11]],
+                "init_x": -7.19,
+                "init_y": 2.85,
+                "init_a": 75.06,
+                "velocity": 1.17,
+                "goals": [[3.44, 1.87], [1.57, 0.51], [-7.96, -0.02], [2.31, 2.86]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -559,11 +207,11 @@ def tests_adult_10_child_90_test_case_03_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 0.22,
-                "init_y": 4.72,
-                "init_a": -155.58,
-                "velocity": 0.89,
-                "goals": [[-1.02, -5.99], [-0.63, 1.02], [4.75, -1.42], [-4.19, -1.59]],
+                "init_x": 3.79,
+                "init_y": -3.75,
+                "init_a": 0.71,
+                "velocity": 1.16,
+                "goals": [[6.82, -5.77], [-0.36, 4.33], [7.93, 1.04], [5.06, -5.24]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -577,12 +225,12 @@ def tests_adult_10_child_90_test_case_03_walking_high(tester):
             "module": "pedestrian.walk_sfm",
             "params": {
                 "radius": 0.25,
-                "init_x": -5.43,
-                "init_y": 1.08,
-                "init_a": -159.40,
-                "velocity": 0.82,
-                "goal_x": 4.04,
-                "goal_y": -4.91,
+                "init_x": 6.04,
+                "init_y": 1.64,
+                "init_a": -33.61,
+                "velocity": 0.85,
+                "goal_x": 5.80,
+                "goal_y": -2.95,
                 "n_actors": 7,
             },
         },
@@ -594,7 +242,7 @@ def tests_adult_10_child_90_test_case_03_walking_high(tester):
     
     _goto_target1(tester)
 
-def tests_adult_10_child_90_test_case_04_walking_high(tester):
+def tests_adult_20_child_80_test_case_02_walking_high(tester):
     # Pairs Moving: True
     tester.check_collision()
     tester.reset_position()
@@ -607,11 +255,11 @@ def tests_adult_10_child_90_test_case_04_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -0.93,
-                "init_y": -0.39,
-                "init_a": -148.63,
-                "velocity": 0.89,
-                "goals": [[1.04, -5.46], [2.56, 5.20], [-3.87, 5.09], [4.69, -1.60]],
+                "init_x": 0.00,
+                "init_y": 3.33,
+                "init_a": 23.06,
+                "velocity": 1.15,
+                "goals": [[6.16, 1.18], [5.18, 0.60], [-3.08, 4.49], [6.21, 2.43]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -625,11 +273,11 @@ def tests_adult_10_child_90_test_case_04_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -1.08,
-                "init_y": -1.38,
-                "init_a": -148.63,
-                "velocity": 0.89,
-                "goals": [[1.04, -5.46], [-0.36, -4.70], [2.66, 1.36], [3.29, -0.78]],
+                "init_x": 1.00,
+                "init_y": 3.34,
+                "init_a": 23.06,
+                "velocity": 1.15,
+                "goals": [[6.16, 1.18], [2.51, -1.60], [-4.51, -5.87], [3.31, -4.22]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -643,11 +291,11 @@ def tests_adult_10_child_90_test_case_04_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 1.28,
-                "init_y": 3.10,
-                "init_a": 165.31,
-                "velocity": 1.01,
-                "goals": [[-4.21, 2.99], [3.31, 3.64], [-5.43, 0.98], [-3.33, 4.25]],
+                "init_x": -3.72,
+                "init_y": 0.15,
+                "init_a": 177.69,
+                "velocity": 0.82,
+                "goals": [[4.38, 4.53], [-1.65, -5.90], [7.36, 4.01], [-2.07, 4.72]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -661,11 +309,11 @@ def tests_adult_10_child_90_test_case_04_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 1.44,
-                "init_y": 2.12,
-                "init_a": 165.31,
-                "velocity": 1.01,
-                "goals": [[-4.21, 2.99], [2.10, 1.08], [2.18, 4.64], [0.40, 3.52]],
+                "init_x": -2.74,
+                "init_y": 0.32,
+                "init_a": 177.69,
+                "velocity": 0.82,
+                "goals": [[4.38, 4.53], [6.63, -1.29], [-4.03, 3.08], [-6.39, -1.79]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -679,11 +327,481 @@ def tests_adult_10_child_90_test_case_04_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 1.84,
-                "init_y": -1.29,
-                "init_a": 49.52,
+                "init_x": -7.76,
+                "init_y": -3.90,
+                "init_a": -37.15,
+                "velocity": 0.95,
+                "goals": [[0.24, 0.89], [3.88, -0.03], [6.19, -4.69], [2.14, -4.71]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -1.64,
+                "init_y": -5.50,
+                "init_a": 14.01,
+                "velocity": 0.81,
+                "goal_x": -2.39,
+                "goal_y": 5.83,
+                "n_actors": 9,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.56,
+                "init_y": 5.06,
+                "init_a": 34.64,
+                "velocity": 1.20,
+                "goals": [[4.60, -2.08], [-7.77, 5.88], [-5.78, -3.54], [2.50, 4.14]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single3_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.81,
+                "init_y": -1.39,
+                "init_a": -21.06,
+                "velocity": 0.82,
+                "goals": [[-3.37, -1.33], [-2.28, 1.77], [5.03, 5.34], [-4.52, -2.22]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single4',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.38,
+                "init_y": 3.74,
+                "init_a": -150.00,
+                "velocity": 0.85,
+                "goal_x": -5.25,
+                "goal_y": -5.43,
+                "n_actors": 9,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_03_walking_high(tester):
+    # Pairs Moving: True
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 7
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -7.94,
+                "init_y": 3.00,
+                "init_a": 85.34,
+                "velocity": 0.98,
+                "goals": [[-7.21, -5.96], [4.33, 2.64], [-7.35, 3.81], [6.70, 2.23]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -8.40,
+                "init_y": 3.89,
+                "init_a": 85.34,
+                "velocity": 0.98,
+                "goals": [[-7.21, -5.96], [-3.10, 5.00], [-0.03, 4.68], [-7.27, 5.71]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.51,
+                "init_y": 4.59,
+                "init_a": -24.94,
+                "velocity": 1.11,
+                "goals": [[-1.61, 1.37], [-1.96, 1.18], [0.25, -5.65], [-3.87, -0.92]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.85,
+                "init_y": 5.53,
+                "init_a": -24.94,
+                "velocity": 1.11,
+                "goals": [[-1.61, 1.37], [-4.01, -4.12], [6.73, -1.73], [1.97, 0.87]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -6.30,
+                "init_y": -0.73,
+                "init_a": -25.18,
+                "velocity": 0.95,
+                "goal_x": -2.94,
+                "goal_y": 1.75,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -7.31,
+                "init_y": -2.03,
+                "init_a": 113.87,
                 "velocity": 0.90,
-                "goals": [[4.24, -0.70], [4.24, -2.98], [1.96, 3.23], [-2.32, -3.38]],
+                "goals": [[-1.00, 5.09], [-5.14, -5.27], [-5.69, 5.30], [1.02, -5.35]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -6.71,
+                "init_y": 5.82,
+                "init_a": 28.16,
+                "velocity": 0.87,
+                "goal_x": -7.09,
+                "goal_y": 2.88,
+                "n_actors": 7,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_04_walking_high(tester):
+    # Pairs Moving: True
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 9
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 6.10,
+                "init_y": 3.69,
+                "init_a": -170.80,
+                "velocity": 1.10,
+                "goal_x": 3.93,
+                "goal_y": -5.23,
+                "n_actors": 9,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.88,
+                "init_y": 4.67,
+                "init_a": -170.80,
+                "velocity": 1.10,
+                "goals": [[3.93, -5.23], [-2.08, -5.34], [-7.73, 2.71], [2.00, -2.19]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.29,
+                "init_y": -5.48,
+                "init_a": 178.16,
+                "velocity": 0.92,
+                "goals": [[-3.28, -5.61], [3.46, -5.09], [7.63, -1.36], [0.84, 5.67]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -1.27,
+                "init_y": -5.32,
+                "init_a": 178.16,
+                "velocity": 0.92,
+                "goals": [[-3.28, -5.61], [5.38, -2.57], [-7.77, -4.91], [-2.94, 2.21]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.85,
+                "init_y": 0.64,
+                "init_a": -141.28,
+                "velocity": 0.81,
+                "goals": [[-6.62, -3.02], [-4.58, -5.88], [-0.05, -4.92], [-7.86, 0.35]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.34,
+                "init_y": 4.91,
+                "init_a": 43.26,
+                "velocity": 0.81,
+                "goal_x": -1.59,
+                "goal_y": 5.37,
+                "n_actors": 9,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -4.61,
+                "init_y": 4.18,
+                "init_a": 83.83,
+                "velocity": 0.99,
+                "goals": [[-3.91, 3.54], [2.55, -0.55], [-7.24, -4.74], [2.00, -0.99]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single3_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.61,
+                "init_y": 0.18,
+                "init_a": -25.02,
+                "velocity": 0.81,
+                "goals": [[0.63, 1.83], [-4.91, -2.58], [1.16, 1.35], [6.44, 4.35]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single4_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 3.40,
+                "init_y": 5.53,
+                "init_a": 113.44,
+                "velocity": 0.95,
+                "goals": [[5.78, 4.92], [-0.89, 2.76], [-7.66, 3.74], [5.28, 3.23]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_05_walking_high(tester):
+    # Pairs Moving: True
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 9
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.89,
+                "init_y": -5.54,
+                "init_a": 94.19,
+                "velocity": 1.09,
+                "goals": [[-0.81, -2.77], [0.95, -5.32], [0.68, -3.89], [-0.85, -1.40]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.97,
+                "init_y": -5.94,
+                "init_a": 94.19,
+                "velocity": 1.09,
+                "goals": [[-0.81, -2.77], [-4.36, 4.34], [0.93, 0.82], [4.30, -4.48]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.05,
+                "init_y": -2.34,
+                "init_a": -79.94,
+                "velocity": 1.08,
+                "goals": [[-2.10, 1.87], [7.47, 1.47], [7.56, 4.42], [-2.70, -2.92]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -2.32,
+                "init_y": -3.03,
+                "init_a": -79.94,
+                "velocity": 1.08,
+                "goal_x": -2.10,
+                "goal_y": 1.87,
+                "n_actors": 9,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.24,
+                "init_y": -2.50,
+                "init_a": -148.03,
+                "velocity": 1.16,
+                "goals": [[2.12, 4.59], [-3.88, 3.65], [0.84, 3.90], [2.25, 2.51]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -697,11 +815,333 @@ def tests_adult_10_child_90_test_case_04_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 1.54,
-                "init_y": 5.95,
-                "init_a": -9.65,
-                "velocity": 0.88,
-                "goals": [[-3.82, -5.09], [-5.72, 5.75], [1.73, 1.57], [4.01, 3.80]],
+                "init_x": -7.19,
+                "init_y": -5.29,
+                "init_a": -2.85,
+                "velocity": 1.07,
+                "goals": [[-2.98, 5.35], [-5.40, 3.89], [-1.24, -3.62], [2.28, -4.98]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -1.05,
+                "init_y": -1.04,
+                "init_a": 14.46,
+                "velocity": 0.95,
+                "goal_x": -0.44,
+                "goal_y": 1.54,
+                "n_actors": 9,
+            },
+        },
+        {
+            "name": 'actor_single3_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -2.66,
+                "init_y": 4.36,
+                "init_a": 118.49,
+                "velocity": 1.02,
+                "goals": [[0.77, -2.60], [-0.67, -5.49], [-3.34, -5.87], [6.69, 4.78]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single4_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -5.02,
+                "init_y": -5.00,
+                "init_a": -71.24,
+                "velocity": 1.11,
+                "goals": [[-6.75, 5.18], [-3.74, -2.62], [-0.79, 2.39], [-4.78, 3.18]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_06_stopped_high(tester):
+    # Pairs Moving: False
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 8
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -7.86,
+                "init_y": 4.64,
+                "init_a": 9.91,
+                "velocity": 0.98,
+                "goals": [[-7.86, 4.64], [-4.78, 0.45], [0.93, -4.26], [-3.82, -2.04]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -8.51,
+                "init_y": 3.87,
+                "init_a": 9.91,
+                "velocity": 0.98,
+                "goals": [[-7.86, 4.64], [-7.71, -3.87], [-2.84, 3.17], [-6.01, 3.74]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.29,
+                "init_y": -1.92,
+                "init_a": -101.85,
+                "velocity": 1.02,
+                "goals": [[5.29, -1.92], [5.73, 3.37], [3.79, 5.14], [-1.80, 2.35]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.57,
+                "init_y": -2.61,
+                "init_a": -101.85,
+                "velocity": 1.02,
+                "goals": [[5.29, -1.92], [-5.59, 3.28], [3.06, 2.88], [1.05, 4.88]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.30,
+                "init_y": 0.50,
+                "init_a": 130.30,
+                "velocity": 0.85,
+                "goal_x": -7.86,
+                "goal_y": 0.86,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.82,
+                "init_y": -1.05,
+                "init_a": -12.64,
+                "velocity": 0.98,
+                "goals": [[3.97, 2.26], [-4.36, 2.13], [6.28, -4.59], [-2.27, 1.64]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -7.47,
+                "init_y": -3.98,
+                "init_a": -140.24,
+                "velocity": 1.15,
+                "goal_x": 1.27,
+                "goal_y": -5.58,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_single3_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.59,
+                "init_y": 1.66,
+                "init_a": -167.53,
+                "velocity": 1.16,
+                "goals": [[-3.61, 3.59], [5.02, -0.97], [-1.98, -4.37], [4.91, -2.21]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_07_walking_high(tester):
+    # Pairs Moving: True
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 9
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 6.33,
+                "init_y": 2.19,
+                "init_a": 59.94,
+                "velocity": 0.92,
+                "goal_x": 5.00,
+                "goal_y": 4.61,
+                "n_actors": 9,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 6.14,
+                "init_y": 3.18,
+                "init_a": 59.94,
+                "velocity": 0.92,
+                "goals": [[5.00, 4.61], [-6.16, 2.35], [5.90, -1.73], [7.08, 1.65]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -7.07,
+                "init_y": -2.22,
+                "init_a": 70.22,
+                "velocity": 1.00,
+                "goals": [[4.51, -1.38], [-2.18, -2.91], [-1.85, -1.16], [4.84, -4.25]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -7.77,
+                "init_y": -1.51,
+                "init_a": 70.22,
+                "velocity": 1.00,
+                "goals": [[4.51, -1.38], [7.31, 0.05], [7.17, 5.61], [6.36, 0.41]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -1.92,
+                "init_y": -4.91,
+                "init_a": 87.02,
+                "velocity": 0.97,
+                "goals": [[-5.39, 1.51], [-6.75, 0.98], [-5.33, -0.84], [1.05, 1.13]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -1.04,
+                "init_y": 2.09,
+                "init_a": 44.20,
+                "velocity": 1.03,
+                "goals": [[-2.75, 3.33], [-4.33, -1.24], [-7.12, -1.93], [1.40, 5.36]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -715,11 +1155,11 @@ def tests_adult_10_child_90_test_case_04_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -3.79,
-                "init_y": -5.80,
-                "init_a": 153.02,
-                "velocity": 1.16,
-                "goals": [[-1.34, -0.94], [3.52, 2.85], [2.38, 0.03], [2.16, -1.23]],
+                "init_x": 0.63,
+                "init_y": -2.88,
+                "init_a": -108.06,
+                "velocity": 1.02,
+                "goals": [[-4.87, -0.78], [-3.18, 0.17], [1.89, -3.07], [-3.77, 5.48]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -733,12 +1173,12 @@ def tests_adult_10_child_90_test_case_04_walking_high(tester):
             "module": "pedestrian.walk_sfm",
             "params": {
                 "radius": 0.25,
-                "init_x": -5.83,
-                "init_y": -0.82,
-                "init_a": -25.69,
-                "velocity": 0.96,
-                "goal_x": 5.22,
-                "goal_y": 0.85,
+                "init_x": 4.03,
+                "init_y": -1.12,
+                "init_a": 56.72,
+                "velocity": 1.17,
+                "goal_x": -6.89,
+                "goal_y": 1.07,
                 "n_actors": 9,
             },
         },
@@ -747,11 +1187,11 @@ def tests_adult_10_child_90_test_case_04_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -3.56,
-                "init_y": 2.82,
-                "init_a": 36.54,
-                "velocity": 0.81,
-                "goals": [[2.27, -3.62], [-4.29, 5.97], [1.09, -1.95], [-4.96, 5.24]],
+                "init_x": -1.03,
+                "init_y": -0.38,
+                "init_a": 118.59,
+                "velocity": 0.83,
+                "goals": [[1.77, -2.67], [-6.56, -1.23], [4.80, -3.95], [0.92, -3.59]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -768,8 +1208,8 @@ def tests_adult_10_child_90_test_case_04_walking_high(tester):
     
     _goto_target1(tester)
 
-def tests_adult_10_child_90_test_case_05_stopped_high(tester):
-    # Pairs Moving: False
+def tests_adult_20_child_80_test_case_08_walking_high(tester):
+    # Pairs Moving: True
     tester.check_collision()
     tester.reset_position()
     
@@ -781,190 +1221,16 @@ def tests_adult_10_child_90_test_case_05_stopped_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 1.54,
-                "init_y": 2.86,
-                "init_a": 23.79,
-                "velocity": 0.85,
-                "goals": [[1.54, 2.86], [2.68, -4.15], [3.31, 1.63], [0.02, -4.03]],
+                "init_x": -1.65,
+                "init_y": -0.06,
+                "init_a": 159.35,
+                "velocity": 1.06,
+                "goals": [[-4.33, 1.17], [-5.19, 2.98], [-2.46, 5.04], [-4.95, 1.24]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
                 "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair0_1',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.24,
-                "init_y": 3.58,
-                "init_a": 23.79,
-                "velocity": 0.85,
-                "goal_x": 1.54,
-                "goal_y": 2.86,
-                "n_actors": 9,
-            },
-        },
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.88,
-                "init_y": 0.49,
-                "init_a": -12.95,
-                "velocity": 1.08,
-                "goals": [[-3.68, -1.26], [-0.56, -1.68], [2.45, 0.77], [-4.19, -1.69]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.41,
-                "init_y": 2.74,
-                "init_a": 142.10,
-                "velocity": 1.01,
-                "goals": [[0.79, 0.70], [-2.18, -5.12], [5.62, 2.73], [-4.99, -0.17]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.31,
-                "init_y": -4.30,
-                "init_a": 7.46,
-                "velocity": 1.20,
-                "goals": [[3.69, 4.39], [-4.86, 1.43], [-1.99, -3.40], [2.57, -5.06]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.01,
-                "init_y": 3.48,
-                "init_a": -149.31,
-                "velocity": 0.90,
-                "goals": [[-4.20, 2.96], [-5.96, 4.34], [-4.18, -4.52], [1.35, -2.21]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.63,
-                "init_y": 3.82,
-                "init_a": 147.73,
-                "velocity": 0.89,
-                "goals": [[1.09, 4.20], [-1.16, -0.85], [-2.74, 1.97], [-5.68, 1.80]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.83,
-                "init_y": 3.51,
-                "init_a": -42.64,
-                "velocity": 0.94,
-                "goals": [[2.88, -5.88], [3.14, -2.90], [1.53, -0.85], [-5.37, 5.42]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.20,
-                "init_y": -1.55,
-                "init_a": -25.26,
-                "velocity": 1.00,
-                "goals": [[-1.18, 0.13], [1.55, 5.24], [-1.17, -2.18], [-4.00, 5.22]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_06_stopped_high(tester):
-    # Pairs Moving: False
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 8
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.60,
-                "init_y": 2.66,
-                "init_a": -176.95,
-                "velocity": 1.15,
-                "goals": [[0.60, 2.66], [5.80, -4.77], [-5.56, -2.11], [1.39, -5.99]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
                 "random_seed": 100,
             },
         },
@@ -973,31 +1239,35 @@ def tests_adult_10_child_90_test_case_06_stopped_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -0.38,
-                "init_y": 2.49,
-                "init_a": -176.95,
-                "velocity": 1.15,
-                "goals": [[0.60, 2.66], [1.87, -1.08], [3.00, -3.54], [5.21, -1.82]],
+                "init_x": -0.80,
+                "init_y": -0.57,
+                "init_a": 159.35,
+                "velocity": 1.06,
+                "goals": [[-4.33, 1.17], [5.47, -4.62], [-0.48, -1.47], [5.13, -2.71]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
+                "n_actors": 9,
                 "random_seed": 100,
             },
         },
         {
-            "name": 'actor_pair1_0',
-            "module": "pedestrian.walk_sfm",
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -0.61,
-                "init_y": 1.66,
-                "init_a": 118.95,
-                "velocity": 0.94,
-                "goal_x": -0.61,
-                "goal_y": 1.66,
-                "n_actors": 8,
+                "init_x": -0.79,
+                "init_y": -4.42,
+                "init_a": -68.62,
+                "velocity": 1.12,
+                "goals": [[-3.67, -5.49], [-7.42, -2.77], [-6.84, 2.94], [5.52, 5.40]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
             },
         },
         {
@@ -1005,16 +1275,16 @@ def tests_adult_10_child_90_test_case_06_stopped_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -0.40,
-                "init_y": 2.64,
-                "init_a": 118.95,
-                "velocity": 0.94,
-                "goals": [[-0.61, 1.66], [2.42, -0.57], [5.95, 3.20], [-1.16, -1.82]],
+                "init_x": -1.79,
+                "init_y": -4.47,
+                "init_a": -68.62,
+                "velocity": 1.12,
+                "goals": [[-3.67, -5.49], [-6.49, -5.05], [-0.05, -1.30], [-2.18, 4.95]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
+                "n_actors": 9,
                 "random_seed": 100,
             },
         },
@@ -1023,16 +1293,16 @@ def tests_adult_10_child_90_test_case_06_stopped_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 0.69,
-                "init_y": 1.46,
-                "init_a": -6.79,
-                "velocity": 1.02,
-                "goals": [[4.34, -4.49], [3.07, 4.99], [1.65, 3.67], [-1.16, -3.58]],
+                "init_x": 7.26,
+                "init_y": 1.75,
+                "init_a": 14.41,
+                "velocity": 0.88,
+                "goals": [[-2.16, -0.09], [5.95, 5.76], [-4.77, 4.44], [0.24, 5.18]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
+                "n_actors": 9,
                 "random_seed": 100,
             },
         },
@@ -1041,16 +1311,16 @@ def tests_adult_10_child_90_test_case_06_stopped_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -5.90,
-                "init_y": 0.86,
-                "init_a": 40.93,
-                "velocity": 0.97,
-                "goals": [[-0.42, -0.57], [-5.26, 4.55], [5.41, -5.27], [5.63, -3.26]],
+                "init_x": -0.12,
+                "init_y": -1.92,
+                "init_a": 79.02,
+                "velocity": 0.88,
+                "goals": [[6.02, -4.57], [-7.80, 3.29], [1.71, 1.61], [4.36, 2.46]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
+                "n_actors": 9,
                 "random_seed": 100,
             },
         },
@@ -1059,35 +1329,45 @@ def tests_adult_10_child_90_test_case_06_stopped_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 2.97,
-                "init_y": 2.26,
-                "init_a": -168.16,
-                "velocity": 0.87,
-                "goals": [[-4.67, 4.55], [4.63, 1.71], [4.17, -5.09], [0.81, 1.87]],
+                "init_x": 7.39,
+                "init_y": -4.02,
+                "init_a": 3.39,
+                "velocity": 1.06,
+                "goals": [[5.03, -0.86], [-3.15, -3.63], [2.17, -5.66], [7.54, -2.79]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
+                "n_actors": 9,
                 "random_seed": 100,
             },
         },
         {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
+            "name": 'actor_single3',
+            "module": "pedestrian.walk_sfm",
             "params": {
                 "radius": 0.25,
-                "init_x": 0.95,
-                "init_y": -5.58,
-                "init_a": 35.67,
-                "velocity": 1.06,
-                "goals": [[-5.58, 4.78], [4.76, -1.94], [-2.30, -4.13], [-1.22, 1.11]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
+                "init_x": 3.42,
+                "init_y": -1.79,
+                "init_a": 64.83,
+                "velocity": 1.20,
+                "goal_x": 4.49,
+                "goal_y": -0.30,
+                "n_actors": 9,
+            },
+        },
+        {
+            "name": 'actor_single4',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -2.49,
+                "init_y": 4.70,
+                "init_a": -51.15,
+                "velocity": 1.09,
+                "goal_x": 7.74,
+                "goal_y": 5.10,
+                "n_actors": 9,
             },
         },
     ])
@@ -1098,7 +1378,7 @@ def tests_adult_10_child_90_test_case_06_stopped_high(tester):
     
     _goto_target1(tester)
 
-def tests_adult_10_child_90_test_case_07_stopped_high(tester):
+def tests_adult_20_child_80_test_case_09_stopped_high(tester):
     # Pairs Moving: False
     tester.check_collision()
     tester.reset_position()
@@ -1111,11 +1391,11 @@ def tests_adult_10_child_90_test_case_07_stopped_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -2.15,
-                "init_y": 1.90,
-                "init_a": -46.30,
-                "velocity": 1.07,
-                "goals": [[-2.15, 1.90], [0.20, 5.91], [5.36, -1.06], [-3.43, 5.89]],
+                "init_x": -3.95,
+                "init_y": 0.77,
+                "init_a": 24.94,
+                "velocity": 1.04,
+                "goals": [[-3.95, 0.77], [0.07, -0.51], [-7.84, 0.65], [-5.74, -1.81]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -1129,11 +1409,11 @@ def tests_adult_10_child_90_test_case_07_stopped_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -2.68,
-                "init_y": 1.05,
-                "init_a": -46.30,
-                "velocity": 1.07,
-                "goals": [[-2.15, 1.90], [-2.60, 0.75], [1.70, 4.41], [3.24, 1.29]],
+                "init_x": -4.95,
+                "init_y": 0.69,
+                "init_a": 24.94,
+                "velocity": 1.04,
+                "goals": [[-3.95, 0.77], [6.65, -3.42], [2.74, -2.54], [-1.88, -3.75]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -1147,16 +1427,906 @@ def tests_adult_10_child_90_test_case_07_stopped_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 2.65,
-                "init_y": -1.72,
-                "init_a": 54.16,
-                "velocity": 0.89,
-                "goals": [[2.65, -1.72], [3.42, -1.62], [5.71, 3.26], [5.84, 0.82]],
+                "init_x": 3.40,
+                "init_y": 4.71,
+                "init_a": 41.58,
+                "velocity": 1.02,
+                "goals": [[3.40, 4.71], [-5.62, 5.79], [5.82, -2.92], [-1.93, 4.71]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
                 "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 3.46,
+                "init_y": 3.71,
+                "init_a": 41.58,
+                "velocity": 1.02,
+                "goal_x": 3.40,
+                "goal_y": 4.71,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 7.69,
+                "init_y": -2.51,
+                "init_a": 31.90,
+                "velocity": 0.83,
+                "goals": [[-0.89, 3.23], [2.62, 5.00], [4.39, 3.44], [1.01, 3.06]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.74,
+                "init_y": 2.87,
+                "init_a": -38.87,
+                "velocity": 1.12,
+                "goal_x": -4.04,
+                "goal_y": 4.58,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.11,
+                "init_y": -4.04,
+                "init_a": 48.60,
+                "velocity": 1.01,
+                "goals": [[0.32, -3.93], [-7.17, -2.57], [-6.84, -5.91], [7.34, 2.44]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_10_stopped_high(tester):
+    # Pairs Moving: False
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 8
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.20,
+                "init_y": -4.57,
+                "init_a": 29.17,
+                "velocity": 1.06,
+                "goal_x": 5.20,
+                "goal_y": -4.57,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_pair0_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.26,
+                "init_y": -4.91,
+                "init_a": 29.17,
+                "velocity": 1.06,
+                "goal_x": 5.20,
+                "goal_y": -4.57,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -5.86,
+                "init_y": 5.62,
+                "init_a": -172.39,
+                "velocity": 0.92,
+                "goals": [[-5.86, 5.62], [-2.14, -5.53], [7.81, 2.06], [6.33, 1.06]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -5.79,
+                "init_y": 6.61,
+                "init_a": -172.39,
+                "velocity": 0.92,
+                "goals": [[-5.86, 5.62], [1.67, -5.38], [5.72, -5.08], [3.06, 3.54]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.33,
+                "init_y": 4.37,
+                "init_a": -44.53,
+                "velocity": 0.98,
+                "goals": [[4.28, -1.59], [5.89, -4.37], [-1.12, -4.82], [4.50, 4.08]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.09,
+                "init_y": -5.54,
+                "init_a": -4.08,
+                "velocity": 1.19,
+                "goals": [[2.28, 0.07], [-3.82, 3.85], [5.71, -5.84], [6.00, -3.78]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 7.45,
+                "init_y": -1.80,
+                "init_a": 42.77,
+                "velocity": 1.07,
+                "goals": [[-2.14, -4.66], [-7.06, 0.02], [7.75, 5.89], [3.43, 4.80]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single3_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 3.05,
+                "init_y": -2.21,
+                "init_a": -157.14,
+                "velocity": 0.82,
+                "goals": [[-0.85, -2.97], [7.35, -2.90], [-1.19, -3.94], [7.43, -5.40]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_11_walking_high(tester):
+    # Pairs Moving: True
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 8
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 3.71,
+                "init_y": -2.60,
+                "init_a": 150.95,
+                "velocity": 1.20,
+                "goals": [[3.12, 4.98], [3.55, -5.92], [6.53, 5.70], [7.44, -5.74]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.53,
+                "init_y": -3.17,
+                "init_a": 150.95,
+                "velocity": 1.20,
+                "goal_x": 3.12,
+                "goal_y": 4.98,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 2.23,
+                "init_y": -1.79,
+                "init_a": -56.37,
+                "velocity": 0.91,
+                "goals": [[5.16, -3.74], [-5.30, -1.00], [-1.25, 0.25], [-5.09, 1.00]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.72,
+                "init_y": -2.65,
+                "init_a": -56.37,
+                "velocity": 0.91,
+                "goal_x": 5.16,
+                "goal_y": -3.74,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.62,
+                "init_y": -0.48,
+                "init_a": 41.59,
+                "velocity": 0.87,
+                "goals": [[3.05, -0.44], [-5.59, -1.70], [-7.63, 2.57], [-7.96, 3.73]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 6.19,
+                "init_y": -4.13,
+                "init_a": 45.66,
+                "velocity": 1.12,
+                "goals": [[-5.39, -3.91], [-5.86, 0.06], [-1.69, 4.20], [-2.10, 2.68]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 7.37,
+                "init_y": -4.45,
+                "init_a": 51.93,
+                "velocity": 1.05,
+                "goals": [[-4.40, -3.83], [-6.89, -2.44], [-5.27, -5.87], [-5.73, 5.49]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single3_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -7.25,
+                "init_y": -2.71,
+                "init_a": -88.30,
+                "velocity": 0.95,
+                "goals": [[7.17, 4.38], [-3.28, -5.13], [3.94, 2.61], [-5.08, 1.37]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_12_stopped_high(tester):
+    # Pairs Moving: False
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 9
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 3.54,
+                "init_y": -5.96,
+                "init_a": -14.91,
+                "velocity": 0.86,
+                "goals": [[3.54, -5.96], [-6.78, 2.24], [-5.49, 3.66], [-2.38, -5.23]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 3.96,
+                "init_y": -5.06,
+                "init_a": -14.91,
+                "velocity": 0.86,
+                "goals": [[3.54, -5.96], [2.22, -5.26], [-5.77, -2.01], [-1.33, -2.67]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.87,
+                "init_y": -2.86,
+                "init_a": -53.96,
+                "velocity": 0.98,
+                "goals": [[1.87, -2.86], [2.28, 2.83], [-5.38, 0.41], [0.64, -1.61]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.15,
+                "init_y": -3.56,
+                "init_a": -53.96,
+                "velocity": 0.98,
+                "goal_x": 1.87,
+                "goal_y": -2.86,
+                "n_actors": 9,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -6.42,
+                "init_y": -3.29,
+                "init_a": 75.07,
+                "velocity": 1.02,
+                "goals": [[-4.53, -5.57], [-0.63, 0.45], [1.53, 4.06], [2.78, -4.35]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 2.80,
+                "init_y": -5.33,
+                "init_a": -136.61,
+                "velocity": 0.91,
+                "goals": [[-1.13, 2.94], [-2.66, 3.74], [-5.66, -4.46], [-4.37, 2.57]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.61,
+                "init_y": 5.43,
+                "init_a": -146.85,
+                "velocity": 1.13,
+                "goal_x": 2.27,
+                "goal_y": -5.92,
+                "n_actors": 9,
+            },
+        },
+        {
+            "name": 'actor_single3_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -6.95,
+                "init_y": -0.94,
+                "init_a": 111.46,
+                "velocity": 0.94,
+                "goals": [[-0.73, -3.27], [-5.29, 2.30], [-3.46, -4.06], [-5.97, -4.04]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single4_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -7.20,
+                "init_y": -2.15,
+                "init_a": 159.86,
+                "velocity": 0.92,
+                "goals": [[-0.98, 2.83], [1.68, 5.00], [5.91, 4.06], [0.91, -4.94]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_13_walking_high(tester):
+    # Pairs Moving: True
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 8
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.25,
+                "init_y": 5.63,
+                "init_a": 164.71,
+                "velocity": 0.96,
+                "goals": [[5.82, -2.88], [5.38, -5.14], [3.75, 4.89], [5.95, -3.46]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.67,
+                "init_y": 4.81,
+                "init_a": 164.71,
+                "velocity": 0.96,
+                "goals": [[5.82, -2.88], [1.30, 2.87], [-6.00, 4.46], [5.14, -1.17]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 6.33,
+                "init_y": -5.08,
+                "init_a": -162.91,
+                "velocity": 1.20,
+                "goals": [[5.03, -2.07], [4.94, 4.51], [-7.77, 1.68], [1.45, -0.06]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 7.18,
+                "init_y": -5.60,
+                "init_a": -162.91,
+                "velocity": 1.20,
+                "goals": [[5.03, -2.07], [-2.21, 0.46], [-3.89, -3.42], [-4.65, 2.73]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.73,
+                "init_y": -2.15,
+                "init_a": 126.91,
+                "velocity": 1.10,
+                "goal_x": -6.54,
+                "goal_y": -4.97,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -5.84,
+                "init_y": -4.51,
+                "init_a": -95.80,
+                "velocity": 1.02,
+                "goals": [[7.14, 1.64], [1.07, 5.67], [-0.09, 2.92], [-5.15, -1.14]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.41,
+                "init_y": 5.35,
+                "init_a": -6.24,
+                "velocity": 1.05,
+                "goals": [[4.34, 0.88], [-6.75, -1.87], [-7.55, 0.17], [-1.34, -1.00]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single3',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.05,
+                "init_y": -5.21,
+                "init_a": 120.15,
+                "velocity": 1.12,
+                "goal_x": -2.46,
+                "goal_y": -1.97,
+                "n_actors": 8,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_14_walking_high(tester):
+    # Pairs Moving: True
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 7
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.96,
+                "init_y": -3.64,
+                "init_a": -29.65,
+                "velocity": 0.86,
+                "goals": [[-3.91, -4.23], [5.63, -4.06], [3.90, -3.32], [0.48, 3.49]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.65,
+                "init_y": -4.35,
+                "init_a": -29.65,
+                "velocity": 0.86,
+                "goals": [[-3.91, -4.23], [3.41, 0.24], [-1.48, -1.89], [-3.47, 3.71]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 3.55,
+                "init_y": 0.34,
+                "init_a": 10.47,
+                "velocity": 1.17,
+                "goals": [[-0.96, 1.37], [1.88, 1.34], [7.19, -5.20], [-2.54, -1.61]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 3.00,
+                "init_y": -0.49,
+                "init_a": 10.47,
+                "velocity": 1.17,
+                "goals": [[-0.96, 1.37], [3.74, -3.37], [6.13, 2.60], [4.89, 3.86]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.40,
+                "init_y": -0.17,
+                "init_a": 103.05,
+                "velocity": 0.96,
+                "goal_x": -1.09,
+                "goal_y": 4.27,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.82,
+                "init_y": -3.44,
+                "init_a": -147.27,
+                "velocity": 0.91,
+                "goals": [[-3.70, 1.42], [-3.51, -2.63], [-2.28, 0.18], [5.29, -5.99]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 7.41,
+                "init_y": -0.93,
+                "init_a": 25.66,
+                "velocity": 0.88,
+                "goal_x": 5.62,
+                "goal_y": -4.80,
+                "n_actors": 7,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_15_stopped_high(tester):
+    # Pairs Moving: False
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 9
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.61,
+                "init_y": 2.37,
+                "init_a": 127.26,
+                "velocity": 1.07,
+                "goal_x": 4.61,
+                "goal_y": 2.37,
+                "n_actors": 9,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.15,
+                "init_y": 3.21,
+                "init_a": 127.26,
+                "velocity": 1.07,
+                "goals": [[4.61, 2.37], [-6.08, 2.67], [-0.02, 5.23], [-6.12, -2.82]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.41,
+                "init_y": -1.01,
+                "init_a": 149.29,
+                "velocity": 0.99,
+                "goals": [[1.41, -1.01], [-6.41, 4.18], [3.73, -5.66], [-1.22, 3.12]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
                 "random_seed": 100,
             },
         },
@@ -1166,15 +2336,15 @@ def tests_adult_10_child_90_test_case_07_stopped_high(tester):
             "params": {
                 "radius": 0.25,
                 "init_x": 2.18,
-                "init_y": -2.60,
-                "init_a": 54.16,
-                "velocity": 0.89,
-                "goals": [[2.65, -1.72], [-0.26, -0.72], [-4.10, 5.05], [-5.97, -3.08]],
+                "init_y": -1.64,
+                "init_a": 149.29,
+                "velocity": 0.99,
+                "goals": [[1.41, -1.01], [0.99, -1.58], [-5.81, 0.45], [-7.05, 2.92]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
+                "n_actors": 9,
                 "random_seed": 100,
             },
         },
@@ -1183,77 +2353,11 @@ def tests_adult_10_child_90_test_case_07_stopped_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -2.52,
-                "init_y": -3.13,
-                "init_a": 118.03,
-                "velocity": 1.08,
-                "goals": [[4.64, 2.81], [3.28, -3.22], [-4.70, 0.79], [-0.87, 5.09]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.98,
-                "init_y": 0.97,
-                "init_a": -132.75,
-                "velocity": 1.04,
-                "goals": [[-5.79, 0.19], [0.53, -0.11], [-1.52, 0.95], [4.15, -5.07]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.41,
-                "init_y": 0.57,
-                "init_a": -151.65,
-                "velocity": 1.14,
-                "goal_x": -5.52,
-                "goal_y": -4.43,
-                "n_actors": 7,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_08_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 9
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.24,
-                "init_y": -0.06,
-                "init_a": 159.35,
-                "velocity": 1.06,
-                "goals": [[-3.25, 1.17], [5.67, 2.04], [-1.49, -2.07], [-4.76, -3.26]],
+                "init_x": -7.99,
+                "init_y": -5.30,
+                "init_a": -52.63,
+                "velocity": 0.97,
+                "goals": [[-6.40, 4.68], [-4.73, 5.75], [-7.92, 3.78], [5.56, 1.06]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -1267,11 +2371,11 @@ def tests_adult_10_child_90_test_case_08_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 4.96,
-                "init_y": -0.59,
-                "init_a": -132.71,
-                "velocity": 0.92,
-                "goals": [[3.66, -2.75], [-2.92, 0.86], [-1.13, 0.73], [4.10, 5.78]],
+                "init_x": -7.79,
+                "init_y": -0.02,
+                "init_a": -127.88,
+                "velocity": 1.13,
+                "goals": [[-6.98, -0.12], [-6.77, -0.91], [2.45, -3.58], [-2.00, -0.75]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -1285,11 +2389,11 @@ def tests_adult_10_child_90_test_case_08_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -5.49,
-                "init_y": 0.10,
-                "init_a": 163.45,
-                "velocity": 1.06,
-                "goals": [[0.48, -3.56], [3.12, -3.00], [-0.81, 1.23], [-5.40, 2.38]],
+                "init_x": -4.24,
+                "init_y": 1.70,
+                "init_a": -75.90,
+                "velocity": 1.12,
+                "goals": [[-0.63, -4.67], [4.25, -5.86], [3.09, -2.28], [-5.97, 5.45]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -1303,325 +2407,13 @@ def tests_adult_10_child_90_test_case_08_walking_high(tester):
             "module": "pedestrian.walk_sfm",
             "params": {
                 "radius": 0.25,
-                "init_x": -1.62,
-                "init_y": -0.09,
-                "init_a": -2.66,
-                "velocity": 0.94,
-                "goal_x": 2.63,
-                "goal_y": -3.46,
-                "n_actors": 9,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.51,
-                "init_y": -4.57,
-                "init_a": 166.34,
-                "velocity": 0.87,
-                "goals": [[0.11, 1.81], [3.80, 4.81], [-2.94, -2.22], [2.70, 1.79]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.77,
-                "init_y": -0.86,
-                "init_a": 76.99,
-                "velocity": 0.94,
-                "goals": [[2.16, 5.95], [3.44, 4.93], [4.34, 0.73], [-4.16, -1.74]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.37,
-                "init_y": -0.30,
-                "init_a": -56.07,
-                "velocity": 1.16,
-                "goals": [[-1.70, 2.72], [-3.24, -3.44], [1.26, 2.59], [2.87, -1.53]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single7_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.81,
-                "init_y": 5.10,
-                "init_a": -177.52,
-                "velocity": 1.06,
-                "goals": [[4.44, -3.89], [-2.92, 3.13], [4.66, -5.20], [-4.38, -1.40]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single8_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.45,
-                "init_y": -0.57,
-                "init_a": -34.48,
-                "velocity": 1.05,
-                "goals": [[-4.37, 4.03], [0.87, -0.32], [4.48, -3.47], [-0.24, 4.76]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_09_stopped_high(tester):
-    # Pairs Moving: False
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 7
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.96,
-                "init_y": 0.77,
-                "init_a": 24.94,
-                "velocity": 1.04,
-                "goals": [[-2.96, 0.77], [-0.98, 5.48], [2.95, 1.64], [0.89, -3.66]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair0_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.96,
-                "init_y": 0.69,
-                "init_a": 24.94,
-                "velocity": 1.04,
-                "goals": [[-2.96, 0.77], [1.64, 0.05], [-1.48, 2.02], [-0.02, -2.22]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.55,
-                "init_y": 4.71,
-                "init_a": 41.58,
-                "velocity": 1.02,
-                "goals": [[3.10, 5.77], [1.67, -3.19], [-3.10, -1.93], [0.74, -0.74]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.51,
-                "init_y": 1.06,
-                "init_a": -153.27,
-                "velocity": 0.98,
-                "goals": [[3.23, 1.31], [2.29, -4.26], [-2.48, 5.95], [-5.94, 4.24]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.87,
-                "init_y": -1.30,
-                "init_a": 108.42,
-                "velocity": 0.90,
-                "goals": [[4.58, -2.33], [-3.32, -3.66], [-2.69, -2.20], [-4.58, 2.85]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.04,
-                "init_y": 1.62,
-                "init_a": 9.68,
-                "velocity": 1.01,
-                "goal_x": -3.93,
-                "goal_y": -0.06,
-                "n_actors": 7,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.51,
-                "init_y": -1.25,
-                "init_a": 48.69,
-                "velocity": 1.01,
-                "goals": [[-5.97, 5.04], [2.96, 0.91], [5.07, -2.76], [1.78, -4.27]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_10_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 8
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_single0',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.72,
-                "init_y": -5.58,
-                "init_a": 154.03,
-                "velocity": 0.81,
-                "goal_x": 5.49,
-                "goal_y": 2.68,
-                "n_actors": 8,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.90,
-                "init_y": -1.74,
-                "init_a": 43.94,
+                "init_x": -2.01,
+                "init_y": -3.88,
+                "init_a": 92.36,
                 "velocity": 1.09,
-                "goals": [[-1.81, 5.21], [0.53, -0.42], [4.14, 3.08], [-3.77, 0.66]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.73,
-                "init_y": 5.66,
-                "init_a": -179.08,
-                "velocity": 1.05,
-                "goals": [[3.48, -4.23], [2.61, 3.13], [-2.38, 4.92], [4.54, 0.80]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.08,
-                "init_y": 5.72,
-                "init_a": -81.66,
-                "velocity": 0.80,
-                "goals": [[4.03, -4.48], [2.54, 3.53], [5.67, -4.60], [4.59, 5.70]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
+                "goal_x": 5.87,
+                "goal_y": 4.22,
+                "n_actors": 9,
             },
         },
         {
@@ -1629,70 +2421,16 @@ def tests_adult_10_child_90_test_case_10_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -4.54,
-                "init_y": 4.07,
-                "init_a": 123.09,
-                "velocity": 1.02,
-                "goals": [[-2.36, 4.42], [-3.44, -5.56], [-3.03, -0.08], [0.60, -0.77]],
+                "init_x": 2.29,
+                "init_y": -0.66,
+                "init_a": -166.12,
+                "velocity": 1.11,
+                "goals": [[-0.38, 3.76], [4.92, -1.56], [5.24, 1.62], [-0.46, -5.85]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.53,
-                "init_y": -4.32,
-                "init_a": -21.47,
-                "velocity": 1.19,
-                "goals": [[2.50, -5.34], [-2.37, 1.73], [2.12, 2.34], [3.63, 4.64]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.17,
-                "init_y": -3.82,
-                "init_a": 112.38,
-                "velocity": 1.20,
-                "goals": [[3.83, -3.71], [0.30, 4.91], [-5.12, 4.98], [0.65, 2.69]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single7_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.18,
-                "init_y": 3.59,
-                "init_a": -72.45,
-                "velocity": 1.17,
-                "goals": [[-1.48, 2.42], [4.10, 1.93], [-4.60, -5.51], [0.34, -1.02]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
+                "n_actors": 9,
                 "random_seed": 100,
             },
         },
@@ -1704,7 +2442,7 @@ def tests_adult_10_child_90_test_case_10_walking_high(tester):
     
     _goto_target1(tester)
 
-def tests_adult_10_child_90_test_case_11_walking_high(tester):
+def tests_adult_20_child_80_test_case_16_walking_high(tester):
     # Pairs Moving: True
     tester.check_collision()
     tester.reset_position()
@@ -1717,11 +2455,11 @@ def tests_adult_10_child_90_test_case_11_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 3.25,
-                "init_y": 2.78,
-                "init_a": -78.06,
-                "velocity": 1.17,
-                "goals": [[5.85, 2.34], [-0.98, -1.05], [5.51, -4.78], [-1.95, 4.34]],
+                "init_x": -3.88,
+                "init_y": -4.81,
+                "init_a": -147.50,
+                "velocity": 1.02,
+                "goals": [[-6.16, -2.70], [3.93, -2.33], [4.16, 2.11], [-2.44, 2.72]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -1731,21 +2469,17 @@ def tests_adult_10_child_90_test_case_11_walking_high(tester):
             },
         },
         {
-            "name": 'actor_pair0_1_child',
-            "module": "pedestrian.walk_sfm_child",
+            "name": 'actor_pair0_1',
+            "module": "pedestrian.walk_sfm",
             "params": {
                 "radius": 0.25,
-                "init_x": 4.11,
-                "init_y": 2.28,
-                "init_a": -78.06,
-                "velocity": 1.17,
-                "goals": [[5.85, 2.34], [-2.19, 5.41], [-5.27, -3.32], [-1.89, -4.77]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
+                "init_x": -4.71,
+                "init_y": -5.38,
+                "init_a": -147.50,
+                "velocity": 1.02,
+                "goal_x": -6.16,
+                "goal_y": -2.70,
                 "n_actors": 8,
-                "random_seed": 100,
             },
         },
         {
@@ -1753,11 +2487,11 @@ def tests_adult_10_child_90_test_case_11_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 4.83,
-                "init_y": 1.67,
-                "init_a": -53.61,
-                "velocity": 0.94,
-                "goals": [[-2.80, 3.87], [-5.68, -2.36], [-2.60, 5.42], [-4.00, 1.98]],
+                "init_x": -3.11,
+                "init_y": 3.77,
+                "init_a": 50.90,
+                "velocity": 1.08,
+                "goals": [[3.47, -4.97], [2.03, -1.86], [3.98, -0.40], [7.03, 1.87]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -1771,11 +2505,163 @@ def tests_adult_10_child_90_test_case_11_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 5.21,
-                "init_y": 2.59,
-                "init_a": -53.61,
-                "velocity": 0.94,
-                "goals": [[-2.80, 3.87], [3.51, -2.82], [-1.11, 0.98], [4.41, 0.51]],
+                "init_x": -2.24,
+                "init_y": 4.26,
+                "init_a": 50.90,
+                "velocity": 1.08,
+                "goals": [[3.47, -4.97], [4.36, 2.05], [3.47, 1.32], [-6.77, -4.06]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -5.50,
+                "init_y": 4.32,
+                "init_a": 48.32,
+                "velocity": 1.11,
+                "goals": [[-1.94, 3.03], [-4.81, -4.27], [6.91, 5.78], [-5.82, -2.64]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 7.25,
+                "init_y": -3.84,
+                "init_a": -176.02,
+                "velocity": 1.03,
+                "goal_x": 3.25,
+                "goal_y": -2.60,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -7.19,
+                "init_y": -0.30,
+                "init_a": 55.36,
+                "velocity": 1.00,
+                "goals": [[3.48, 4.95], [-6.85, 1.33], [4.31, -1.42], [-0.39, -2.00]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single3_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.13,
+                "init_y": 0.63,
+                "init_a": 135.09,
+                "velocity": 1.14,
+                "goals": [[7.20, -4.59], [-4.02, -5.70], [1.90, -3.02], [3.01, -3.06]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_17_walking_high(tester):
+    # Pairs Moving: True
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 8
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -2.40,
+                "init_y": -0.79,
+                "init_a": -145.87,
+                "velocity": 1.13,
+                "goals": [[-6.97, -2.49], [-5.02, -0.29], [6.79, 0.09], [0.06, 5.65]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.30,
+                "init_y": -1.21,
+                "init_a": -145.87,
+                "velocity": 1.13,
+                "goal_x": -6.97,
+                "goal_y": -2.49,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -4.76,
+                "init_y": 3.02,
+                "init_a": -13.14,
+                "velocity": 0.90,
+                "goals": [[-2.68, -5.19], [-1.55, -0.50], [2.68, -2.32], [-6.02, 5.00]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.76,
+                "init_y": 2.96,
+                "init_a": -13.14,
+                "velocity": 0.90,
+                "goals": [[-2.68, -5.19], [-1.02, -3.41], [-4.82, 0.34], [5.12, -0.32]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -1790,1379 +2676,11 @@ def tests_adult_10_child_90_test_case_11_walking_high(tester):
             "params": {
                 "radius": 0.25,
                 "init_x": 1.98,
-                "init_y": -2.72,
-                "init_a": -14.35,
-                "velocity": 1.05,
-                "goal_x": -4.02,
-                "goal_y": 2.29,
-                "n_actors": 8,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.44,
-                "init_y": 4.65,
-                "init_a": -123.83,
-                "velocity": 1.05,
-                "goals": [[3.74, -4.04], [1.52, 0.09], [1.18, -2.54], [5.55, -1.66]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.91,
-                "init_y": 5.53,
-                "init_a": -133.62,
-                "velocity": 1.06,
-                "goals": [[1.41, -3.30], [-4.97, 3.18], [-2.46, 4.40], [-5.72, 5.36]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.83,
-                "init_y": -5.44,
-                "init_a": -81.20,
-                "velocity": 0.90,
-                "goals": [[-1.41, 5.38], [1.91, 0.72], [-2.03, -4.51], [-0.54, -3.37]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_12_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 8
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.88,
-                "init_y": 5.41,
-                "init_a": -56.65,
-                "velocity": 0.99,
-                "goals": [[0.17, -4.54], [-4.08, -1.02], [-3.35, -0.71], [-5.03, -4.35]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair0_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.17,
-                "init_y": 4.70,
-                "init_a": -56.65,
-                "velocity": 0.99,
-                "goals": [[0.17, -4.54], [4.65, -1.52], [-2.16, 1.52], [2.49, -5.86]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair1_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.30,
-                "init_y": -2.50,
-                "init_a": -46.56,
-                "velocity": 1.16,
-                "goals": [[-4.09, -1.45], [5.34, -2.68], [-3.26, 5.20], [-4.99, 4.74]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair1_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.35,
-                "init_y": -2.82,
-                "init_a": -46.56,
-                "velocity": 1.16,
-                "goals": [[-4.09, -1.45], [-4.53, -2.31], [3.85, -2.84], [3.65, 4.64]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.85,
-                "init_y": 2.04,
-                "init_a": -14.95,
-                "velocity": 1.20,
-                "goals": [[4.26, 5.60], [-2.51, -1.39], [-2.01, 5.20], [-3.98, -4.57]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.96,
-                "init_y": 3.92,
-                "init_a": 129.13,
+                "init_y": 2.54,
+                "init_a": -116.10,
                 "velocity": 1.10,
-                "goals": [[5.22, -2.57], [2.36, -0.14], [-4.04, 5.51], [-3.03, 5.75]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.78,
-                "init_y": -0.76,
-                "init_a": 97.92,
-                "velocity": 1.17,
-                "goal_x": -3.18,
-                "goal_y": -4.27,
-                "n_actors": 8,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.56,
-                "init_y": 4.69,
-                "init_a": 127.74,
-                "velocity": 0.84,
-                "goals": [[5.40, -4.96], [4.14, -4.41], [2.34, -4.08], [-1.42, -4.31]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_13_stopped_high(tester):
-    # Pairs Moving: False
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 9
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.89,
-                "init_y": -3.02,
-                "init_a": -128.85,
-                "velocity": 1.14,
-                "goals": [[-3.89, -3.02], [-2.58, 3.43], [5.09, 4.93], [4.29, -5.57]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair0_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.68,
-                "init_y": -4.00,
-                "init_a": -128.85,
-                "velocity": 1.14,
-                "goals": [[-3.89, -3.02], [-4.42, 1.16], [5.44, 4.14], [1.00, 6.00]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.55,
-                "init_y": 1.40,
-                "init_a": 106.78,
-                "velocity": 0.88,
-                "goals": [[-1.26, 4.55], [5.44, 2.80], [-1.44, 2.75], [5.74, 1.06]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.55,
-                "init_y": -0.57,
-                "init_a": 23.36,
-                "velocity": 0.87,
-                "goals": [[-3.55, 5.19], [5.15, -5.89], [-5.78, 1.72], [4.09, -3.30]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.84,
-                "init_y": -1.72,
-                "init_a": 164.07,
-                "velocity": 1.15,
-                "goals": [[2.43, -4.08], [-3.60, 3.44], [5.60, -3.28], [-5.42, -1.57]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.03,
-                "init_y": -2.67,
-                "init_a": -120.49,
-                "velocity": 0.98,
-                "goals": [[-2.50, -3.75], [5.02, 0.66], [-1.66, 2.28], [-0.14, -2.35]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.68,
-                "init_y": 4.23,
-                "init_a": 177.67,
-                "velocity": 1.12,
-                "goals": [[3.54, 1.83], [-0.82, 5.80], [4.77, -2.28], [-4.65, 4.38]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.74,
-                "init_y": -5.52,
-                "init_a": -22.96,
-                "velocity": 0.84,
-                "goal_x": -2.51,
-                "goal_y": 1.19,
-                "n_actors": 9,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.36,
-                "init_y": 0.95,
-                "init_a": 69.29,
-                "velocity": 1.04,
-                "goals": [[2.21, 1.51], [-3.33, -1.73], [3.80, -3.93], [-2.05, -3.71]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_14_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 7
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.72,
-                "init_y": -3.64,
-                "init_a": -29.65,
-                "velocity": 0.86,
-                "goals": [[-2.94, -4.23], [3.91, 4.55], [-2.81, 2.96], [2.21, -3.41]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair0_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.41,
-                "init_y": -4.35,
-                "init_a": -29.65,
-                "velocity": 0.86,
-                "goals": [[-2.94, -4.23], [4.01, -4.35], [-3.61, 5.06], [0.48, 0.89]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.67,
-                "init_y": 0.34,
-                "init_a": 10.47,
-                "velocity": 1.17,
-                "goals": [[-0.72, 1.37], [-0.86, -0.36], [-0.74, 3.49], [-5.11, -3.07]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.87,
-                "init_y": 3.30,
-                "init_a": -5.05,
-                "velocity": 1.11,
-                "goals": [[-1.10, -0.82], [-0.72, -1.45], [-1.40, 3.86], [0.08, -4.50]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.27,
-                "init_y": -2.87,
-                "init_a": -103.34,
-                "velocity": 0.84,
-                "goal_x": -2.57,
-                "goal_y": -2.78,
-                "n_actors": 7,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.42,
-                "init_y": 5.56,
-                "init_a": -28.03,
-                "velocity": 1.03,
-                "goals": [[-3.59, 4.22], [-0.24, -1.91], [1.29, -3.38], [-3.37, -5.27]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.80,
-                "init_y": 4.02,
-                "init_a": 55.73,
-                "velocity": 0.91,
-                "goals": [[-2.85, 2.31], [5.83, -3.97], [-5.19, -2.03], [-4.29, 4.39]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_15_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 9
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.62,
-                "init_y": -0.77,
-                "init_a": -83.02,
-                "velocity": 0.93,
-                "goals": [[2.30, -4.27], [-5.04, -4.89], [3.47, -4.17], [-4.40, 1.86]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair0_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.63,
-                "init_y": -0.93,
-                "init_a": -83.02,
-                "velocity": 0.93,
-                "goals": [[2.30, -4.27], [-2.50, -5.42], [0.55, -0.72], [-5.65, -3.31]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair1_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.36,
-                "init_y": -3.51,
-                "init_a": 152.22,
-                "velocity": 0.80,
-                "goals": [[0.53, -4.32], [1.25, -2.66], [-5.89, 4.90], [4.46, -1.05]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair1_1',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.37,
-                "init_y": -4.51,
-                "init_a": 152.22,
-                "velocity": 0.80,
-                "goal_x": 0.53,
-                "goal_y": -4.32,
-                "n_actors": 9,
-            },
-        },
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.53,
-                "init_y": -2.03,
-                "init_a": 173.16,
-                "velocity": 1.01,
-                "goals": [[-1.26, 2.27], [3.39, 3.90], [-4.00, -3.02], [-1.62, 4.02]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.98,
-                "init_y": 5.64,
-                "init_a": 118.03,
-                "velocity": 0.92,
-                "goals": [[-5.44, 5.91], [-3.08, 5.93], [1.65, -3.69], [3.46, -5.97]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.67,
-                "init_y": -5.81,
-                "init_a": 57.85,
-                "velocity": 1.06,
-                "goals": [[5.38, -3.78], [5.27, 5.68], [-4.91, 3.47], [-5.72, -3.35]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.36,
-                "init_y": -2.31,
-                "init_a": 41.57,
-                "velocity": 1.02,
-                "goals": [[1.33, 0.23], [-3.12, -5.05], [2.70, -0.80], [-5.39, -1.27]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.09,
-                "init_y": -5.90,
-                "init_a": -121.38,
-                "velocity": 0.87,
-                "goals": [[1.14, 2.05], [-0.72, 3.27], [5.49, -1.38], [-3.90, -5.46]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_16_stopped_high(tester):
-    # Pairs Moving: False
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 9
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.91,
-                "init_y": -5.05,
-                "init_a": -118.17,
-                "velocity": 1.03,
-                "goals": [[-4.91, -5.05], [-3.97, 1.76], [1.52, 0.35], [-2.34, -4.72]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair0_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.16,
-                "init_y": -5.71,
-                "init_a": -118.17,
-                "velocity": 1.03,
-                "goals": [[-4.91, -5.05], [3.89, -2.73], [0.21, 1.23], [-2.81, -1.98]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.27,
-                "init_y": 0.82,
-                "init_a": 171.03,
-                "velocity": 1.16,
-                "goals": [[1.88, -4.41], [-2.63, 1.20], [-2.83, -3.59], [-3.96, -4.39]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.13,
-                "init_y": -5.97,
-                "init_a": 120.80,
-                "velocity": 1.07,
-                "goal_x": 5.66,
-                "goal_y": 2.85,
-                "n_actors": 9,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.79,
-                "init_y": -5.42,
-                "init_a": 3.98,
-                "velocity": 1.07,
-                "goals": [[-1.66, -2.21], [-0.36, -5.12], [1.78, 5.62], [-1.60, 1.28]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.65,
-                "init_y": 0.44,
-                "init_a": -133.95,
-                "velocity": 0.86,
-                "goals": [[0.96, -2.48], [0.95, 0.67], [0.11, 4.11], [2.68, 1.97]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.16,
-                "init_y": -0.91,
-                "init_a": 100.83,
-                "velocity": 0.96,
-                "goals": [[-3.07, 5.35], [-5.05, -1.06], [-0.61, -0.07], [0.44, 3.14]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.54,
-                "init_y": -5.92,
-                "init_a": 34.59,
-                "velocity": 1.01,
-                "goals": [[-4.98, -0.97], [-2.44, 5.02], [-4.35, -1.24], [-2.40, -3.60]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.73,
-                "init_y": 0.43,
-                "init_a": -14.95,
-                "velocity": 1.02,
-                "goals": [[1.18, 2.10], [1.94, -2.17], [4.97, 5.90], [5.28, -5.11]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_17_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 8
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.80,
-                "init_y": -0.79,
-                "init_a": -145.87,
-                "velocity": 1.13,
-                "goals": [[-5.23, -2.49], [4.92, -0.28], [2.96, -2.68], [-5.80, -0.98]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair0_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.70,
-                "init_y": -1.21,
-                "init_a": -145.87,
-                "velocity": 1.13,
-                "goals": [[-5.23, -2.49], [1.27, -3.68], [4.37, 3.02], [1.19, -0.08]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.57,
-                "init_y": 3.02,
-                "init_a": -13.14,
-                "velocity": 0.90,
-                "goals": [[-2.01, -5.19], [-2.80, -2.73], [-2.27, 2.57], [-4.74, 0.73]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.88,
-                "init_y": 1.49,
-                "init_a": 76.23,
-                "velocity": 0.87,
-                "goals": [[2.91, 4.26], [-5.11, 5.41], [5.33, 4.75], [3.49, -2.58]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.28,
-                "init_y": 2.48,
-                "init_a": 35.56,
-                "velocity": 1.12,
-                "goals": [[-0.82, 2.80], [-2.46, 2.33], [3.32, 4.80], [-3.29, -5.12]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.84,
-                "init_y": -2.72,
-                "init_a": -80.98,
-                "velocity": 1.19,
-                "goals": [[5.89, -0.54], [5.03, -0.22], [1.35, -5.99], [-1.18, -3.43]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.98,
-                "init_y": 5.40,
-                "init_a": 77.22,
-                "velocity": 0.87,
-                "goal_x": -0.83,
-                "goal_y": -3.18,
-                "n_actors": 8,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.98,
-                "init_y": 2.01,
-                "init_a": -104.55,
-                "velocity": 1.15,
-                "goals": [[3.61, 0.09], [5.23, -1.61], [-5.26, 2.50], [1.50, 1.48]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_18_stopped_high(tester):
-    # Pairs Moving: False
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 7
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.23,
-                "init_y": -0.60,
-                "init_a": -84.34,
-                "velocity": 1.01,
-                "goals": [[0.23, -0.60], [-2.29, 5.71], [-1.34, -0.06], [0.16, -2.25]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair0_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.87,
-                "init_y": 0.17,
-                "init_a": -84.34,
-                "velocity": 1.01,
-                "goals": [[0.23, -0.60], [-2.34, -5.77], [5.42, 1.34], [-2.91, 0.24]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.51,
-                "init_y": 1.81,
-                "init_a": -69.12,
-                "velocity": 0.81,
-                "goals": [[-0.28, -4.72], [0.03, 2.54], [-0.43, -3.28], [-3.43, -4.44]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.99,
-                "init_y": 0.80,
-                "init_a": -73.93,
-                "velocity": 0.90,
-                "goals": [[-4.17, 1.04], [4.00, -4.13], [5.75, 4.25], [5.16, -1.49]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.85,
-                "init_y": 2.35,
-                "init_a": -158.58,
-                "velocity": 0.87,
-                "goal_x": 0.17,
-                "goal_y": 4.45,
-                "n_actors": 7,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.89,
-                "init_y": 4.44,
-                "init_a": -81.09,
-                "velocity": 1.05,
-                "goals": [[4.88, -0.54], [1.63, 1.47], [-1.15, 4.93], [-3.86, -4.27]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.33,
-                "init_y": -0.82,
-                "init_a": 77.16,
-                "velocity": 0.81,
-                "goals": [[-3.27, 3.90], [1.76, -4.28], [4.16, 1.08], [-5.97, -5.74]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_19_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 7
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.63,
-                "init_y": 1.86,
-                "init_a": -169.74,
-                "velocity": 1.18,
-                "goals": [[5.98, 0.62], [1.70, 4.38], [3.14, 2.48], [3.71, 4.03]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair0_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.46,
-                "init_y": 2.42,
-                "init_a": -169.74,
-                "velocity": 1.18,
-                "goals": [[5.98, 0.62], [2.86, -3.14], [4.58, -3.34], [-0.59, -2.37]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair1_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.51,
-                "init_y": 1.10,
-                "init_a": 29.38,
-                "velocity": 1.01,
-                "goals": [[-0.22, -4.34], [-5.61, -1.61], [-3.06, -1.36], [2.42, 1.15]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair1_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.51,
-                "init_y": 0.99,
-                "init_a": 29.38,
-                "velocity": 1.01,
-                "goals": [[-0.22, -4.34], [2.46, 4.04], [-1.61, 3.98], [3.11, -4.07]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single0',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.18,
-                "init_y": -1.02,
-                "init_a": -73.30,
-                "velocity": 1.09,
-                "goal_x": -4.43,
-                "goal_y": 4.28,
-                "n_actors": 7,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.73,
-                "init_y": -1.71,
-                "init_a": 26.70,
-                "velocity": 0.83,
-                "goals": [[5.20, 3.54], [5.65, 3.36], [3.07, -4.57], [5.50, 4.45]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.76,
-                "init_y": -1.51,
-                "init_a": -112.12,
-                "velocity": 0.94,
-                "goals": [[1.90, -3.72], [-0.18, 5.46], [3.46, 2.41], [0.86, -3.94]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_20_stopped_high(tester):
-    # Pairs Moving: False
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 8
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.75,
-                "init_y": -0.02,
-                "init_a": 23.00,
-                "velocity": 0.99,
-                "goals": [[-0.75, -0.02], [-5.78, 0.36], [-4.60, -4.89], [1.75, -3.53]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair0_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.65,
-                "init_y": -0.46,
-                "init_a": 23.00,
-                "velocity": 0.99,
-                "goals": [[-0.75, -0.02], [3.08, -3.63], [-1.20, -1.58], [5.47, -0.12]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single0',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.92,
-                "init_y": -1.65,
-                "init_a": 125.73,
-                "velocity": 1.08,
-                "goal_x": -2.85,
-                "goal_y": 5.67,
+                "goal_x": 5.68,
+                "goal_y": -0.28,
                 "n_actors": 8,
             },
         },
@@ -3171,952 +2689,16 @@ def tests_adult_10_child_90_test_case_20_stopped_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 1.95,
-                "init_y": 4.45,
-                "init_a": -20.66,
-                "velocity": 1.15,
-                "goals": [[-1.13, -2.65], [-1.45, -5.37], [5.95, 0.42], [-3.46, -0.91]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.64,
-                "init_y": 1.81,
-                "init_a": -110.09,
-                "velocity": 1.10,
-                "goals": [[3.23, 5.97], [2.98, 5.01], [5.80, -5.60], [2.48, -5.33]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.02,
-                "init_y": -5.64,
-                "init_a": 141.50,
-                "velocity": 1.02,
-                "goals": [[4.24, -1.65], [4.22, -1.01], [3.72, 2.64], [-5.25, 0.71]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.99,
-                "init_y": -1.96,
-                "init_a": -92.99,
-                "velocity": 0.88,
-                "goals": [[1.40, -2.13], [4.13, -3.11], [-2.35, -3.64], [2.27, 4.54]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.71,
-                "init_y": -5.42,
-                "init_a": 174.40,
-                "velocity": 0.91,
-                "goals": [[-2.57, -0.48], [2.24, 1.67], [1.95, -3.34], [4.56, 2.92]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_21_stopped_high(tester):
-    # Pairs Moving: False
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 8
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_single0',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.23,
-                "init_y": 5.63,
-                "init_a": 38.92,
-                "velocity": 0.90,
-                "goal_x": 5.36,
-                "goal_y": 5.13,
-                "n_actors": 8,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.95,
-                "init_y": 1.49,
-                "init_a": -74.67,
-                "velocity": 0.88,
-                "goals": [[1.23, -2.02], [-5.55, 4.23], [0.77, -5.64], [1.19, 2.17]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.27,
-                "init_y": 2.45,
-                "init_a": -161.38,
-                "velocity": 1.11,
-                "goals": [[-3.72, 1.86], [2.89, 2.51], [1.38, -1.36], [-3.57, -0.03]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.04,
-                "init_y": 4.59,
-                "init_a": -12.01,
-                "velocity": 1.06,
-                "goals": [[5.86, 0.71], [3.19, -0.40], [-2.50, -4.28], [5.50, -5.77]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.11,
-                "init_y": -3.80,
-                "init_a": -133.93,
-                "velocity": 1.13,
-                "goals": [[2.19, -1.73], [-0.66, 1.89], [-3.81, 3.39], [-5.89, -1.02]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.97,
-                "init_y": -1.46,
-                "init_a": -73.41,
-                "velocity": 0.83,
-                "goals": [[-4.72, 2.68], [-3.15, 1.97], [1.79, 4.44], [0.30, 4.69]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.88,
-                "init_y": -0.99,
-                "init_a": 31.95,
-                "velocity": 1.19,
-                "goals": [[1.65, 1.41], [0.36, 4.27], [2.35, 3.85], [-5.84, -5.55]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single7_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.49,
-                "init_y": 3.57,
-                "init_a": -27.18,
-                "velocity": 1.09,
-                "goals": [[5.49, -0.58], [-0.52, 2.80], [5.04, 5.86], [1.64, -1.56]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_22_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 7
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.56,
-                "init_y": 1.15,
-                "init_a": -62.86,
-                "velocity": 1.02,
-                "goals": [[-0.09, -5.67], [-5.98, 1.21], [-1.32, 0.20], [5.33, 0.65]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.70,
-                "init_y": -1.42,
-                "init_a": -170.10,
-                "velocity": 1.10,
-                "goals": [[2.29, -1.40], [-4.37, -4.59], [-3.21, 3.81], [-4.64, 3.39]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.12,
-                "init_y": 2.09,
-                "init_a": -26.32,
-                "velocity": 1.02,
-                "goal_x": -5.01,
-                "goal_y": 3.23,
-                "n_actors": 7,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.25,
-                "init_y": -0.47,
-                "init_a": -85.12,
-                "velocity": 0.96,
-                "goals": [[-4.27, -3.60], [2.49, -2.19], [1.94, -5.19], [-0.94, 2.67]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.70,
-                "init_y": 1.88,
-                "init_a": -6.38,
-                "velocity": 1.11,
-                "goals": [[-4.11, 0.92], [3.99, -4.47], [-1.64, 3.11], [-2.80, 0.79]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.69,
-                "init_y": -3.32,
-                "init_a": -91.60,
-                "velocity": 1.16,
-                "goals": [[5.03, -4.41], [4.27, -1.35], [-5.77, 1.02], [0.39, 5.71]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.45,
-                "init_y": 1.83,
-                "init_a": -13.37,
-                "velocity": 1.15,
-                "goals": [[-0.51, -5.33], [-2.21, 4.32], [-1.85, -1.49], [1.64, 0.67]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_23_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 7
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.70,
-                "init_y": 4.46,
-                "init_a": -165.93,
-                "velocity": 0.86,
-                "goals": [[-1.93, 4.91], [-2.25, 0.87], [-5.89, 1.65], [5.00, -1.38]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair0_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.39,
-                "init_y": 5.19,
-                "init_a": -165.93,
-                "velocity": 0.86,
-                "goals": [[-1.93, 4.91], [-4.03, -4.50], [2.55, 4.44], [-2.83, 5.56]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.04,
-                "init_y": 5.36,
-                "init_a": -21.93,
-                "velocity": 1.07,
-                "goals": [[3.35, 0.65], [3.27, 3.52], [-3.42, 1.89], [-2.72, -0.58]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.19,
-                "init_y": 2.68,
-                "init_a": 35.57,
-                "velocity": 1.18,
-                "goals": [[5.83, 4.64], [0.43, 5.58], [4.19, 3.37], [2.87, 4.38]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.25,
-                "init_y": 3.07,
-                "init_a": 117.99,
-                "velocity": 1.11,
-                "goals": [[0.94, -5.15], [-0.77, 5.45], [-0.37, -2.56], [-5.78, -5.55]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.96,
-                "init_y": 1.55,
-                "init_a": 88.28,
-                "velocity": 0.85,
-                "goal_x": -2.43,
-                "goal_y": 0.92,
-                "n_actors": 7,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.29,
-                "init_y": -5.59,
-                "init_a": -58.30,
-                "velocity": 1.16,
-                "goals": [[-1.21, -1.24], [4.85, -5.14], [1.28, 0.93], [0.15, -0.65]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_24_stopped_high(tester):
-    # Pairs Moving: False
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 7
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.43,
-                "init_y": 1.09,
-                "init_a": 144.32,
-                "velocity": 1.15,
-                "goals": [[-5.43, 1.09], [1.26, -5.49], [-5.85, 3.46], [-3.46, -1.49]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair0_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.11,
-                "init_y": 2.04,
-                "init_a": 144.32,
-                "velocity": 1.15,
-                "goals": [[-5.43, 1.09], [-5.84, 3.30], [1.71, 0.37], [-5.19, 3.05]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single0',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.58,
-                "init_y": -2.45,
-                "init_a": 127.26,
-                "velocity": 0.87,
-                "goal_x": -0.14,
-                "goal_y": -0.41,
-                "n_actors": 7,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.09,
-                "init_y": -3.15,
-                "init_a": -88.54,
-                "velocity": 1.03,
-                "goals": [[3.12, -0.41], [-1.35, 3.53], [1.14, 2.48], [-2.02, -5.36]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.61,
-                "init_y": 3.99,
-                "init_a": -47.30,
-                "velocity": 1.03,
-                "goals": [[1.43, 1.77], [-2.07, -3.74], [5.49, -2.33], [-3.89, 3.82]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.20,
-                "init_y": 4.91,
-                "init_a": -166.73,
+                "init_x": 3.31,
+                "init_y": 1.19,
+                "init_a": 104.55,
                 "velocity": 0.97,
-                "goals": [[-3.52, -4.82], [-2.78, 2.82], [-2.02, -1.70], [0.20, -3.24]],
+                "goals": [[3.73, 2.84], [-0.58, 4.84], [-3.61, 1.29], [6.58, -5.94]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.76,
-                "init_y": -2.56,
-                "init_a": -140.32,
-                "velocity": 0.82,
-                "goals": [[-2.41, -3.25], [1.64, 3.93], [-0.07, -3.88], [2.88, -4.66]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_25_stopped_high(tester):
-    # Pairs Moving: False
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 9
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.48,
-                "init_y": 0.61,
-                "init_a": 119.93,
-                "velocity": 0.87,
-                "goals": [[1.48, 0.61], [-2.27, 1.99], [1.92, -2.58], [2.52, -0.38]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair0_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.01,
-                "init_y": -0.27,
-                "init_a": 119.93,
-                "velocity": 0.87,
-                "goals": [[1.48, 0.61], [-5.15, 0.47], [-2.11, 1.10], [0.25, -0.38]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.33,
-                "init_y": -2.13,
-                "init_a": -100.62,
-                "velocity": 0.84,
-                "goals": [[1.97, -2.87], [-2.03, -2.61], [2.84, 1.50], [5.09, -3.74]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.75,
-                "init_y": -4.04,
-                "init_a": 35.90,
-                "velocity": 0.88,
-                "goal_x": -2.61,
-                "goal_y": -3.20,
-                "n_actors": 9,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.25,
-                "init_y": 3.30,
-                "init_a": -143.78,
-                "velocity": 0.80,
-                "goals": [[-4.06, 5.42], [-0.81, 4.53], [3.93, 3.36], [4.46, -0.61]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.59,
-                "init_y": 1.55,
-                "init_a": -100.55,
-                "velocity": 1.14,
-                "goals": [[-3.67, -2.57], [-4.07, -4.95], [-2.51, -5.61], [-1.70, -5.97]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.15,
-                "init_y": -2.60,
-                "init_a": 115.25,
-                "velocity": 1.03,
-                "goals": [[-2.94, 5.54], [-2.31, 0.85], [-1.98, 1.75], [0.29, -1.15]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.56,
-                "init_y": 3.46,
-                "init_a": 138.69,
-                "velocity": 0.91,
-                "goals": [[-5.29, 2.33], [4.11, -2.23], [-1.52, -2.98], [-0.72, -1.29]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.61,
-                "init_y": -3.43,
-                "init_a": 127.27,
-                "velocity": 1.14,
-                "goals": [[-2.05, 3.15], [5.75, 2.50], [4.90, -2.63], [-4.11, -0.06]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_26_stopped_high(tester):
-    # Pairs Moving: False
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 9
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.01,
-                "init_y": 2.74,
-                "init_a": 23.28,
-                "velocity": 0.86,
-                "goal_x": 3.01,
-                "goal_y": 2.74,
-                "n_actors": 9,
-            },
-        },
-        {
-            "name": 'actor_pair0_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.26,
-                "init_y": 1.77,
-                "init_a": 23.28,
-                "velocity": 0.86,
-                "goals": [[3.01, 2.74], [1.53, -3.61], [5.19, -0.96], [-1.78, -0.11]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair1_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.94,
-                "init_y": 4.07,
-                "init_a": 45.26,
-                "velocity": 1.12,
-                "goals": [[2.94, 4.07], [4.39, 0.69], [1.19, 3.05], [1.47, 0.18]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair1_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.94,
-                "init_y": 4.00,
-                "init_a": 45.26,
-                "velocity": 1.12,
-                "goals": [[2.94, 4.07], [0.69, -3.77], [3.10, -2.84], [0.51, -0.93]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.32,
-                "init_y": -1.04,
-                "init_a": -124.99,
-                "velocity": 1.12,
-                "goals": [[0.27, 5.17], [-0.74, 3.72], [3.58, -1.31], [3.53, -5.94]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.37,
-                "init_y": -0.01,
-                "init_a": -5.16,
-                "velocity": 1.05,
-                "goals": [[-1.49, 3.84], [-2.03, -2.98], [-0.12, 0.55], [3.47, 2.13]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
+                "n_actors": 8,
                 "random_seed": 100,
             },
         },
@@ -4126,112 +2708,10 @@ def tests_adult_10_child_90_test_case_26_stopped_high(tester):
             "params": {
                 "radius": 0.25,
                 "init_x": -3.62,
-                "init_y": 3.41,
-                "init_a": 142.27,
-                "velocity": 0.95,
-                "goals": [[-5.44, 0.52], [-1.80, -4.27], [-0.05, -1.79], [-2.53, -0.42]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.67,
-                "init_y": 1.73,
-                "init_a": 43.82,
-                "velocity": 0.86,
-                "goals": [[-5.65, 0.30], [-0.77, 5.57], [3.80, 0.68], [3.62, 3.45]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.88,
-                "init_y": -0.04,
-                "init_a": 129.41,
-                "velocity": 1.18,
-                "goals": [[-2.00, 4.44], [2.29, -1.93], [1.65, 2.88], [3.73, 1.60]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_27_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 8
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_single0',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.48,
-                "init_y": 5.95,
-                "init_a": -174.00,
-                "velocity": 0.93,
-                "goal_x": 1.57,
-                "goal_y": -0.92,
-                "n_actors": 8,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.57,
-                "init_y": -1.02,
-                "init_a": 164.81,
-                "velocity": 1.07,
-                "goals": [[5.24, -1.52], [-0.63, 1.42], [-2.48, 3.26], [1.13, -1.45]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.57,
-                "init_y": 2.50,
-                "init_a": -69.51,
-                "velocity": 0.84,
-                "goals": [[-5.56, -5.94], [2.81, 0.25], [5.09, -1.06], [1.54, 3.97]],
+                "init_y": -2.70,
+                "init_a": 167.61,
+                "velocity": 1.20,
+                "goals": [[-0.72, 3.98], [-5.52, 0.15], [-3.95, 3.23], [-6.13, 0.06]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -4245,395 +2725,11 @@ def tests_adult_10_child_90_test_case_27_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -4.58,
-                "init_y": 2.08,
-                "init_a": -57.16,
-                "velocity": 0.91,
-                "goals": [[4.05, -0.98], [-1.00, -3.26], [-2.87, 0.43], [-0.59, -0.54]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.31,
-                "init_y": 0.68,
-                "init_a": 109.39,
-                "velocity": 1.05,
-                "goals": [[-2.06, -1.08], [4.26, 0.46], [-0.42, -2.32], [-1.24, -1.02]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.04,
-                "init_y": 3.71,
-                "init_a": -89.46,
-                "velocity": 1.13,
-                "goals": [[-2.83, -1.70], [1.87, 2.79], [0.64, -2.23], [2.56, 1.82]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.77,
-                "init_y": 0.17,
-                "init_a": 71.19,
-                "velocity": 1.18,
-                "goals": [[2.52, 1.94], [-2.99, -2.42], [-4.48, -5.37], [2.43, -0.31]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single7_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.92,
-                "init_y": 5.52,
-                "init_a": -42.80,
-                "velocity": 1.11,
-                "goals": [[0.01, -0.83], [-1.00, -1.23], [5.49, 1.72], [2.45, 2.19]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_28_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 8
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.10,
-                "init_y": 2.22,
-                "init_a": -131.64,
-                "velocity": 1.17,
-                "goals": [[5.98, -3.35], [-0.23, -2.77], [-4.55, -1.56], [-0.31, 4.82]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.76,
-                "init_y": -0.24,
-                "init_a": -105.59,
-                "velocity": 1.00,
-                "goals": [[-4.77, 5.35], [-0.15, -2.90], [-0.52, 3.21], [3.11, 4.55]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.79,
-                "init_y": -4.10,
-                "init_a": -67.49,
-                "velocity": 1.06,
-                "goals": [[0.23, -2.85], [3.88, -0.16], [0.64, -4.94], [1.59, -4.02]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.43,
-                "init_y": 0.30,
-                "init_a": 103.67,
-                "velocity": 1.15,
-                "goals": [[-1.04, 0.63], [-4.83, -1.52], [-0.69, -5.68], [3.27, -3.75]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.14,
-                "init_y": -1.43,
-                "init_a": 21.43,
-                "velocity": 1.06,
-                "goals": [[1.74, 0.47], [5.20, 5.23], [0.51, 1.39], [2.20, -4.54]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.51,
-                "init_y": 2.62,
-                "init_a": 144.77,
-                "velocity": 1.00,
-                "goals": [[-1.25, -1.81], [-5.63, 4.43], [-1.43, 3.35], [-3.04, -1.47]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.70,
-                "init_y": 5.21,
-                "init_a": 32.14,
-                "velocity": 0.89,
-                "goals": [[-5.56, -1.40], [-0.47, -4.13], [-0.51, -4.39], [0.08, -4.08]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single7',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.28,
-                "init_y": -3.49,
-                "init_a": -95.72,
-                "velocity": 0.92,
-                "goal_x": -2.75,
-                "goal_y": 2.64,
-                "n_actors": 8,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_29_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 8
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.58,
-                "init_y": -4.87,
-                "init_a": 107.23,
+                "init_x": 7.20,
+                "init_y": 2.57,
+                "init_a": -114.47,
                 "velocity": 0.97,
-                "goals": [[-3.67, 0.56], [-5.30, -3.50], [-3.34, 3.61], [0.17, -0.75]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair0_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.59,
-                "init_y": -3.87,
-                "init_a": 107.23,
-                "velocity": 0.97,
-                "goals": [[-3.67, 0.56], [-5.75, -1.39], [-2.11, 5.72], [-3.32, 4.91]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single0',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.48,
-                "init_y": -0.17,
-                "init_a": -176.10,
-                "velocity": 0.99,
-                "goal_x": 2.07,
-                "goal_y": 2.61,
-                "n_actors": 8,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.96,
-                "init_y": 2.52,
-                "init_a": 171.30,
-                "velocity": 1.14,
-                "goals": [[-0.27, -3.07], [5.77, -2.71], [-1.96, 5.94], [0.91, -5.88]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.16,
-                "init_y": -5.44,
-                "init_a": -97.52,
-                "velocity": 0.90,
-                "goals": [[-5.44, -1.26], [2.71, 4.65], [3.74, -0.98], [-2.13, 4.35]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.92,
-                "init_y": 0.41,
-                "init_a": -171.62,
-                "velocity": 1.04,
-                "goals": [[-1.96, -4.24], [0.17, -0.51], [-3.56, 2.39], [-3.01, -4.23]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.63,
-                "init_y": 0.12,
-                "init_a": -58.05,
-                "velocity": 0.85,
-                "goals": [[-0.23, -0.64], [3.99, 4.69], [2.57, 5.44], [1.96, 5.36]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.41,
-                "init_y": -0.72,
-                "init_a": 149.97,
-                "velocity": 1.08,
-                "goals": [[5.70, -5.64], [2.94, 4.47], [-2.22, -5.72], [0.87, 3.86]],
+                "goals": [[-4.25, -3.98], [4.49, -4.92], [-5.36, 2.15], [1.36, -3.16]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -4650,8 +2746,8 @@ def tests_adult_10_child_90_test_case_29_walking_high(tester):
     
     _goto_target1(tester)
 
-def tests_adult_10_child_90_test_case_30_walking_high(tester):
-    # Pairs Moving: True
+def tests_adult_20_child_80_test_case_18_stopped_high(tester):
+    # Pairs Moving: False
     tester.check_collision()
     tester.reset_position()
     
@@ -4659,21 +2755,17 @@ def tests_adult_10_child_90_test_case_30_walking_high(tester):
     
     _setup_actors(tester, actors=[
         {
-            "name": 'actor_pair0_0_child',
-            "module": "pedestrian.walk_sfm_child",
+            "name": 'actor_pair0_0',
+            "module": "pedestrian.walk_sfm",
             "params": {
                 "radius": 0.25,
-                "init_x": 5.47,
-                "init_y": 0.22,
-                "init_a": -100.92,
-                "velocity": 0.97,
-                "goals": [[-0.47, 2.96], [3.35, -4.18], [-5.05, -0.38], [-2.10, -1.89]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
+                "init_x": 0.31,
+                "init_y": -0.60,
+                "init_a": -84.34,
+                "velocity": 1.01,
+                "goal_x": 0.31,
+                "goal_y": -0.60,
                 "n_actors": 7,
-                "random_seed": 100,
             },
         },
         {
@@ -4681,11 +2773,11 @@ def tests_adult_10_child_90_test_case_30_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 6.13,
-                "init_y": 0.97,
-                "init_a": -100.92,
-                "velocity": 0.97,
-                "goals": [[-0.47, 2.96], [3.04, -0.57], [-3.55, -4.67], [-0.45, -4.43]],
+                "init_x": 0.95,
+                "init_y": 0.17,
+                "init_a": -84.34,
+                "velocity": 1.01,
+                "goals": [[0.31, -0.60], [-5.38, -0.46], [-7.52, 3.98], [2.70, -2.62]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -4699,11 +2791,141 @@ def tests_adult_10_child_90_test_case_30_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -5.51,
-                "init_y": 3.66,
-                "init_a": -65.69,
-                "velocity": 1.16,
-                "goals": [[-3.66, -5.24], [1.63, 3.93], [-2.83, -3.17], [0.54, -5.47]],
+                "init_x": 3.35,
+                "init_y": 1.81,
+                "init_a": -69.12,
+                "velocity": 0.81,
+                "goals": [[3.35, 1.81], [0.27, -5.69], [-5.55, -4.82], [-4.38, 3.91]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 2.36,
+                "init_y": 1.96,
+                "init_a": -69.12,
+                "velocity": 0.81,
+                "goal_x": 3.35,
+                "goal_y": 1.81,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -6.30,
+                "init_y": 5.99,
+                "init_a": 23.99,
+                "velocity": 0.92,
+                "goals": [[-3.81, -4.17], [4.26, 2.35], [-0.21, -5.05], [-3.57, 2.38]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.39,
+                "init_y": 4.85,
+                "init_a": 70.57,
+                "velocity": 0.82,
+                "goals": [[-5.02, 0.17], [-6.92, 4.64], [-5.79, -1.44], [3.79, 1.77]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.93,
+                "init_y": 1.89,
+                "init_a": 133.26,
+                "velocity": 0.91,
+                "goals": [[2.02, 4.88], [-2.66, -2.32], [-0.16, 1.39], [4.97, -2.04]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_19_stopped_high(tester):
+    # Pairs Moving: False
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 7
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 3.29,
+                "init_y": -3.00,
+                "init_a": -0.90,
+                "velocity": 1.01,
+                "goal_x": 3.29,
+                "goal_y": -3.00,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_pair0_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 2.72,
+                "init_y": -2.18,
+                "init_a": -0.90,
+                "velocity": 1.01,
+                "goal_x": 3.29,
+                "goal_y": -3.00,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -1.04,
+                "init_y": -5.18,
+                "init_a": 1.05,
+                "velocity": 0.83,
+                "goals": [[-1.04, -5.18], [-2.85, 4.93], [1.92, 1.11], [-7.51, -3.93]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -4717,11 +2939,11 @@ def tests_adult_10_child_90_test_case_30_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -5.59,
-                "init_y": 4.66,
-                "init_a": -65.69,
-                "velocity": 1.16,
-                "goals": [[-3.66, -5.24], [1.64, -5.81], [0.94, 4.91], [-4.40, -1.89]],
+                "init_x": -1.94,
+                "init_y": -5.60,
+                "init_a": 1.05,
+                "velocity": 0.83,
+                "goals": [[-1.04, -5.18], [-1.53, 4.17], [5.62, -0.96], [-7.89, 4.11]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -4735,220 +2957,16 @@ def tests_adult_10_child_90_test_case_30_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 0.36,
-                "init_y": -0.91,
-                "init_a": 0.58,
-                "velocity": 0.91,
-                "goals": [[-2.08, 2.94], [3.01, 0.48], [2.84, 2.63], [2.87, -2.31]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.44,
-                "init_y": -2.70,
-                "init_a": -90.64,
-                "velocity": 0.92,
-                "goal_x": 1.07,
-                "goal_y": -0.46,
-                "n_actors": 7,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.82,
-                "init_y": 4.06,
-                "init_a": -88.36,
-                "velocity": 0.85,
-                "goals": [[0.07, 2.06], [4.00, 5.44], [-4.14, 0.57], [-5.60, -5.08]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_31_stopped_high(tester):
-    # Pairs Moving: False
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 7
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.28,
-                "init_y": -2.91,
-                "init_a": 172.22,
-                "velocity": 1.19,
-                "goals": [[3.39, 1.19], [5.76, 5.79], [5.71, -2.14], [-5.41, 2.08]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.71,
-                "init_y": 5.48,
-                "init_a": 117.17,
-                "velocity": 0.90,
-                "goal_x": 3.80,
-                "goal_y": -4.24,
-                "n_actors": 7,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.68,
-                "init_y": 3.98,
-                "init_a": 72.61,
-                "velocity": 1.10,
-                "goals": [[0.34, 4.54], [-0.75, 0.69], [0.18, 1.90], [2.91, -0.56]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.43,
-                "init_y": 3.84,
-                "init_a": 166.88,
-                "velocity": 0.81,
-                "goals": [[-5.35, -3.15], [0.73, -4.26], [0.26, 2.86], [1.36, 1.75]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.76,
-                "init_y": -4.70,
-                "init_a": -156.32,
-                "velocity": 1.03,
-                "goals": [[-0.70, -1.29], [3.54, -1.20], [-5.70, -4.43], [2.77, 0.90]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.70,
-                "init_y": -2.49,
-                "init_a": -38.01,
-                "velocity": 1.03,
-                "goals": [[-1.98, -4.61], [-3.58, -0.34], [1.26, -2.06], [-1.21, 2.96]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.91,
-                "init_y": 3.48,
-                "init_a": 83.50,
-                "velocity": 0.89,
-                "goals": [[-2.87, 2.06], [3.01, 4.07], [0.81, 3.22], [-5.73, 3.09]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_32_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 9
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.88,
-                "init_y": -1.87,
-                "init_a": 76.89,
+                "init_x": -3.39,
+                "init_y": 5.43,
+                "init_a": 0.93,
                 "velocity": 1.18,
-                "goals": [[-0.73, 0.29], [2.48, -1.52], [-4.62, 4.19], [2.47, 1.04]],
+                "goals": [[6.62, 1.26], [3.75, 5.68], [3.58, -1.63], [2.72, 3.34]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
+                "n_actors": 7,
                 "random_seed": 100,
             },
         },
@@ -4957,16 +2975,16 @@ def tests_adult_10_child_90_test_case_32_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -0.32,
-                "init_y": -3.68,
-                "init_a": -33.88,
-                "velocity": 1.14,
-                "goals": [[-0.16, 3.98], [-3.51, -5.52], [-2.94, 2.39], [4.30, 3.72]],
+                "init_x": 3.01,
+                "init_y": -2.28,
+                "init_a": 87.85,
+                "velocity": 1.08,
+                "goals": [[-1.40, 0.87], [-1.46, -3.26], [1.81, -5.59], [-2.70, -4.99]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
+                "n_actors": 7,
                 "random_seed": 100,
             },
         },
@@ -4975,120 +2993,16 @@ def tests_adult_10_child_90_test_case_32_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -0.65,
-                "init_y": -4.71,
-                "init_a": 49.45,
-                "velocity": 1.14,
-                "goals": [[4.29, -5.20], [2.04, 4.50], [-2.05, 5.91], [-0.55, 1.56]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.95,
-                "init_y": 5.80,
-                "init_a": 33.41,
-                "velocity": 0.85,
-                "goals": [[1.98, 3.74], [-3.61, 2.01], [-4.05, -5.66], [2.46, 5.20]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.26,
-                "init_y": -4.75,
-                "init_a": 115.29,
-                "velocity": 0.91,
-                "goals": [[4.56, 2.51], [-2.43, -2.59], [3.79, 3.62], [2.74, -3.74]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.23,
-                "init_y": -5.17,
-                "init_a": 177.24,
-                "velocity": 0.83,
-                "goals": [[-0.20, 1.03], [2.59, -0.62], [1.82, 5.56], [1.76, 1.82]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single6',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.31,
-                "init_y": 0.95,
-                "init_a": -117.67,
-                "velocity": 1.17,
-                "goal_x": -4.15,
-                "goal_y": 2.45,
-                "n_actors": 9,
-            },
-        },
-        {
-            "name": 'actor_single7_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.29,
-                "init_y": 4.01,
-                "init_a": -104.76,
+                "init_x": 4.67,
+                "init_y": 3.01,
+                "init_a": 111.63,
                 "velocity": 0.99,
-                "goals": [[0.41, 5.55], [-3.63, 5.04], [-5.95, -2.22], [5.92, 4.71]],
+                "goals": [[6.14, -5.92], [2.88, -3.85], [-5.20, -0.76], [-0.51, 2.03]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single8_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.27,
-                "init_y": 2.10,
-                "init_a": -107.58,
-                "velocity": 0.98,
-                "goals": [[0.87, 4.05], [-5.32, -4.17], [1.19, 3.59], [-0.08, -1.99]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
+                "n_actors": 7,
                 "random_seed": 100,
             },
         },
@@ -5100,7 +3014,311 @@ def tests_adult_10_child_90_test_case_32_walking_high(tester):
     
     _goto_target1(tester)
 
-def tests_adult_10_child_90_test_case_33_stopped_high(tester):
+def tests_adult_20_child_80_test_case_20_walking_high(tester):
+    # Pairs Moving: True
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 8
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -6.51,
+                "init_y": 1.92,
+                "init_a": -15.04,
+                "velocity": 0.87,
+                "goals": [[-0.99, -4.21], [-0.36, -2.10], [3.34, -5.89], [-2.00, -2.23]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -6.76,
+                "init_y": 2.89,
+                "init_a": -15.04,
+                "velocity": 0.87,
+                "goal_x": -0.99,
+                "goal_y": -4.21,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.76,
+                "init_y": -0.08,
+                "init_a": 20.01,
+                "velocity": 1.19,
+                "goals": [[-0.91, -2.09], [-5.54, -4.20], [-6.56, -4.85], [-2.52, 0.16]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -1.75,
+                "init_y": 0.10,
+                "init_a": 20.01,
+                "velocity": 1.19,
+                "goals": [[-0.91, -2.09], [-2.03, -4.18], [2.35, 3.84], [1.73, 5.05]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 6.30,
+                "init_y": -1.36,
+                "init_a": 114.84,
+                "velocity": 0.83,
+                "goals": [[7.52, 4.59], [0.02, -2.77], [7.02, 4.32], [-7.54, -2.58]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -4.49,
+                "init_y": -0.92,
+                "init_a": -149.47,
+                "velocity": 0.98,
+                "goals": [[-2.70, 5.94], [2.70, -3.19], [-6.14, 1.72], [4.65, -3.49]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.88,
+                "init_y": -3.15,
+                "init_a": 66.56,
+                "velocity": 1.02,
+                "goal_x": 3.08,
+                "goal_y": -4.86,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_single3_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.20,
+                "init_y": 5.90,
+                "init_a": 89.15,
+                "velocity": 0.96,
+                "goals": [[3.43, -2.21], [-1.70, -0.75], [0.43, -5.05], [-7.52, -0.73]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_21_walking_high(tester):
+    # Pairs Moving: True
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 8
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.51,
+                "init_y": 0.91,
+                "init_a": 74.64,
+                "velocity": 0.84,
+                "goals": [[5.12, -2.32], [4.05, -4.87], [0.81, -0.83], [2.57, -2.88]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.23,
+                "init_y": 1.87,
+                "init_a": 74.64,
+                "velocity": 0.84,
+                "goals": [[5.12, -2.32], [4.03, 2.60], [-5.36, -2.08], [-7.32, 2.41]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 3.09,
+                "init_y": 1.79,
+                "init_a": 142.01,
+                "velocity": 1.05,
+                "goal_x": 0.13,
+                "goal_y": -4.10,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_pair1_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 3.38,
+                "init_y": 0.84,
+                "init_a": 142.01,
+                "velocity": 1.05,
+                "goal_x": 0.13,
+                "goal_y": -4.10,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -7.90,
+                "init_y": 5.63,
+                "init_a": 173.36,
+                "velocity": 0.88,
+                "goals": [[-6.73, 4.83], [-4.19, -4.25], [0.58, 0.77], [4.56, -3.45]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -2.67,
+                "init_y": 0.70,
+                "init_a": -55.53,
+                "velocity": 1.02,
+                "goals": [[-7.04, -1.40], [1.94, 3.53], [-5.12, -3.44], [0.71, -4.91]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 2.33,
+                "init_y": 4.47,
+                "init_a": 112.27,
+                "velocity": 0.83,
+                "goals": [[-2.19, -4.16], [-2.23, 5.05], [-3.98, 5.89], [-2.77, -4.82]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single3_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 3.32,
+                "init_y": -5.29,
+                "init_a": 75.70,
+                "velocity": 0.98,
+                "goals": [[0.15, -3.75], [0.23, 3.78], [-7.00, 5.43], [-3.44, 4.09]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_22_stopped_high(tester):
     # Pairs Moving: False
     tester.check_collision()
     tester.reset_position()
@@ -5113,11 +3331,11 @@ def tests_adult_10_child_90_test_case_33_stopped_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 4.50,
-                "init_y": 5.47,
-                "init_a": -77.91,
-                "velocity": 1.04,
-                "goals": [[4.50, 5.47], [-3.53, -0.73], [3.00, -5.32], [2.05, 5.31]],
+                "init_x": 7.30,
+                "init_y": 4.45,
+                "init_a": -56.98,
+                "velocity": 1.01,
+                "goals": [[7.30, 4.45], [2.73, -2.08], [-0.41, 5.54], [0.64, -1.03]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -5131,12 +3349,44 @@ def tests_adult_10_child_90_test_case_33_stopped_high(tester):
             "module": "pedestrian.walk_sfm",
             "params": {
                 "radius": 0.25,
-                "init_x": 4.88,
-                "init_y": 6.39,
-                "init_a": -77.91,
-                "velocity": 1.04,
-                "goal_x": 4.50,
-                "goal_y": 5.47,
+                "init_x": 8.16,
+                "init_y": 4.96,
+                "init_a": -56.98,
+                "velocity": 1.01,
+                "goal_x": 7.30,
+                "goal_y": 4.45,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.23,
+                "init_y": -4.96,
+                "init_a": 127.67,
+                "velocity": 1.20,
+                "goals": [[5.23, -4.96], [-3.64, -3.74], [5.96, 5.05], [7.09, 1.97]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.55,
+                "init_y": -4.23,
+                "init_a": 127.67,
+                "velocity": 1.20,
+                "goal_x": 5.23,
+                "goal_y": -4.96,
                 "n_actors": 7,
             },
         },
@@ -5145,11 +3395,11 @@ def tests_adult_10_child_90_test_case_33_stopped_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 4.33,
-                "init_y": 4.94,
-                "init_a": -171.83,
-                "velocity": 0.87,
-                "goals": [[2.28, 1.79], [-3.73, 0.84], [2.79, -4.88], [-3.49, 2.04]],
+                "init_x": 2.99,
+                "init_y": 1.24,
+                "init_a": -147.47,
+                "velocity": 0.99,
+                "goals": [[-3.62, 2.07], [-4.40, 1.73], [1.18, 0.26], [6.08, -5.89]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -5163,11 +3413,11 @@ def tests_adult_10_child_90_test_case_33_stopped_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -3.94,
-                "init_y": -1.13,
-                "init_a": 63.58,
+                "init_x": -5.87,
+                "init_y": 5.54,
+                "init_a": -95.18,
                 "velocity": 1.15,
-                "goals": [[4.16, 2.21], [4.18, -4.18], [3.01, 2.02], [-5.68, -3.80]],
+                "goals": [[-5.73, -1.85], [7.06, 4.48], [-1.80, 4.45], [-7.06, -4.27]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -5181,47 +3431,11 @@ def tests_adult_10_child_90_test_case_33_stopped_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 0.43,
-                "init_y": 5.49,
-                "init_a": -97.69,
-                "velocity": 1.13,
-                "goals": [[-5.56, -4.09], [2.26, 2.09], [-3.53, -5.00], [5.14, 3.83]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.94,
-                "init_y": -3.29,
-                "init_a": 75.34,
-                "velocity": 0.87,
-                "goals": [[5.63, 1.13], [-2.46, 1.35], [5.66, -1.25], [-2.11, 3.17]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.89,
-                "init_y": -1.97,
-                "init_a": -147.97,
-                "velocity": 0.80,
-                "goals": [[3.86, 3.46], [5.91, 3.31], [-1.25, 1.04], [-2.04, -2.74]],
+                "init_x": 6.84,
+                "init_y": 4.60,
+                "init_a": -69.51,
+                "velocity": 1.03,
+                "goals": [[-5.16, -2.02], [-1.93, 3.71], [-3.49, 5.96], [-1.95, -1.49]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -5238,7 +3452,177 @@ def tests_adult_10_child_90_test_case_33_stopped_high(tester):
     
     _goto_target1(tester)
 
-def tests_adult_10_child_90_test_case_34_walking_high(tester):
+def tests_adult_20_child_80_test_case_23_stopped_high(tester):
+    # Pairs Moving: False
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 9
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.57,
+                "init_y": 1.92,
+                "init_a": 102.76,
+                "velocity": 0.86,
+                "goals": [[1.57, 1.92], [-5.51, 3.71], [-0.02, 1.84], [-5.21, 3.11]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.57,
+                "init_y": 2.92,
+                "init_a": 102.76,
+                "velocity": 0.86,
+                "goals": [[1.57, 1.92], [-1.70, -5.10], [-6.55, 5.76], [4.59, 3.87]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.94,
+                "init_y": 4.89,
+                "init_a": -9.30,
+                "velocity": 0.97,
+                "goal_x": -3.94,
+                "goal_y": 4.89,
+                "n_actors": 9,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -4.17,
+                "init_y": 5.86,
+                "init_a": -9.30,
+                "velocity": 0.97,
+                "goals": [[-3.94, 4.89], [6.57, 5.14], [4.87, -4.62], [0.18, -3.72]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.46,
+                "init_y": 2.56,
+                "init_a": -21.04,
+                "velocity": 0.99,
+                "goals": [[-0.56, -2.55], [-7.74, -1.80], [-7.48, -1.03], [-7.13, 1.31]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.80,
+                "init_y": -4.14,
+                "init_a": 51.56,
+                "velocity": 1.08,
+                "goal_x": 5.27,
+                "goal_y": -3.37,
+                "n_actors": 9,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 2.98,
+                "init_y": 2.33,
+                "init_a": -102.76,
+                "velocity": 1.12,
+                "goals": [[7.98, -2.01], [0.03, 1.47], [-1.68, 3.25], [-0.23, -5.02]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single3_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -5.50,
+                "init_y": -3.12,
+                "init_a": -125.37,
+                "velocity": 0.94,
+                "goals": [[1.67, -5.77], [-2.05, 3.13], [4.85, -4.55], [-3.33, 0.29]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single4_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 2.64,
+                "init_y": -6.00,
+                "init_a": 4.40,
+                "velocity": 0.99,
+                "goals": [[-5.46, -3.60], [-7.27, 2.08], [5.83, -0.72], [-7.57, 0.57]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_24_walking_high(tester):
     # Pairs Moving: True
     tester.check_collision()
     tester.reset_position()
@@ -5251,11 +3635,11 @@ def tests_adult_10_child_90_test_case_34_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 3.03,
-                "init_y": -2.86,
-                "init_a": -3.63,
-                "velocity": 0.80,
-                "goals": [[-1.08, -3.88], [1.67, 2.44], [5.29, 1.96], [2.88, 0.57]],
+                "init_x": 0.98,
+                "init_y": -1.49,
+                "init_a": -157.41,
+                "velocity": 0.85,
+                "goals": [[3.12, 0.02], [-4.09, -4.41], [-2.60, 3.07], [-2.77, -3.96]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -5269,11 +3653,11 @@ def tests_adult_10_child_90_test_case_34_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 4.00,
-                "init_y": -2.63,
-                "init_a": -3.63,
-                "velocity": 0.80,
-                "goals": [[-1.08, -3.88], [-4.41, 4.92], [-1.75, 0.22], [2.11, -2.32]],
+                "init_x": 1.98,
+                "init_y": -1.50,
+                "init_a": -157.41,
+                "velocity": 0.85,
+                "goals": [[3.12, 0.02], [0.00, -3.10], [-7.86, -3.11], [3.74, 0.82]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -5287,11 +3671,11 @@ def tests_adult_10_child_90_test_case_34_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -2.26,
-                "init_y": 2.19,
-                "init_a": 25.04,
-                "velocity": 1.19,
-                "goals": [[-5.74, -3.34], [5.25, 5.35], [0.69, -5.02], [-0.60, 5.07]],
+                "init_x": 2.15,
+                "init_y": 5.85,
+                "init_a": -93.65,
+                "velocity": 0.93,
+                "goals": [[-1.54, -1.08], [-4.09, -2.39], [-7.52, 1.44], [-1.79, 3.92]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -5301,350 +3685,88 @@ def tests_adult_10_child_90_test_case_34_walking_high(tester):
             },
         },
         {
-            "name": 'actor_pair1_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.68,
-                "init_y": 1.37,
-                "init_a": 25.04,
-                "velocity": 1.19,
-                "goals": [[-5.74, -3.34], [2.31, -5.66], [-5.11, 5.25], [-4.62, -4.87]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single0',
+            "name": 'actor_pair1_1',
             "module": "pedestrian.walk_sfm",
             "params": {
                 "radius": 0.25,
-                "init_x": -4.16,
-                "init_y": -5.06,
-                "init_a": 39.40,
-                "velocity": 1.02,
-                "goal_x": -0.50,
-                "goal_y": -5.58,
+                "init_x": 2.32,
+                "init_y": 4.87,
+                "init_a": -93.65,
+                "velocity": 0.93,
+                "goal_x": -1.54,
+                "goal_y": -1.08,
                 "n_actors": 9,
             },
         },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.58,
-                "init_y": -0.43,
-                "init_a": -82.11,
-                "velocity": 0.89,
-                "goals": [[1.45, 4.76], [3.17, -4.79], [-4.88, 3.63], [4.64, -4.03]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.21,
-                "init_y": 2.24,
-                "init_a": -165.22,
-                "velocity": 1.16,
-                "goals": [[2.51, -0.53], [1.47, -5.42], [1.03, -5.17], [-3.12, -5.73]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.26,
-                "init_y": 1.06,
-                "init_a": -33.48,
-                "velocity": 1.03,
-                "goals": [[-0.58, 4.80], [-3.04, 4.15], [3.57, 4.54], [-2.45, -5.55]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.51,
-                "init_y": -5.58,
-                "init_a": 94.15,
-                "velocity": 0.81,
-                "goals": [[-2.73, -1.43], [-5.30, -0.80], [-2.67, -3.85], [-1.39, 4.71]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_35_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 8
-    
-    _setup_actors(tester, actors=[
         {
             "name": 'actor_single0_child',
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -3.50,
-                "init_y": 3.34,
-                "init_a": 56.70,
-                "velocity": 1.00,
-                "goals": [[1.09, -2.66], [2.36, -2.89], [5.20, 2.06], [-1.71, 5.66]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.86,
-                "init_y": -5.22,
-                "init_a": -22.04,
-                "velocity": 1.00,
-                "goals": [[0.40, 4.47], [3.69, 0.61], [1.07, 5.29], [-4.80, 4.43]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.59,
-                "init_y": 5.26,
-                "init_a": -72.37,
-                "velocity": 0.84,
-                "goals": [[1.80, 2.67], [4.24, -2.65], [-3.59, -3.11], [-5.61, 1.06]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.87,
-                "init_y": 2.14,
-                "init_a": 98.09,
-                "velocity": 0.92,
-                "goals": [[-2.24, 0.65], [-4.39, -2.35], [1.14, -2.40], [1.92, -1.71]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.91,
-                "init_y": 2.63,
-                "init_a": -91.67,
-                "velocity": 1.03,
-                "goals": [[-3.13, -2.74], [-3.44, 0.49], [1.63, -4.01], [-0.88, 4.78]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.01,
-                "init_y": 1.00,
-                "init_a": 145.42,
-                "velocity": 0.89,
-                "goal_x": 2.57,
-                "goal_y": -4.07,
-                "n_actors": 8,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.75,
-                "init_y": 2.17,
-                "init_a": 36.84,
-                "velocity": 1.08,
-                "goals": [[0.64, 5.05], [2.36, 4.76], [-3.50, -2.50], [-5.77, -1.91]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single7_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.03,
-                "init_y": -0.34,
-                "init_a": -76.51,
-                "velocity": 0.81,
-                "goals": [[-0.73, -1.67], [4.01, 4.29], [2.03, -1.27], [-5.25, 4.00]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_36_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 7
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.14,
-                "init_y": 2.32,
-                "init_a": 110.55,
-                "velocity": 0.89,
-                "goals": [[0.40, -3.91], [4.79, 1.83], [-0.45, -5.16], [1.12, -4.76]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.62,
-                "init_y": -0.05,
-                "init_a": -54.45,
-                "velocity": 1.04,
-                "goals": [[5.42, -3.42], [-4.22, -2.25], [4.53, 0.76], [1.00, 0.61]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.52,
-                "init_y": 0.02,
-                "init_a": 106.03,
-                "velocity": 1.15,
-                "goals": [[-4.38, -3.25], [5.12, -3.47], [-5.70, -5.25], [-3.75, 0.94]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.55,
-                "init_y": 3.13,
-                "init_a": 30.64,
+                "init_x": -0.01,
+                "init_y": 5.22,
+                "init_a": 28.78,
                 "velocity": 1.05,
-                "goals": [[-3.35, 4.34], [3.43, -3.45], [2.03, -4.55], [-5.50, -3.94]],
+                "goals": [[6.34, 4.38], [0.13, 1.25], [-8.00, -4.12], [-6.45, -3.70]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.89,
+                "init_y": -0.98,
+                "init_a": 47.75,
+                "velocity": 1.15,
+                "goals": [[-7.70, 1.71], [-1.77, 4.26], [-6.65, 0.39], [4.97, 2.44]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.49,
+                "init_y": -1.87,
+                "init_a": -14.55,
+                "velocity": 0.91,
+                "goals": [[-1.22, -4.48], [-3.42, -4.64], [-3.06, 2.54], [-0.79, -1.12]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single3_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -2.91,
+                "init_y": 3.99,
+                "init_a": -60.64,
+                "velocity": 0.98,
+                "goals": [[0.34, 0.72], [-1.38, -4.58], [-0.22, -1.21], [5.89, 3.38]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
                 "random_seed": 100,
             },
         },
@@ -5653,49 +3775,13 @@ def tests_adult_10_child_90_test_case_36_walking_high(tester):
             "module": "pedestrian.walk_sfm",
             "params": {
                 "radius": 0.25,
-                "init_x": 3.93,
-                "init_y": -0.57,
-                "init_a": -163.24,
-                "velocity": 0.81,
-                "goal_x": 0.99,
-                "goal_y": -3.60,
-                "n_actors": 7,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.79,
-                "init_y": 1.11,
-                "init_a": 94.55,
-                "velocity": 0.96,
-                "goals": [[3.60, 1.79], [-2.44, 4.02], [-0.31, -1.82], [3.50, 3.78]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.54,
-                "init_y": -5.14,
-                "init_a": -74.41,
-                "velocity": 1.18,
-                "goals": [[-0.97, 0.77], [0.72, -0.19], [-4.81, -3.67], [0.78, 1.87]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
+                "init_x": 3.37,
+                "init_y": -0.36,
+                "init_a": 64.44,
+                "velocity": 1.02,
+                "goal_x": 7.66,
+                "goal_y": 1.79,
+                "n_actors": 9,
             },
         },
     ])
@@ -5706,12 +3792,12 @@ def tests_adult_10_child_90_test_case_36_walking_high(tester):
     
     _goto_target1(tester)
 
-def tests_adult_10_child_90_test_case_37_stopped_high(tester):
+def tests_adult_20_child_80_test_case_25_stopped_high(tester):
     # Pairs Moving: False
     tester.check_collision()
     tester.reset_position()
     
-    n_actors = 7
+    n_actors = 9
     
     _setup_actors(tester, actors=[
         {
@@ -5719,16 +3805,16 @@ def tests_adult_10_child_90_test_case_37_stopped_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 2.63,
-                "init_y": 4.30,
-                "init_a": -112.84,
-                "velocity": 1.03,
-                "goals": [[2.63, 4.30], [-2.74, 1.13], [-3.31, 3.67], [4.97, 5.62]],
+                "init_x": 1.98,
+                "init_y": 0.61,
+                "init_a": 119.93,
+                "velocity": 0.87,
+                "goals": [[1.98, 0.61], [6.63, -1.55], [4.88, 3.95], [4.89, 4.03]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
+                "n_actors": 9,
                 "random_seed": 100,
             },
         },
@@ -5737,16 +3823,16 @@ def tests_adult_10_child_90_test_case_37_stopped_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 2.84,
-                "init_y": 3.32,
-                "init_a": -112.84,
-                "velocity": 1.03,
-                "goals": [[2.63, 4.30], [-0.18, 2.98], [-4.60, -1.38], [-0.85, -0.83]],
+                "init_x": 1.50,
+                "init_y": -0.27,
+                "init_a": 119.93,
+                "velocity": 0.87,
+                "goals": [[1.98, 0.61], [-3.09, 3.48], [2.75, 0.34], [-4.40, -0.82]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
+                "n_actors": 9,
                 "random_seed": 100,
             },
         },
@@ -5755,16 +3841,16 @@ def tests_adult_10_child_90_test_case_37_stopped_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 5.59,
-                "init_y": 2.12,
-                "init_a": -163.85,
-                "velocity": 1.10,
-                "goals": [[5.59, 2.12], [1.33, 4.18], [-4.93, -0.77], [-0.23, -5.94]],
+                "init_x": -0.45,
+                "init_y": -2.13,
+                "init_a": -100.62,
+                "velocity": 0.84,
+                "goals": [[-0.45, -2.13], [3.29, 5.12], [6.74, -5.82], [5.50, 1.40]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
+                "n_actors": 9,
                 "random_seed": 100,
             },
         },
@@ -5773,154 +3859,16 @@ def tests_adult_10_child_90_test_case_37_stopped_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 5.08,
-                "init_y": 1.26,
-                "init_a": -163.85,
-                "velocity": 1.10,
-                "goals": [[5.59, 2.12], [-3.27, 4.70], [-4.56, -4.62], [1.56, 3.46]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single0',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.79,
-                "init_y": 5.29,
-                "init_a": 174.59,
-                "velocity": 0.90,
-                "goal_x": -1.00,
-                "goal_y": 1.00,
-                "n_actors": 7,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.66,
-                "init_y": -1.79,
-                "init_a": -129.87,
-                "velocity": 0.95,
-                "goals": [[-2.02, -4.56], [3.24, -2.70], [-2.97, -5.59], [5.29, -2.60]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.19,
-                "init_y": 4.58,
-                "init_a": 11.65,
-                "velocity": 1.01,
-                "goals": [[4.21, -3.59], [-1.16, 4.83], [2.37, -0.60], [0.11, -2.49]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_38_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 7
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.55,
-                "init_y": -2.34,
-                "init_a": -140.84,
+                "init_x": -0.96,
+                "init_y": -2.99,
+                "init_a": -100.62,
                 "velocity": 0.84,
-                "goals": [[4.94, 0.77], [-3.15, 3.44], [-1.66, -0.71], [-1.80, 2.47]],
+                "goals": [[-0.45, -2.13], [-2.97, 4.43], [-4.33, 1.90], [5.08, 0.99]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair0_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.07,
-                "init_y": -3.19,
-                "init_a": -140.84,
-                "velocity": 0.84,
-                "goals": [[4.94, 0.77], [-1.70, 2.80], [-2.02, -0.29], [3.58, 2.54]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair1_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.72,
-                "init_y": 2.91,
-                "init_a": -77.19,
-                "velocity": 1.18,
-                "goals": [[5.43, -0.11], [4.32, 3.95], [5.81, 5.54], [-2.82, -2.06]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair1_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.63,
-                "init_y": 2.51,
-                "init_a": -77.19,
-                "velocity": 1.18,
-                "goals": [[5.43, -0.11], [4.93, 2.52], [1.57, -5.69], [1.21, -0.22]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
+                "n_actors": 9,
                 "random_seed": 100,
             },
         },
@@ -5929,16 +3877,186 @@ def tests_adult_10_child_90_test_case_38_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -1.93,
-                "init_y": -0.00,
-                "init_a": -169.24,
-                "velocity": 0.96,
-                "goals": [[-4.32, 3.95], [4.56, -3.33], [-5.99, 0.85], [3.38, -3.16]],
+                "init_x": -3.83,
+                "init_y": -3.75,
+                "init_a": -121.25,
+                "velocity": 1.04,
+                "goals": [[-4.95, -2.61], [-7.12, 5.23], [3.17, 3.60], [-0.49, -3.21]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -4.26,
+                "init_y": -5.25,
+                "init_a": 99.04,
+                "velocity": 0.84,
+                "goals": [[-7.89, -4.06], [-6.75, 5.49], [-0.43, 4.88], [-0.47, -4.12]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 7.23,
+                "init_y": -1.59,
+                "init_a": 46.51,
+                "velocity": 0.89,
+                "goal_x": 5.63,
+                "goal_y": -3.67,
+                "n_actors": 9,
+            },
+        },
+        {
+            "name": 'actor_single3',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.42,
+                "init_y": 5.15,
+                "init_a": -78.10,
+                "velocity": 1.13,
+                "goal_x": 1.13,
+                "goal_y": -2.94,
+                "n_actors": 9,
+            },
+        },
+        {
+            "name": 'actor_single4_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 7.39,
+                "init_y": -5.56,
+                "init_a": 103.82,
+                "velocity": 1.15,
+                "goals": [[-3.59, -5.29], [-0.12, -1.65], [7.90, 0.66], [-5.15, -1.22]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_26_walking_high(tester):
+    # Pairs Moving: True
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 9
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 7.64,
+                "init_y": 0.98,
+                "init_a": 22.56,
+                "velocity": 0.92,
+                "goals": [[-0.24, 1.05], [-1.19, -2.02], [-0.06, -0.08], [-3.10, 0.75]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 7.22,
+                "init_y": 1.88,
+                "init_a": 22.56,
+                "velocity": 0.92,
+                "goals": [[-0.24, 1.05], [4.14, 0.00], [-4.59, -0.58], [3.82, -4.88]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 6.47,
+                "init_y": -0.85,
+                "init_a": -53.33,
+                "velocity": 1.09,
+                "goals": [[-0.05, 0.07], [-3.22, -4.68], [-2.32, 3.72], [-3.60, -3.85]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 7.37,
+                "init_y": -1.29,
+                "init_a": -53.33,
+                "velocity": 1.09,
+                "goals": [[-0.05, 0.07], [0.91, -3.31], [6.27, -5.56], [-7.46, 3.35]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.99,
+                "init_y": 0.11,
+                "init_a": -69.24,
+                "velocity": 0.98,
+                "goals": [[6.90, -0.14], [3.59, 0.60], [2.04, -0.42], [0.09, -1.31]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
                 "random_seed": 100,
             },
         },
@@ -5947,13 +4065,13 @@ def tests_adult_10_child_90_test_case_38_walking_high(tester):
             "module": "pedestrian.walk_sfm",
             "params": {
                 "radius": 0.25,
-                "init_x": -5.83,
-                "init_y": -3.10,
-                "init_a": 165.24,
-                "velocity": 1.02,
-                "goal_x": 3.99,
-                "goal_y": -4.10,
-                "n_actors": 7,
+                "init_x": 6.17,
+                "init_y": 3.30,
+                "init_a": 109.81,
+                "velocity": 1.09,
+                "goal_x": 4.50,
+                "goal_y": -5.67,
+                "n_actors": 9,
             },
         },
         {
@@ -5961,17 +4079,49 @@ def tests_adult_10_child_90_test_case_38_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -2.87,
-                "init_y": 5.26,
-                "init_a": 37.12,
-                "velocity": 1.18,
-                "goals": [[2.15, -0.19], [5.18, -0.84], [2.76, 5.67], [5.71, -2.72]],
+                "init_x": -2.68,
+                "init_y": -1.87,
+                "init_a": -4.14,
+                "velocity": 0.83,
+                "goals": [[-5.08, 0.98], [1.39, -0.32], [5.39, 2.31], [-3.91, -2.22]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
+                "n_actors": 9,
                 "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single3_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -4.69,
+                "init_y": 0.38,
+                "init_a": -109.84,
+                "velocity": 1.10,
+                "goals": [[5.59, -2.72], [-2.52, -2.84], [-0.71, -2.07], [-6.01, 3.20]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single4',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.13,
+                "init_y": -5.11,
+                "init_a": 57.07,
+                "velocity": 0.85,
+                "goal_x": -1.79,
+                "goal_y": 0.87,
+                "n_actors": 9,
             },
         },
     ])
@@ -5982,12 +4132,12 @@ def tests_adult_10_child_90_test_case_38_walking_high(tester):
     
     _goto_target1(tester)
 
-def tests_adult_10_child_90_test_case_39_stopped_high(tester):
+def tests_adult_20_child_80_test_case_27_stopped_high(tester):
     # Pairs Moving: False
     tester.check_collision()
     tester.reset_position()
     
-    n_actors = 7
+    n_actors = 9
     
     _setup_actors(tester, actors=[
         {
@@ -5995,16 +4145,16 @@ def tests_adult_10_child_90_test_case_39_stopped_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 5.09,
-                "init_y": 1.03,
-                "init_a": -70.00,
-                "velocity": 1.00,
-                "goals": [[5.09, 1.03], [3.31, -0.01], [3.73, -3.37], [5.01, 2.55]],
+                "init_x": 4.96,
+                "init_y": -5.82,
+                "init_a": -20.70,
+                "velocity": 0.90,
+                "goals": [[4.96, -5.82], [1.24, 2.34], [3.77, -2.74], [4.38, -5.53]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
+                "n_actors": 9,
                 "random_seed": 100,
             },
         },
@@ -6013,31 +4163,35 @@ def tests_adult_10_child_90_test_case_39_stopped_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 4.65,
-                "init_y": 0.13,
-                "init_a": -70.00,
-                "velocity": 1.00,
-                "goals": [[5.09, 1.03], [-3.64, -1.83], [-4.63, -4.72], [-2.82, -1.06]],
+                "init_x": 4.68,
+                "init_y": -6.78,
+                "init_a": -20.70,
+                "velocity": 0.90,
+                "goals": [[4.96, -5.82], [-4.44, -3.29], [-4.60, -0.79], [-3.12, 2.20]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
+                "n_actors": 9,
                 "random_seed": 100,
             },
         },
         {
-            "name": 'actor_pair1_0',
-            "module": "pedestrian.walk_sfm",
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -2.57,
-                "init_y": 4.35,
-                "init_a": -121.88,
-                "velocity": 0.82,
-                "goal_x": -2.57,
-                "goal_y": 4.35,
-                "n_actors": 7,
+                "init_x": -2.25,
+                "init_y": -3.99,
+                "init_a": -48.94,
+                "velocity": 1.15,
+                "goals": [[-2.25, -3.99], [-4.61, -4.69], [-3.19, -3.78], [2.43, 4.16]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
             },
         },
         {
@@ -6045,16 +4199,16 @@ def tests_adult_10_child_90_test_case_39_stopped_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -2.34,
-                "init_y": 3.37,
-                "init_a": -121.88,
-                "velocity": 0.82,
-                "goals": [[-2.57, 4.35], [0.93, 5.50], [3.24, -3.10], [-4.96, -5.44]],
+                "init_x": -3.25,
+                "init_y": -3.99,
+                "init_a": -48.94,
+                "velocity": 1.15,
+                "goals": [[-2.25, -3.99], [-0.43, 2.97], [0.63, -0.02], [3.84, -0.32]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
+                "n_actors": 9,
                 "random_seed": 100,
             },
         },
@@ -6063,35 +4217,31 @@ def tests_adult_10_child_90_test_case_39_stopped_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -0.45,
-                "init_y": -4.04,
-                "init_a": -32.67,
-                "velocity": 1.11,
-                "goals": [[4.56, -3.14], [4.26, -3.05], [-1.82, -5.76], [-3.95, 0.20]],
+                "init_x": 2.83,
+                "init_y": 5.30,
+                "init_a": 129.63,
+                "velocity": 1.06,
+                "goals": [[0.21, 0.12], [1.67, 5.15], [-5.88, -1.87], [-6.94, -2.17]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
+                "n_actors": 9,
                 "random_seed": 100,
             },
         },
         {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
+            "name": 'actor_single1',
+            "module": "pedestrian.walk_sfm",
             "params": {
                 "radius": 0.25,
-                "init_x": -4.10,
-                "init_y": 2.13,
-                "init_a": 38.92,
-                "velocity": 1.17,
-                "goals": [[-3.00, 0.65], [-4.75, -1.72], [0.05, 0.80], [-2.85, 2.99]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
+                "init_x": -6.79,
+                "init_y": 2.76,
+                "init_a": -47.16,
+                "velocity": 1.02,
+                "goal_x": -2.24,
+                "goal_y": 0.89,
+                "n_actors": 9,
             },
         },
         {
@@ -6099,16 +4249,48 @@ def tests_adult_10_child_90_test_case_39_stopped_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 1.56,
-                "init_y": 5.23,
-                "init_a": 114.18,
-                "velocity": 1.06,
-                "goals": [[5.94, -4.30], [-1.63, -3.62], [-4.92, -4.09], [-0.93, -2.05]],
+                "init_x": -5.84,
+                "init_y": -4.83,
+                "init_a": -128.63,
+                "velocity": 0.99,
+                "goals": [[-3.35, 3.10], [-3.70, -0.91], [-1.01, 0.54], [-2.41, -5.86]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single3',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.36,
+                "init_y": -3.13,
+                "init_a": 55.77,
+                "velocity": 1.02,
+                "goal_x": -0.03,
+                "goal_y": -4.83,
+                "n_actors": 9,
+            },
+        },
+        {
+            "name": 'actor_single4_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.49,
+                "init_y": 5.94,
+                "init_a": 6.01,
+                "velocity": 1.20,
+                "goals": [[0.24, 0.48], [3.83, -2.87], [6.45, -0.24], [0.65, -0.42]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
                 "random_seed": 100,
             },
         },
@@ -6120,7 +4302,7 @@ def tests_adult_10_child_90_test_case_39_stopped_high(tester):
     
     _goto_target1(tester)
 
-def tests_adult_10_child_90_test_case_40_walking_high(tester):
+def tests_adult_20_child_80_test_case_28_walking_high(tester):
     # Pairs Moving: True
     tester.check_collision()
     tester.reset_position()
@@ -6133,11 +4315,11 @@ def tests_adult_10_child_90_test_case_40_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 1.48,
-                "init_y": -2.10,
-                "init_a": -34.04,
-                "velocity": 0.96,
-                "goals": [[-2.32, 3.22], [2.30, 5.28], [1.65, -4.05], [5.56, -1.74]],
+                "init_x": 4.13,
+                "init_y": 2.22,
+                "init_a": -131.64,
+                "velocity": 1.17,
+                "goals": [[7.97, -3.35], [7.83, -5.92], [2.65, -5.49], [-7.58, 0.99]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -6151,11 +4333,163 @@ def tests_adult_10_child_90_test_case_40_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 0.48,
-                "init_y": -2.12,
-                "init_a": -34.04,
-                "velocity": 0.96,
-                "goals": [[-2.32, 3.22], [5.35, -5.23], [-5.22, 4.37], [1.83, -4.95]],
+                "init_x": 4.93,
+                "init_y": 2.82,
+                "init_a": -131.64,
+                "velocity": 1.17,
+                "goals": [[7.97, -3.35], [5.63, 0.75], [-2.38, 1.95], [-7.30, -0.99]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.31,
+                "init_y": -3.52,
+                "init_a": 0.96,
+                "velocity": 0.84,
+                "goal_x": 7.13,
+                "goal_y": 3.79,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.23,
+                "init_y": -2.68,
+                "init_a": 0.96,
+                "velocity": 0.84,
+                "goals": [[7.13, 3.79], [-2.52, -4.86], [-4.03, 3.40], [-2.39, -0.29]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.00,
+                "init_y": 1.90,
+                "init_a": 6.86,
+                "velocity": 0.91,
+                "goal_x": 5.91,
+                "goal_y": 0.30,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.61,
+                "init_y": 4.57,
+                "init_a": -31.19,
+                "velocity": 1.02,
+                "goals": [[6.86, -1.43], [-6.58, -3.84], [1.34, -4.48], [6.29, 4.57]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.95,
+                "init_y": 1.66,
+                "init_a": 52.24,
+                "velocity": 1.02,
+                "goals": [[-4.69, 2.62], [-5.54, 0.90], [-5.00, -1.67], [-2.37, 5.59]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single3_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 6.43,
+                "init_y": -0.13,
+                "init_a": -37.55,
+                "velocity": 0.94,
+                "goals": [[6.27, 5.21], [7.25, -0.59], [1.88, -4.11], [3.85, 5.59]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_29_walking_high(tester):
+    # Pairs Moving: True
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 8
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.78,
+                "init_y": -4.87,
+                "init_a": 107.23,
+                "velocity": 0.97,
+                "goals": [[-4.89, 0.56], [2.94, -2.64], [0.54, -4.18], [2.24, -2.10]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.79,
+                "init_y": -3.87,
+                "init_a": 107.23,
+                "velocity": 0.97,
+                "goals": [[-4.89, 0.56], [2.79, 5.15], [-2.59, -2.92], [-6.51, -4.06]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -6169,11 +4503,11 @@ def tests_adult_10_child_90_test_case_40_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -5.30,
-                "init_y": 0.43,
-                "init_a": -137.23,
-                "velocity": 1.01,
-                "goals": [[5.83, -3.15], [0.35, 0.49], [3.73, 3.12], [-2.01, -2.81]],
+                "init_x": -7.30,
+                "init_y": -0.17,
+                "init_a": -176.10,
+                "velocity": 0.99,
+                "goals": [[2.76, 2.61], [2.89, -4.89], [1.73, -5.44], [6.54, 4.82]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -6187,12 +4521,12 @@ def tests_adult_10_child_90_test_case_40_walking_high(tester):
             "module": "pedestrian.walk_sfm",
             "params": {
                 "radius": 0.25,
-                "init_x": -5.44,
-                "init_y": 1.42,
-                "init_a": -137.23,
-                "velocity": 1.01,
-                "goal_x": 5.83,
-                "goal_y": -3.15,
+                "init_x": -6.45,
+                "init_y": 0.35,
+                "init_a": -176.10,
+                "velocity": 0.99,
+                "goal_x": 2.76,
+                "goal_y": 2.61,
                 "n_actors": 8,
             },
         },
@@ -6201,11 +4535,11 @@ def tests_adult_10_child_90_test_case_40_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 0.57,
-                "init_y": 0.50,
-                "init_a": -103.66,
-                "velocity": 1.02,
-                "goals": [[1.52, -0.09], [5.31, -3.46], [-0.18, 4.41], [3.80, -1.88]],
+                "init_x": 3.36,
+                "init_y": 5.71,
+                "init_a": 121.57,
+                "velocity": 0.99,
+                "goals": [[-4.09, 2.16], [-4.07, -3.78], [1.92, 3.31], [3.32, 4.39]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -6219,11 +4553,11 @@ def tests_adult_10_child_90_test_case_40_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -2.90,
-                "init_y": 1.89,
-                "init_a": 24.40,
-                "velocity": 0.94,
-                "goals": [[4.92, 2.82], [-4.40, -2.70], [-4.87, 1.65], [1.75, -4.22]],
+                "init_x": -7.25,
+                "init_y": -3.25,
+                "init_a": -91.75,
+                "velocity": 0.82,
+                "goals": [[-1.68, -1.92], [7.50, 4.76], [-4.99, -2.74], [-3.77, 0.57]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -6233,21 +4567,17 @@ def tests_adult_10_child_90_test_case_40_walking_high(tester):
             },
         },
         {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
+            "name": 'actor_single2',
+            "module": "pedestrian.walk_sfm",
             "params": {
                 "radius": 0.25,
-                "init_x": 1.92,
-                "init_y": -1.58,
-                "init_a": 114.03,
-                "velocity": 1.06,
-                "goals": [[5.47, -2.64], [4.40, 0.86], [3.81, 1.93], [-1.03, 2.56]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
+                "init_x": 0.55,
+                "init_y": -5.72,
+                "init_a": 39.05,
+                "velocity": 0.93,
+                "goal_x": -5.65,
+                "goal_y": -0.63,
                 "n_actors": 8,
-                "random_seed": 100,
             },
         },
         {
@@ -6255,11 +4585,11 @@ def tests_adult_10_child_90_test_case_40_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 5.42,
-                "init_y": 1.35,
-                "init_a": -80.86,
-                "velocity": 0.97,
-                "goals": [[0.22, -2.01], [0.50, 3.66], [-5.64, 1.87], [5.78, 0.68]],
+                "init_x": 0.17,
+                "init_y": -1.93,
+                "init_a": -136.42,
+                "velocity": 0.99,
+                "goals": [[-0.85, 3.41], [-3.26, 0.74], [6.53, -3.33], [7.03, -0.35]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -6276,7 +4606,141 @@ def tests_adult_10_child_90_test_case_40_walking_high(tester):
     
     _goto_target1(tester)
 
-def tests_adult_10_child_90_test_case_41_stopped_high(tester):
+def tests_adult_20_child_80_test_case_30_walking_high(tester):
+    # Pairs Moving: True
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 7
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -4.49,
+                "init_y": -0.96,
+                "init_a": -14.21,
+                "velocity": 1.10,
+                "goals": [[-5.84, -5.51], [2.98, 2.72], [-1.83, 0.87], [-6.45, -3.72]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -4.15,
+                "init_y": -1.90,
+                "init_a": -14.21,
+                "velocity": 1.10,
+                "goals": [[-5.84, -5.51], [-4.55, -2.56], [0.19, -2.96], [-5.95, -5.01]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -2.92,
+                "init_y": 4.71,
+                "init_a": -109.88,
+                "velocity": 0.83,
+                "goals": [[-3.80, 0.36], [6.96, -4.45], [-4.33, 3.55], [1.63, -3.42]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.81,
+                "init_y": 5.17,
+                "init_a": -109.88,
+                "velocity": 0.83,
+                "goals": [[-3.80, 0.36], [-0.98, 2.15], [-3.76, -5.64], [-0.56, -4.68]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.03,
+                "init_y": -2.63,
+                "init_a": -62.33,
+                "velocity": 1.10,
+                "goals": [[-1.92, -2.70], [-3.80, 0.44], [0.64, 4.94], [-0.78, -2.22]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -4.03,
+                "init_y": -2.47,
+                "init_a": 32.18,
+                "velocity": 0.98,
+                "goal_x": 2.42,
+                "goal_y": 4.06,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_single2',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.93,
+                "init_y": -4.45,
+                "init_a": 2.21,
+                "velocity": 1.07,
+                "goal_x": 4.33,
+                "goal_y": 1.13,
+                "n_actors": 7,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_31_stopped_high(tester):
     # Pairs Moving: False
     tester.check_collision()
     tester.reset_position()
@@ -6285,101 +4749,47 @@ def tests_adult_10_child_90_test_case_41_stopped_high(tester):
     
     _setup_actors(tester, actors=[
         {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.45,
-                "init_y": 2.39,
-                "init_a": 59.77,
-                "velocity": 0.91,
-                "goals": [[3.41, 3.70], [-1.39, 4.70], [3.70, 5.32], [0.82, 0.82]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.24,
-                "init_y": 2.35,
-                "init_a": -86.12,
-                "velocity": 0.82,
-                "goals": [[3.50, -3.23], [-5.80, -0.35], [-2.42, -2.61], [0.64, -0.14]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.29,
-                "init_y": 0.88,
-                "init_a": 30.87,
-                "velocity": 0.98,
-                "goals": [[5.57, -3.08], [1.79, -4.15], [4.24, 3.59], [4.00, 2.85]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.37,
-                "init_y": 4.05,
-                "init_a": 80.53,
-                "velocity": 1.08,
-                "goals": [[-1.05, -0.24], [5.52, -0.65], [4.74, 2.12], [-0.42, 2.78]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4',
+            "name": 'actor_pair0_0',
             "module": "pedestrian.walk_sfm",
             "params": {
                 "radius": 0.25,
-                "init_x": -2.19,
-                "init_y": 5.54,
-                "init_a": -114.86,
+                "init_x": 7.04,
+                "init_y": -2.91,
+                "init_a": 172.22,
+                "velocity": 1.19,
+                "goal_x": 7.04,
+                "goal_y": -2.91,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 7.24,
+                "init_y": -3.89,
+                "init_a": 172.22,
+                "velocity": 1.19,
+                "goals": [[7.04, -2.91], [-1.97, -1.70], [6.90, 1.10], [2.02, -3.51]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.59,
+                "init_y": -2.71,
+                "init_a": 164.25,
                 "velocity": 1.13,
-                "goal_x": -5.48,
-                "goal_y": 0.09,
-                "n_actors": 7,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.87,
-                "init_y": -3.67,
-                "init_a": -60.65,
-                "velocity": 1.14,
-                "goals": [[-3.64, -5.71], [5.08, 0.16], [0.33, 0.42], [-5.47, 1.77]],
+                "goals": [[1.59, -2.71], [3.13, 0.13], [-5.30, 4.50], [2.77, -5.12]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -6389,15 +4799,65 @@ def tests_adult_10_child_90_test_case_41_stopped_high(tester):
             },
         },
         {
-            "name": 'actor_single6_child',
+            "name": 'actor_pair1_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.52,
+                "init_y": -1.71,
+                "init_a": 164.25,
+                "velocity": 1.13,
+                "goal_x": 1.59,
+                "goal_y": -2.71,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 2.33,
-                "init_y": -1.08,
-                "init_a": 117.46,
-                "velocity": 0.97,
-                "goals": [[-2.95, 2.40], [5.90, 1.64], [4.01, 4.22], [1.74, 1.75]],
+                "init_x": 5.07,
+                "init_y": -4.24,
+                "init_a": -170.53,
+                "velocity": 1.13,
+                "goals": [[3.23, 2.89], [-4.05, 1.11], [0.42, -5.11], [4.99, 1.53]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.46,
+                "init_y": 4.54,
+                "init_a": -162.87,
+                "velocity": 1.13,
+                "goals": [[7.42, -5.70], [-0.60, -1.90], [6.05, 5.56], [-1.26, 5.51]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -7.13,
+                "init_y": -3.15,
+                "init_a": 52.77,
+                "velocity": 0.84,
+                "goals": [[-6.95, 1.01], [-4.92, 1.84], [6.06, 5.33], [2.52, -5.74]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -6414,343 +4874,281 @@ def tests_adult_10_child_90_test_case_41_stopped_high(tester):
     
     _goto_target1(tester)
 
-def tests_adult_10_child_90_test_case_42_walking_high(tester):
-    # Pairs Moving: True
+def tests_adult_20_child_80_test_case_32_stopped_high(tester):
+    # Pairs Moving: False
     tester.check_collision()
     tester.reset_position()
     
-    n_actors = 9
+    n_actors = 7
     
     _setup_actors(tester, actors=[
         {
-            "name": 'actor_single0_child',
+            "name": 'actor_pair0_0_child',
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -3.36,
-                "init_y": -2.73,
-                "init_a": -52.09,
-                "velocity": 0.92,
-                "goals": [[1.78, 5.22], [-5.07, 1.20], [-0.25, 3.23], [4.59, 2.92]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.95,
-                "init_y": -5.07,
-                "init_a": 54.04,
-                "velocity": 0.97,
-                "goals": [[2.33, 5.74], [1.13, 0.98], [-1.58, 1.06], [2.58, -4.07]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.40,
-                "init_y": -3.73,
-                "init_a": 117.80,
-                "velocity": 1.06,
-                "goals": [[4.60, -0.94], [-2.59, -3.41], [5.82, 3.13], [-4.28, 4.27]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.61,
-                "init_y": -1.91,
-                "init_a": 128.90,
-                "velocity": 0.81,
-                "goals": [[-5.10, 1.74], [2.29, 2.77], [-3.63, 2.92], [4.63, 5.77]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.91,
-                "init_y": 4.18,
-                "init_a": -82.72,
-                "velocity": 0.83,
-                "goals": [[0.38, 4.24], [4.75, -1.87], [0.98, 4.32], [1.20, 5.38]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.77,
-                "init_y": 2.17,
-                "init_a": 62.07,
-                "velocity": 1.02,
-                "goal_x": 2.95,
-                "goal_y": 2.82,
-                "n_actors": 9,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.37,
-                "init_y": 4.39,
-                "init_a": 125.22,
-                "velocity": 0.98,
-                "goals": [[-4.47, 1.43], [-4.42, -1.16], [-1.88, 5.11], [5.70, -0.29]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single7_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.17,
-                "init_y": 5.54,
-                "init_a": 34.19,
-                "velocity": 0.98,
-                "goals": [[-4.35, -0.68], [-2.87, 3.63], [3.18, 3.70], [-1.51, 5.36]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single8_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.72,
-                "init_y": -2.16,
-                "init_a": 101.70,
-                "velocity": 0.87,
-                "goals": [[0.71, 1.87], [-0.11, 5.33], [1.35, 2.27], [0.86, -3.51]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_43_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 9
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.28,
-                "init_y": -3.94,
-                "init_a": -23.77,
-                "velocity": 1.05,
-                "goals": [[1.97, 3.63], [3.23, 1.04], [5.24, -0.73], [1.09, 0.41]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.30,
-                "init_y": 5.82,
-                "init_a": -168.03,
-                "velocity": 0.82,
-                "goals": [[-1.01, -1.95], [-0.04, 4.56], [2.80, 2.60], [1.84, 1.56]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.89,
-                "init_y": 1.25,
-                "init_a": 87.05,
-                "velocity": 0.99,
-                "goals": [[-1.85, 0.66], [2.79, 4.59], [-0.17, -1.91], [-4.08, 4.04]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.94,
-                "init_y": -3.53,
-                "init_a": -50.36,
-                "velocity": 0.97,
-                "goals": [[1.10, -5.41], [5.45, 1.12], [4.84, -0.56], [-0.65, 0.44]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.20,
-                "init_y": -0.46,
-                "init_a": -71.63,
-                "velocity": 1.14,
-                "goals": [[3.13, 4.67], [5.09, -0.26], [2.58, -4.44], [-3.02, 5.46]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.94,
-                "init_y": 2.85,
-                "init_a": 45.47,
+                "init_x": -7.93,
+                "init_y": 5.89,
+                "init_a": 65.90,
                 "velocity": 0.94,
-                "goal_x": -0.07,
-                "goal_y": 5.29,
-                "n_actors": 9,
+                "goals": [[-7.93, 5.89], [-6.05, 0.91], [0.28, 3.82], [-3.45, 4.68]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
             },
         },
         {
-            "name": 'actor_single6_child',
+            "name": 'actor_pair0_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -8.69,
+                "init_y": 6.54,
+                "init_a": 65.90,
+                "velocity": 0.94,
+                "goal_x": -7.93,
+                "goal_y": 5.89,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -3.07,
-                "init_y": 4.76,
-                "init_a": 83.90,
+                "init_x": 7.53,
+                "init_y": 4.18,
+                "init_a": -95.26,
+                "velocity": 0.95,
+                "goals": [[7.53, 4.18], [1.40, 0.60], [6.64, 3.75], [-6.96, 1.84]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 7.63,
+                "init_y": 3.18,
+                "init_a": -95.26,
+                "velocity": 0.95,
+                "goals": [[7.53, 4.18], [7.11, 5.08], [-6.91, -1.81], [7.98, 5.57]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -4.20,
+                "init_y": 4.82,
+                "init_a": -92.35,
                 "velocity": 1.14,
-                "goals": [[-5.98, -3.53], [-2.10, -3.55], [-2.86, 0.06], [1.21, -0.30]],
+                "goals": [[2.00, 0.65], [2.75, -3.74], [-0.59, -3.17], [0.37, 2.85]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
+                "n_actors": 7,
                 "random_seed": 100,
             },
         },
         {
-            "name": 'actor_single7_child',
+            "name": 'actor_single1_child',
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 5.44,
-                "init_y": -1.91,
-                "init_a": 15.74,
+                "init_x": 4.64,
+                "init_y": 5.70,
+                "init_a": 46.97,
                 "velocity": 0.91,
-                "goals": [[3.35, -1.30], [-3.94, 2.31], [5.41, 0.05], [0.68, 5.29]],
+                "goals": [[-1.01, -4.80], [-4.68, -0.47], [1.66, -4.08], [3.41, -5.11]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
+                "n_actors": 7,
                 "random_seed": 100,
             },
         },
         {
-            "name": 'actor_single8_child',
+            "name": 'actor_single2',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -6.42,
+                "init_y": -5.74,
+                "init_a": 120.10,
+                "velocity": 0.97,
+                "goal_x": -6.88,
+                "goal_y": 3.92,
+                "n_actors": 7,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_33_walking_high(tester):
+    # Pairs Moving: True
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 8
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -5.24,
-                "init_y": -1.22,
-                "init_a": -149.98,
-                "velocity": 1.10,
-                "goals": [[-2.64, -0.29], [-4.56, 3.06], [-5.06, 2.54], [0.27, -1.49]],
+                "init_x": -4.13,
+                "init_y": -1.15,
+                "init_a": 76.09,
+                "velocity": 1.11,
+                "goals": [[-4.84, -0.47], [5.95, 2.72], [4.32, -1.47], [-7.51, -0.19]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.65,
+                "init_y": -2.03,
+                "init_a": 76.09,
+                "velocity": 1.11,
+                "goal_x": -4.84,
+                "goal_y": -0.47,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_pair1_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -4.51,
+                "init_y": 5.10,
+                "init_a": -59.71,
+                "velocity": 0.91,
+                "goal_x": -0.59,
+                "goal_y": -2.55,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -5.48,
+                "init_y": 4.88,
+                "init_a": -59.71,
+                "velocity": 0.91,
+                "goals": [[-0.59, -2.55], [6.81, 3.63], [-6.07, -1.70], [0.60, -3.43]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -5.79,
+                "init_y": 4.54,
+                "init_a": 171.84,
+                "velocity": 0.87,
+                "goals": [[5.87, -3.53], [-4.90, 3.41], [-7.20, -1.26], [7.94, 0.05]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -7.76,
+                "init_y": 1.75,
+                "init_a": -122.75,
+                "velocity": 1.13,
+                "goals": [[4.94, 1.43], [-3.19, 0.49], [0.30, 1.98], [6.14, -3.15]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -6.78,
+                "init_y": -0.37,
+                "init_a": -148.84,
+                "velocity": 1.05,
+                "goals": [[-0.41, 3.65], [-6.90, 0.69], [-5.21, -0.28], [-5.90, -3.55]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single3_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -7.77,
+                "init_y": 5.84,
+                "init_a": -170.40,
+                "velocity": 0.81,
+                "goals": [[-4.07, 5.02], [7.34, 1.89], [-4.78, 3.94], [0.18, -5.74]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
                 "random_seed": 100,
             },
         },
@@ -6762,7 +5160,7 @@ def tests_adult_10_child_90_test_case_43_walking_high(tester):
     
     _goto_target1(tester)
 
-def tests_adult_10_child_90_test_case_44_walking_high(tester):
+def tests_adult_20_child_80_test_case_34_walking_high(tester):
     # Pairs Moving: True
     tester.check_collision()
     tester.reset_position()
@@ -6775,11 +5173,11 @@ def tests_adult_10_child_90_test_case_44_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -1.48,
-                "init_y": 5.85,
-                "init_a": -117.48,
-                "velocity": 1.11,
-                "goals": [[0.28, -5.16], [-4.14, 2.96], [2.51, 1.36], [4.38, 5.84]],
+                "init_x": -3.82,
+                "init_y": -0.12,
+                "init_a": -177.86,
+                "velocity": 0.96,
+                "goals": [[-5.18, -5.55], [-4.94, 1.61], [2.67, -1.38], [1.07, -2.73]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -6793,11 +5191,47 @@ def tests_adult_10_child_90_test_case_44_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -0.71,
-                "init_y": 6.48,
-                "init_a": -117.48,
-                "velocity": 1.11,
-                "goals": [[0.28, -5.16], [-1.99, -2.60], [4.67, 1.53], [-5.99, 4.70]],
+                "init_x": -4.20,
+                "init_y": 0.80,
+                "init_a": -177.86,
+                "velocity": 0.96,
+                "goals": [[-5.18, -5.55], [-6.38, 5.24], [6.20, -2.21], [-1.38, -4.93]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 2.93,
+                "init_y": 0.83,
+                "init_a": 172.32,
+                "velocity": 0.81,
+                "goals": [[-4.45, 4.16], [-4.76, 3.33], [-1.52, 0.56], [-1.28, 0.28]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 3.50,
+                "init_y": 1.65,
+                "init_a": 172.32,
+                "velocity": 0.81,
+                "goals": [[-4.45, 4.16], [-5.27, -2.21], [-0.93, 2.68], [-6.39, -4.24]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -6811,12 +5245,12 @@ def tests_adult_10_child_90_test_case_44_walking_high(tester):
             "module": "pedestrian.walk_sfm",
             "params": {
                 "radius": 0.25,
-                "init_x": 1.70,
-                "init_y": -1.60,
-                "init_a": -86.40,
-                "velocity": 0.89,
-                "goal_x": 1.82,
-                "goal_y": -0.14,
+                "init_x": -6.75,
+                "init_y": 1.31,
+                "init_a": 14.10,
+                "velocity": 0.98,
+                "goal_x": -7.44,
+                "goal_y": 5.58,
                 "n_actors": 9,
             },
         },
@@ -6825,11 +5259,11 @@ def tests_adult_10_child_90_test_case_44_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 5.97,
-                "init_y": -3.46,
-                "init_a": 136.18,
-                "velocity": 1.18,
-                "goals": [[-1.49, 5.23], [2.22, -1.84], [1.81, 3.30], [3.91, 1.72]],
+                "init_x": -0.58,
+                "init_y": -2.74,
+                "init_a": -95.95,
+                "velocity": 1.05,
+                "goals": [[6.34, 4.21], [-5.43, 0.51], [7.36, -5.11], [-6.82, -5.74]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -6843,11 +5277,11 @@ def tests_adult_10_child_90_test_case_44_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -5.90,
-                "init_y": -0.93,
-                "init_a": -99.97,
-                "velocity": 0.80,
-                "goals": [[-4.90, 4.42], [-1.86, -3.04], [-1.80, 4.70], [-0.74, -2.66]],
+                "init_x": 2.99,
+                "init_y": -5.51,
+                "init_a": 147.11,
+                "velocity": 1.08,
+                "goals": [[-0.71, -1.26], [-3.69, -2.97], [-6.43, 4.02], [5.29, -3.18]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -6861,11 +5295,11 @@ def tests_adult_10_child_90_test_case_44_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -2.08,
-                "init_y": -4.02,
-                "init_a": 37.87,
-                "velocity": 0.89,
-                "goals": [[1.08, 2.17], [-5.25, 4.64], [-3.20, 0.81], [5.27, -1.12]],
+                "init_x": 1.41,
+                "init_y": -1.12,
+                "init_a": 24.71,
+                "velocity": 0.98,
+                "goals": [[6.40, -4.51], [7.74, 3.62], [0.41, -0.61], [-6.54, 2.18]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -6875,15 +5309,45 @@ def tests_adult_10_child_90_test_case_44_walking_high(tester):
             },
         },
         {
-            "name": 'actor_single4_child',
+            "name": 'actor_single4',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -7.43,
+                "init_y": 3.14,
+                "init_a": -174.29,
+                "velocity": 0.91,
+                "goal_x": -1.91,
+                "goal_y": -1.61,
+                "n_actors": 9,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_35_stopped_high(tester):
+    # Pairs Moving: False
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 9
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -3.99,
-                "init_y": -0.28,
-                "init_a": 88.74,
-                "velocity": 0.86,
-                "goals": [[-5.49, -0.59], [-3.04, 0.60], [5.79, -0.68], [-0.91, 2.98]],
+                "init_x": 4.61,
+                "init_y": 0.41,
+                "init_a": 131.72,
+                "velocity": 1.13,
+                "goals": [[4.61, 0.41], [-6.71, 2.59], [5.95, -0.38], [3.72, 2.31]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -6893,15 +5357,119 @@ def tests_adult_10_child_90_test_case_44_walking_high(tester):
             },
         },
         {
-            "name": 'actor_single5_child',
+            "name": 'actor_pair0_1_child',
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -2.99,
-                "init_y": 0.92,
-                "init_a": 129.17,
+                "init_x": 4.91,
+                "init_y": -0.54,
+                "init_a": 131.72,
+                "velocity": 1.13,
+                "goals": [[4.61, 0.41], [-2.36, 0.21], [3.11, 2.09], [6.14, -2.59]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -5.93,
+                "init_y": 3.07,
+                "init_a": 83.88,
+                "velocity": 0.93,
+                "goals": [[-5.93, 3.07], [0.49, 3.29], [-3.63, 2.33], [5.80, -5.63]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -6.86,
+                "init_y": 3.44,
+                "init_a": 83.88,
+                "velocity": 0.93,
+                "goals": [[-5.93, 3.07], [3.33, -1.46], [5.31, -4.12], [-7.23, -4.46]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.96,
+                "init_y": -5.06,
+                "init_a": 104.22,
+                "velocity": 1.04,
+                "goals": [[1.45, -4.68], [2.55, -0.07], [0.84, -0.42], [-3.42, -3.10]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 6.86,
+                "init_y": 2.78,
+                "init_a": 151.85,
+                "velocity": 0.90,
+                "goals": [[0.18, -5.87], [0.46, 5.58], [3.06, -3.82], [-2.14, 0.25]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.53,
+                "init_y": 0.65,
+                "init_a": -46.43,
                 "velocity": 1.12,
-                "goals": [[-1.29, 4.41], [4.02, -2.95], [-3.28, 5.48], [4.18, -0.77]],
+                "goal_x": 2.38,
+                "goal_y": -3.10,
+                "n_actors": 9,
+            },
+        },
+        {
+            "name": 'actor_single3_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -6.06,
+                "init_y": -5.40,
+                "init_a": -123.89,
+                "velocity": 1.13,
+                "goals": [[-4.51, -1.89], [-4.59, -0.07], [-0.31, -5.51], [7.82, 2.06]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -6911,20 +5479,150 @@ def tests_adult_10_child_90_test_case_44_walking_high(tester):
             },
         },
         {
-            "name": 'actor_single6_child',
+            "name": 'actor_single4',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -4.92,
+                "init_y": 5.72,
+                "init_a": -117.69,
+                "velocity": 0.80,
+                "goal_x": -7.93,
+                "goal_y": 4.58,
+                "n_actors": 9,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_36_walking_high(tester):
+    # Pairs Moving: True
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 7
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 1.40,
-                "init_y": 5.82,
-                "init_a": -114.40,
-                "velocity": 1.07,
-                "goals": [[5.94, -0.33], [-1.46, 3.45], [-5.51, -0.24], [2.80, 1.00]],
+                "init_x": -1.52,
+                "init_y": 2.32,
+                "init_a": 110.55,
+                "velocity": 0.89,
+                "goals": [[0.54, -3.91], [-3.49, -0.07], [1.81, 3.88], [-4.61, 0.75]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.54,
+                "init_y": 2.51,
+                "init_a": 110.55,
+                "velocity": 0.89,
+                "goal_x": 0.54,
+                "goal_y": -3.91,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_pair1_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.07,
+                "init_y": -1.82,
+                "init_a": 36.02,
+                "velocity": 1.18,
+                "goal_x": -4.56,
+                "goal_y": 4.52,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -1.07,
+                "init_y": -1.83,
+                "init_a": 36.02,
+                "velocity": 1.18,
+                "goals": [[-4.56, 4.52], [4.03, 0.92], [7.37, 0.77], [4.97, 1.60]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.71,
+                "init_y": 4.55,
+                "init_a": -131.55,
+                "velocity": 0.89,
+                "goals": [[-4.73, 3.13], [3.09, -4.86], [-7.50, 1.97], [0.15, 4.25]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.36,
+                "init_y": 1.62,
+                "init_a": -100.53,
+                "velocity": 1.14,
+                "goals": [[5.23, -0.57], [-6.39, 0.78], [4.36, 1.99], [0.25, 4.59]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -7.25,
+                "init_y": -5.69,
+                "init_a": 29.69,
+                "velocity": 0.88,
+                "goals": [[6.38, 1.11], [3.16, 3.33], [-6.06, 3.41], [-5.23, -0.55]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
                 "random_seed": 100,
             },
         },
@@ -6936,7 +5634,7 @@ def tests_adult_10_child_90_test_case_44_walking_high(tester):
     
     _goto_target1(tester)
 
-def tests_adult_10_child_90_test_case_45_walking_high(tester):
+def tests_adult_20_child_80_test_case_37_walking_high(tester):
     # Pairs Moving: True
     tester.check_collision()
     tester.reset_position()
@@ -6949,12 +5647,12 @@ def tests_adult_10_child_90_test_case_45_walking_high(tester):
             "module": "pedestrian.walk_sfm",
             "params": {
                 "radius": 0.25,
-                "init_x": -5.18,
-                "init_y": -2.22,
-                "init_a": -69.92,
+                "init_x": -5.42,
+                "init_y": 1.11,
+                "init_a": -40.68,
                 "velocity": 0.94,
-                "goal_x": -1.89,
-                "goal_y": -4.17,
+                "goal_x": 2.74,
+                "goal_y": -4.79,
                 "n_actors": 8,
             },
         },
@@ -6963,11 +5661,11 @@ def tests_adult_10_child_90_test_case_45_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -5.46,
-                "init_y": -1.26,
-                "init_a": -69.92,
+                "init_x": -4.53,
+                "init_y": 0.65,
+                "init_a": -40.68,
                 "velocity": 0.94,
-                "goals": [[-1.89, -4.17], [2.16, -0.51], [-2.06, -4.49], [-0.60, 0.43]],
+                "goals": [[2.74, -4.79], [1.27, -5.47], [6.00, 3.22], [-3.12, -0.48]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -6981,11 +5679,11 @@ def tests_adult_10_child_90_test_case_45_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -4.66,
-                "init_y": 0.83,
-                "init_a": 96.83,
-                "velocity": 1.08,
-                "goals": [[3.09, -2.05], [5.73, -4.23], [-1.69, -1.92], [-3.96, 4.74]],
+                "init_x": 1.81,
+                "init_y": 4.28,
+                "init_a": -45.33,
+                "velocity": 1.19,
+                "goals": [[6.20, 4.72], [-5.66, 0.29], [-4.84, 5.18], [-0.29, -0.30]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -6999,11 +5697,11 @@ def tests_adult_10_child_90_test_case_45_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -4.43,
-                "init_y": 1.80,
-                "init_a": 96.83,
-                "velocity": 1.08,
-                "goals": [[3.09, -2.05], [-1.53, 5.56], [-0.13, 5.09], [-2.38, 0.08]],
+                "init_x": 0.83,
+                "init_y": 4.10,
+                "init_a": -45.33,
+                "velocity": 1.19,
+                "goals": [[6.20, 4.72], [1.11, -4.17], [1.61, -0.54], [-2.06, 2.62]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -7017,11 +5715,11 @@ def tests_adult_10_child_90_test_case_45_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 5.75,
-                "init_y": 0.82,
-                "init_a": -126.44,
-                "velocity": 1.20,
-                "goals": [[2.43, -3.47], [5.78, 1.55], [-1.05, 3.33], [0.08, 1.03]],
+                "init_x": 2.68,
+                "init_y": -0.41,
+                "init_a": 74.60,
+                "velocity": 1.06,
+                "goals": [[6.07, 1.61], [-5.84, 0.55], [-5.05, -4.92], [-6.36, 2.77]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -7035,11 +5733,11 @@ def tests_adult_10_child_90_test_case_45_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -0.85,
-                "init_y": -3.39,
-                "init_a": -21.66,
-                "velocity": 1.03,
-                "goals": [[-5.82, -1.40], [2.43, -5.69], [0.53, 2.73], [2.35, -1.73]],
+                "init_x": 3.59,
+                "init_y": 4.24,
+                "init_a": -64.94,
+                "velocity": 1.06,
+                "goals": [[7.08, -4.04], [-6.27, 5.33], [1.04, 0.50], [7.81, -3.63]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -7053,11 +5751,1223 @@ def tests_adult_10_child_90_test_case_45_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 5.31,
-                "init_y": -5.00,
-                "init_a": -125.23,
-                "velocity": 0.91,
-                "goals": [[5.01, 0.15], [-2.41, 3.63], [-1.69, 5.45], [-1.02, -4.54]],
+                "init_x": 5.97,
+                "init_y": 5.12,
+                "init_a": -21.88,
+                "velocity": 1.14,
+                "goals": [[5.89, 4.27], [2.27, 2.46], [7.63, 2.40], [3.06, 2.87]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single3',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.28,
+                "init_y": -3.12,
+                "init_a": -45.44,
+                "velocity": 1.10,
+                "goal_x": -6.29,
+                "goal_y": 0.75,
+                "n_actors": 8,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_38_walking_high(tester):
+    # Pairs Moving: True
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 7
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -2.19,
+                "init_y": -2.55,
+                "init_a": 3.03,
+                "velocity": 1.14,
+                "goals": [[1.07, 1.67], [4.83, -0.67], [1.57, -3.58], [6.71, -5.53]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -1.82,
+                "init_y": -3.48,
+                "init_a": 3.03,
+                "velocity": 1.14,
+                "goals": [[1.07, 1.67], [-2.94, 2.19], [-7.10, 2.17], [2.42, 3.59]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -2.18,
+                "init_y": -4.12,
+                "init_a": -120.71,
+                "velocity": 0.85,
+                "goals": [[6.44, -4.33], [7.73, -0.65], [-1.23, -1.17], [7.42, 3.74]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -1.21,
+                "init_y": -4.36,
+                "init_a": -120.71,
+                "velocity": 0.85,
+                "goal_x": 6.44,
+                "goal_y": -4.33,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 2.64,
+                "init_y": -0.80,
+                "init_a": 171.31,
+                "velocity": 0.89,
+                "goals": [[7.38, 3.56], [5.98, 1.24], [-1.61, -1.43], [-2.33, -1.84]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -6.45,
+                "init_y": 2.72,
+                "init_a": 68.59,
+                "velocity": 1.11,
+                "goal_x": 3.60,
+                "goal_y": -1.38,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -5.69,
+                "init_y": 4.38,
+                "init_a": -80.68,
+                "velocity": 1.11,
+                "goals": [[2.81, -4.52], [7.54, -0.20], [-1.83, -3.89], [-3.93, -0.09]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_39_stopped_high(tester):
+    # Pairs Moving: False
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 7
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.38,
+                "init_y": -2.33,
+                "init_a": 0.15,
+                "velocity": 1.07,
+                "goals": [[1.38, -2.33], [-2.11, -1.59], [0.72, 0.79], [5.14, -3.97]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.15,
+                "init_y": -1.36,
+                "init_a": 0.15,
+                "velocity": 1.07,
+                "goal_x": 1.38,
+                "goal_y": -2.33,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.80,
+                "init_y": -4.06,
+                "init_a": -161.85,
+                "velocity": 1.12,
+                "goals": [[5.80, -4.06], [0.15, -5.59], [4.64, -3.24], [-1.00, -1.95]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.82,
+                "init_y": -3.83,
+                "init_a": -161.85,
+                "velocity": 1.12,
+                "goals": [[5.80, -4.06], [2.38, 5.49], [4.59, 0.80], [0.43, 3.34]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -5.39,
+                "init_y": -1.09,
+                "init_a": 97.81,
+                "velocity": 1.15,
+                "goal_x": -4.19,
+                "goal_y": -4.10,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 2.84,
+                "init_y": 1.30,
+                "init_a": 153.54,
+                "velocity": 0.90,
+                "goals": [[0.87, 1.56], [7.93, 2.48], [-7.58, -5.24], [4.91, 3.83]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 6.97,
+                "init_y": 3.81,
+                "init_a": 49.81,
+                "velocity": 1.20,
+                "goals": [[-5.73, -1.01], [4.04, 3.71], [-2.33, -0.28], [2.05, 4.17]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_40_stopped_high(tester):
+    # Pairs Moving: False
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 7
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 6.87,
+                "init_y": 3.87,
+                "init_a": -124.82,
+                "velocity": 1.11,
+                "goals": [[6.87, 3.87], [-0.43, 0.76], [4.20, 5.45], [-5.03, -2.17]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 6.65,
+                "init_y": 2.89,
+                "init_a": -124.82,
+                "velocity": 1.11,
+                "goal_x": 6.87,
+                "goal_y": 3.87,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -6.86,
+                "init_y": 1.23,
+                "init_a": 59.64,
+                "velocity": 1.16,
+                "goals": [[-6.86, 1.23], [2.81, -0.93], [-1.84, 3.60], [7.34, -3.90]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -6.40,
+                "init_y": 2.12,
+                "init_a": 59.64,
+                "velocity": 1.16,
+                "goals": [[-6.86, 1.23], [-3.22, 4.29], [6.18, -5.23], [2.66, -0.45]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.32,
+                "init_y": 1.57,
+                "init_a": -165.67,
+                "velocity": 1.03,
+                "goal_x": -6.97,
+                "goal_y": -5.11,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 6.78,
+                "init_y": 5.11,
+                "init_a": -139.55,
+                "velocity": 0.82,
+                "goals": [[-4.59, 2.13], [-0.08, -5.17], [1.01, 0.99], [-7.60, -0.65]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.61,
+                "init_y": -3.01,
+                "init_a": 29.82,
+                "velocity": 0.89,
+                "goals": [[-6.62, -4.67], [7.57, 4.96], [1.24, -2.17], [-1.86, -5.69]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_41_walking_high(tester):
+    # Pairs Moving: True
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 8
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 3.79,
+                "init_y": -3.22,
+                "init_a": -132.76,
+                "velocity": 0.88,
+                "goals": [[-7.88, 3.45], [7.97, 3.00], [-0.60, -5.28], [6.10, 4.71]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 2.82,
+                "init_y": -3.50,
+                "init_a": -132.76,
+                "velocity": 0.88,
+                "goals": [[-7.88, 3.45], [1.25, 4.08], [0.95, 2.08], [0.20, 4.04]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.60,
+                "init_y": 0.49,
+                "init_a": -8.20,
+                "velocity": 0.96,
+                "goals": [[-2.82, -2.38], [5.60, 5.53], [2.19, -4.24], [2.65, -2.47]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.73,
+                "init_y": -0.01,
+                "init_a": -8.20,
+                "velocity": 0.96,
+                "goal_x": -2.82,
+                "goal_y": -2.38,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.47,
+                "init_y": -0.21,
+                "init_a": -76.59,
+                "velocity": 1.03,
+                "goals": [[5.38, -4.28], [3.95, 4.86], [-6.02, 5.86], [-0.72, 3.13]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -5.49,
+                "init_y": -5.63,
+                "init_a": 28.58,
+                "velocity": 1.16,
+                "goals": [[5.00, -2.36], [4.06, 3.90], [-5.10, -5.12], [3.08, 4.25]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.03,
+                "init_y": 3.17,
+                "init_a": -26.91,
+                "velocity": 0.84,
+                "goals": [[5.49, -2.47], [-0.52, 3.39], [6.85, 2.88], [5.90, -5.94]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single3',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -2.91,
+                "init_y": 5.17,
+                "init_a": -136.96,
+                "velocity": 0.92,
+                "goal_x": 3.50,
+                "goal_y": -1.06,
+                "n_actors": 8,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_42_walking_high(tester):
+    # Pairs Moving: True
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 9
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -4.48,
+                "init_y": -2.73,
+                "init_a": -52.09,
+                "velocity": 0.92,
+                "goals": [[2.37, 5.22], [4.50, 5.87], [-3.85, 4.46], [-7.71, -1.15]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.48,
+                "init_y": -2.71,
+                "init_a": -52.09,
+                "velocity": 0.92,
+                "goal_x": 2.37,
+                "goal_y": 5.22,
+                "n_actors": 9,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -6.76,
+                "init_y": 1.80,
+                "init_a": -27.05,
+                "velocity": 1.08,
+                "goals": [[7.65, 3.40], [-3.15, -2.46], [-6.07, -4.42], [-1.36, -3.58]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -6.38,
+                "init_y": 2.73,
+                "init_a": -27.05,
+                "velocity": 1.08,
+                "goals": [[7.65, 3.40], [-6.38, 3.72], [4.63, -1.24], [-6.61, 0.42]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.24,
+                "init_y": 1.73,
+                "init_a": 137.96,
+                "velocity": 0.97,
+                "goals": [[-7.48, -1.91], [-6.31, -0.19], [-7.32, -2.94], [-2.22, -2.64]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.73,
+                "init_y": -5.77,
+                "init_a": -153.13,
+                "velocity": 1.06,
+                "goals": [[-2.54, 4.18], [7.09, 0.72], [-4.90, 0.84], [-4.49, 4.55]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.68,
+                "init_y": -5.24,
+                "init_a": 11.42,
+                "velocity": 1.14,
+                "goals": [[-5.03, 2.17], [-1.32, 0.23], [-1.34, 5.34], [3.61, 5.11]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single3_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 2.76,
+                "init_y": 0.58,
+                "init_a": 88.37,
+                "velocity": 1.09,
+                "goals": [[4.50, 4.39], [4.11, 0.11], [-3.36, -0.42], [1.14, -2.78]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single4',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.57,
+                "init_y": -0.62,
+                "init_a": -134.04,
+                "velocity": 1.05,
+                "goal_x": -4.23,
+                "goal_y": 5.54,
+                "n_actors": 9,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_43_stopped_high(tester):
+    # Pairs Moving: False
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 9
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 6.02,
+                "init_y": 3.19,
+                "init_a": -51.83,
+                "velocity": 0.92,
+                "goal_x": 6.02,
+                "goal_y": 3.19,
+                "n_actors": 9,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 6.94,
+                "init_y": 2.81,
+                "init_a": -51.83,
+                "velocity": 0.92,
+                "goals": [[6.02, 3.19], [-4.13, 0.20], [-4.74, 3.84], [-1.88, 0.97]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.74,
+                "init_y": 5.47,
+                "init_a": -5.71,
+                "velocity": 0.88,
+                "goals": [[0.74, 5.47], [-0.19, 5.21], [-7.78, -3.57], [7.83, 4.80]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.20,
+                "init_y": 6.36,
+                "init_a": -5.71,
+                "velocity": 0.88,
+                "goals": [[0.74, 5.47], [7.75, 2.01], [3.89, -3.80], [2.76, 0.23]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -2.72,
+                "init_y": -5.79,
+                "init_a": 143.12,
+                "velocity": 0.98,
+                "goals": [[-1.83, -2.08], [0.15, -0.64], [-1.88, -0.35], [2.04, -3.11]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -2.48,
+                "init_y": -3.08,
+                "init_a": -120.31,
+                "velocity": 0.82,
+                "goals": [[4.02, 1.16], [5.16, -3.89], [-0.73, 1.33], [-1.76, 5.57]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -1.02,
+                "init_y": 0.17,
+                "init_a": 116.73,
+                "velocity": 0.88,
+                "goals": [[4.59, 0.20], [3.06, -2.25], [5.90, 2.01], [2.06, -4.47]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single3',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -7.00,
+                "init_y": -5.59,
+                "init_a": -19.32,
+                "velocity": 1.06,
+                "goal_x": 7.41,
+                "goal_y": -0.38,
+                "n_actors": 9,
+            },
+        },
+        {
+            "name": 'actor_single4_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 7.98,
+                "init_y": 2.53,
+                "init_a": -4.92,
+                "velocity": 0.98,
+                "goals": [[-7.31, -3.40], [7.03, 2.00], [-0.22, -4.70], [-4.62, 1.41]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_44_walking_high(tester):
+    # Pairs Moving: True
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 9
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -1.97,
+                "init_y": 5.85,
+                "init_a": -117.48,
+                "velocity": 1.11,
+                "goal_x": 0.38,
+                "goal_y": -5.16,
+                "n_actors": 9,
+            },
+        },
+        {
+            "name": 'actor_pair0_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -1.20,
+                "init_y": 6.48,
+                "init_a": -117.48,
+                "velocity": 1.11,
+                "goal_x": 0.38,
+                "goal_y": -5.16,
+                "n_actors": 9,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 2.27,
+                "init_y": -1.60,
+                "init_a": -86.40,
+                "velocity": 0.89,
+                "goals": [[2.43, -0.14], [2.65, -5.65], [1.51, 5.88], [-2.76, 3.06]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 3.27,
+                "init_y": -1.61,
+                "init_a": -86.40,
+                "velocity": 0.89,
+                "goals": [[2.43, -0.14], [6.98, -1.71], [-0.04, -0.64], [2.01, -0.14]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -4.62,
+                "init_y": 4.54,
+                "init_a": 159.95,
+                "velocity": 0.95,
+                "goals": [[6.97, -5.90], [-7.62, -0.62], [4.97, 1.28], [0.47, 3.98]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -1.24,
+                "init_y": -3.33,
+                "init_a": -176.35,
+                "velocity": 0.84,
+                "goals": [[5.89, -2.08], [-2.75, -5.04], [6.70, 4.88], [-5.57, 2.77]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -5.36,
+                "init_y": 1.26,
+                "init_a": -100.91,
+                "velocity": 1.04,
+                "goals": [[2.90, -3.99], [4.48, 4.64], [-6.15, -4.11], [1.93, 4.40]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single3_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.38,
+                "init_y": 2.96,
+                "init_a": -124.13,
+                "velocity": 0.82,
+                "goals": [[-0.79, -2.99], [-5.42, -3.56], [4.88, 2.87], [-0.64, 5.80]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single4_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.23,
+                "init_y": 4.31,
+                "init_a": 108.14,
+                "velocity": 0.96,
+                "goals": [[5.88, 1.40], [4.71, -0.89], [6.97, 1.58], [7.26, -2.43]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_45_walking_high(tester):
+    # Pairs Moving: True
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 8
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.31,
+                "init_y": 1.60,
+                "init_a": -133.51,
+                "velocity": 1.17,
+                "goal_x": 6.75,
+                "goal_y": 0.40,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.58,
+                "init_y": 0.63,
+                "init_a": -133.51,
+                "velocity": 1.17,
+                "goals": [[6.75, 0.40], [0.33, 0.78], [2.96, 5.27], [-2.43, 4.66]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.91,
+                "init_y": 2.01,
+                "init_a": -61.08,
+                "velocity": 1.00,
+                "goal_x": 1.43,
+                "goal_y": 1.81,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 6.32,
+                "init_y": 1.10,
+                "init_a": -61.08,
+                "velocity": 1.00,
+                "goals": [[1.43, 1.81], [4.83, 5.64], [-6.44, 5.91], [-6.26, -1.34]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 3.93,
+                "init_y": 0.15,
+                "init_a": 83.14,
+                "velocity": 1.01,
+                "goals": [[-1.29, 2.63], [-0.05, -5.84], [-2.99, -2.01], [6.79, -2.18]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.92,
+                "init_y": -2.49,
+                "init_a": -178.31,
+                "velocity": 1.08,
+                "goals": [[6.35, -5.18], [0.78, -4.43], [2.76, -5.34], [-5.65, -0.27]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 6.83,
+                "init_y": -1.06,
+                "init_a": -59.37,
+                "velocity": 1.18,
+                "goals": [[7.97, 2.06], [-4.48, 4.54], [-4.55, 3.77], [0.55, 2.56]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -7071,11 +6981,11 @@ def tests_adult_10_child_90_test_case_45_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -4.68,
-                "init_y": 3.61,
-                "init_a": -154.49,
-                "velocity": 1.19,
-                "goals": [[-5.33, -5.35], [5.75, 3.44], [2.36, 5.11], [5.99, 1.19]],
+                "init_x": 6.96,
+                "init_y": -0.63,
+                "init_a": 13.29,
+                "velocity": 1.00,
+                "goals": [[-2.68, 5.16], [-7.89, 5.36], [-0.22, -0.07], [3.34, -2.16]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -7092,8 +7002,276 @@ def tests_adult_10_child_90_test_case_45_walking_high(tester):
     
     _goto_target1(tester)
 
-def tests_adult_10_child_90_test_case_46_walking_high(tester):
+def tests_adult_20_child_80_test_case_46_stopped_high(tester):
+    # Pairs Moving: False
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 7
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -1.98,
+                "init_y": -3.63,
+                "init_a": 99.95,
+                "velocity": 1.00,
+                "goals": [[-1.98, -3.63], [-5.73, -1.30], [-5.38, -5.24], [-7.74, 1.69]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -2.76,
+                "init_y": -3.01,
+                "init_a": 99.95,
+                "velocity": 1.00,
+                "goal_x": -1.98,
+                "goal_y": -3.63,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -7.24,
+                "init_y": -3.16,
+                "init_a": 38.68,
+                "velocity": 0.97,
+                "goals": [[-7.24, -3.16], [2.95, -0.77], [6.26, 5.46], [-2.00, 3.90]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -7.64,
+                "init_y": -4.07,
+                "init_a": 38.68,
+                "velocity": 0.97,
+                "goal_x": -7.24,
+                "goal_y": -3.16,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.95,
+                "init_y": 1.95,
+                "init_a": 19.32,
+                "velocity": 0.95,
+                "goals": [[-0.87, -3.60], [-5.82, 5.62], [3.90, -5.05], [3.11, -4.83]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.33,
+                "init_y": -2.42,
+                "init_a": -176.73,
+                "velocity": 0.83,
+                "goals": [[-1.41, 5.90], [-3.92, 5.81], [-7.57, -4.56], [-5.28, -5.86]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 6.17,
+                "init_y": -4.68,
+                "init_a": -89.79,
+                "velocity": 1.14,
+                "goals": [[1.17, 3.21], [5.90, -2.68], [-6.21, -4.18], [-0.04, -4.09]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_47_walking_high(tester):
     # Pairs Moving: True
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 7
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.52,
+                "init_y": -1.28,
+                "init_a": -83.82,
+                "velocity": 0.96,
+                "goal_x": 5.38,
+                "goal_y": -4.67,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.52,
+                "init_y": -1.39,
+                "init_a": -83.82,
+                "velocity": 0.96,
+                "goals": [[5.38, -4.67], [-6.80, -2.73], [1.06, -5.69], [0.35, 5.29]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -7.28,
+                "init_y": -3.32,
+                "init_a": -46.08,
+                "velocity": 1.09,
+                "goals": [[-6.61, 4.32], [3.71, -2.35], [6.78, -3.22], [5.59, -4.15]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -7.14,
+                "init_y": -2.33,
+                "init_a": -46.08,
+                "velocity": 1.09,
+                "goals": [[-6.61, 4.32], [-2.23, 1.08], [-7.67, -3.73], [4.64, 4.58]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 7.60,
+                "init_y": -4.23,
+                "init_a": 35.99,
+                "velocity": 1.04,
+                "goal_x": 3.88,
+                "goal_y": -5.23,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 3.75,
+                "init_y": -3.94,
+                "init_a": -10.22,
+                "velocity": 0.89,
+                "goals": [[2.55, -2.24], [-2.02, -3.22], [-6.44, -2.70], [-3.37, -4.76]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 6.25,
+                "init_y": -3.42,
+                "init_a": -149.79,
+                "velocity": 0.95,
+                "goals": [[-3.71, 2.67], [-1.47, -5.73], [2.14, -5.32], [-4.67, 2.45]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_48_stopped_high(tester):
+    # Pairs Moving: False
     tester.check_collision()
     tester.reset_position()
     
@@ -7105,11 +7283,11 @@ def tests_adult_10_child_90_test_case_46_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 4.46,
-                "init_y": 1.00,
-                "init_a": 19.67,
-                "velocity": 1.01,
-                "goals": [[-4.12, 3.69], [4.58, -5.28], [1.26, 1.15], [5.72, -4.87]],
+                "init_x": 7.78,
+                "init_y": 4.30,
+                "init_a": -171.53,
+                "velocity": 1.10,
+                "goals": [[7.78, 4.30], [-1.92, -0.05], [-2.98, -2.21], [-7.13, -1.51]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -7119,15 +7297,47 @@ def tests_adult_10_child_90_test_case_46_walking_high(tester):
             },
         },
         {
-            "name": 'actor_pair0_1_child',
+            "name": 'actor_pair0_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 6.88,
+                "init_y": 3.87,
+                "init_a": -171.53,
+                "velocity": 1.10,
+                "goal_x": 7.78,
+                "goal_y": 4.30,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 4.85,
-                "init_y": 0.08,
-                "init_a": 19.67,
-                "velocity": 1.01,
-                "goals": [[-4.12, 3.69], [0.90, 4.34], [4.00, -5.61], [-5.20, -2.21]],
+                "init_x": 3.34,
+                "init_y": 4.74,
+                "init_a": 171.74,
+                "velocity": 0.89,
+                "goals": [[3.34, 4.74], [-3.94, -1.75], [-0.59, -4.93], [6.58, -5.36]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 3.87,
+                "init_y": 3.89,
+                "init_a": 171.74,
+                "velocity": 0.89,
+                "goals": [[3.34, 4.74], [-4.57, 0.42], [-2.53, 3.70], [0.05, 5.92]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -7141,12 +7351,12 @@ def tests_adult_10_child_90_test_case_46_walking_high(tester):
             "module": "pedestrian.walk_sfm",
             "params": {
                 "radius": 0.25,
-                "init_x": 2.97,
-                "init_y": -0.34,
-                "init_a": 109.60,
-                "velocity": 1.19,
-                "goal_x": -2.92,
-                "goal_y": -3.62,
+                "init_x": 1.70,
+                "init_y": 5.04,
+                "init_a": 93.06,
+                "velocity": 0.87,
+                "goal_x": -7.19,
+                "goal_y": -5.23,
                 "n_actors": 8,
             },
         },
@@ -7155,11 +7365,11 @@ def tests_adult_10_child_90_test_case_46_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 0.70,
-                "init_y": -5.60,
-                "init_a": -134.25,
-                "velocity": 1.01,
-                "goals": [[-4.94, 5.46], [5.21, 1.00], [-4.75, 0.54], [1.70, 5.30]],
+                "init_x": -4.47,
+                "init_y": 0.04,
+                "init_a": -59.45,
+                "velocity": 1.09,
+                "goals": [[-3.99, -5.37], [6.09, -5.65], [7.08, 5.64], [6.34, -3.45]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -7173,11 +7383,11 @@ def tests_adult_10_child_90_test_case_46_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -3.23,
-                "init_y": -0.72,
-                "init_a": 29.26,
-                "velocity": 1.03,
-                "goals": [[0.08, 5.81], [-2.77, -2.53], [1.83, 2.21], [3.42, 0.88]],
+                "init_x": -4.36,
+                "init_y": 3.63,
+                "init_a": -52.24,
+                "velocity": 1.09,
+                "goals": [[7.42, -2.57], [1.11, -4.64], [2.48, -3.74], [7.65, 2.89]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -7191,47 +7401,11 @@ def tests_adult_10_child_90_test_case_46_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 2.67,
-                "init_y": 2.13,
-                "init_a": -33.57,
-                "velocity": 0.90,
-                "goals": [[0.39, -1.27], [-1.85, 2.17], [4.76, -1.23], [4.51, -5.70]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.43,
-                "init_y": -1.14,
-                "init_a": -112.40,
-                "velocity": 1.10,
-                "goals": [[-3.07, 3.48], [2.22, 5.48], [2.37, 0.11], [1.60, 2.54]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.43,
-                "init_y": -3.64,
-                "init_a": 149.11,
-                "velocity": 0.99,
-                "goals": [[5.16, 4.88], [-4.09, 3.59], [-1.66, 3.77], [-3.82, -3.51]],
+                "init_x": 5.19,
+                "init_y": -0.21,
+                "init_a": 93.32,
+                "velocity": 0.88,
+                "goals": [[-3.87, -5.18], [-5.03, -4.28], [7.49, 3.90], [4.54, -4.03]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -7248,8 +7422,276 @@ def tests_adult_10_child_90_test_case_46_walking_high(tester):
     
     _goto_target1(tester)
 
-def tests_adult_10_child_90_test_case_47_stopped_high(tester):
+def tests_adult_20_child_80_test_case_49_stopped_high(tester):
     # Pairs Moving: False
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 7
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.73,
+                "init_y": 1.50,
+                "init_a": -43.41,
+                "velocity": 1.10,
+                "goals": [[5.73, 1.50], [0.69, 1.70], [-7.04, -2.31], [2.20, -2.06]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 6.51,
+                "init_y": 2.13,
+                "init_a": -43.41,
+                "velocity": 1.10,
+                "goals": [[5.73, 1.50], [-3.59, 5.09], [-3.37, -0.46], [-4.99, -5.91]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 2.23,
+                "init_y": -5.14,
+                "init_a": -57.70,
+                "velocity": 0.87,
+                "goal_x": 2.23,
+                "goal_y": -5.14,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_pair1_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 2.44,
+                "init_y": -4.16,
+                "init_a": -57.70,
+                "velocity": 0.87,
+                "goal_x": 2.23,
+                "goal_y": -5.14,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.53,
+                "init_y": 0.82,
+                "init_a": -11.78,
+                "velocity": 0.83,
+                "goals": [[-1.01, -1.26], [-5.37, 3.09], [3.35, -1.94], [2.37, -0.75]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.04,
+                "init_y": -3.67,
+                "init_a": -121.43,
+                "velocity": 0.91,
+                "goals": [[6.62, 3.52], [-2.14, -1.51], [-5.21, 4.48], [-4.70, -2.72]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -7.09,
+                "init_y": 5.30,
+                "init_a": 0.27,
+                "velocity": 1.08,
+                "goals": [[-5.69, 2.84], [7.96, -5.26], [2.53, 4.73], [1.37, 4.56]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_50_walking_high(tester):
+    # Pairs Moving: True
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 7
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.83,
+                "init_y": 3.18,
+                "init_a": -24.16,
+                "velocity": 1.13,
+                "goals": [[0.27, -0.82], [0.11, -0.34], [-5.95, 1.55], [-6.26, -1.12]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.46,
+                "init_y": 2.40,
+                "init_a": -24.16,
+                "velocity": 1.13,
+                "goals": [[0.27, -0.82], [7.02, -2.20], [-7.73, 2.38], [-4.67, 4.26]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.74,
+                "init_y": -1.10,
+                "init_a": 12.39,
+                "velocity": 0.85,
+                "goal_x": 3.12,
+                "goal_y": 1.80,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.81,
+                "init_y": -0.74,
+                "init_a": 12.39,
+                "velocity": 0.85,
+                "goals": [[3.12, 1.80], [-7.18, 2.48], [1.77, 0.89], [-7.20, 2.63]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -7.02,
+                "init_y": -4.37,
+                "init_a": 126.79,
+                "velocity": 0.89,
+                "goals": [[-2.10, -4.06], [4.08, -0.30], [1.73, 1.83], [7.12, 0.61]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 3.36,
+                "init_y": -5.69,
+                "init_a": -61.18,
+                "velocity": 1.13,
+                "goals": [[0.01, -1.76], [-4.11, 4.83], [-4.23, -4.55], [1.10, -1.51]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.89,
+                "init_y": 0.78,
+                "init_a": -133.53,
+                "velocity": 1.20,
+                "goal_x": -3.98,
+                "goal_y": -4.85,
+                "n_actors": 7,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_51_walking_high(tester):
+    # Pairs Moving: True
     tester.check_collision()
     tester.reset_position()
     
@@ -7261,11 +7703,11 @@ def tests_adult_10_child_90_test_case_47_stopped_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -0.51,
-                "init_y": 0.17,
-                "init_a": 144.19,
-                "velocity": 0.96,
-                "goals": [[-0.51, 0.17], [4.92, 4.23], [0.89, -1.76], [3.57, 3.15]],
+                "init_x": -6.08,
+                "init_y": -2.95,
+                "init_a": -32.01,
+                "velocity": 0.85,
+                "goals": [[-3.53, 3.45], [-2.04, 4.64], [7.71, 5.09], [2.40, -0.99]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -7275,15 +7717,47 @@ def tests_adult_10_child_90_test_case_47_stopped_high(tester):
             },
         },
         {
-            "name": 'actor_pair0_1_child',
+            "name": 'actor_pair0_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -5.30,
+                "init_y": -2.34,
+                "init_a": -32.01,
+                "velocity": 0.85,
+                "goal_x": -3.53,
+                "goal_y": 3.45,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -1.45,
-                "init_y": 0.48,
-                "init_a": 144.19,
-                "velocity": 0.96,
-                "goals": [[-0.51, 0.17], [0.08, 0.70], [5.35, -2.62], [4.29, 0.07]],
+                "init_x": 3.61,
+                "init_y": 0.06,
+                "init_a": 61.58,
+                "velocity": 1.12,
+                "goals": [[6.17, 2.16], [4.99, -1.86], [7.68, -4.18], [0.11, 1.18]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 3.67,
+                "init_y": 1.06,
+                "init_a": 61.58,
+                "velocity": 1.12,
+                "goals": [[6.17, 2.16], [-7.79, -0.84], [-5.40, -0.56], [5.09, -1.10]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -7297,11 +7771,11 @@ def tests_adult_10_child_90_test_case_47_stopped_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -5.58,
-                "init_y": 5.92,
-                "init_a": -61.07,
-                "velocity": 1.16,
-                "goals": [[4.41, 1.81], [-0.64, 4.02], [5.78, -5.71], [-0.58, -4.99]],
+                "init_x": 7.83,
+                "init_y": -5.77,
+                "init_a": -84.96,
+                "velocity": 1.12,
+                "goals": [[-4.41, -4.56], [6.86, -2.37], [-4.05, 5.22], [5.88, -4.98]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -7315,11 +7789,11 @@ def tests_adult_10_child_90_test_case_47_stopped_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 3.37,
-                "init_y": 1.27,
-                "init_a": 29.97,
-                "velocity": 1.20,
-                "goals": [[5.30, 0.58], [-1.22, -4.08], [-0.69, 2.86], [-0.66, 5.54]],
+                "init_x": 0.35,
+                "init_y": 1.25,
+                "init_a": -72.79,
+                "velocity": 0.80,
+                "goals": [[-1.57, -3.14], [4.39, -2.34], [-2.22, 2.22], [-2.81, 2.48]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -7333,11 +7807,11 @@ def tests_adult_10_child_90_test_case_47_stopped_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 4.46,
-                "init_y": -2.93,
-                "init_a": 47.70,
-                "velocity": 0.88,
-                "goals": [[0.90, 2.16], [0.11, 3.41], [-4.79, -1.64], [-5.13, 1.95]],
+                "init_x": -2.33,
+                "init_y": 4.33,
+                "init_a": -174.49,
+                "velocity": 1.19,
+                "goals": [[-0.97, -2.10], [6.96, 1.81], [1.30, -0.16], [2.99, -1.22]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -7352,48 +7826,12 @@ def tests_adult_10_child_90_test_case_47_stopped_high(tester):
             "params": {
                 "radius": 0.25,
                 "init_x": 2.12,
-                "init_y": 2.05,
-                "init_a": 92.88,
-                "velocity": 0.99,
-                "goal_x": -0.15,
-                "goal_y": 5.57,
+                "init_y": -0.91,
+                "init_a": -39.51,
+                "velocity": 0.88,
+                "goal_x": -3.83,
+                "goal_y": -3.31,
                 "n_actors": 8,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.06,
-                "init_y": 2.57,
-                "init_a": 178.57,
-                "velocity": 0.98,
-                "goals": [[-5.75, -5.05], [5.17, 5.94], [0.25, -3.10], [-3.93, 4.33]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.49,
-                "init_y": -3.87,
-                "init_a": 2.73,
-                "velocity": 0.95,
-                "goals": [[0.18, -2.96], [-4.45, -4.40], [-2.28, -3.34], [-2.42, 0.02]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
             },
         },
     ])
@@ -7404,164 +7842,8 @@ def tests_adult_10_child_90_test_case_47_stopped_high(tester):
     
     _goto_target1(tester)
 
-def tests_adult_10_child_90_test_case_48_stopped_high(tester):
+def tests_adult_20_child_80_test_case_52_stopped_high(tester):
     # Pairs Moving: False
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 8
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.83,
-                "init_y": 4.30,
-                "init_a": -171.53,
-                "velocity": 1.10,
-                "goals": [[0.85, 2.51], [-4.35, -5.05], [4.64, 1.51], [0.42, 0.22]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.74,
-                "init_y": 5.72,
-                "init_a": -95.73,
-                "velocity": 1.14,
-                "goals": [[1.28, 5.04], [2.67, 4.99], [0.20, 4.49], [-2.56, -5.64]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.10,
-                "init_y": -3.98,
-                "init_a": -161.75,
-                "velocity": 0.83,
-                "goal_x": -3.35,
-                "goal_y": 0.04,
-                "n_actors": 8,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.98,
-                "init_y": 2.63,
-                "init_a": -89.70,
-                "velocity": 0.82,
-                "goals": [[-3.27, 3.63], [-3.86, 2.09], [5.76, -1.85], [-1.17, 2.40]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.74,
-                "init_y": 2.69,
-                "init_a": 166.93,
-                "velocity": 0.91,
-                "goals": [[3.90, -0.21], [-2.31, -4.69], [2.12, 0.38], [4.35, -4.48]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.11,
-                "init_y": -3.68,
-                "init_a": -87.08,
-                "velocity": 0.83,
-                "goals": [[2.39, -0.68], [-5.20, -5.78], [3.20, -0.83], [-1.13, 3.90]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.23,
-                "init_y": 0.96,
-                "init_a": 137.09,
-                "velocity": 1.11,
-                "goals": [[-5.75, 2.16], [-5.60, 0.47], [-4.05, -0.96], [-5.18, 5.72]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single7_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.16,
-                "init_y": 1.08,
-                "init_a": 116.98,
-                "velocity": 1.14,
-                "goals": [[3.35, 0.59], [1.31, 5.30], [5.89, -1.59], [-2.47, -3.40]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_49_walking_high(tester):
-    # Pairs Moving: True
     tester.check_collision()
     tester.reset_position()
     
@@ -7573,205 +7855,45 @@ def tests_adult_10_child_90_test_case_49_walking_high(tester):
             "module": "pedestrian.walk_sfm",
             "params": {
                 "radius": 0.25,
-                "init_x": 4.56,
-                "init_y": -1.15,
-                "init_a": -56.41,
-                "velocity": 0.89,
-                "goal_x": 3.06,
-                "goal_y": 3.57,
+                "init_x": 7.30,
+                "init_y": -0.08,
+                "init_a": 58.20,
+                "velocity": 0.83,
+                "goal_x": 7.30,
+                "goal_y": -0.08,
                 "n_actors": 8,
             },
         },
         {
-            "name": 'actor_pair0_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.74,
-                "init_y": -0.57,
-                "init_a": -56.41,
-                "velocity": 0.89,
-                "goals": [[3.06, 3.57], [-5.77, -2.77], [3.97, -2.72], [1.11, 2.34]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.39,
-                "init_y": 4.24,
-                "init_a": 34.19,
-                "velocity": 1.07,
-                "goals": [[3.37, 1.10], [0.70, 4.33], [-2.32, -3.00], [5.41, 1.56]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.91,
-                "init_y": 0.35,
-                "init_a": 177.70,
-                "velocity": 0.97,
-                "goals": [[1.39, -4.13], [2.42, 4.10], [-4.50, 4.27], [-2.92, -5.33]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.39,
-                "init_y": -5.78,
-                "init_a": -99.18,
-                "velocity": 0.88,
-                "goals": [[-5.99, -0.33], [1.60, 4.02], [4.55, 5.91], [-2.48, -2.95]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.79,
-                "init_y": 1.45,
-                "init_a": -38.22,
-                "velocity": 1.03,
-                "goals": [[2.71, -5.77], [0.45, -1.28], [0.70, -1.18], [2.58, -5.60]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.21,
-                "init_y": 3.85,
-                "init_a": -16.60,
-                "velocity": 0.98,
-                "goals": [[-3.58, -3.51], [2.95, 5.22], [-5.66, 0.07], [0.42, -4.18]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.74,
-                "init_y": 4.88,
-                "init_a": 34.84,
-                "velocity": 0.93,
-                "goals": [[1.78, -3.82], [-3.26, 4.67], [5.18, 2.04], [1.28, -0.21]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_50_stopped_high(tester):
-    # Pairs Moving: False
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 8
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.87,
-                "init_y": -4.38,
-                "init_a": -110.20,
-                "velocity": 1.18,
-                "goals": [[2.87, -4.38], [-4.01, -3.33], [1.93, 2.70], [-2.46, -2.99]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair0_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.41,
-                "init_y": -5.22,
-                "init_a": -110.20,
-                "velocity": 1.18,
-                "goals": [[2.87, -4.38], [4.00, -2.29], [-5.19, -2.03], [-2.09, 4.25]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair1_0',
+            "name": 'actor_pair0_1',
             "module": "pedestrian.walk_sfm",
             "params": {
                 "radius": 0.25,
-                "init_x": 1.68,
-                "init_y": -2.85,
-                "init_a": 83.34,
-                "velocity": 1.11,
-                "goal_x": 1.68,
-                "goal_y": -2.85,
+                "init_x": 8.28,
+                "init_y": 0.13,
+                "init_a": 58.20,
+                "velocity": 0.83,
+                "goal_x": 7.30,
+                "goal_y": -0.08,
                 "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -4.56,
+                "init_y": -4.03,
+                "init_a": -132.32,
+                "velocity": 0.97,
+                "goals": [[-4.56, -4.03], [3.76, -5.25], [-3.12, 0.23], [-1.82, 4.36]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
             },
         },
         {
@@ -7779,65 +7901,65 @@ def tests_adult_10_child_90_test_case_50_stopped_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 2.46,
-                "init_y": -2.23,
-                "init_a": 83.34,
+                "init_x": -3.87,
+                "init_y": -3.30,
+                "init_a": -132.32,
+                "velocity": 0.97,
+                "goals": [[-4.56, -4.03], [-2.29, -5.86], [1.18, 5.58], [6.18, -4.66]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -2.72,
+                "init_y": -1.52,
+                "init_a": 85.48,
+                "velocity": 0.86,
+                "goals": [[-2.39, 0.71], [5.20, -0.66], [2.61, -4.89], [-0.86, 0.11]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -2.94,
+                "init_y": -1.14,
+                "init_a": -29.67,
+                "velocity": 1.15,
+                "goals": [[1.08, 5.17], [-1.73, 0.16], [-7.03, -0.35], [-5.66, -0.30]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 7.87,
+                "init_y": 2.75,
+                "init_a": -89.74,
                 "velocity": 1.11,
-                "goals": [[1.68, -2.85], [5.52, 0.54], [-3.38, 1.95], [5.73, 5.78]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.83,
-                "init_y": 0.63,
-                "init_a": -175.11,
-                "velocity": 1.02,
-                "goals": [[-3.50, 1.00], [-5.05, -2.89], [3.36, 1.95], [-3.08, -5.29]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.43,
-                "init_y": -5.93,
-                "init_a": -110.55,
-                "velocity": 0.94,
-                "goals": [[-3.71, -2.06], [-1.42, -1.78], [-3.82, 3.91], [2.89, -0.02]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.73,
-                "init_y": -4.78,
-                "init_a": 151.77,
-                "velocity": 1.17,
-                "goals": [[3.01, -0.28], [3.72, -0.97], [-4.29, 4.05], [-0.67, -2.10]],
+                "goals": [[-2.40, -5.47], [2.26, 3.79], [7.00, -5.46], [-5.65, 0.93]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -7851,11 +7973,11 @@ def tests_adult_10_child_90_test_case_50_stopped_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -0.82,
-                "init_y": -5.23,
-                "init_a": -104.39,
-                "velocity": 0.92,
-                "goals": [[-2.72, 4.49], [-0.95, 1.40], [-1.46, 3.28], [-3.73, 2.19]],
+                "init_x": -3.13,
+                "init_y": -3.98,
+                "init_a": 10.11,
+                "velocity": 0.99,
+                "goals": [[5.88, -4.46], [-2.20, 3.57], [2.11, -3.96], [5.13, -5.36]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -7872,182 +7994,94 @@ def tests_adult_10_child_90_test_case_50_stopped_high(tester):
     
     _goto_target1(tester)
 
-def tests_adult_10_child_90_test_case_51_walking_high(tester):
+def tests_adult_20_child_80_test_case_53_walking_high(tester):
     # Pairs Moving: True
     tester.check_collision()
     tester.reset_position()
     
-    n_actors = 8
+    n_actors = 7
     
     _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.84,
+                "init_y": 4.08,
+                "init_a": 0.95,
+                "velocity": 1.15,
+                "goals": [[-6.44, -1.76], [5.15, -2.87], [-1.27, 4.08], [2.26, -2.84]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.15,
+                "init_y": 4.22,
+                "init_a": 0.95,
+                "velocity": 1.15,
+                "goal_x": -6.44,
+                "goal_y": -1.76,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_pair1_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 7.45,
+                "init_y": -2.72,
+                "init_a": -170.03,
+                "velocity": 0.96,
+                "goal_x": -0.08,
+                "goal_y": 3.28,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 8.11,
+                "init_y": -1.97,
+                "init_a": -170.03,
+                "velocity": 0.96,
+                "goals": [[-0.08, 3.28], [1.79, 0.43], [6.62, -0.33], [-4.92, -5.62]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
         {
             "name": 'actor_single0_child',
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -4.56,
-                "init_y": -2.95,
-                "init_a": -32.01,
-                "velocity": 0.85,
-                "goals": [[-2.65, 3.45], [-3.05, -2.55], [3.83, -4.93], [4.06, -5.93]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.74,
-                "init_y": 2.71,
-                "init_a": 1.79,
-                "velocity": 1.07,
-                "goals": [[3.52, 4.62], [1.79, -1.71], [-5.45, 5.77], [-2.52, 3.24]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.16,
-                "init_y": -3.12,
-                "init_a": 176.26,
-                "velocity": 0.81,
-                "goals": [[-2.83, 3.70], [-1.68, -0.53], [5.90, -5.52], [1.13, 0.79]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.31,
-                "init_y": -4.56,
-                "init_a": 7.82,
+                "init_x": -1.88,
+                "init_y": -4.47,
+                "init_a": 91.15,
                 "velocity": 1.04,
-                "goals": [[-2.43, -5.96], [-0.06, -5.43], [-5.25, -1.88], [2.12, -4.93]],
+                "goals": [[6.39, -3.55], [-6.58, 2.33], [-2.41, 1.00], [-0.55, 1.44]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
+                "n_actors": 7,
                 "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.18,
-                "init_y": -3.14,
-                "init_a": -52.41,
-                "velocity": 1.14,
-                "goal_x": -5.82,
-                "goal_y": 5.62,
-                "n_actors": 8,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.73,
-                "init_y": -2.10,
-                "init_a": 47.79,
-                "velocity": 0.97,
-                "goals": [[-1.32, -3.64], [-4.79, -3.76], [5.47, 1.49], [3.57, -3.84]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.88,
-                "init_y": -3.31,
-                "init_a": -56.16,
-                "velocity": 0.90,
-                "goals": [[2.43, -1.78], [-5.22, -2.01], [5.38, 3.66], [4.69, 3.92]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single7_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.36,
-                "init_y": -3.71,
-                "init_a": 147.41,
-                "velocity": 1.17,
-                "goals": [[2.45, 4.35], [-3.46, -1.51], [-5.28, 4.60], [-3.25, 1.64]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_52_stopped_high(tester):
-    # Pairs Moving: False
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 8
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_single0',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.48,
-                "init_y": -0.08,
-                "init_a": 58.20,
-                "velocity": 0.83,
-                "goal_x": -5.58,
-                "goal_y": -3.42,
-                "n_actors": 8,
             },
         },
         {
@@ -8055,239 +8089,11 @@ def tests_adult_10_child_90_test_case_52_stopped_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -4.03,
-                "init_y": -4.41,
-                "init_a": -28.77,
-                "velocity": 0.85,
-                "goals": [[-2.04, -1.52], [-1.24, 3.53], [-4.20, 4.76], [-4.81, -1.42]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.85,
-                "init_y": -4.05,
-                "init_a": -53.76,
-                "velocity": 1.02,
-                "goals": [[-2.21, -1.14], [1.59, 0.68], [-1.43, -5.81], [2.64, 1.70]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.99,
-                "init_y": 4.60,
-                "init_a": 24.24,
-                "velocity": 1.17,
-                "goals": [[5.90, 2.75], [5.10, -2.41], [-2.37, -5.09], [1.76, -0.59]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.99,
-                "init_y": 3.21,
-                "init_a": -53.90,
-                "velocity": 0.82,
-                "goals": [[-2.35, -3.98], [-0.02, 2.18], [1.63, 5.50], [-5.10, 5.05]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.34,
-                "init_y": -0.29,
-                "init_a": 132.39,
-                "velocity": 0.85,
-                "goals": [[3.08, 5.14], [-2.02, -2.97], [0.70, 4.32], [5.96, -0.57]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.61,
-                "init_y": 5.61,
-                "init_a": -106.81,
-                "velocity": 0.89,
-                "goals": [[1.42, -1.29], [-1.44, 1.12], [-5.00, -1.51], [3.40, 4.34]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single7_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.92,
-                "init_y": 2.15,
-                "init_a": 57.41,
-                "velocity": 0.95,
-                "goals": [[0.51, 1.69], [-1.34, -3.50], [0.34, -5.79], [1.14, 5.52]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_53_stopped_high(tester):
-    # Pairs Moving: False
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 7
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.27,
-                "init_y": 4.83,
-                "init_a": -28.91,
-                "velocity": 0.93,
-                "goals": [[-1.27, 4.83], [-2.62, -2.80], [-3.02, -3.25], [-5.63, 4.77]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair0_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.23,
-                "init_y": 4.54,
-                "init_a": -28.91,
-                "velocity": 0.93,
-                "goals": [[-1.27, 4.83], [-4.54, -2.15], [-2.90, 2.61], [-5.06, 0.70]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single0',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.56,
-                "init_y": 0.98,
-                "init_a": 22.73,
-                "velocity": 0.92,
-                "goal_x": -5.02,
-                "goal_y": 2.53,
-                "n_actors": 7,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.04,
-                "init_y": -4.39,
-                "init_a": 41.27,
-                "velocity": 0.97,
-                "goals": [[-5.12, 0.46], [1.71, -2.16], [-4.02, -3.44], [0.21, 3.75]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.05,
-                "init_y": 0.54,
-                "init_a": 119.84,
-                "velocity": 0.89,
-                "goals": [[4.09, -4.36], [-0.57, -3.45], [-2.60, 3.34], [-3.07, -5.24]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.64,
-                "init_y": 3.14,
-                "init_a": 21.12,
+                "init_x": 1.36,
+                "init_y": -1.89,
+                "init_a": -164.74,
                 "velocity": 1.10,
-                "goals": [[-2.26, -4.49], [-2.98, -3.38], [-5.97, -0.84], [2.09, 0.57]],
+                "goals": [[1.94, 1.91], [3.20, -0.51], [4.92, -4.15], [4.79, 1.47]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -8297,15 +8103,15 @@ def tests_adult_10_child_90_test_case_53_stopped_high(tester):
             },
         },
         {
-            "name": 'actor_single4_child',
+            "name": 'actor_single2_child',
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 3.65,
-                "init_y": 0.79,
-                "init_a": 95.36,
-                "velocity": 1.17,
-                "goals": [[0.97, -5.97], [3.85, -5.47], [3.13, -1.58], [-1.08, 5.66]],
+                "init_x": 3.34,
+                "init_y": -5.71,
+                "init_a": 59.28,
+                "velocity": 1.04,
+                "goals": [[-2.28, -1.42], [-2.27, 1.87], [-5.23, -2.50], [2.99, -1.95]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -8322,182 +8128,8 @@ def tests_adult_10_child_90_test_case_53_stopped_high(tester):
     
     _goto_target1(tester)
 
-def tests_adult_10_child_90_test_case_54_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 9
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.72,
-                "init_y": 0.82,
-                "init_a": 101.38,
-                "velocity": 0.98,
-                "goals": [[2.98, 2.75], [4.96, -2.76], [-5.61, -4.34], [-3.60, 5.43]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.78,
-                "init_y": -3.72,
-                "init_a": -71.77,
-                "velocity": 1.01,
-                "goals": [[1.14, 5.58], [-0.80, -5.86], [3.64, 3.80], [-1.61, -2.08]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.34,
-                "init_y": 5.87,
-                "init_a": -1.63,
-                "velocity": 1.12,
-                "goal_x": -1.88,
-                "goal_y": -1.55,
-                "n_actors": 9,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.96,
-                "init_y": 4.71,
-                "init_a": 113.96,
-                "velocity": 1.19,
-                "goals": [[-0.49, -4.80], [-3.59, 4.10], [-1.82, 2.54], [1.36, -2.99]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.69,
-                "init_y": 3.91,
-                "init_a": -1.48,
-                "velocity": 0.93,
-                "goals": [[-2.44, -0.41], [-4.93, 5.07], [1.73, -1.24], [-4.26, 3.75]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.91,
-                "init_y": -0.99,
-                "init_a": 87.11,
-                "velocity": 0.82,
-                "goals": [[2.23, -5.92], [4.30, -4.72], [2.87, -2.75], [-5.35, 0.76]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.06,
-                "init_y": -1.68,
-                "init_a": -76.95,
-                "velocity": 1.19,
-                "goals": [[-4.41, 4.32], [-0.99, -2.73], [5.00, 5.88], [-5.64, 4.16]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single7_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.19,
-                "init_y": -1.15,
-                "init_a": -161.41,
-                "velocity": 1.19,
-                "goals": [[-5.93, -5.37], [1.76, 0.27], [0.43, -5.90], [-3.67, 4.26]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single8_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.03,
-                "init_y": -5.15,
-                "init_a": -44.02,
-                "velocity": 1.05,
-                "goals": [[-4.43, 1.05], [2.66, 0.49], [3.93, 1.64], [0.22, -1.98]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_55_walking_high(tester):
-    # Pairs Moving: True
+def tests_adult_20_child_80_test_case_54_stopped_high(tester):
+    # Pairs Moving: False
     tester.check_collision()
     tester.reset_position()
     
@@ -8509,11 +8141,11 @@ def tests_adult_10_child_90_test_case_55_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 4.03,
-                "init_y": 5.80,
-                "init_a": -99.69,
-                "velocity": 0.87,
-                "goals": [[1.37, -1.01], [-3.36, -5.53], [-2.23, -1.01], [-1.36, -0.45]],
+                "init_x": -5.93,
+                "init_y": 4.24,
+                "init_a": 92.30,
+                "velocity": 1.15,
+                "goals": [[-5.93, 4.24], [-1.46, 5.36], [4.21, 0.29], [4.19, 0.58]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -8527,11 +8159,11 @@ def tests_adult_10_child_90_test_case_55_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 4.76,
-                "init_y": 6.49,
-                "init_a": -99.69,
-                "velocity": 0.87,
-                "goals": [[1.37, -1.01], [2.92, -2.83], [-1.10, 3.10], [-0.82, -1.21]],
+                "init_x": -5.38,
+                "init_y": 5.07,
+                "init_a": 92.30,
+                "velocity": 1.15,
+                "goals": [[-5.93, 4.24], [-3.57, 2.30], [-0.64, -5.11], [-4.10, -5.56]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -8545,11 +8177,11 @@ def tests_adult_10_child_90_test_case_55_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 5.00,
-                "init_y": 0.45,
-                "init_a": -137.23,
-                "velocity": 1.05,
-                "goals": [[2.66, 1.10], [-4.21, -0.04], [-3.04, 0.63], [3.08, -0.08]],
+                "init_x": -5.00,
+                "init_y": 3.31,
+                "init_a": 177.80,
+                "velocity": 1.07,
+                "goals": [[-5.00, 3.31], [5.78, 2.29], [-7.27, 0.38], [7.46, -3.39]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -8563,256 +8195,16 @@ def tests_adult_10_child_90_test_case_55_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 4.00,
-                "init_y": 0.51,
-                "init_a": -137.23,
-                "velocity": 1.05,
-                "goals": [[2.66, 1.10], [1.35, -2.18], [-3.92, -2.52], [3.51, -2.43]],
+                "init_x": -5.07,
+                "init_y": 4.31,
+                "init_a": 177.80,
+                "velocity": 1.07,
+                "goals": [[-5.00, 3.31], [-4.99, 2.86], [-5.24, 4.41], [-2.07, -1.57]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
                 "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.87,
-                "init_y": -3.89,
-                "init_a": 127.85,
-                "velocity": 1.03,
-                "goals": [[0.62, -4.66], [3.60, -4.75], [3.37, -4.56], [-4.50, 0.91]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.04,
-                "init_y": 1.75,
-                "init_a": -77.05,
-                "velocity": 0.87,
-                "goal_x": 2.70,
-                "goal_y": 5.60,
-                "n_actors": 7,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.66,
-                "init_y": 0.37,
-                "init_a": -121.50,
-                "velocity": 1.18,
-                "goals": [[-3.28, -4.49], [0.29, -2.41], [1.82, -2.73], [3.25, -2.36]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_56_stopped_high(tester):
-    # Pairs Moving: False
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 7
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.61,
-                "init_y": -4.08,
-                "init_a": 128.85,
-                "velocity": 1.01,
-                "goals": [[5.71, 4.76], [-1.87, 2.62], [-5.84, -0.51], [-4.90, -2.58]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.27,
-                "init_y": -2.95,
-                "init_a": -89.75,
-                "velocity": 0.88,
-                "goal_x": -3.59,
-                "goal_y": -1.42,
-                "n_actors": 7,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.49,
-                "init_y": 1.15,
-                "init_a": -96.80,
-                "velocity": 0.89,
-                "goals": [[1.47, 1.96], [-1.17, -1.38], [1.77, 0.21], [-3.53, 0.43]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.50,
-                "init_y": 3.81,
-                "init_a": 42.07,
-                "velocity": 1.03,
-                "goals": [[3.21, -2.52], [-1.01, -1.03], [-2.84, 3.44], [5.01, -5.33]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.16,
-                "init_y": 0.09,
-                "init_a": -7.49,
-                "velocity": 1.02,
-                "goals": [[-1.86, 4.92], [1.12, 5.09], [-1.80, -1.07], [-3.40, -2.76]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.01,
-                "init_y": -0.92,
-                "init_a": -56.44,
-                "velocity": 1.00,
-                "goals": [[-1.07, 2.00], [-1.70, 3.12], [1.62, -1.21], [4.28, -1.52]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.04,
-                "init_y": -1.98,
-                "init_a": -57.69,
-                "velocity": 1.05,
-                "goals": [[-5.46, 4.89], [3.30, 4.36], [-0.36, 3.93], [1.93, 5.38]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_57_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 8
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.53,
-                "init_y": -0.99,
-                "init_a": 105.65,
-                "velocity": 1.18,
-                "goals": [[-2.25, 1.72], [-5.72, 2.46], [0.60, -4.47], [4.62, -2.91]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair0_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.93,
-                "init_y": -1.91,
-                "init_a": 105.65,
-                "velocity": 1.18,
-                "goals": [[-2.25, 1.72], [4.37, -1.31], [5.20, -0.48], [-3.78, 0.54]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
                 "random_seed": 100,
             },
         },
@@ -8821,31 +8213,27 @@ def tests_adult_10_child_90_test_case_57_walking_high(tester):
             "module": "pedestrian.walk_sfm",
             "params": {
                 "radius": 0.25,
-                "init_x": 3.10,
-                "init_y": -2.97,
-                "init_a": -81.96,
-                "velocity": 1.11,
-                "goal_x": 1.75,
-                "goal_y": 2.19,
-                "n_actors": 8,
+                "init_x": -6.00,
+                "init_y": -2.63,
+                "init_a": 170.30,
+                "velocity": 1.16,
+                "goal_x": 0.42,
+                "goal_y": 1.20,
+                "n_actors": 7,
             },
         },
         {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
+            "name": 'actor_single1',
+            "module": "pedestrian.walk_sfm",
             "params": {
                 "radius": 0.25,
-                "init_x": -4.81,
-                "init_y": 0.68,
-                "init_a": 36.27,
-                "velocity": 1.10,
-                "goals": [[3.20, -5.26], [5.12, 4.31], [-2.97, 1.63], [-3.99, 5.59]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
+                "init_x": 7.26,
+                "init_y": -5.41,
+                "init_a": -14.91,
+                "velocity": 1.08,
+                "goal_x": -7.76,
+                "goal_y": 3.32,
+                "n_actors": 7,
             },
         },
         {
@@ -8853,70 +8241,16 @@ def tests_adult_10_child_90_test_case_57_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -1.92,
-                "init_y": -4.44,
-                "init_a": 125.93,
-                "velocity": 1.16,
-                "goals": [[1.99, -4.54], [5.20, 0.52], [-1.96, -5.86], [2.53, 2.68]],
+                "init_x": 6.63,
+                "init_y": 2.02,
+                "init_a": 175.23,
+                "velocity": 1.10,
+                "goals": [[-4.91, -5.84], [0.98, -2.60], [-7.76, 1.37], [5.92, -0.98]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.53,
-                "init_y": 1.75,
-                "init_a": -73.26,
-                "velocity": 1.07,
-                "goals": [[1.23, 2.82], [-4.89, -1.85], [4.47, -1.99], [3.27, 3.81]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.39,
-                "init_y": -0.50,
-                "init_a": 62.04,
-                "velocity": 1.19,
-                "goals": [[5.70, 1.37], [2.61, 3.38], [3.04, 5.32], [1.37, -0.57]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.68,
-                "init_y": -2.04,
-                "init_a": 108.45,
-                "velocity": 1.19,
-                "goals": [[-2.35, -1.27], [-5.94, -2.12], [-3.26, -2.60], [-0.41, 0.84]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
+                "n_actors": 7,
                 "random_seed": 100,
             },
         },
@@ -8928,7 +8262,445 @@ def tests_adult_10_child_90_test_case_57_walking_high(tester):
     
     _goto_target1(tester)
 
-def tests_adult_10_child_90_test_case_58_walking_high(tester):
+def tests_adult_20_child_80_test_case_55_walking_high(tester):
+    # Pairs Moving: True
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 7
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 7.73,
+                "init_y": -3.32,
+                "init_a": -120.24,
+                "velocity": 1.05,
+                "goals": [[-1.34, -4.55], [1.52, 5.87], [-6.41, -4.79], [3.27, 2.03]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 8.59,
+                "init_y": -3.82,
+                "init_a": -120.24,
+                "velocity": 1.05,
+                "goal_x": -1.34,
+                "goal_y": -4.55,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.59,
+                "init_y": -4.57,
+                "init_a": 45.41,
+                "velocity": 1.09,
+                "goals": [[1.47, -0.13], [0.85, -2.81], [2.45, -2.35], [-4.54, 4.83]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.04,
+                "init_y": -3.74,
+                "init_a": 45.41,
+                "velocity": 1.09,
+                "goals": [[1.47, -0.13], [-2.16, 4.15], [-0.76, 2.37], [-5.82, -3.38]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -5.18,
+                "init_y": 4.26,
+                "init_a": 28.39,
+                "velocity": 1.02,
+                "goals": [[-6.21, 0.04], [3.93, 0.30], [6.92, 0.90], [5.92, 3.16]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 2.33,
+                "init_y": -2.57,
+                "init_a": -113.53,
+                "velocity": 1.09,
+                "goal_x": 7.47,
+                "goal_y": -0.66,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.49,
+                "init_y": -4.05,
+                "init_a": 162.45,
+                "velocity": 0.89,
+                "goals": [[-5.99, -4.82], [1.09, 1.92], [-3.40, 2.89], [-7.74, 5.93]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_56_stopped_high(tester):
+    # Pairs Moving: False
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 7
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.82,
+                "init_y": -4.08,
+                "init_a": 128.85,
+                "velocity": 1.01,
+                "goals": [[-0.82, -4.08], [-2.78, 0.03], [1.83, -2.69], [4.25, 1.26]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.17,
+                "init_y": -4.23,
+                "init_a": 128.85,
+                "velocity": 1.01,
+                "goals": [[-0.82, -4.08], [2.45, 1.25], [-4.15, 2.25], [-2.69, 4.52]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 6.34,
+                "init_y": -1.27,
+                "init_a": -88.45,
+                "velocity": 0.90,
+                "goal_x": 6.34,
+                "goal_y": -1.27,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 6.62,
+                "init_y": -0.31,
+                "init_a": -88.45,
+                "velocity": 0.90,
+                "goals": [[6.34, -1.27], [-7.91, 0.75], [-6.10, -5.20], [5.37, -4.41]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -4.78,
+                "init_y": -1.42,
+                "init_a": 134.78,
+                "velocity": 1.04,
+                "goals": [[-4.30, -3.27], [-4.52, 2.47], [-5.29, 0.38], [7.05, -3.68]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.96,
+                "init_y": 1.96,
+                "init_a": -15.06,
+                "velocity": 1.13,
+                "goals": [[1.87, 0.87], [-5.53, -1.52], [0.04, -4.07], [7.96, 2.09]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.27,
+                "init_y": -2.52,
+                "init_a": 34.89,
+                "velocity": 1.00,
+                "goal_x": -0.33,
+                "goal_y": 0.68,
+                "n_actors": 7,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_57_stopped_high(tester):
+    # Pairs Moving: False
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 9
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.13,
+                "init_y": 2.94,
+                "init_a": -121.11,
+                "velocity": 0.97,
+                "goals": [[5.13, 2.94], [7.47, -2.70], [5.80, -0.14], [3.50, 0.34]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.47,
+                "init_y": 2.00,
+                "init_a": -121.11,
+                "velocity": 0.97,
+                "goals": [[5.13, 2.94], [5.55, -2.78], [-0.89, -2.43], [3.05, -3.35]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -1.51,
+                "init_y": -1.09,
+                "init_a": 156.54,
+                "velocity": 1.15,
+                "goals": [[-1.51, -1.09], [-2.75, 0.69], [-6.54, 3.19], [-4.74, 1.61]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.78,
+                "init_y": -0.41,
+                "init_a": 156.54,
+                "velocity": 1.15,
+                "goal_x": -1.51,
+                "goal_y": -1.09,
+                "n_actors": 9,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -2.62,
+                "init_y": 2.11,
+                "init_a": 48.72,
+                "velocity": 0.94,
+                "goals": [[0.75, -3.59], [1.41, -0.55], [-3.27, 4.92], [-7.69, 3.39]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 6.39,
+                "init_y": -2.24,
+                "init_a": 106.29,
+                "velocity": 0.97,
+                "goals": [[-1.12, 0.37], [-0.82, 3.09], [-0.03, -3.70], [-7.71, -5.15]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 6.44,
+                "init_y": -0.88,
+                "init_a": -107.32,
+                "velocity": 0.97,
+                "goal_x": -3.48,
+                "goal_y": 5.36,
+                "n_actors": 9,
+            },
+        },
+        {
+            "name": 'actor_single3_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 7.65,
+                "init_y": -0.54,
+                "init_a": -62.86,
+                "velocity": 0.91,
+                "goals": [[4.32, -0.49], [2.79, 3.53], [6.58, 1.08], [-6.84, 5.49]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single4_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.79,
+                "init_y": -0.57,
+                "init_a": -173.83,
+                "velocity": 0.89,
+                "goals": [[6.57, -1.98], [2.80, -3.96], [-3.51, 4.79], [-6.97, -4.11]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_58_walking_high(tester):
     # Pairs Moving: True
     tester.check_collision()
     tester.reset_position()
@@ -8937,15 +8709,79 @@ def tests_adult_10_child_90_test_case_58_walking_high(tester):
     
     _setup_actors(tester, actors=[
         {
+            "name": 'actor_pair0_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -4.35,
+                "init_y": -0.79,
+                "init_a": -34.91,
+                "velocity": 1.14,
+                "goal_x": 7.59,
+                "goal_y": -4.42,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.46,
+                "init_y": -1.26,
+                "init_a": -34.91,
+                "velocity": 1.14,
+                "goals": [[7.59, -4.42], [5.23, -1.10], [-5.96, 0.12], [4.19, -2.76]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 2.65,
+                "init_y": -3.33,
+                "init_a": 163.02,
+                "velocity": 0.82,
+                "goals": [[-3.20, -2.39], [-3.20, -0.61], [1.35, 4.21], [2.20, -5.83]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.75,
+                "init_y": -3.77,
+                "init_a": 163.02,
+                "velocity": 0.82,
+                "goal_x": -3.20,
+                "goal_y": -2.39,
+                "n_actors": 8,
+            },
+        },
+        {
             "name": 'actor_single0_child',
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -3.26,
-                "init_y": -0.79,
-                "init_a": -34.91,
-                "velocity": 1.14,
-                "goals": [[5.69, -4.42], [-0.94, 5.35], [-0.54, -3.48], [-2.94, -5.93]],
+                "init_x": -3.81,
+                "init_y": -1.27,
+                "init_a": 168.39,
+                "velocity": 0.91,
+                "goals": [[4.59, 5.70], [-4.41, -2.21], [-7.15, 1.44], [-7.88, 4.51]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -8959,11 +8795,11 @@ def tests_adult_10_child_90_test_case_58_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 5.07,
-                "init_y": 1.99,
-                "init_a": -99.84,
-                "velocity": 1.18,
-                "goals": [[-5.54, -2.40], [-5.86, -0.45], [-4.73, -3.95], [2.57, 5.11]],
+                "init_x": 0.76,
+                "init_y": 3.08,
+                "init_a": 0.03,
+                "velocity": 0.82,
+                "goals": [[2.48, -3.77], [6.71, -3.05], [-6.75, 5.11], [-3.40, 0.85]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -8977,11 +8813,11 @@ def tests_adult_10_child_90_test_case_58_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -2.39,
-                "init_y": 0.86,
-                "init_a": -85.66,
-                "velocity": 0.96,
-                "goals": [[5.61, -2.82], [-3.23, -2.23], [0.10, -2.34], [-5.34, -1.67]],
+                "init_x": -7.48,
+                "init_y": -4.83,
+                "init_a": -0.69,
+                "velocity": 1.17,
+                "goals": [[7.10, 3.83], [-4.32, -3.40], [-6.92, -2.42], [3.07, -3.93]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -8995,85 +8831,17 @@ def tests_adult_10_child_90_test_case_58_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 3.44,
-                "init_y": 5.70,
-                "init_a": 17.03,
-                "velocity": 1.10,
-                "goals": [[0.00, -5.41], [5.55, -4.97], [4.83, -5.90], [0.98, -4.91]],
+                "init_x": 5.03,
+                "init_y": -5.65,
+                "init_a": -178.37,
+                "velocity": 0.83,
+                "goals": [[3.40, 5.09], [-6.47, -4.68], [6.14, 2.12], [-0.24, 3.47]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
                 "n_actors": 8,
                 "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.86,
-                "init_y": -3.77,
-                "init_a": -168.35,
-                "velocity": 0.84,
-                "goals": [[-0.02, 4.98], [-5.93, -1.41], [-4.42, 2.13], [-5.36, 1.87]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.32,
-                "init_y": 3.83,
-                "init_a": 113.07,
-                "velocity": 0.81,
-                "goals": [[-5.95, -5.18], [0.48, -3.20], [5.19, -0.08], [3.77, -1.98]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.55,
-                "init_y": 5.09,
-                "init_a": 110.83,
-                "velocity": 0.88,
-                "goals": [[0.64, 1.11], [3.71, -3.38], [-4.08, -5.75], [-3.57, -4.89]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single7',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.83,
-                "init_y": -3.88,
-                "init_a": 3.46,
-                "velocity": 0.85,
-                "goal_x": -0.24,
-                "goal_y": -2.43,
-                "n_actors": 8,
             },
         },
     ])
@@ -9084,7 +8852,7 @@ def tests_adult_10_child_90_test_case_58_walking_high(tester):
     
     _goto_target1(tester)
 
-def tests_adult_10_child_90_test_case_59_stopped_high(tester):
+def tests_adult_20_child_80_test_case_59_stopped_high(tester):
     # Pairs Moving: False
     tester.check_collision()
     tester.reset_position()
@@ -9097,11 +8865,11 @@ def tests_adult_10_child_90_test_case_59_stopped_high(tester):
             "module": "pedestrian.walk_sfm",
             "params": {
                 "radius": 0.25,
-                "init_x": -1.52,
+                "init_x": -2.03,
                 "init_y": 2.97,
                 "init_a": 120.09,
                 "velocity": 1.04,
-                "goal_x": -1.52,
+                "goal_x": -2.03,
                 "goal_y": 2.97,
                 "n_actors": 9,
             },
@@ -9111,1731 +8879,11 @@ def tests_adult_10_child_90_test_case_59_stopped_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -1.99,
+                "init_x": -2.50,
                 "init_y": 2.09,
                 "init_a": 120.09,
                 "velocity": 1.04,
-                "goals": [[-1.52, 2.97], [5.23, -4.67], [4.63, 0.91], [-2.74, -3.04]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.91,
-                "init_y": 2.24,
-                "init_a": 29.74,
-                "velocity": 0.95,
-                "goals": [[2.18, 5.95], [4.15, 5.75], [4.52, -5.67], [-4.69, 2.73]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.30,
-                "init_y": -2.86,
-                "init_a": -140.84,
-                "velocity": 1.07,
-                "goals": [[3.14, 2.49], [3.14, -2.09], [2.63, 1.49], [-5.82, -1.80]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.52,
-                "init_y": -3.84,
-                "init_a": 73.74,
-                "velocity": 0.97,
-                "goals": [[5.49, 4.07], [2.03, 1.44], [-3.62, -2.23], [-0.42, -3.28]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.73,
-                "init_y": 0.10,
-                "init_a": 105.52,
-                "velocity": 0.99,
-                "goals": [[-0.27, -4.17], [-5.61, 2.59], [5.44, 3.80], [-1.89, -2.54]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.81,
-                "init_y": 4.94,
-                "init_a": -127.01,
-                "velocity": 0.96,
-                "goals": [[-3.44, -5.46], [-2.03, -2.71], [4.68, -2.25], [-2.44, -3.58]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.16,
-                "init_y": 3.48,
-                "init_a": 141.51,
-                "velocity": 1.05,
-                "goals": [[-3.99, 3.10], [-2.46, 1.76], [-4.84, 2.12], [0.37, 3.11]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.42,
-                "init_y": -3.21,
-                "init_a": 121.27,
-                "velocity": 1.00,
-                "goals": [[3.56, 3.29], [2.52, 4.07], [1.93, 1.17], [-2.23, -3.33]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_60_stopped_high(tester):
-    # Pairs Moving: False
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 9
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.51,
-                "init_y": 3.57,
-                "init_a": -20.12,
-                "velocity": 1.11,
-                "goals": [[-3.96, 0.21], [0.96, 2.62], [-0.56, 0.66], [-2.12, 3.77]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.34,
-                "init_y": 1.27,
-                "init_a": -171.30,
-                "velocity": 0.91,
-                "goals": [[-5.99, -5.17], [-1.41, 0.57], [-0.02, -1.15], [-3.59, -1.04]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.16,
-                "init_y": 5.31,
-                "init_a": 168.88,
-                "velocity": 1.13,
-                "goal_x": 0.02,
-                "goal_y": 2.79,
-                "n_actors": 9,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.69,
-                "init_y": -4.71,
-                "init_a": -6.01,
-                "velocity": 1.17,
-                "goals": [[0.68, -2.06], [2.45, -4.37], [5.83, 4.16], [-1.44, -1.10]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.74,
-                "init_y": 5.82,
-                "init_a": 176.64,
-                "velocity": 0.94,
-                "goals": [[-3.27, -2.75], [1.39, -5.74], [0.94, 2.34], [4.61, 5.82]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.79,
-                "init_y": 5.30,
-                "init_a": 14.45,
-                "velocity": 0.80,
-                "goals": [[4.03, 5.20], [2.08, 4.36], [2.27, 2.90], [-0.73, -5.16]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.98,
-                "init_y": 5.56,
-                "init_a": -158.09,
-                "velocity": 0.85,
-                "goals": [[-5.87, 4.24], [-1.27, 3.85], [-4.59, -0.88], [-1.59, -0.10]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single7_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.29,
-                "init_y": 4.92,
-                "init_a": -64.00,
-                "velocity": 0.91,
-                "goals": [[-0.83, -1.35], [-0.45, -2.75], [4.43, -2.61], [1.46, -0.81]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single8_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.17,
-                "init_y": -3.53,
-                "init_a": -149.59,
-                "velocity": 1.02,
-                "goals": [[-0.45, 3.18], [2.51, 0.66], [3.72, -4.16], [-2.72, -5.45]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_61_stopped_high(tester):
-    # Pairs Moving: False
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 7
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.74,
-                "init_y": 2.09,
-                "init_a": -141.43,
-                "velocity": 0.95,
-                "goals": [[0.74, 2.09], [3.75, 5.63], [-4.92, 1.97], [5.42, -3.93]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair0_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.74,
-                "init_y": 2.04,
-                "init_a": -141.43,
-                "velocity": 0.95,
-                "goals": [[0.74, 2.09], [4.66, -4.81], [-0.99, 0.07], [1.90, 0.81]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.80,
-                "init_y": -3.92,
-                "init_a": -110.00,
-                "velocity": 0.90,
-                "goals": [[4.88, -4.69], [3.19, 5.13], [3.77, -3.84], [0.16, -3.77]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.61,
-                "init_y": -2.02,
-                "init_a": 89.28,
-                "velocity": 1.14,
-                "goals": [[3.38, -1.17], [-1.31, -4.21], [3.93, 1.56], [0.28, 3.56]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.40,
-                "init_y": -5.70,
-                "init_a": 100.10,
-                "velocity": 1.12,
-                "goals": [[-2.50, -5.63], [-2.52, -1.04], [-1.92, -1.12], [-4.04, 5.82]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.54,
-                "init_y": -2.98,
-                "init_a": 119.06,
-                "velocity": 0.83,
-                "goals": [[-0.84, -5.19], [0.46, 1.98], [-0.54, -4.84], [-3.43, 4.46]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.26,
-                "init_y": 1.63,
-                "init_a": 153.29,
-                "velocity": 0.93,
-                "goal_x": -1.63,
-                "goal_y": 4.64,
-                "n_actors": 7,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_62_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 9
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.42,
-                "init_y": -4.27,
-                "init_a": 112.02,
-                "velocity": 0.86,
-                "goals": [[-5.69, 2.13], [-3.61, 1.16], [4.92, 3.55], [1.45, -5.26]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.07,
-                "init_y": -2.95,
-                "init_a": 178.74,
-                "velocity": 0.87,
-                "goals": [[-5.08, 2.14], [-4.97, 1.19], [1.65, 0.08], [-2.56, 5.66]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.95,
-                "init_y": -4.19,
-                "init_a": -77.39,
-                "velocity": 0.97,
-                "goals": [[0.23, 1.02], [5.47, 3.88], [-3.08, -1.52], [-3.71, -4.78]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.54,
-                "init_y": -3.90,
-                "init_a": 107.36,
-                "velocity": 1.01,
-                "goals": [[5.69, 5.41], [-1.14, 3.77], [1.79, -1.70], [5.11, 0.57]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.54,
-                "init_y": -1.38,
-                "init_a": 117.49,
-                "velocity": 1.01,
-                "goals": [[-4.08, 0.22], [-3.86, 5.28], [-2.60, -4.38], [-0.40, 3.80]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.75,
-                "init_y": -3.16,
-                "init_a": -81.63,
-                "velocity": 1.11,
-                "goal_x": -4.86,
-                "goal_y": 4.07,
-                "n_actors": 9,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.94,
-                "init_y": -1.49,
-                "init_a": 143.06,
-                "velocity": 1.03,
-                "goals": [[4.37, 2.47], [2.80, -3.68], [3.11, 1.81], [5.81, 4.24]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single7_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.21,
-                "init_y": 4.37,
-                "init_a": 164.17,
-                "velocity": 0.91,
-                "goals": [[-2.22, -1.13], [-3.05, -5.19], [-3.56, -3.75], [5.46, 4.24]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single8_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.78,
-                "init_y": -2.33,
-                "init_a": -100.76,
-                "velocity": 1.03,
-                "goals": [[-4.06, 0.14], [-4.50, 1.46], [2.44, 3.45], [0.16, -5.15]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_63_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 7
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.13,
-                "init_y": 3.62,
-                "init_a": -148.32,
-                "velocity": 1.08,
-                "goal_x": 4.40,
-                "goal_y": -3.97,
-                "n_actors": 7,
-            },
-        },
-        {
-            "name": 'actor_pair0_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.54,
-                "init_y": 2.82,
-                "init_a": -148.32,
-                "velocity": 1.08,
-                "goals": [[4.40, -3.97], [2.93, 0.33], [-5.20, 0.79], [-4.06, -2.70]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.48,
-                "init_y": -5.65,
-                "init_a": 159.23,
-                "velocity": 0.81,
-                "goals": [[1.63, -1.61], [3.20, -4.57], [5.58, 3.12], [5.91, -2.77]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.90,
-                "init_y": 1.89,
-                "init_a": 119.70,
-                "velocity": 0.97,
-                "goals": [[5.63, 3.41], [4.47, -5.80], [-1.45, 1.05], [4.34, 4.34]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.23,
-                "init_y": -3.29,
-                "init_a": 81.29,
-                "velocity": 0.83,
-                "goals": [[0.79, 4.44], [-2.21, -2.04], [-3.93, 4.15], [-5.69, -4.90]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.47,
-                "init_y": -5.52,
-                "init_a": 152.82,
-                "velocity": 0.86,
-                "goals": [[-1.47, 5.62], [1.75, 5.83], [-5.84, 5.58], [-0.64, -2.76]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.97,
-                "init_y": 4.81,
-                "init_a": -169.39,
-                "velocity": 1.15,
-                "goals": [[2.12, 5.53], [4.17, 3.10], [-3.52, -5.37], [-5.54, -1.88]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_64_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 8
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.84,
-                "init_y": 4.39,
-                "init_a": 100.23,
-                "velocity": 0.82,
-                "goals": [[4.68, -5.10], [1.66, -0.94], [4.16, -1.92], [0.10, 2.01]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair0_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.12,
-                "init_y": 4.66,
-                "init_a": 100.23,
-                "velocity": 0.82,
-                "goals": [[4.68, -5.10], [-0.57, -0.88], [-4.17, -2.04], [-0.88, -2.20]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.01,
-                "init_y": -4.35,
-                "init_a": -116.00,
-                "velocity": 0.93,
-                "goals": [[-5.12, -1.31], [-2.13, 3.62], [3.45, 2.70], [-4.41, 2.32]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.49,
-                "init_y": 2.61,
-                "init_a": -108.22,
-                "velocity": 0.84,
-                "goals": [[4.74, 2.33], [-2.09, -5.56], [1.37, -1.50], [3.17, 5.87]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.94,
-                "init_y": 1.34,
-                "init_a": 125.33,
-                "velocity": 1.08,
-                "goals": [[-2.27, -3.18], [-3.19, 5.97], [-3.03, -1.23], [-5.91, 3.58]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.40,
-                "init_y": -0.84,
-                "init_a": 102.80,
-                "velocity": 1.01,
-                "goal_x": 4.25,
-                "goal_y": 1.18,
-                "n_actors": 8,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.89,
-                "init_y": 3.18,
-                "init_a": -122.13,
-                "velocity": 1.03,
-                "goals": [[-2.46, 3.82], [2.64, 4.47], [-0.03, -1.68], [4.10, -4.40]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.04,
-                "init_y": -1.76,
-                "init_a": -100.81,
-                "velocity": 1.11,
-                "goals": [[3.60, -5.49], [5.10, -3.19], [-0.15, -4.86], [0.96, -5.17]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_65_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 8
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.71,
-                "init_y": 4.27,
-                "init_a": -173.85,
-                "velocity": 1.17,
-                "goals": [[4.72, 2.71], [1.09, -3.15], [2.28, 5.97], [1.03, -5.09]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.35,
-                "init_y": 1.71,
-                "init_a": 68.38,
-                "velocity": 0.85,
-                "goals": [[0.30, -4.62], [4.82, 2.00], [4.22, -3.54], [-4.50, -0.90]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.07,
-                "init_y": -1.20,
-                "init_a": 38.12,
-                "velocity": 1.01,
-                "goals": [[-4.16, -1.60], [-4.54, -2.17], [4.63, 2.57], [-3.32, 4.45]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.98,
-                "init_y": -1.65,
-                "init_a": 85.43,
-                "velocity": 0.96,
-                "goals": [[3.68, -5.21], [4.43, -1.48], [1.11, -5.70], [4.45, 5.36]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.76,
-                "init_y": 5.77,
-                "init_a": -92.24,
-                "velocity": 0.98,
-                "goals": [[-0.51, 5.68], [-0.21, -0.48], [-3.51, 0.94], [-3.14, 4.67]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.10,
-                "init_y": 2.82,
-                "init_a": 14.46,
-                "velocity": 0.84,
-                "goal_x": 4.47,
-                "goal_y": 5.74,
-                "n_actors": 8,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.38,
-                "init_y": -0.40,
-                "init_a": 50.18,
-                "velocity": 0.95,
-                "goals": [[2.47, 2.84], [0.47, 2.92], [0.78, 5.47], [-0.34, -2.95]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single7_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.28,
-                "init_y": 1.82,
-                "init_a": 169.48,
-                "velocity": 0.96,
-                "goals": [[2.69, 4.71], [-5.06, -5.57], [-2.33, -4.62], [4.23, -5.28]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_66_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 8
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.21,
-                "init_y": -5.04,
-                "init_a": -57.89,
-                "velocity": 0.85,
-                "goals": [[4.74, 2.26], [-0.32, -0.02], [5.01, -2.71], [3.26, -5.35]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.44,
-                "init_y": -5.79,
-                "init_a": -151.04,
-                "velocity": 0.93,
-                "goals": [[-1.48, -2.47], [-2.92, -0.62], [0.76, 2.90], [-2.64, -5.16]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.14,
-                "init_y": 4.62,
-                "init_a": 34.07,
-                "velocity": 1.13,
-                "goals": [[-2.39, -4.83], [-1.21, -5.16], [-3.70, -5.44], [2.40, 2.26]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.86,
-                "init_y": 3.97,
-                "init_a": -106.18,
-                "velocity": 0.94,
-                "goals": [[-3.41, 1.66], [-3.57, -5.22], [-2.41, -3.04], [-5.86, 3.36]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.36,
-                "init_y": -2.46,
-                "init_a": 23.08,
-                "velocity": 1.15,
-                "goals": [[2.57, -0.13], [-0.05, -3.35], [-2.46, 5.45], [-3.87, -3.69]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.98,
-                "init_y": -3.90,
-                "init_a": 131.33,
-                "velocity": 1.19,
-                "goals": [[-5.29, 5.55], [-0.12, -1.10], [-0.64, -0.94], [-2.40, 2.27]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.91,
-                "init_y": -0.78,
-                "init_a": -58.31,
-                "velocity": 1.01,
-                "goals": [[-2.84, -1.35], [0.06, -0.29], [2.04, -3.94], [3.23, 4.78]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single7',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.13,
-                "init_y": -1.44,
-                "init_a": -91.06,
-                "velocity": 0.96,
-                "goal_x": 2.24,
-                "goal_y": -4.09,
-                "n_actors": 8,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_67_stopped_high(tester):
-    # Pairs Moving: False
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 7
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_single0',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.68,
-                "init_y": -5.58,
-                "init_a": 151.44,
-                "velocity": 1.15,
-                "goal_x": -2.65,
-                "goal_y": 4.54,
-                "n_actors": 7,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.08,
-                "init_y": -3.27,
-                "init_a": 177.94,
-                "velocity": 1.14,
-                "goals": [[-1.60, -0.24], [5.71, 1.48], [-0.63, -0.63], [-2.14, -5.95]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.55,
-                "init_y": 5.48,
-                "init_a": -68.46,
-                "velocity": 0.91,
-                "goals": [[5.18, -0.27], [5.47, -1.66], [3.87, -3.36], [2.87, 1.32]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.53,
-                "init_y": 4.84,
-                "init_a": -78.50,
-                "velocity": 1.17,
-                "goals": [[2.21, 2.24], [-1.98, -0.28], [-5.73, -3.29], [-3.50, 2.69]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.31,
-                "init_y": -3.53,
-                "init_a": -109.14,
-                "velocity": 1.09,
-                "goals": [[2.54, -0.64], [-4.62, 4.74], [0.11, 3.21], [-0.74, 2.89]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.36,
-                "init_y": 0.53,
-                "init_a": 119.84,
-                "velocity": 0.94,
-                "goals": [[-0.59, -3.00], [-5.18, 5.55], [1.54, 3.77], [4.23, 0.82]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.92,
-                "init_y": 2.88,
-                "init_a": 34.23,
-                "velocity": 0.91,
-                "goals": [[1.12, 2.35], [3.60, 2.59], [5.56, -0.30], [-4.23, -5.90]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_68_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 9
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.84,
-                "init_y": 5.28,
-                "init_a": 100.74,
-                "velocity": 0.83,
-                "goals": [[-2.33, -3.82], [-0.36, 1.43], [0.40, -5.70], [-0.42, -4.50]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair0_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.22,
-                "init_y": 6.21,
-                "init_a": 100.74,
-                "velocity": 0.83,
-                "goals": [[-2.33, -3.82], [-1.50, 5.89], [-2.67, -2.74], [-3.39, 4.36]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair1_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.28,
-                "init_y": 0.26,
-                "init_a": -67.58,
-                "velocity": 0.93,
-                "goals": [[-5.03, -5.15], [-0.41, 1.50], [4.12, -4.76], [0.82, 2.20]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair1_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.36,
-                "init_y": -0.13,
-                "init_a": -67.58,
-                "velocity": 0.93,
-                "goals": [[-5.03, -5.15], [-0.87, -1.23], [4.13, 0.78], [-4.23, 5.20]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.90,
-                "init_y": -0.04,
-                "init_a": 86.61,
-                "velocity": 1.02,
-                "goals": [[0.39, -0.53], [-2.86, 2.38], [4.18, -2.94], [-2.14, 2.13]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.41,
-                "init_y": 0.16,
-                "init_a": 113.68,
-                "velocity": 0.86,
-                "goals": [[5.82, 5.82], [3.15, -5.75], [-5.82, 3.66], [-5.47, 2.88]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.25,
-                "init_y": 5.70,
-                "init_a": 100.71,
-                "velocity": 0.89,
-                "goal_x": 1.96,
-                "goal_y": -0.42,
-                "n_actors": 9,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.84,
-                "init_y": -3.08,
-                "init_a": -33.97,
-                "velocity": 0.98,
-                "goals": [[1.35, -0.58], [3.22, 3.24], [5.40, 1.98], [5.18, -2.10]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.72,
-                "init_y": 4.60,
-                "init_a": 67.69,
-                "velocity": 1.20,
-                "goals": [[4.78, 4.83], [-0.85, -4.02], [1.20, 2.30], [1.65, 4.94]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_69_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 7
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.96,
-                "init_y": 3.75,
-                "init_a": 84.44,
-                "velocity": 0.96,
-                "goals": [[5.09, 3.68], [3.51, 5.48], [3.82, -4.96], [3.92, 2.11]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair0_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.88,
-                "init_y": 2.75,
-                "init_a": 84.44,
-                "velocity": 0.96,
-                "goals": [[5.09, 3.68], [1.08, -0.26], [2.04, -4.01], [-1.76, 5.23]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair1_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.06,
-                "init_y": -1.78,
-                "init_a": 53.96,
-                "velocity": 1.05,
-                "goals": [[5.25, -0.49], [5.70, -1.41], [-5.06, 1.29], [-2.87, -2.35]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair1_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.67,
-                "init_y": -2.58,
-                "init_a": 53.96,
-                "velocity": 1.05,
-                "goals": [[5.25, -0.49], [4.34, -1.13], [-1.71, -4.55], [-4.52, -1.87]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.89,
-                "init_y": 2.60,
-                "init_a": -62.54,
-                "velocity": 1.00,
-                "goals": [[-5.94, -3.06], [1.74, 1.94], [5.98, -5.65], [-1.80, 3.80]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.62,
-                "init_y": 1.72,
-                "init_a": 50.62,
-                "velocity": 0.89,
-                "goal_x": 1.94,
-                "goal_y": 5.77,
-                "n_actors": 7,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.14,
-                "init_y": -2.89,
-                "init_a": -60.89,
-                "velocity": 1.13,
-                "goals": [[-4.94, -0.40], [4.99, 4.52], [2.69, 1.44], [5.85, 2.82]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_70_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 9
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.31,
-                "init_y": -5.96,
-                "init_a": 45.21,
-                "velocity": 0.87,
-                "goals": [[0.31, -1.08], [-1.26, -3.65], [-5.74, 0.78], [-2.60, 2.42]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair0_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.06,
-                "init_y": -6.62,
-                "init_a": 45.21,
-                "velocity": 0.87,
-                "goals": [[0.31, -1.08], [-5.77, 0.57], [2.22, -1.61], [-3.47, 5.32]],
+                "goals": [[-2.03, 2.97], [4.23, 0.68], [-4.58, -0.38], [4.19, 0.69]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -10849,12 +8897,12 @@ def tests_adult_10_child_90_test_case_70_walking_high(tester):
             "module": "pedestrian.walk_sfm",
             "params": {
                 "radius": 0.25,
-                "init_x": -5.23,
-                "init_y": 0.73,
-                "init_a": -140.37,
-                "velocity": 0.87,
-                "goal_x": 1.01,
-                "goal_y": 4.79,
+                "init_x": -7.88,
+                "init_y": 2.24,
+                "init_a": 29.74,
+                "velocity": 0.95,
+                "goal_x": -7.88,
+                "goal_y": 2.24,
                 "n_actors": 9,
             },
         },
@@ -10863,11 +8911,11 @@ def tests_adult_10_child_90_test_case_70_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -4.72,
-                "init_y": -0.14,
-                "init_a": -140.37,
-                "velocity": 0.87,
-                "goals": [[1.01, 4.79], [-2.66, -2.24], [4.85, 2.78], [4.91, 0.82]],
+                "init_x": -8.30,
+                "init_y": 1.33,
+                "init_a": 29.74,
+                "velocity": 0.95,
+                "goals": [[-7.88, 2.24], [-7.40, -5.53], [-4.09, -1.95], [6.41, 3.12]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -10881,11 +8929,11 @@ def tests_adult_10_child_90_test_case_70_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 5.12,
-                "init_y": -0.30,
-                "init_a": -107.26,
-                "velocity": 0.99,
-                "goals": [[2.06, -1.74], [3.08, -1.88], [0.12, -4.55], [-3.37, -2.13]],
+                "init_x": 7.93,
+                "init_y": -1.30,
+                "init_a": -85.66,
+                "velocity": 0.84,
+                "goals": [[2.91, 3.14], [-0.88, -3.30], [-5.91, -4.63], [1.87, -2.20]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -10899,11 +8947,11 @@ def tests_adult_10_child_90_test_case_70_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 2.16,
-                "init_y": 4.25,
-                "init_a": -39.50,
-                "velocity": 0.89,
-                "goals": [[3.96, 3.60], [1.27, -1.58], [-0.05, -3.89], [4.36, 0.35]],
+                "init_x": 3.32,
+                "init_y": 1.52,
+                "init_a": -115.22,
+                "velocity": 1.08,
+                "goals": [[-1.26, 5.49], [0.34, 1.22], [4.95, 2.91], [3.30, 1.72]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -10914,3953 +8962,291 @@ def tests_adult_10_child_90_test_case_70_walking_high(tester):
         },
         {
             "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.43,
+                "init_y": 3.73,
+                "init_a": 2.90,
+                "velocity": 1.12,
+                "goals": [[-0.54, -0.27], [-0.50, 4.47], [-5.04, -4.10], [7.16, -0.37]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single3_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -5.56,
+                "init_y": -3.81,
+                "init_a": 148.06,
+                "velocity": 0.86,
+                "goals": [[-1.79, -3.44], [4.51, 0.67], [-6.96, 4.32], [-1.44, -3.70]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single4_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -7.29,
+                "init_y": 5.16,
+                "init_a": 104.51,
+                "velocity": 1.16,
+                "goals": [[2.05, -3.99], [0.72, -5.98], [1.76, -0.94], [-5.20, -3.48]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_60_walking_high(tester):
+    # Pairs Moving: True
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 8
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.64,
+                "init_y": 1.29,
+                "init_a": 54.76,
+                "velocity": 1.11,
+                "goal_x": 4.38,
+                "goal_y": 5.93,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_pair0_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.28,
+                "init_y": 2.23,
+                "init_a": 54.76,
+                "velocity": 1.11,
+                "goal_x": 4.38,
+                "goal_y": 5.93,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -7.61,
+                "init_y": 5.59,
+                "init_a": 47.70,
+                "velocity": 1.07,
+                "goals": [[-3.66, -3.74], [-7.60, 2.78], [-5.12, -1.42], [7.53, 2.29]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -8.60,
+                "init_y": 5.71,
+                "init_a": 47.70,
+                "velocity": 1.07,
+                "goals": [[-3.66, -3.74], [5.51, -0.69], [6.95, 4.50], [4.59, 1.14]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 3.55,
+                "init_y": 3.34,
+                "init_a": -140.22,
+                "velocity": 0.94,
+                "goals": [[-5.57, -4.46], [6.98, 5.02], [-6.77, -3.76], [0.44, -0.10]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 6.07,
+                "init_y": -5.15,
+                "init_a": -178.76,
+                "velocity": 0.98,
+                "goals": [[6.53, 0.30], [-5.74, -4.92], [-5.34, 5.81], [-6.25, 2.10]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.62,
+                "init_y": -4.18,
+                "init_a": 89.81,
+                "velocity": 0.86,
+                "goals": [[3.93, -4.43], [-5.20, 4.39], [2.43, -0.98], [7.20, 3.04]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single3_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 7.73,
+                "init_y": -1.18,
+                "init_a": -77.11,
+                "velocity": 0.82,
+                "goals": [[5.08, -1.60], [2.07, 0.21], [-5.52, 4.21], [-5.64, 4.49]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_61_stopped_high(tester):
+    # Pairs Moving: False
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 7
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.99,
+                "init_y": 2.09,
+                "init_a": -141.43,
+                "velocity": 0.95,
+                "goal_x": 0.99,
+                "goal_y": 2.09,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.99,
+                "init_y": 2.04,
+                "init_a": -141.43,
+                "velocity": 0.95,
+                "goals": [[0.99, 2.09], [-6.23, 4.98], [5.09, -0.55], [-0.79, -4.05]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.07,
+                "init_y": -3.92,
+                "init_a": -110.00,
+                "velocity": 0.90,
+                "goals": [[1.07, -3.92], [1.20, -5.41], [-6.59, -2.38], [4.82, -0.08]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
                 "init_x": 1.90,
-                "init_y": 1.16,
-                "init_a": 96.99,
-                "velocity": 0.86,
-                "goals": [[3.42, 1.77], [3.70, -2.29], [-1.32, 1.69], [5.28, 4.73]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.09,
-                "init_y": 1.60,
-                "init_a": 49.41,
-                "velocity": 1.17,
-                "goals": [[-4.22, 2.26], [4.22, 3.94], [-3.53, -0.82], [-4.53, -5.14]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.64,
-                "init_y": 2.59,
-                "init_a": -26.04,
-                "velocity": 0.84,
-                "goals": [[-5.18, 1.05], [-4.22, -3.50], [1.71, -1.87], [-0.90, 0.25]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_71_stopped_high(tester):
-    # Pairs Moving: False
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 9
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.82,
-                "init_y": -2.08,
-                "init_a": 113.86,
-                "velocity": 1.15,
-                "goals": [[-2.74, 3.82], [1.60, -4.63], [5.62, -1.22], [-2.73, -3.51]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.40,
-                "init_y": -1.08,
-                "init_a": -139.27,
-                "velocity": 0.87,
-                "goals": [[-1.00, -3.02], [3.16, 1.71], [-4.76, -2.90], [-0.64, -5.11]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.80,
-                "init_y": -2.88,
-                "init_a": 112.52,
-                "velocity": 1.14,
-                "goals": [[3.68, 3.55], [-1.67, -1.12], [-1.26, -4.80], [2.74, 0.10]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.56,
-                "init_y": -0.88,
-                "init_a": -32.96,
-                "velocity": 0.81,
-                "goals": [[2.17, 2.74], [-2.15, -3.93], [0.93, -2.48], [0.29, -4.66]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.70,
-                "init_y": -4.20,
-                "init_a": 98.84,
-                "velocity": 1.06,
-                "goals": [[-3.89, 3.11], [-3.34, 5.94], [-2.27, 4.44], [-0.51, 4.79]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.35,
-                "init_y": 4.14,
-                "init_a": -129.73,
-                "velocity": 0.85,
-                "goal_x": -3.46,
-                "goal_y": -2.80,
-                "n_actors": 9,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.65,
-                "init_y": 1.15,
-                "init_a": 80.56,
-                "velocity": 0.89,
-                "goals": [[0.69, -4.94], [1.58, 3.65], [-1.14, -3.52], [5.56, 4.41]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single7_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.36,
-                "init_y": 0.16,
-                "init_a": 26.67,
-                "velocity": 1.04,
-                "goals": [[-0.24, 1.79], [5.74, 3.48], [-1.07, 0.67], [3.87, 4.58]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single8_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.20,
-                "init_y": 1.67,
-                "init_a": -60.08,
-                "velocity": 0.96,
-                "goals": [[-2.62, -4.58], [0.81, -1.68], [1.97, 1.90], [-0.55, 3.09]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_72_stopped_high(tester):
-    # Pairs Moving: False
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 9
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.62,
-                "init_y": -2.26,
-                "init_a": 130.02,
-                "velocity": 0.86,
-                "goals": [[-5.12, -5.07], [2.16, 1.40], [3.02, 4.97], [0.40, -0.88]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.64,
-                "init_y": 4.69,
-                "init_a": 3.90,
-                "velocity": 1.00,
-                "goals": [[3.95, 0.55], [-1.27, 5.95], [-2.87, -0.58], [2.55, 2.60]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.57,
-                "init_y": -0.26,
-                "init_a": 37.53,
-                "velocity": 0.88,
-                "goals": [[-1.25, -0.02], [-0.69, -4.55], [3.38, 0.73], [-3.47, 5.42]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.07,
-                "init_y": 1.97,
-                "init_a": 39.35,
-                "velocity": 1.00,
-                "goals": [[-0.73, 2.55], [-0.12, -3.52], [5.46, 5.53], [-4.41, 3.30]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.32,
-                "init_y": 5.97,
-                "init_a": 151.38,
-                "velocity": 1.02,
-                "goal_x": -0.67,
-                "goal_y": 4.37,
-                "n_actors": 9,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.24,
-                "init_y": -5.59,
-                "init_a": -156.52,
-                "velocity": 1.09,
-                "goals": [[3.38, -4.21], [-0.56, 2.35], [-4.97, -5.68], [-4.93, -0.89]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.88,
-                "init_y": -0.91,
-                "init_a": 34.35,
-                "velocity": 0.98,
-                "goals": [[-4.41, 2.42], [-5.77, 1.75], [1.67, 3.48], [2.50, -0.03]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single7_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.62,
-                "init_y": -3.73,
-                "init_a": 99.71,
-                "velocity": 0.89,
-                "goals": [[-3.05, 3.66], [-4.25, 0.57], [4.02, -0.17], [-2.88, 4.44]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single8_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.09,
-                "init_y": 4.28,
-                "init_a": 114.02,
-                "velocity": 1.07,
-                "goals": [[-2.89, 4.22], [3.66, 5.48], [2.41, 4.12], [-2.63, -5.78]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_73_stopped_high(tester):
-    # Pairs Moving: False
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 8
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.43,
-                "init_y": -2.77,
-                "init_a": -116.60,
-                "velocity": 0.82,
-                "goals": [[-5.82, 5.97], [-2.69, -0.39], [5.64, 3.61], [5.56, 5.44]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.46,
-                "init_y": 5.24,
-                "init_a": -160.85,
-                "velocity": 1.11,
-                "goals": [[-0.41, 0.92], [5.33, 3.74], [-5.99, -3.88], [-4.60, 1.10]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.46,
-                "init_y": 5.18,
-                "init_a": -116.87,
-                "velocity": 1.18,
-                "goals": [[-5.96, 4.34], [3.91, 3.27], [0.72, -3.42], [-4.35, -2.81]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.41,
-                "init_y": 4.45,
-                "init_a": -54.52,
-                "velocity": 1.16,
-                "goals": [[-4.91, 5.24], [-0.24, -3.05], [-4.27, 2.82], [2.09, -3.11]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.75,
-                "init_y": 0.97,
-                "init_a": -36.03,
-                "velocity": 0.98,
-                "goals": [[1.28, 2.52], [-1.61, -2.15], [2.87, -4.96], [2.67, 2.75]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.55,
-                "init_y": -5.38,
-                "init_a": 94.26,
-                "velocity": 1.04,
-                "goal_x": -5.80,
-                "goal_y": -5.53,
-                "n_actors": 8,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.01,
-                "init_y": 4.66,
-                "init_a": 162.98,
-                "velocity": 1.13,
-                "goals": [[3.69, 1.96], [-2.25, 4.38], [-1.63, 3.58], [5.31, -4.37]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single7_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.28,
-                "init_y": -0.99,
-                "init_a": 80.64,
-                "velocity": 1.18,
-                "goals": [[2.58, 5.62], [1.93, 3.67], [2.58, -4.25], [-1.74, -2.64]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_74_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 8
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.27,
-                "init_y": 3.42,
-                "init_a": 112.30,
-                "velocity": 0.90,
-                "goals": [[-4.66, 2.48], [-3.01, 2.74], [-0.09, -2.73], [5.47, 5.64]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.10,
-                "init_y": 0.53,
-                "init_a": 150.12,
-                "velocity": 1.07,
-                "goals": [[-5.21, 1.56], [2.68, -3.44], [-3.99, 4.02], [1.07, 4.35]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.91,
-                "init_y": 3.63,
-                "init_a": -128.77,
-                "velocity": 1.13,
-                "goals": [[2.03, 0.21], [-0.71, 5.37], [2.92, -2.57], [1.70, 2.88]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.40,
-                "init_y": -2.26,
-                "init_a": -21.13,
-                "velocity": 1.15,
-                "goals": [[-2.68, -2.43], [0.14, -0.99], [5.14, 5.97], [1.86, 4.85]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.74,
-                "init_y": -1.08,
-                "init_a": 151.09,
-                "velocity": 1.06,
-                "goal_x": 2.44,
-                "goal_y": -5.84,
-                "n_actors": 8,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.43,
-                "init_y": 2.82,
-                "init_a": -153.89,
-                "velocity": 1.09,
-                "goals": [[-5.52, -3.32], [-4.16, -5.47], [1.02, -0.27], [4.56, -0.52]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.41,
-                "init_y": 4.44,
-                "init_a": -15.71,
-                "velocity": 0.92,
-                "goals": [[-0.02, 4.25], [0.67, -5.21], [2.28, 0.48], [-3.80, -3.35]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single7_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.20,
-                "init_y": 0.25,
-                "init_a": -73.34,
-                "velocity": 0.85,
-                "goals": [[-5.31, 3.93], [-1.05, 2.87], [-0.68, -0.58], [-2.04, -3.77]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_75_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 7
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.21,
-                "init_y": -4.77,
-                "init_a": 103.01,
-                "velocity": 1.08,
-                "goal_x": -0.25,
-                "goal_y": 3.65,
-                "n_actors": 7,
-            },
-        },
-        {
-            "name": 'actor_pair0_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.53,
-                "init_y": -5.51,
-                "init_a": 103.01,
-                "velocity": 1.08,
-                "goals": [[-0.25, 3.65], [5.14, 1.25], [-3.73, -3.44], [-1.75, -4.27]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair1_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.69,
-                "init_y": -3.60,
-                "init_a": 60.18,
-                "velocity": 1.07,
-                "goals": [[1.20, -3.13], [-1.41, 0.70], [0.45, 5.42], [-5.05, 0.19]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair1_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.22,
                 "init_y": -4.48,
-                "init_a": 60.18,
-                "velocity": 1.07,
-                "goals": [[1.20, -3.13], [-0.44, 4.70], [5.85, -2.60], [1.94, 3.69]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.53,
-                "init_y": -1.86,
-                "init_a": 13.41,
-                "velocity": 1.03,
-                "goals": [[3.92, 0.41], [-2.08, 5.98], [-3.22, 1.48], [1.08, -0.91]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.40,
-                "init_y": 2.90,
-                "init_a": -103.74,
-                "velocity": 0.95,
-                "goals": [[-2.83, -0.60], [3.09, -4.42], [-5.63, 0.40], [-3.55, -2.64]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.52,
-                "init_y": -3.43,
-                "init_a": 24.40,
-                "velocity": 1.00,
-                "goals": [[-1.42, 4.14], [3.85, -5.43], [-3.72, 4.96], [-2.13, -0.90]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_76_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 7
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.63,
-                "init_y": 0.01,
-                "init_a": -44.48,
-                "velocity": 0.92,
-                "goals": [[2.37, -0.18], [-3.23, -0.83], [-4.57, 3.34], [0.02, 4.05]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.10,
-                "init_y": 4.20,
-                "init_a": 120.55,
-                "velocity": 0.98,
-                "goal_x": -4.65,
-                "goal_y": 2.90,
-                "n_actors": 7,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.18,
-                "init_y": 2.72,
-                "init_a": -145.41,
-                "velocity": 1.11,
-                "goals": [[-0.71, 1.04], [5.70, 1.25], [-5.67, -1.16], [2.55, -5.94]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.32,
-                "init_y": 1.82,
-                "init_a": 57.59,
-                "velocity": 0.94,
-                "goals": [[-1.52, 1.48], [-2.18, 5.28], [-1.21, -2.05], [5.60, -0.01]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.94,
-                "init_y": -5.61,
-                "init_a": -6.87,
-                "velocity": 1.15,
-                "goals": [[5.97, 3.15], [-4.41, -5.78], [-5.55, 2.48], [-4.84, 1.75]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.70,
-                "init_y": -3.68,
-                "init_a": -27.52,
-                "velocity": 0.92,
-                "goals": [[-0.08, -3.86], [-3.31, -1.50], [0.95, 5.45], [5.71, 0.62]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.30,
-                "init_y": -5.50,
-                "init_a": 123.74,
-                "velocity": 1.07,
-                "goals": [[0.39, -1.78], [-4.81, -2.87], [-2.76, 4.84], [-2.39, -0.92]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_77_stopped_high(tester):
-    # Pairs Moving: False
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 9
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.40,
-                "init_y": 3.14,
-                "init_a": -1.21,
-                "velocity": 0.87,
-                "goals": [[0.40, 3.14], [2.61, 1.48], [-2.45, -4.90], [-1.64, -2.26]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair0_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.36,
-                "init_y": 4.14,
-                "init_a": -1.21,
-                "velocity": 0.87,
-                "goals": [[0.40, 3.14], [-3.47, 4.95], [0.03, 4.88], [0.78, 0.87]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.76,
-                "init_y": -0.77,
-                "init_a": 26.77,
-                "velocity": 0.94,
-                "goals": [[-4.16, 3.94], [-4.17, 3.75], [-4.93, -1.78], [2.71, 1.17]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.23,
-                "init_y": -5.53,
-                "init_a": -166.32,
-                "velocity": 1.09,
-                "goal_x": -1.11,
-                "goal_y": -3.33,
-                "n_actors": 9,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.87,
-                "init_y": -2.28,
-                "init_a": -33.31,
-                "velocity": 0.96,
-                "goals": [[3.88, -0.68], [4.76, -0.11], [4.88, -0.52], [-0.66, 0.78]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.23,
-                "init_y": 0.06,
-                "init_a": -46.17,
+                "init_a": -110.00,
                 "velocity": 0.90,
-                "goals": [[-4.08, -3.11], [2.34, -3.10], [0.98, -0.50], [0.51, -5.63]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.64,
-                "init_y": -2.21,
-                "init_a": 16.25,
-                "velocity": 1.12,
-                "goals": [[-1.54, -0.97], [-3.07, -1.51], [3.04, 0.17], [-3.74, -3.85]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.90,
-                "init_y": 4.45,
-                "init_a": 2.06,
-                "velocity": 1.04,
-                "goals": [[2.47, 1.86], [-1.91, 0.90], [-3.13, 3.03], [2.40, 3.89]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.28,
-                "init_y": -0.73,
-                "init_a": 44.20,
-                "velocity": 0.88,
-                "goals": [[-1.88, 1.12], [3.19, 0.80], [-1.85, 0.98], [0.04, 1.44]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_78_stopped_high(tester):
-    # Pairs Moving: False
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 7
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.60,
-                "init_y": -3.67,
-                "init_a": -140.59,
-                "velocity": 1.17,
-                "goals": [[-3.60, -3.67], [1.74, 3.72], [-4.83, 5.89], [-1.64, -0.62]],
+                "goals": [[1.07, -3.92], [7.55, -3.38], [6.16, -2.72], [2.06, -0.94]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
                 "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair0_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.52,
-                "init_y": -4.66,
-                "init_a": -140.59,
-                "velocity": 1.17,
-                "goals": [[-3.60, -3.67], [-3.57, 3.76], [-2.13, 5.53], [-2.45, 2.92]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair1_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.78,
-                "init_y": -1.78,
-                "init_a": -81.02,
-                "velocity": 0.92,
-                "goals": [[2.78, -1.78], [-3.03, -5.83], [-0.24, 5.24], [3.42, 5.60]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair1_1',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.92,
-                "init_y": -1.27,
-                "init_a": -81.02,
-                "velocity": 0.92,
-                "goal_x": 2.78,
-                "goal_y": -1.78,
-                "n_actors": 7,
-            },
-        },
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.42,
-                "init_y": 2.12,
-                "init_a": -48.73,
-                "velocity": 0.83,
-                "goals": [[-3.94, -3.00], [-5.86, 5.77], [-0.60, -0.97], [3.60, -5.64]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.00,
-                "init_y": 2.64,
-                "init_a": 36.57,
-                "velocity": 0.86,
-                "goals": [[4.68, 3.40], [5.13, 4.97], [4.86, 0.62], [-1.42, 3.07]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.58,
-                "init_y": 2.89,
-                "init_a": -115.88,
-                "velocity": 1.03,
-                "goals": [[4.89, -4.22], [1.55, 0.96], [0.27, 1.13], [1.36, -2.29]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_79_stopped_high(tester):
-    # Pairs Moving: False
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 7
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.66,
-                "init_y": -5.32,
-                "init_a": -114.62,
-                "velocity": 0.92,
-                "goal_x": -5.66,
-                "goal_y": -5.32,
-                "n_actors": 7,
-            },
-        },
-        {
-            "name": 'actor_pair0_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -6.55,
-                "init_y": -4.88,
-                "init_a": -114.62,
-                "velocity": 0.92,
-                "goals": [[-5.66, -5.32], [-5.24, -2.46], [5.44, -1.60], [4.85, -4.27]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.15,
-                "init_y": -3.35,
-                "init_a": 109.27,
-                "velocity": 0.89,
-                "goals": [[-5.81, -1.73], [4.71, 4.32], [-0.98, 2.02], [1.76, 4.08]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.97,
-                "init_y": 4.11,
-                "init_a": 45.23,
-                "velocity": 0.96,
-                "goals": [[5.84, 0.17], [-2.31, 3.91], [-4.89, -1.35], [4.87, -2.81]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.80,
-                "init_y": -2.94,
-                "init_a": -68.43,
-                "velocity": 1.10,
-                "goals": [[-2.22, -2.11], [-3.07, -5.32], [5.28, -5.03], [-5.81, -5.61]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.92,
-                "init_y": 5.52,
-                "init_a": 173.99,
-                "velocity": 1.04,
-                "goals": [[-5.65, 5.79], [-4.63, -2.29], [-4.66, -0.51], [-3.48, 4.81]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.20,
-                "init_y": 1.33,
-                "init_a": 108.19,
-                "velocity": 1.17,
-                "goals": [[3.21, 3.39], [3.29, -0.56], [0.96, 4.83], [1.24, -5.83]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_80_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 7
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.90,
-                "init_y": 2.37,
-                "init_a": 81.11,
-                "velocity": 1.06,
-                "goals": [[-0.95, -5.06], [-5.48, 1.37], [3.59, -4.76], [5.45, 1.51]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair0_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.23,
-                "init_y": 3.11,
-                "init_a": 81.11,
-                "velocity": 1.06,
-                "goals": [[-0.95, -5.06], [-5.15, -4.94], [5.73, -5.17], [3.22, 2.70]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair1_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.47,
-                "init_y": -1.89,
-                "init_a": -106.13,
-                "velocity": 1.14,
-                "goals": [[-4.77, -5.33], [3.82, 5.13], [1.66, 5.85], [-4.16, -5.33]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair1_1',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.68,
-                "init_y": -0.91,
-                "init_a": -106.13,
-                "velocity": 1.14,
-                "goal_x": -4.77,
-                "goal_y": -5.33,
-                "n_actors": 7,
-            },
-        },
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.08,
-                "init_y": 0.57,
-                "init_a": -128.47,
-                "velocity": 1.09,
-                "goals": [[0.21, -2.22], [1.55, 1.56], [-1.98, -1.23], [2.38, 3.08]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.98,
-                "init_y": 0.29,
-                "init_a": -106.97,
-                "velocity": 0.98,
-                "goals": [[-0.50, -2.50], [-4.62, -1.35], [-0.66, 2.71], [5.67, -4.39]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.95,
-                "init_y": 0.85,
-                "init_a": 30.52,
-                "velocity": 0.92,
-                "goals": [[1.02, -0.09], [-4.09, 1.31], [-2.43, 5.27], [-4.29, 1.30]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_81_stopped_high(tester):
-    # Pairs Moving: False
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 7
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.01,
-                "init_y": 0.38,
-                "init_a": 132.14,
-                "velocity": 0.82,
-                "goals": [[-3.60, 5.18], [-3.89, 0.35], [-1.29, -0.51], [2.61, -5.67]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.01,
-                "init_y": 1.10,
-                "init_a": 24.53,
-                "velocity": 1.07,
-                "goals": [[3.70, -0.32], [-5.04, 3.97], [0.05, 1.33], [1.73, -2.63]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.65,
-                "init_y": 4.40,
-                "init_a": 45.25,
-                "velocity": 0.85,
-                "goals": [[-0.17, -3.67], [-5.67, -4.94], [4.84, -0.65], [3.06, 4.33]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.56,
-                "init_y": 2.97,
-                "init_a": 73.60,
-                "velocity": 1.20,
-                "goals": [[-2.25, -0.40], [5.13, -3.12], [-3.33, -0.48], [3.66, 3.29]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.50,
-                "init_y": 0.88,
-                "init_a": 43.17,
-                "velocity": 0.86,
-                "goals": [[-0.14, -3.24], [-4.64, -5.51], [1.59, 0.77], [-0.18, 0.61]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.68,
-                "init_y": 3.07,
-                "init_a": -58.60,
-                "velocity": 0.91,
-                "goals": [[-4.03, 3.10], [1.92, 1.90], [-2.19, 0.94], [-0.95, -3.14]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single6',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.92,
-                "init_y": -5.28,
-                "init_a": 177.29,
-                "velocity": 1.18,
-                "goal_x": -4.04,
-                "goal_y": -0.10,
-                "n_actors": 7,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_82_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 9
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.29,
-                "init_y": 5.50,
-                "init_a": 158.47,
-                "velocity": 0.95,
-                "goals": [[2.64, -4.79], [-5.44, -1.77], [5.39, -0.74], [-4.84, -3.10]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair0_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.26,
-                "init_y": 5.25,
-                "init_a": 158.47,
-                "velocity": 0.95,
-                "goals": [[2.64, -4.79], [-0.08, 3.05], [-1.15, -2.83], [-4.39, 2.63]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.73,
-                "init_y": -4.23,
-                "init_a": 125.02,
-                "velocity": 1.15,
-                "goals": [[-4.97, -1.13], [-5.89, -5.16], [3.75, -4.72], [-0.76, 4.23]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.76,
-                "init_y": -0.40,
-                "init_a": 143.60,
-                "velocity": 1.12,
-                "goal_x": 5.64,
-                "goal_y": -5.27,
-                "n_actors": 9,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.84,
-                "init_y": 1.42,
-                "init_a": 154.96,
-                "velocity": 1.08,
-                "goals": [[0.05, 3.83], [-5.11, 3.41], [-4.39, 4.95], [-4.32, -1.61]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.87,
-                "init_y": -0.39,
-                "init_a": 7.99,
-                "velocity": 0.98,
-                "goals": [[-1.33, 5.57], [5.51, -0.54], [2.08, 1.44], [3.03, -2.81]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.48,
-                "init_y": 5.33,
-                "init_a": 159.36,
-                "velocity": 0.95,
-                "goals": [[5.91, -1.58], [-4.98, 3.09], [-3.95, 4.49], [-2.82, -2.13]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.32,
-                "init_y": 4.08,
-                "init_a": -90.82,
-                "velocity": 0.95,
-                "goals": [[0.66, 5.57], [-0.60, -2.56], [1.50, 5.12], [0.97, 5.63]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.56,
-                "init_y": 2.09,
-                "init_a": 113.87,
-                "velocity": 1.09,
-                "goals": [[3.47, 0.76], [-1.65, 5.37], [-4.60, -5.32], [4.11, 2.12]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_83_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 7
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.83,
-                "init_y": -4.77,
-                "init_a": 15.18,
-                "velocity": 1.18,
-                "goals": [[5.41, 2.86], [2.25, -2.49], [4.35, -3.57], [-3.31, -4.21]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.35,
-                "init_y": -4.61,
-                "init_a": -59.92,
-                "velocity": 1.15,
-                "goals": [[3.09, 2.71], [-5.70, -3.76], [-0.78, -3.38], [-1.41, -2.71]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.16,
-                "init_y": 1.37,
-                "init_a": -120.85,
-                "velocity": 1.07,
-                "goals": [[-5.19, -3.51], [3.85, -0.96], [2.20, -5.00], [-1.08, -5.23]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.44,
-                "init_y": -4.29,
-                "init_a": 124.10,
-                "velocity": 1.01,
-                "goals": [[5.46, 3.44], [1.61, 5.32], [2.44, -1.92], [-3.05, 4.57]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.14,
-                "init_y": 4.88,
-                "init_a": -146.80,
-                "velocity": 1.03,
-                "goals": [[-3.15, 1.50], [-2.01, 2.52], [0.84, 0.94], [5.91, -4.83]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.45,
-                "init_y": -3.39,
-                "init_a": -164.04,
-                "velocity": 0.99,
-                "goal_x": 1.83,
-                "goal_y": -5.66,
-                "n_actors": 7,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.40,
-                "init_y": -1.87,
-                "init_a": 135.96,
-                "velocity": 1.17,
-                "goals": [[-5.77, 0.74], [-5.93, -1.30], [-4.19, -0.62], [1.08, -2.54]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_84_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 8
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.29,
-                "init_y": -3.02,
-                "init_a": 23.60,
-                "velocity": 0.92,
-                "goals": [[-4.32, -4.85], [0.52, 3.59], [-4.40, 3.39], [-4.82, 3.44]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.00,
-                "init_y": -5.78,
-                "init_a": 22.48,
-                "velocity": 0.96,
-                "goals": [[-4.71, -3.38], [1.26, -0.46], [-4.15, -1.39], [-0.69, -5.32]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.16,
-                "init_y": 2.34,
-                "init_a": -109.52,
-                "velocity": 1.11,
-                "goal_x": -1.78,
-                "goal_y": 1.19,
-                "n_actors": 8,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.61,
-                "init_y": -0.38,
-                "init_a": 122.06,
-                "velocity": 0.97,
-                "goals": [[-4.72, -3.87], [-0.10, 0.97], [0.93, 5.73], [-1.60, -1.28]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.18,
-                "init_y": 1.19,
-                "init_a": -168.45,
-                "velocity": 1.05,
-                "goals": [[-3.90, 1.97], [4.51, -1.75], [-1.73, 3.45], [-0.06, -2.94]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.36,
-                "init_y": -0.81,
-                "init_a": -31.04,
-                "velocity": 1.13,
-                "goals": [[-4.50, -3.62], [-0.58, 0.65], [-1.36, 2.34], [-2.48, -1.50]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.00,
-                "init_y": -3.23,
-                "init_a": -91.30,
-                "velocity": 0.89,
-                "goals": [[1.96, -4.59], [0.70, -0.47], [1.36, -5.13], [-4.08, -4.97]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single7_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.19,
-                "init_y": -3.95,
-                "init_a": -45.30,
-                "velocity": 1.03,
-                "goals": [[2.32, -4.94], [0.41, -1.84], [-0.57, 1.32], [5.69, -0.05]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_85_stopped_high(tester):
-    # Pairs Moving: False
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 8
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.70,
-                "init_y": -4.14,
-                "init_a": 138.08,
-                "velocity": 1.20,
-                "goals": [[-1.70, -4.14], [-2.90, 1.05], [-1.13, -0.05], [0.00, 2.76]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair0_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.04,
-                "init_y": -3.20,
-                "init_a": 138.08,
-                "velocity": 1.20,
-                "goals": [[-1.70, -4.14], [-3.69, 5.79], [-1.51, 2.83], [-5.80, 3.07]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair1_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.15,
-                "init_y": -3.22,
-                "init_a": -22.80,
-                "velocity": 0.89,
-                "goals": [[2.15, -3.22], [-4.82, 0.14], [-2.35, -4.44], [3.73, -5.62]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair1_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.09,
-                "init_y": -4.21,
-                "init_a": -22.80,
-                "velocity": 0.89,
-                "goals": [[2.15, -3.22], [2.85, 3.15], [3.75, -2.17], [3.33, -3.39]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.77,
-                "init_y": -3.94,
-                "init_a": 110.61,
-                "velocity": 1.14,
-                "goals": [[-3.60, 2.39], [0.13, 3.72], [5.59, 0.93], [-1.10, -4.74]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.28,
-                "init_y": -0.33,
-                "init_a": -152.65,
-                "velocity": 0.81,
-                "goals": [[-4.93, 5.10], [-5.46, -4.80], [-5.08, -5.15], [0.28, 5.56]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.37,
-                "init_y": -5.02,
-                "init_a": 156.14,
-                "velocity": 1.11,
-                "goal_x": 2.86,
-                "goal_y": 2.12,
-                "n_actors": 8,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.34,
-                "init_y": 4.27,
-                "init_a": 69.78,
-                "velocity": 1.05,
-                "goals": [[-3.81, 1.28], [-0.05, 3.81], [0.97, -1.51], [4.38, -5.84]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_86_stopped_high(tester):
-    # Pairs Moving: False
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 8
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.10,
-                "init_y": -3.34,
-                "init_a": -44.50,
-                "velocity": 0.91,
-                "goals": [[3.10, -3.34], [1.46, 3.30], [0.79, -4.42], [-3.71, 1.82]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair0_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.12,
-                "init_y": -2.34,
-                "init_a": -44.50,
-                "velocity": 0.91,
-                "goals": [[3.10, -3.34], [1.04, 3.96], [-1.80, 1.27], [2.50, -4.76]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.52,
-                "init_y": -2.12,
-                "init_a": -138.46,
-                "velocity": 1.05,
-                "goals": [[3.51, -3.04], [2.02, -5.93], [1.25, 1.91], [4.19, -5.08]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.46,
-                "init_y": -5.33,
-                "init_a": -21.17,
-                "velocity": 0.98,
-                "goal_x": -4.85,
-                "goal_y": 1.11,
-                "n_actors": 8,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.58,
-                "init_y": 1.57,
-                "init_a": 44.37,
-                "velocity": 1.08,
-                "goals": [[-5.42, -0.42], [2.12, 3.18], [4.28, 0.36], [2.22, 1.13]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.66,
-                "init_y": -3.64,
-                "init_a": -177.96,
-                "velocity": 0.94,
-                "goals": [[3.39, 4.87], [5.92, -1.41], [0.27, -3.71], [-3.76, 2.79]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.98,
-                "init_y": 2.70,
-                "init_a": 145.39,
-                "velocity": 1.01,
-                "goals": [[-3.17, 1.43], [-3.44, 0.80], [0.51, -0.85], [0.19, 3.32]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.83,
-                "init_y": 5.15,
-                "init_a": -119.12,
-                "velocity": 1.19,
-                "goals": [[5.45, 4.11], [-1.99, 3.92], [3.81, -2.11], [-4.20, 0.44]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_87_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 8
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.33,
-                "init_y": -2.35,
-                "init_a": -3.83,
-                "velocity": 1.08,
-                "goals": [[4.34, 0.95], [-2.84, 1.68], [4.06, -5.28], [4.81, -2.44]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.87,
-                "init_y": 1.70,
-                "init_a": 150.97,
-                "velocity": 1.03,
-                "goals": [[-2.37, 3.93], [1.94, -1.55], [-1.65, -3.12], [5.64, -0.26]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.04,
-                "init_y": -0.16,
-                "init_a": -1.66,
-                "velocity": 1.18,
-                "goals": [[4.78, -0.41], [5.54, 0.83], [4.37, 0.44], [-5.40, -2.79]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.47,
-                "init_y": 5.51,
-                "init_a": -148.02,
-                "velocity": 1.10,
-                "goals": [[-1.40, -5.04], [-0.37, 5.13], [-2.75, 5.73], [-3.33, -2.92]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.50,
-                "init_y": -0.15,
-                "init_a": 99.23,
-                "velocity": 0.93,
-                "goals": [[-2.89, 4.08], [3.56, 5.20], [-2.90, -4.67], [-1.83, 5.05]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.97,
-                "init_y": 4.51,
-                "init_a": 120.26,
-                "velocity": 0.87,
-                "goals": [[0.37, -2.43], [2.50, -5.28], [-3.32, 4.12], [-2.24, 0.07]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.46,
-                "init_y": 5.58,
-                "init_a": 111.68,
-                "velocity": 1.19,
-                "goals": [[5.33, -4.05], [-5.44, 3.63], [-0.87, 1.67], [-4.23, 3.29]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single7',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.74,
-                "init_y": 4.20,
-                "init_a": -136.53,
-                "velocity": 0.95,
-                "goal_x": -5.75,
-                "goal_y": 4.82,
-                "n_actors": 8,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_88_stopped_high(tester):
-    # Pairs Moving: False
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 7
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.26,
-                "init_y": -1.74,
-                "init_a": -63.27,
-                "velocity": 0.82,
-                "goals": [[-4.29, 4.44], [2.22, -5.31], [5.35, -2.33], [-0.94, 2.73]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.60,
-                "init_y": 2.39,
-                "init_a": 61.07,
-                "velocity": 1.01,
-                "goals": [[4.61, 2.28], [-3.00, -4.93], [-4.26, -5.49], [-2.95, 5.14]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.97,
-                "init_y": -6.00,
-                "init_a": -83.41,
-                "velocity": 1.01,
-                "goals": [[0.93, 5.62], [-5.42, 5.80], [-0.22, -1.85], [-3.06, -0.59]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.20,
-                "init_y": 3.07,
-                "init_a": -157.92,
-                "velocity": 0.93,
-                "goals": [[-5.14, 2.70], [-2.65, 3.57], [-1.75, -2.48], [1.72, -0.72]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.72,
-                "init_y": -5.14,
-                "init_a": -173.05,
-                "velocity": 0.84,
-                "goals": [[3.69, 0.60], [-1.80, -5.08], [3.11, -0.13], [3.91, 1.52]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.46,
-                "init_y": -2.50,
-                "init_a": 32.07,
-                "velocity": 0.84,
-                "goals": [[-3.84, 1.13], [-0.69, -0.26], [-0.93, -4.86], [-1.59, -0.61]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single6',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.31,
-                "init_y": 3.13,
-                "init_a": -21.81,
-                "velocity": 1.05,
-                "goal_x": 2.50,
-                "goal_y": 1.33,
-                "n_actors": 7,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_89_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 9
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.07,
-                "init_y": 0.94,
-                "init_a": -82.96,
-                "velocity": 0.89,
-                "goals": [[0.10, -2.21], [2.28, -5.58], [1.54, 2.70], [0.77, -3.93]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair0_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.62,
-                "init_y": 1.78,
-                "init_a": -82.96,
-                "velocity": 0.89,
-                "goals": [[0.10, -2.21], [-5.38, -1.13], [-4.71, -0.46], [-2.05, -5.49]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.46,
-                "init_y": 4.91,
-                "init_a": 108.11,
-                "velocity": 0.96,
-                "goals": [[3.68, 5.22], [-1.56, -4.09], [4.89, -0.88], [2.59, 4.62]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.87,
-                "init_y": -0.93,
-                "init_a": 80.64,
-                "velocity": 0.96,
-                "goals": [[3.32, -3.84], [-3.66, -0.68], [-4.20, 1.25], [1.44, -3.33]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.95,
-                "init_y": -1.18,
-                "init_a": -140.95,
-                "velocity": 1.03,
-                "goals": [[-5.04, -0.41], [5.23, 0.21], [5.21, -1.25], [5.80, -3.48]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.10,
-                "init_y": 0.87,
-                "init_a": 53.72,
-                "velocity": 1.04,
-                "goals": [[4.63, -4.28], [3.50, 2.76], [-5.78, 0.80], [5.71, -5.32]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.64,
-                "init_y": 4.79,
-                "init_a": -8.06,
-                "velocity": 0.89,
-                "goals": [[-3.36, -2.17], [3.46, 3.61], [2.74, 1.02], [5.05, -5.97]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.10,
-                "init_y": -3.83,
-                "init_a": 177.98,
-                "velocity": 1.11,
-                "goal_x": 3.58,
-                "goal_y": -2.66,
-                "n_actors": 9,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.27,
-                "init_y": 3.23,
-                "init_a": 136.93,
-                "velocity": 1.06,
-                "goals": [[4.92, 2.56], [-4.75, -5.48], [-0.98, -1.18], [0.74, 3.85]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_90_stopped_high(tester):
-    # Pairs Moving: False
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 9
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.70,
-                "init_y": 2.74,
-                "init_a": 64.60,
-                "velocity": 0.99,
-                "goals": [[-0.70, 2.74], [3.25, -5.80], [-3.71, -2.30], [-0.58, 1.71]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair0_1',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.76,
-                "init_y": 3.73,
-                "init_a": 64.60,
-                "velocity": 0.99,
-                "goal_x": -0.70,
-                "goal_y": 2.74,
-                "n_actors": 9,
-            },
-        },
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.34,
-                "init_y": -4.23,
-                "init_a": 112.02,
-                "velocity": 1.17,
-                "goals": [[-0.67, -2.28], [1.04, 2.88], [-0.87, 1.42], [-1.94, 1.47]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.39,
-                "init_y": -0.16,
-                "init_a": 144.82,
-                "velocity": 1.06,
-                "goals": [[2.14, 1.13], [4.52, 0.38], [2.79, -1.72], [-1.91, -3.95]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.65,
-                "init_y": 5.72,
-                "init_a": 172.37,
-                "velocity": 0.86,
-                "goals": [[-4.44, 2.66], [5.97, 5.70], [-5.39, 1.24], [-5.71, 5.03]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.12,
-                "init_y": 0.93,
-                "init_a": 105.00,
-                "velocity": 0.98,
-                "goals": [[-4.13, 3.06], [-5.17, 1.72], [-0.16, 4.95], [-0.38, 3.06]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.20,
-                "init_y": 3.62,
-                "init_a": -31.65,
-                "velocity": 1.11,
-                "goals": [[-1.06, -4.58], [-0.43, 2.82], [1.09, -5.97], [4.97, -0.13]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.78,
-                "init_y": 3.67,
-                "init_a": -6.30,
-                "velocity": 0.84,
-                "goals": [[-5.26, -2.02], [-4.00, -5.00], [-3.36, 5.52], [3.20, -3.74]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.16,
-                "init_y": -3.08,
-                "init_a": -93.83,
-                "velocity": 0.94,
-                "goals": [[-1.97, -4.49], [0.77, -0.11], [5.43, -2.59], [4.70, -5.01]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_91_stopped_high(tester):
-    # Pairs Moving: False
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 7
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.22,
-                "init_y": 4.39,
-                "init_a": -13.42,
-                "velocity": 0.93,
-                "goals": [[-5.79, -1.89], [-5.92, 4.88], [-0.03, -0.34], [0.04, 2.57]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.82,
-                "init_y": -1.61,
-                "init_a": 20.35,
-                "velocity": 1.01,
-                "goals": [[1.31, -2.91], [4.18, -0.53], [-2.79, -3.40], [-1.11, 1.87]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.61,
-                "init_y": 5.86,
-                "init_a": -20.39,
-                "velocity": 1.00,
-                "goals": [[-2.02, -4.45], [-5.76, 3.63], [-2.59, 5.37], [-2.43, -2.31]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.06,
-                "init_y": 3.26,
-                "init_a": -141.90,
-                "velocity": 1.18,
-                "goals": [[1.93, -4.65], [-0.23, -3.81], [-2.81, 3.31], [4.58, 5.76]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.79,
-                "init_y": -0.39,
-                "init_a": 94.44,
-                "velocity": 1.02,
-                "goals": [[1.42, 2.61], [0.62, -0.30], [5.55, -5.33], [-5.07, 0.56]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.80,
-                "init_y": -4.54,
-                "init_a": 54.30,
-                "velocity": 1.14,
-                "goals": [[1.45, -3.67], [-5.84, -5.87], [0.62, -4.20], [-1.59, -1.56]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single6',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.75,
-                "init_y": 3.74,
-                "init_a": 110.84,
-                "velocity": 0.85,
-                "goal_x": -3.89,
-                "goal_y": -3.99,
-                "n_actors": 7,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_92_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 8
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.87,
-                "init_y": 1.79,
-                "init_a": 164.51,
-                "velocity": 1.15,
-                "goals": [[2.05, -2.42], [4.92, 0.59], [5.35, -5.91], [-1.69, 2.19]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair0_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.78,
-                "init_y": 2.20,
-                "init_a": 164.51,
-                "velocity": 1.15,
-                "goals": [[2.05, -2.42], [-2.31, 4.45], [-2.11, -1.82], [-5.14, 4.94]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair1_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.03,
-                "init_y": -0.52,
-                "init_a": -2.78,
-                "velocity": 0.94,
-                "goals": [[-4.56, -2.44], [0.13, 1.31], [0.13, 3.82], [-3.08, 1.99]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair1_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.32,
-                "init_y": 0.18,
-                "init_a": -2.78,
-                "velocity": 0.94,
-                "goals": [[-4.56, -2.44], [-5.12, -4.64], [-5.73, -3.00], [0.19, -5.55]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.89,
-                "init_y": 2.97,
-                "init_a": -90.74,
-                "velocity": 0.87,
-                "goals": [[0.62, 3.15], [-5.20, 3.26], [-3.07, 3.65], [0.22, -3.11]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.79,
-                "init_y": -0.24,
-                "init_a": -137.03,
-                "velocity": 1.12,
-                "goal_x": -2.76,
-                "goal_y": -1.66,
-                "n_actors": 8,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.64,
-                "init_y": 3.57,
-                "init_a": 110.22,
-                "velocity": 1.01,
-                "goals": [[-3.44, 0.03], [1.69, 4.69], [-2.73, 2.97], [3.92, 0.04]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.50,
-                "init_y": -0.99,
-                "init_a": -122.00,
-                "velocity": 1.19,
-                "goals": [[2.55, -1.71], [-0.21, -4.59], [-0.74, -1.54], [-1.71, 1.00]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_93_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 7
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.37,
-                "init_y": 4.03,
-                "init_a": 26.10,
-                "velocity": 0.99,
-                "goals": [[-1.32, 3.82], [5.36, -5.55], [-4.38, 1.96], [-1.44, 5.38]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.37,
-                "init_y": -2.98,
-                "init_a": -106.59,
-                "velocity": 0.84,
-                "goals": [[-3.29, -3.16], [-0.61, 3.32], [1.76, 1.87], [-5.87, 3.69]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.96,
-                "init_y": 5.92,
-                "init_a": -39.26,
-                "velocity": 1.19,
-                "goals": [[0.48, 1.50], [2.10, 1.92], [-2.42, 5.48], [3.52, -4.15]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.79,
-                "init_y": -4.82,
-                "init_a": -76.70,
-                "velocity": 1.08,
-                "goal_x": -2.38,
-                "goal_y": 0.75,
-                "n_actors": 7,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.50,
-                "init_y": -4.98,
-                "init_a": -77.76,
-                "velocity": 1.15,
-                "goals": [[3.73, 3.89], [-4.52, 2.39], [0.76, 2.97], [-2.51, 4.51]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.13,
-                "init_y": -4.11,
-                "init_a": -74.95,
-                "velocity": 0.82,
-                "goals": [[0.80, 2.56], [1.86, -0.56], [-1.78, 4.27], [3.83, 0.29]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.04,
-                "init_y": -5.30,
-                "init_a": -45.64,
-                "velocity": 0.92,
-                "goals": [[-3.93, -0.56], [3.32, 0.87], [-5.95, -3.20], [-1.74, 2.96]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_94_stopped_high(tester):
-    # Pairs Moving: False
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 8
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.17,
-                "init_y": 5.31,
-                "init_a": -3.78,
-                "velocity": 0.94,
-                "goals": [[2.17, 5.31], [-0.20, -5.89], [5.63, -2.92], [-5.00, 3.33]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair0_1',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.78,
-                "init_y": 6.23,
-                "init_a": -3.78,
-                "velocity": 0.94,
-                "goal_x": 2.17,
-                "goal_y": 5.31,
-                "n_actors": 8,
-            },
-        },
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.77,
-                "init_y": -4.62,
-                "init_a": -91.41,
-                "velocity": 1.02,
-                "goals": [[2.39, -1.43], [4.71, -5.65], [-3.02, -1.48], [-3.08, 1.13]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.02,
-                "init_y": 2.51,
-                "init_a": 172.41,
-                "velocity": 0.94,
-                "goals": [[-0.70, 3.49], [-3.02, -5.96], [-2.10, 5.30], [1.14, -2.52]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.35,
-                "init_y": -1.59,
-                "init_a": -24.57,
-                "velocity": 0.98,
-                "goals": [[0.12, 5.27], [-0.34, 0.29], [-2.08, 0.79], [2.21, 4.83]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.65,
-                "init_y": 4.27,
-                "init_a": -151.41,
-                "velocity": 1.08,
-                "goals": [[3.93, -3.09], [2.58, 2.90], [-1.10, -0.52], [-0.42, 3.11]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.61,
-                "init_y": 3.87,
-                "init_a": 123.50,
-                "velocity": 0.91,
-                "goals": [[2.80, 5.88], [-1.83, -3.02], [-3.05, -1.55], [4.68, 1.36]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.88,
-                "init_y": -4.71,
-                "init_a": -168.29,
-                "velocity": 1.18,
-                "goals": [[-3.90, 2.29], [-1.18, 3.05], [4.07, 2.72], [-0.35, 3.39]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_95_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 9
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.19,
-                "init_y": -1.86,
-                "init_a": 157.73,
-                "velocity": 0.85,
-                "goals": [[5.26, -3.76], [3.66, -1.32], [4.39, 5.62], [2.67, -5.43]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.92,
-                "init_y": 5.55,
-                "init_a": -110.07,
-                "velocity": 1.15,
-                "goals": [[2.52, -0.29], [-3.11, 5.10], [4.53, 2.27], [-0.13, 1.48]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single2',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.50,
-                "init_y": -0.30,
-                "init_a": 162.39,
-                "velocity": 0.98,
-                "goal_x": -2.77,
-                "goal_y": 2.54,
-                "n_actors": 9,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 1.24,
-                "init_y": 4.25,
-                "init_a": 111.40,
-                "velocity": 1.01,
-                "goals": [[2.99, 5.96], [5.86, 5.01], [0.77, -2.98], [-2.36, -2.41]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.50,
-                "init_y": -3.35,
-                "init_a": -150.60,
-                "velocity": 0.88,
-                "goals": [[1.85, -3.19], [0.19, -4.16], [-3.92, 3.95], [-5.90, 5.38]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -2.93,
-                "init_y": -5.08,
-                "init_a": 4.18,
-                "velocity": 1.15,
-                "goals": [[-5.64, 5.60], [-2.62, -4.15], [-1.88, 0.43], [5.68, -2.86]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.47,
-                "init_y": 0.82,
-                "init_a": -45.78,
-                "velocity": 0.97,
-                "goals": [[-4.58, -0.07], [-0.99, 1.45], [1.28, 5.19], [1.06, -1.53]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single7_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 2.68,
-                "init_y": 5.44,
-                "init_a": 178.37,
-                "velocity": 1.18,
-                "goals": [[-3.44, 4.28], [5.78, -4.07], [-4.85, -0.65], [0.67, 1.77]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single8_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.47,
-                "init_y": -3.19,
-                "init_a": 89.05,
-                "velocity": 0.82,
-                "goals": [[-5.21, 0.65], [2.08, 4.11], [1.80, -5.61], [-0.01, 2.61]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_96_walking_high(tester):
-    # Pairs Moving: True
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 9
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_pair0_0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 5.28,
-                "init_y": -3.74,
-                "init_a": 30.13,
-                "velocity": 0.89,
-                "goals": [[-2.11, 3.08], [0.45, 0.49], [1.59, -4.01], [-3.86, 3.41]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_pair0_1_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.31,
-                "init_y": -3.47,
-                "init_a": 30.13,
-                "velocity": 0.89,
-                "goals": [[-2.11, 3.08], [5.59, -2.52], [-1.39, 2.20], [-3.02, -1.92]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
                 "random_seed": 100,
             },
         },
@@ -14869,13 +9255,13 @@ def tests_adult_10_child_90_test_case_96_walking_high(tester):
             "module": "pedestrian.walk_sfm",
             "params": {
                 "radius": 0.25,
-                "init_x": 4.78,
-                "init_y": 1.84,
-                "init_a": -21.00,
-                "velocity": 0.82,
-                "goal_x": 2.13,
-                "goal_y": -0.13,
-                "n_actors": 9,
+                "init_x": -6.25,
+                "init_y": 4.61,
+                "init_a": -60.70,
+                "velocity": 1.10,
+                "goal_x": 5.56,
+                "goal_y": 3.38,
+                "n_actors": 7,
             },
         },
         {
@@ -14883,11 +9269,601 @@ def tests_adult_10_child_90_test_case_96_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -0.60,
-                "init_y": 0.50,
-                "init_a": 99.66,
+                "init_x": -1.56,
+                "init_y": -5.40,
+                "init_a": -170.98,
+                "velocity": 1.11,
+                "goals": [[4.71, -2.50], [-6.06, -4.42], [4.24, 0.75], [-4.11, 2.18]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -7.50,
+                "init_y": 2.54,
+                "init_a": -89.36,
                 "velocity": 1.13,
-                "goals": [[-3.43, 3.65], [4.97, 5.91], [5.60, 1.28], [-2.70, 2.74]],
+                "goals": [[-6.74, -0.84], [2.66, -2.01], [6.93, 2.27], [6.10, -4.51]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_62_stopped_high(tester):
+    # Pairs Moving: False
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 9
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.98,
+                "init_y": 4.30,
+                "init_a": -172.71,
+                "velocity": 0.80,
+                "goals": [[5.98, 4.30], [2.57, -4.50], [3.13, 3.86], [-2.36, 0.72]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 6.98,
+                "init_y": 4.35,
+                "init_a": -172.71,
+                "velocity": 0.80,
+                "goals": [[5.98, 4.30], [4.96, -5.93], [-3.46, -2.78], [0.46, 4.16]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -1.33,
+                "init_y": 1.09,
+                "init_a": -64.29,
+                "velocity": 1.12,
+                "goals": [[-1.33, 1.09], [-0.73, -4.75], [2.30, -3.47], [-5.96, 4.35]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -2.27,
+                "init_y": 1.43,
+                "init_a": -64.29,
+                "velocity": 1.12,
+                "goals": [[-1.33, 1.09], [4.97, 4.53], [-3.65, -4.16], [7.42, -0.16]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.50,
+                "init_y": 0.96,
+                "init_a": 90.77,
+                "velocity": 1.13,
+                "goals": [[-6.09, -0.56], [-7.03, -0.86], [3.27, 3.13], [-4.60, -0.03]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.42,
+                "init_y": -2.28,
+                "init_a": -147.87,
+                "velocity": 0.97,
+                "goals": [[1.69, -0.46], [-1.40, 2.59], [4.71, 4.86], [7.79, 4.24]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -4.90,
+                "init_y": -3.48,
+                "init_a": -67.97,
+                "velocity": 1.17,
+                "goal_x": -2.12,
+                "goal_y": 1.55,
+                "n_actors": 9,
+            },
+        },
+        {
+            "name": 'actor_single3_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -2.25,
+                "init_y": -1.12,
+                "init_a": 14.93,
+                "velocity": 1.08,
+                "goals": [[3.27, 4.54], [0.61, 0.16], [-4.49, 1.61], [-0.92, -1.07]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single4',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 7.18,
+                "init_y": 1.91,
+                "init_a": -56.20,
+                "velocity": 1.01,
+                "goal_x": -3.15,
+                "goal_y": 1.62,
+                "n_actors": 9,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_63_stopped_high(tester):
+    # Pairs Moving: False
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 7
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 7.87,
+                "init_y": -2.53,
+                "init_a": -157.72,
+                "velocity": 1.19,
+                "goals": [[7.87, -2.53], [-6.16, -1.41], [4.78, -0.03], [0.79, 1.89]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 8.09,
+                "init_y": -1.55,
+                "init_a": -157.72,
+                "velocity": 1.19,
+                "goals": [[7.87, -2.53], [6.26, -3.62], [-7.07, -2.02], [5.52, -5.52]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.47,
+                "init_y": -3.00,
+                "init_a": 168.65,
+                "velocity": 0.89,
+                "goals": [[1.47, -3.00], [-2.63, 2.80], [-1.98, 2.54], [3.52, -2.95]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.01,
+                "init_y": -2.10,
+                "init_a": 168.65,
+                "velocity": 0.89,
+                "goals": [[1.47, -3.00], [-6.56, 2.16], [2.29, 0.93], [-7.46, 0.77]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.36,
+                "init_y": -4.22,
+                "init_a": 74.54,
+                "velocity": 1.07,
+                "goal_x": -6.73,
+                "goal_y": 0.89,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -4.36,
+                "init_y": 0.96,
+                "init_a": -136.63,
+                "velocity": 1.11,
+                "goals": [[7.32, 0.24], [-5.90, 3.27], [3.89, -0.51], [6.60, -1.24]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.90,
+                "init_y": -1.93,
+                "init_a": -37.05,
+                "velocity": 1.14,
+                "goal_x": -1.70,
+                "goal_y": -3.80,
+                "n_actors": 7,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_64_walking_high(tester):
+    # Pairs Moving: True
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 8
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -1.11,
+                "init_y": 4.39,
+                "init_a": 100.23,
+                "velocity": 0.82,
+                "goal_x": 6.25,
+                "goal_y": -5.10,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.15,
+                "init_y": 4.66,
+                "init_a": 100.23,
+                "velocity": 0.82,
+                "goals": [[6.25, -5.10], [5.80, 1.46], [5.36, -4.68], [-5.63, 2.04]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.02,
+                "init_y": -4.35,
+                "init_a": -116.00,
+                "velocity": 0.93,
+                "goals": [[-6.82, -1.31], [-0.93, -4.14], [-7.13, 4.84], [-6.76, 1.83]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.73,
+                "init_y": -3.64,
+                "init_a": -116.00,
+                "velocity": 0.93,
+                "goals": [[-6.82, -1.31], [-6.75, 1.01], [2.78, -3.56], [2.60, -1.57]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 3.48,
+                "init_y": -3.61,
+                "init_a": -147.54,
+                "velocity": 1.16,
+                "goals": [[3.11, 5.94], [-6.03, 3.10], [7.03, 3.10], [5.64, -2.58]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.78,
+                "init_y": 4.18,
+                "init_a": 74.75,
+                "velocity": 0.92,
+                "goal_x": -4.24,
+                "goal_y": -0.40,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -1.12,
+                "init_y": 3.43,
+                "init_a": 12.27,
+                "velocity": 1.14,
+                "goals": [[1.58, -0.89], [-2.03, -5.35], [-6.93, -3.49], [0.53, -3.90]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single3_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.24,
+                "init_y": -4.07,
+                "init_a": 27.79,
+                "velocity": 0.92,
+                "goals": [[5.09, -3.04], [6.78, 1.86], [-2.62, 2.39], [-5.64, 0.65]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_65_stopped_high(tester):
+    # Pairs Moving: False
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 9
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 3.61,
+                "init_y": -4.95,
+                "init_a": -6.29,
+                "velocity": 0.99,
+                "goals": [[3.61, -4.95], [-2.69, -4.76], [3.09, 5.77], [3.72, -1.01]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 2.64,
+                "init_y": -5.16,
+                "init_a": -6.29,
+                "velocity": 0.99,
+                "goal_x": 3.61,
+                "goal_y": -4.95,
+                "n_actors": 9,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.85,
+                "init_y": -1.73,
+                "init_a": -0.49,
+                "velocity": 0.82,
+                "goals": [[-0.85, -1.73], [-0.48, 1.59], [-1.73, -3.69], [-4.87, 2.62]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -1.32,
+                "init_y": -2.61,
+                "init_a": -0.49,
+                "velocity": 0.82,
+                "goal_x": -0.85,
+                "goal_y": -1.73,
+                "n_actors": 9,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.80,
+                "init_y": 2.56,
+                "init_a": -26.85,
+                "velocity": 1.05,
+                "goals": [[-1.73, -5.06], [3.20, 3.25], [4.19, -0.02], [-6.36, -5.85]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 3.53,
+                "init_y": -4.42,
+                "init_a": 131.50,
+                "velocity": 1.16,
+                "goals": [[-5.68, -0.30], [-1.15, -2.58], [-5.43, 3.62], [2.44, -2.18]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -14901,11 +9877,11 @@ def tests_adult_10_child_90_test_case_96_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -2.61,
-                "init_y": 2.43,
-                "init_a": 126.35,
-                "velocity": 1.03,
-                "goals": [[2.76, -1.63], [-0.25, 2.57], [2.91, 4.79], [5.16, -3.20]],
+                "init_x": 0.62,
+                "init_y": 2.74,
+                "init_a": 44.82,
+                "velocity": 1.10,
+                "goals": [[0.76, 5.05], [-3.23, 4.11], [5.43, 0.83], [6.99, 0.92]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -14919,11 +9895,11 @@ def tests_adult_10_child_90_test_case_96_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -1.43,
-                "init_y": -4.34,
-                "init_a": -84.14,
-                "velocity": 0.80,
-                "goals": [[3.82, -5.48], [-1.98, 3.49], [0.44, 4.75], [-1.24, 1.60]],
+                "init_x": -3.62,
+                "init_y": -5.83,
+                "init_a": -68.59,
+                "velocity": 0.87,
+                "goals": [[7.60, -5.23], [6.08, 4.35], [-1.63, 0.87], [-6.94, 2.26]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -14937,47 +9913,11 @@ def tests_adult_10_child_90_test_case_96_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -2.48,
-                "init_y": -3.80,
-                "init_a": -26.87,
-                "velocity": 1.12,
-                "goals": [[-0.18, 5.45], [-1.85, -3.43], [0.46, 4.58], [-3.04, -2.03]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.53,
-                "init_y": -1.12,
-                "init_a": 0.96,
-                "velocity": 1.02,
-                "goals": [[-2.59, 3.10], [3.95, -3.35], [-4.86, 1.27], [4.10, -1.76]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.00,
-                "init_y": 1.22,
-                "init_a": -132.13,
-                "velocity": 1.01,
-                "goals": [[-4.06, 2.33], [-5.40, 5.66], [3.41, -5.69], [0.96, -5.60]],
+                "init_x": -1.89,
+                "init_y": -0.85,
+                "init_a": 37.13,
+                "velocity": 1.05,
+                "goals": [[-6.71, 3.74], [3.67, 0.66], [6.18, -2.65], [-4.59, 4.05]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -14994,7 +9934,141 @@ def tests_adult_10_child_90_test_case_96_walking_high(tester):
     
     _goto_target1(tester)
 
-def tests_adult_10_child_90_test_case_97_walking_high(tester):
+def tests_adult_20_child_80_test_case_66_stopped_high(tester):
+    # Pairs Moving: False
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 7
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -6.27,
+                "init_y": -5.88,
+                "init_a": -30.55,
+                "velocity": 0.88,
+                "goal_x": -6.27,
+                "goal_y": -5.88,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_pair0_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -5.82,
+                "init_y": -4.99,
+                "init_a": -30.55,
+                "velocity": 0.88,
+                "goal_x": -6.27,
+                "goal_y": -5.88,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -1.27,
+                "init_y": -0.65,
+                "init_a": 52.54,
+                "velocity": 1.02,
+                "goals": [[-1.27, -0.65], [-4.93, 3.08], [-1.48, -4.05], [4.88, 5.79]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.28,
+                "init_y": -0.50,
+                "init_a": 52.54,
+                "velocity": 1.02,
+                "goals": [[-1.27, -0.65], [-2.81, 1.61], [0.67, -2.76], [0.13, 1.72]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.42,
+                "init_y": -4.77,
+                "init_a": -108.03,
+                "velocity": 0.98,
+                "goals": [[-7.09, -5.41], [0.53, 4.78], [3.32, -5.53], [-3.89, 1.74]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.24,
+                "init_y": -2.94,
+                "init_a": -71.74,
+                "velocity": 0.98,
+                "goals": [[2.06, 4.29], [-6.65, -4.61], [-7.94, -4.95], [-2.82, -5.48]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.13,
+                "init_y": -4.25,
+                "init_a": 128.99,
+                "velocity": 0.83,
+                "goals": [[-2.46, -4.50], [1.95, 1.09], [0.61, 2.44], [-0.96, 0.50]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_67_walking_high(tester):
     # Pairs Moving: True
     tester.check_collision()
     tester.reset_position()
@@ -15003,15 +10077,15 @@ def tests_adult_10_child_90_test_case_97_walking_high(tester):
     
     _setup_actors(tester, actors=[
         {
-            "name": 'actor_single0_child',
+            "name": 'actor_pair0_0_child',
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 4.90,
-                "init_y": 0.99,
-                "init_a": -160.74,
-                "velocity": 0.94,
-                "goals": [[1.95, -2.87], [1.70, 4.86], [3.66, -3.62], [0.20, -0.11]],
+                "init_x": -3.71,
+                "init_y": 2.04,
+                "init_a": -77.81,
+                "velocity": 0.96,
+                "goals": [[-6.86, -2.82], [3.55, 3.33], [5.09, -0.71], [-2.21, 3.18]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -15021,15 +10095,231 @@ def tests_adult_10_child_90_test_case_97_walking_high(tester):
             },
         },
         {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -4.24,
+                "init_y": 1.19,
+                "init_a": -77.81,
+                "velocity": 0.96,
+                "goals": [[-6.86, -2.82], [-1.92, -5.19], [-5.10, -3.31], [6.11, -4.94]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 3.46,
+                "init_y": 3.84,
+                "init_a": -0.43,
+                "velocity": 0.97,
+                "goals": [[-7.27, -4.33], [-6.42, 2.23], [-1.05, -4.18], [5.62, -1.10]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 3.85,
+                "init_y": 4.75,
+                "init_a": -0.43,
+                "velocity": 0.97,
+                "goals": [[-7.27, -4.33], [6.84, -3.52], [-5.70, -0.08], [5.25, -5.40]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -4.91,
+                "init_y": 5.08,
+                "init_a": 155.57,
+                "velocity": 1.12,
+                "goals": [[0.46, -5.31], [6.51, 1.70], [4.50, 2.08], [-5.96, -3.26]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 2.32,
+                "init_y": -5.01,
+                "init_a": -75.09,
+                "velocity": 0.81,
+                "goal_x": -0.75,
+                "goal_y": -1.53,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_single2',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 7.68,
+                "init_y": 1.83,
+                "init_a": 58.05,
+                "velocity": 0.96,
+                "goal_x": -7.17,
+                "goal_y": -3.52,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_single3_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -2.15,
+                "init_y": 3.44,
+                "init_a": 49.67,
+                "velocity": 1.13,
+                "goals": [[6.27, -5.00], [3.49, -1.17], [2.46, -0.28], [7.77, 5.08]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_68_stopped_high(tester):
+    # Pairs Moving: False
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 8
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -1.49,
+                "init_y": -0.10,
+                "init_a": -39.32,
+                "velocity": 1.01,
+                "goals": [[-1.49, -0.10], [3.26, 0.45], [5.77, 5.13], [7.84, 1.10]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.79,
+                "init_y": -0.82,
+                "init_a": -39.32,
+                "velocity": 1.01,
+                "goal_x": -1.49,
+                "goal_y": -0.10,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -4.26,
+                "init_y": 2.08,
+                "init_a": -104.95,
+                "velocity": 0.82,
+                "goals": [[-4.26, 2.08], [-6.07, 1.65], [4.34, 2.67], [-6.72, 1.07]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -5.26,
+                "init_y": 2.07,
+                "init_a": -104.95,
+                "velocity": 0.82,
+                "goals": [[-4.26, 2.08], [-3.56, 3.17], [-0.00, -0.84], [6.36, -1.38]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 3.91,
+                "init_y": -2.99,
+                "init_a": -64.56,
+                "velocity": 0.99,
+                "goal_x": 7.74,
+                "goal_y": -1.73,
+                "n_actors": 8,
+            },
+        },
+        {
             "name": 'actor_single1_child',
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -4.75,
-                "init_y": -2.18,
-                "init_a": -28.68,
-                "velocity": 1.08,
-                "goals": [[-0.90, -1.74], [-4.43, 3.68], [-0.54, -1.80], [0.33, -5.61]],
+                "init_x": -6.31,
+                "init_y": -5.70,
+                "init_a": 121.34,
+                "velocity": 1.11,
+                "goals": [[2.91, 4.38], [-2.67, -2.77], [-7.59, -0.90], [4.08, -1.88]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -15044,10 +10334,10 @@ def tests_adult_10_child_90_test_case_97_walking_high(tester):
             "params": {
                 "radius": 0.25,
                 "init_x": -4.17,
-                "init_y": -4.63,
-                "init_a": -8.72,
-                "velocity": 0.98,
-                "goals": [[-4.44, -0.40], [5.96, 4.59], [3.68, -3.79], [0.81, -1.43]],
+                "init_y": 4.17,
+                "init_a": 4.82,
+                "velocity": 1.16,
+                "goals": [[-2.58, 4.79], [6.66, -5.99], [4.82, -1.72], [-0.33, 4.12]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -15061,16 +10351,302 @@ def tests_adult_10_child_90_test_case_97_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -0.13,
-                "init_y": -4.25,
-                "init_a": 108.38,
-                "velocity": 1.04,
-                "goals": [[2.73, -3.17], [2.30, -4.84], [-3.68, -2.57], [1.50, 2.59]],
+                "init_x": -1.55,
+                "init_y": -1.39,
+                "init_a": -159.26,
+                "velocity": 1.05,
+                "goals": [[-5.41, 2.67], [-0.42, 4.35], [-2.96, 0.24], [-2.74, -5.44]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
                 "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_69_stopped_high(tester):
+    # Pairs Moving: False
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 7
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.76,
+                "init_y": -5.57,
+                "init_a": -169.40,
+                "velocity": 0.82,
+                "goal_x": 4.76,
+                "goal_y": -5.57,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_pair0_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 3.86,
+                "init_y": -5.99,
+                "init_a": -169.40,
+                "velocity": 0.82,
+                "goal_x": 4.76,
+                "goal_y": -5.57,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.47,
+                "init_y": 5.59,
+                "init_a": 19.05,
+                "velocity": 0.91,
+                "goals": [[-3.47, 5.59], [-6.97, 5.48], [4.21, 3.45], [-6.43, -2.46]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -2.53,
+                "init_y": 5.93,
+                "init_a": 19.05,
+                "velocity": 0.91,
+                "goals": [[-3.47, 5.59], [2.51, -3.82], [4.93, 3.66], [3.02, -4.71]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -6.94,
+                "init_y": 4.92,
+                "init_a": 29.78,
+                "velocity": 0.87,
+                "goals": [[-0.14, -4.01], [7.55, -0.00], [-4.18, -5.38], [-5.74, 3.37]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 2.35,
+                "init_y": -2.53,
+                "init_a": 154.49,
+                "velocity": 0.96,
+                "goals": [[3.00, -2.26], [6.76, -1.92], [-0.43, 2.88], [3.60, -5.58]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -4.31,
+                "init_y": 1.90,
+                "init_a": -11.53,
+                "velocity": 1.20,
+                "goals": [[-7.32, -3.19], [-1.83, 5.76], [-0.58, 1.47], [0.45, 5.65]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_70_walking_high(tester):
+    # Pairs Moving: True
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 9
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -7.95,
+                "init_y": 1.51,
+                "init_a": -118.43,
+                "velocity": 1.01,
+                "goal_x": -1.43,
+                "goal_y": 4.61,
+                "n_actors": 9,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -7.03,
+                "init_y": 1.90,
+                "init_a": -118.43,
+                "velocity": 1.01,
+                "goals": [[-1.43, 4.61], [-5.24, -1.17], [7.47, 3.75], [-0.50, 4.68]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.97,
+                "init_y": -4.68,
+                "init_a": -118.41,
+                "velocity": 1.03,
+                "goals": [[6.39, 4.01], [6.74, -3.55], [-5.88, 1.04], [-0.48, -1.40]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.86,
+                "init_y": -5.12,
+                "init_a": -118.41,
+                "velocity": 1.03,
+                "goals": [[6.39, 4.01], [3.05, -0.42], [2.47, 3.69], [4.36, 3.93]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.40,
+                "init_y": -3.58,
+                "init_a": -6.10,
+                "velocity": 1.07,
+                "goal_x": -2.32,
+                "goal_y": 2.16,
+                "n_actors": 9,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.67,
+                "init_y": -1.32,
+                "init_a": -96.86,
+                "velocity": 1.13,
+                "goals": [[4.80, 1.90], [-3.25, 5.26], [3.88, -1.06], [5.04, -1.67]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.54,
+                "init_y": 3.23,
+                "init_a": -129.37,
+                "velocity": 1.11,
+                "goals": [[2.36, -4.09], [4.20, 5.06], [-2.43, 3.66], [-3.46, 3.21]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single3_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 2.13,
+                "init_y": 1.65,
+                "init_a": 152.00,
+                "velocity": 0.86,
+                "goals": [[3.01, -1.64], [0.30, -1.77], [-3.17, 2.00], [6.37, -3.00]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
                 "random_seed": 100,
             },
         },
@@ -15079,29 +10655,45 @@ def tests_adult_10_child_90_test_case_97_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -4.93,
-                "init_y": 5.79,
-                "init_a": 106.04,
-                "velocity": 0.98,
-                "goals": [[-0.70, -4.01], [-2.29, 3.63], [4.06, 4.89], [2.21, -1.51]],
+                "init_x": 3.45,
+                "init_y": -0.87,
+                "init_a": -140.80,
+                "velocity": 0.83,
+                "goals": [[1.40, 1.41], [-5.35, 1.57], [-7.04, -2.32], [7.16, 2.63]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
+                "n_actors": 9,
                 "random_seed": 100,
             },
         },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_71_walking_high(tester):
+    # Pairs Moving: True
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 8
+    
+    _setup_actors(tester, actors=[
         {
-            "name": 'actor_single5_child',
+            "name": 'actor_pair0_0_child',
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 3.19,
-                "init_y": -5.22,
-                "init_a": 2.12,
-                "velocity": 1.12,
-                "goals": [[-3.46, -4.21], [5.29, 3.13], [5.37, -1.61], [0.77, 0.18]],
+                "init_x": 6.33,
+                "init_y": 3.33,
+                "init_a": 82.77,
+                "velocity": 0.84,
+                "goals": [[2.02, 5.48], [1.74, 3.83], [-4.79, 1.05], [-4.14, 4.20]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -15111,15 +10703,15 @@ def tests_adult_10_child_90_test_case_97_walking_high(tester):
             },
         },
         {
-            "name": 'actor_single6_child',
+            "name": 'actor_pair0_1_child',
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -5.16,
-                "init_y": 3.07,
-                "init_a": -46.88,
-                "velocity": 1.04,
-                "goals": [[-1.33, 5.29], [3.10, 4.63], [-3.98, 3.72], [4.84, -5.50]],
+                "init_x": 5.48,
+                "init_y": 3.86,
+                "init_a": 82.77,
+                "velocity": 0.84,
+                "goals": [[2.02, 5.48], [-7.03, 2.26], [-4.74, -5.65], [-6.45, 1.84]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -15129,16 +10721,102 @@ def tests_adult_10_child_90_test_case_97_walking_high(tester):
             },
         },
         {
-            "name": 'actor_single7',
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.03,
+                "init_y": 4.82,
+                "init_a": -139.63,
+                "velocity": 1.19,
+                "goals": [[7.75, -2.83], [1.72, 2.27], [-1.27, -5.69], [5.82, 4.30]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1',
             "module": "pedestrian.walk_sfm",
             "params": {
                 "radius": 0.25,
-                "init_x": 3.81,
-                "init_y": -1.34,
-                "init_a": -16.22,
-                "velocity": 0.95,
-                "goal_x": -1.75,
-                "goal_y": -1.94,
+                "init_x": 1.88,
+                "init_y": 5.34,
+                "init_a": -139.63,
+                "velocity": 1.19,
+                "goal_x": 7.75,
+                "goal_y": -2.83,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 3.06,
+                "init_y": -3.79,
+                "init_a": 29.01,
+                "velocity": 0.91,
+                "goals": [[-1.23, -1.95], [-6.18, 4.52], [5.32, -3.43], [7.10, -3.78]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.28,
+                "init_y": 3.82,
+                "init_a": -168.74,
+                "velocity": 0.92,
+                "goals": [[-5.27, -4.64], [-4.63, 1.27], [-4.27, -4.67], [3.44, 2.39]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.00,
+                "init_y": 0.57,
+                "init_a": -179.50,
+                "velocity": 1.15,
+                "goals": [[-5.73, 1.57], [1.53, -4.69], [-1.73, -0.15], [-3.85, 0.87]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single3',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 6.34,
+                "init_y": -3.29,
+                "init_a": 10.53,
+                "velocity": 0.98,
+                "goal_x": 0.63,
+                "goal_y": 3.95,
                 "n_actors": 8,
             },
         },
@@ -15150,8 +10828,8 @@ def tests_adult_10_child_90_test_case_97_walking_high(tester):
     
     _goto_target1(tester)
 
-def tests_adult_10_child_90_test_case_98_walking_high(tester):
-    # Pairs Moving: True
+def tests_adult_20_child_80_test_case_72_stopped_high(tester):
+    # Pairs Moving: False
     tester.check_collision()
     tester.reset_position()
     
@@ -15163,11 +10841,11 @@ def tests_adult_10_child_90_test_case_98_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 1.26,
-                "init_y": 5.90,
-                "init_a": 58.44,
-                "velocity": 1.05,
-                "goals": [[-4.12, -0.88], [-0.14, -5.53], [-1.25, 5.66], [3.13, 5.54]],
+                "init_x": -3.50,
+                "init_y": -2.26,
+                "init_a": 130.02,
+                "velocity": 0.86,
+                "goals": [[-3.50, -2.26], [-6.91, 0.28], [8.00, -5.69], [-6.28, 5.42]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -15181,11 +10859,47 @@ def tests_adult_10_child_90_test_case_98_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 2.20,
-                "init_y": 6.23,
-                "init_a": 58.44,
-                "velocity": 1.05,
-                "goals": [[-4.12, -0.88], [1.28, -1.82], [2.46, 3.52], [1.91, 2.95]],
+                "init_x": -2.60,
+                "init_y": -1.81,
+                "init_a": 130.02,
+                "velocity": 0.86,
+                "goals": [[-3.50, -2.26], [-7.67, -3.18], [7.88, 1.63], [-6.40, 4.84]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -6.75,
+                "init_y": -3.64,
+                "init_a": 140.74,
+                "velocity": 1.00,
+                "goals": [[-6.75, -3.64], [2.51, -4.96], [-0.08, 3.25], [5.77, -3.88]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -7.75,
+                "init_y": -3.70,
+                "init_a": 140.74,
+                "velocity": 1.00,
+                "goals": [[-6.75, -3.64], [-2.83, 2.96], [-5.20, 1.91], [-0.25, 2.81]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -15199,11 +10913,11 @@ def tests_adult_10_child_90_test_case_98_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -0.75,
-                "init_y": -4.89,
-                "init_a": -51.17,
-                "velocity": 0.92,
-                "goals": [[-4.63, -2.00], [0.95, 0.07], [-1.42, -1.00], [-2.29, 4.35]],
+                "init_x": 5.26,
+                "init_y": 0.55,
+                "init_a": -106.96,
+                "velocity": 0.99,
+                "goals": [[1.67, -3.64], [-4.94, 5.67], [-6.25, 2.71], [7.51, 1.64]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -15217,11 +10931,11 @@ def tests_adult_10_child_90_test_case_98_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 3.64,
-                "init_y": -2.97,
-                "init_a": -79.53,
-                "velocity": 0.92,
-                "goals": [[-5.77, -0.41], [-5.08, -1.90], [0.74, 0.26], [-2.03, -2.84]],
+                "init_x": -1.66,
+                "init_y": -0.02,
+                "init_a": 92.18,
+                "velocity": 1.07,
+                "goals": [[1.75, -0.05], [-2.92, -4.77], [7.71, -2.37], [3.02, 2.05]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -15231,21 +10945,17 @@ def tests_adult_10_child_90_test_case_98_walking_high(tester):
             },
         },
         {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
+            "name": 'actor_single2',
+            "module": "pedestrian.walk_sfm",
             "params": {
                 "radius": 0.25,
-                "init_x": -2.42,
-                "init_y": -2.96,
-                "init_a": -107.27,
-                "velocity": 0.80,
-                "goals": [[5.10, -0.75], [5.67, -0.09], [4.12, 0.32], [0.63, -5.61]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
+                "init_x": -0.98,
+                "init_y": 2.55,
+                "init_a": -69.61,
+                "velocity": 1.20,
+                "goal_x": 6.73,
+                "goal_y": 0.50,
                 "n_actors": 9,
-                "random_seed": 100,
             },
         },
         {
@@ -15253,11 +10963,11 @@ def tests_adult_10_child_90_test_case_98_walking_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 2.93,
-                "init_y": -2.95,
-                "init_a": -84.24,
-                "velocity": 1.14,
-                "goals": [[-5.43, -0.26], [3.55, 0.28], [-0.71, -5.42], [1.73, -4.63]],
+                "init_x": -0.89,
+                "init_y": 4.37,
+                "init_a": 67.29,
+                "velocity": 0.81,
+                "goals": [[-6.96, 2.72], [-1.07, 0.97], [-2.84, -1.28], [7.28, -5.65]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -15267,53 +10977,17 @@ def tests_adult_10_child_90_test_case_98_walking_high(tester):
             },
         },
         {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -3.38,
-                "init_y": 4.97,
-                "init_a": -29.25,
-                "velocity": 1.00,
-                "goals": [[-1.99, -0.89], [0.02, -5.18], [-4.38, -3.71], [-2.19, 2.29]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5',
+            "name": 'actor_single4',
             "module": "pedestrian.walk_sfm",
             "params": {
                 "radius": 0.25,
-                "init_x": -4.67,
-                "init_y": 5.72,
-                "init_a": 117.59,
-                "velocity": 0.87,
-                "goal_x": 2.20,
-                "goal_y": 3.60,
+                "init_x": 4.50,
+                "init_y": -4.21,
+                "init_a": 26.27,
+                "velocity": 0.97,
+                "goal_x": 1.53,
+                "goal_y": -0.48,
                 "n_actors": 9,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 4.32,
-                "init_y": -2.48,
-                "init_a": -86.91,
-                "velocity": 1.08,
-                "goals": [[-2.12, -1.31], [4.95, -3.31], [-3.04, 0.95], [0.18, -0.93]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 9,
-                "random_seed": 100,
             },
         },
     ])
@@ -15324,145 +10998,7 @@ def tests_adult_10_child_90_test_case_98_walking_high(tester):
     
     _goto_target1(tester)
 
-def tests_adult_10_child_90_test_case_99_stopped_high(tester):
-    # Pairs Moving: False
-    tester.check_collision()
-    tester.reset_position()
-    
-    n_actors = 7
-    
-    _setup_actors(tester, actors=[
-        {
-            "name": 'actor_single0_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 0.58,
-                "init_y": 2.15,
-                "init_a": -109.88,
-                "velocity": 0.91,
-                "goals": [[4.62, 5.43], [-2.93, 0.56], [-2.52, 4.35], [5.33, 5.27]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single1',
-            "module": "pedestrian.walk_sfm",
-            "params": {
-                "radius": 0.25,
-                "init_x": -5.77,
-                "init_y": 3.13,
-                "init_a": -8.64,
-                "velocity": 1.06,
-                "goal_x": -3.26,
-                "goal_y": -5.99,
-                "n_actors": 7,
-            },
-        },
-        {
-            "name": 'actor_single2_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.44,
-                "init_y": -1.67,
-                "init_a": -27.39,
-                "velocity": 1.09,
-                "goals": [[0.99, -0.58], [-2.92, 5.30], [0.81, 5.95], [-3.02, -3.12]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single3_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -4.39,
-                "init_y": 5.60,
-                "init_a": 108.62,
-                "velocity": 0.86,
-                "goals": [[-1.01, 0.48], [3.91, 3.44], [-3.50, -5.51], [-5.41, -2.88]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single4_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -1.88,
-                "init_y": 3.85,
-                "init_a": 25.43,
-                "velocity": 1.03,
-                "goals": [[-3.17, 0.40], [3.52, 5.92], [-3.77, 5.20], [5.18, -5.75]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single5_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": 3.86,
-                "init_y": -4.15,
-                "init_a": -70.52,
-                "velocity": 1.18,
-                "goals": [[0.46, -5.13], [-2.06, 0.99], [-4.13, -0.21], [3.96, 1.62]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-        {
-            "name": 'actor_single6_child',
-            "module": "pedestrian.walk_sfm_child",
-            "params": {
-                "radius": 0.25,
-                "init_x": -0.95,
-                "init_y": -0.82,
-                "init_a": -11.17,
-                "velocity": 0.83,
-                "goals": [[-5.56, -2.46], [2.22, 3.82], [-2.81, -3.18], [-3.32, 2.76]],
-                "change_interval_min": 1,
-                "change_interval_max": 2,
-                "change_probability": 1.0,
-                "velocity_range": [0.8, 1.2],
-                "n_actors": 7,
-                "random_seed": 100,
-            },
-        },
-    ])
-    
-    _add_metric_condition_lt(tester, "total_time", 75)
-    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
-    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
-    
-    _goto_target1(tester)
-
-def tests_adult_10_child_90_test_case_100_stopped_high(tester):
+def tests_adult_20_child_80_test_case_73_stopped_high(tester):
     # Pairs Moving: False
     tester.check_collision()
     tester.reset_position()
@@ -15471,15 +11007,83 @@ def tests_adult_10_child_90_test_case_100_stopped_high(tester):
     
     _setup_actors(tester, actors=[
         {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.90,
+                "init_y": -2.77,
+                "init_a": -116.60,
+                "velocity": 0.82,
+                "goals": [[5.90, -2.77], [0.56, 3.97], [0.13, 4.40], [0.99, 4.74]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 6.90,
+                "init_y": -2.68,
+                "init_a": -116.60,
+                "velocity": 0.82,
+                "goals": [[5.90, -2.77], [-4.53, 5.39], [-7.12, -5.96], [2.75, -4.05]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 7.95,
+                "init_y": -3.46,
+                "init_a": 157.32,
+                "velocity": 0.82,
+                "goal_x": 7.95,
+                "goal_y": -3.46,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 8.16,
+                "init_y": -4.44,
+                "init_a": 157.32,
+                "velocity": 0.82,
+                "goals": [[7.95, -3.46], [1.78, 5.99], [4.43, 5.74], [-1.65, 0.61]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
             "name": 'actor_single0_child',
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": -0.30,
-                "init_y": -3.70,
-                "init_a": -13.51,
-                "velocity": 1.16,
-                "goals": [[-1.70, 4.27], [-5.38, 1.70], [1.50, -3.05], [-4.57, 5.14]],
+                "init_x": -0.55,
+                "init_y": 0.92,
+                "init_a": -103.91,
+                "velocity": 1.17,
+                "goals": [[-5.19, 5.35], [5.72, 3.38], [5.54, 1.19], [-5.37, 5.59]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -15493,11 +11097,159 @@ def tests_adult_10_child_90_test_case_100_stopped_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 0.93,
-                "init_y": -4.21,
-                "init_a": -38.86,
-                "velocity": 1.07,
-                "goals": [[-2.39, -5.62], [5.17, -3.08], [-2.80, -5.06], [5.28, -2.37]],
+                "init_x": -7.95,
+                "init_y": 4.34,
+                "init_a": -102.42,
+                "velocity": 1.15,
+                "goals": [[-2.42, 4.76], [-2.75, -4.52], [-0.11, -5.32], [0.44, 5.05]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -6.54,
+                "init_y": 5.24,
+                "init_a": -112.55,
+                "velocity": 1.03,
+                "goal_x": -1.60,
+                "goal_y": -0.72,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_single3_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.71,
+                "init_y": 2.52,
+                "init_a": -136.41,
+                "velocity": 0.82,
+                "goals": [[4.19, 1.06], [-5.35, 4.71], [-6.65, -2.95], [-3.32, 1.76]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_74_walking_high(tester):
+    # Pairs Moving: True
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 8
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 7.02,
+                "init_y": 3.42,
+                "init_a": 112.30,
+                "velocity": 0.90,
+                "goals": [[-6.21, 2.48], [6.10, 5.35], [-5.04, 5.71], [-2.24, 3.69]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 7.08,
+                "init_y": 4.42,
+                "init_a": 112.30,
+                "velocity": 0.90,
+                "goal_x": -6.21,
+                "goal_y": 2.48,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.70,
+                "init_y": 5.00,
+                "init_a": 59.38,
+                "velocity": 0.83,
+                "goals": [[2.09, 3.91], [4.37, -3.61], [-4.80, 1.98], [-7.63, -5.27]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.03,
+                "init_y": 4.06,
+                "init_a": 59.38,
+                "velocity": 0.83,
+                "goals": [[2.09, 3.91], [1.71, -1.98], [-7.32, 2.21], [-6.99, 2.15]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -5.72,
+                "init_y": 3.96,
+                "init_a": 60.85,
+                "velocity": 1.01,
+                "goal_x": 7.20,
+                "goal_y": -2.26,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.94,
+                "init_y": 4.46,
+                "init_a": -80.30,
+                "velocity": 0.92,
+                "goals": [[7.66, -1.08], [4.90, 1.00], [6.91, 0.96], [2.01, -0.08]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -15511,11 +11263,11 @@ def tests_adult_10_child_90_test_case_100_stopped_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 3.90,
-                "init_y": -2.53,
-                "init_a": 139.75,
-                "velocity": 1.15,
-                "goals": [[2.36, 3.78], [-2.86, -1.58], [-1.64, -1.95], [1.95, -4.74]],
+                "init_x": 6.72,
+                "init_y": 1.94,
+                "init_a": 73.06,
+                "velocity": 0.81,
+                "goals": [[1.90, 2.82], [-1.78, 2.85], [3.56, -0.43], [3.30, -4.13]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
@@ -15529,16 +11281,168 @@ def tests_adult_10_child_90_test_case_100_stopped_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 5.40,
-                "init_y": 2.09,
-                "init_a": 178.77,
-                "velocity": 0.83,
-                "goals": [[3.81, 2.93], [-3.30, 0.04], [-0.39, -0.72], [-0.46, 3.22]],
+                "init_x": -6.84,
+                "init_y": 2.69,
+                "init_a": -165.69,
+                "velocity": 0.89,
+                "goals": [[4.55, 4.44], [-1.58, 5.56], [-7.33, -1.68], [5.55, 5.59]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
                 "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_75_stopped_high(tester):
+    # Pairs Moving: False
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 9
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.56,
+                "init_y": -2.16,
+                "init_a": 168.66,
+                "velocity": 0.84,
+                "goals": [[1.56, -2.16], [-4.40, -2.15], [-4.84, 5.50], [2.00, 5.63]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.87,
+                "init_y": -1.43,
+                "init_a": 168.66,
+                "velocity": 0.84,
+                "goals": [[1.56, -2.16], [-4.10, -3.68], [-2.84, -3.75], [2.73, -1.77]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -5.66,
+                "init_y": 1.49,
+                "init_a": 20.31,
+                "velocity": 1.08,
+                "goals": [[-5.66, 1.49], [3.18, 5.18], [-0.81, 5.81], [4.07, 3.14]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -6.20,
+                "init_y": 0.64,
+                "init_a": 20.31,
+                "velocity": 1.08,
+                "goals": [[-5.66, 1.49], [-7.66, -4.76], [6.86, 5.97], [4.66, 3.39]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -6.05,
+                "init_y": 2.62,
+                "init_a": 63.46,
+                "velocity": 0.88,
+                "goals": [[-4.47, -5.62], [5.56, -2.90], [-0.07, 3.90], [2.00, 2.85]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.41,
+                "init_y": 3.26,
+                "init_a": -171.37,
+                "velocity": 1.14,
+                "goal_x": -6.55,
+                "goal_y": 0.80,
+                "n_actors": 9,
+            },
+        },
+        {
+            "name": 'actor_single2',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -6.50,
+                "init_y": -1.97,
+                "init_a": -13.49,
+                "velocity": 1.07,
+                "goal_x": 3.56,
+                "goal_y": -3.20,
+                "n_actors": 9,
+            },
+        },
+        {
+            "name": 'actor_single3_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -5.24,
+                "init_y": 2.69,
+                "init_a": 113.86,
+                "velocity": 0.84,
+                "goals": [[3.58, 4.22], [5.29, -3.35], [-6.28, -1.58], [2.50, 4.33]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
                 "random_seed": 100,
             },
         },
@@ -15547,67 +11451,3691 @@ def tests_adult_10_child_90_test_case_100_stopped_high(tester):
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 2.82,
-                "init_y": 3.86,
-                "init_a": -112.74,
-                "velocity": 1.05,
-                "goals": [[-4.67, -4.61], [-2.22, 4.42], [-5.31, 3.25], [-1.08, 1.13]],
+                "init_x": 4.29,
+                "init_y": -4.80,
+                "init_a": -22.85,
+                "velocity": 0.91,
+                "goals": [[0.64, 1.01], [-1.76, -2.37], [1.69, 0.63], [-6.67, 2.56]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
+                "n_actors": 9,
                 "random_seed": 100,
             },
         },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_76_walking_high(tester):
+    # Pairs Moving: True
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 7
+    
+    _setup_actors(tester, actors=[
         {
-            "name": 'actor_single5_child',
+            "name": 'actor_pair0_0_child',
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 4.68,
-                "init_y": 3.71,
-                "init_a": 13.53,
-                "velocity": 0.84,
-                "goals": [[-4.08, -2.81], [0.87, -5.68], [-3.54, 5.61], [2.70, 0.66]],
+                "init_x": 2.17,
+                "init_y": 0.01,
+                "init_a": -44.48,
+                "velocity": 0.92,
+                "goals": [[3.16, -0.18], [5.69, -2.60], [3.12, -0.17], [-0.52, -4.20]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
-                "n_actors": 8,
+                "n_actors": 7,
                 "random_seed": 100,
             },
         },
         {
-            "name": 'actor_single6',
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.33,
+                "init_y": -0.53,
+                "init_a": -44.48,
+                "velocity": 0.92,
+                "goals": [[3.16, -0.18], [-5.17, 0.41], [-7.63, 0.80], [0.62, 0.96]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.59,
+                "init_y": 4.02,
+                "init_a": -16.75,
+                "velocity": 0.85,
+                "goals": [[3.87, -1.18], [-5.95, -0.94], [1.59, 5.12], [2.82, -5.41]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.45,
+                "init_y": 3.03,
+                "init_a": -16.75,
+                "velocity": 0.85,
+                "goals": [[3.87, -1.18], [1.46, 0.88], [5.55, 0.73], [-7.70, -4.60]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0',
             "module": "pedestrian.walk_sfm",
             "params": {
                 "radius": 0.25,
-                "init_x": -0.40,
-                "init_y": -3.26,
-                "init_a": 168.96,
+                "init_x": -6.46,
+                "init_y": 3.18,
+                "init_a": -21.39,
+                "velocity": 1.03,
+                "goal_x": 0.42,
+                "goal_y": 1.82,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 2.56,
+                "init_y": -1.81,
+                "init_a": -45.64,
+                "velocity": 1.05,
+                "goals": [[1.25, -5.61], [-1.01, 3.01], [3.45, 1.62], [-3.84, 1.13]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.31,
+                "init_y": 4.43,
+                "init_a": 179.07,
+                "velocity": 1.10,
+                "goal_x": -6.27,
+                "goal_y": -3.68,
+                "n_actors": 7,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_77_walking_high(tester):
+    # Pairs Moving: True
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 7
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -5.55,
+                "init_y": -0.38,
+                "init_a": 21.62,
+                "velocity": 1.09,
+                "goal_x": 3.54,
+                "goal_y": 3.83,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -5.74,
+                "init_y": -1.36,
+                "init_a": 21.62,
+                "velocity": 1.09,
+                "goals": [[3.54, 3.83], [2.84, -0.47], [-6.64, -4.60], [1.88, 1.23]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.38,
+                "init_y": 2.72,
+                "init_a": 41.10,
                 "velocity": 0.98,
-                "goal_x": 0.18,
-                "goal_y": -2.85,
+                "goals": [[-0.41, -4.71], [2.98, -3.23], [2.02, 2.61], [-3.61, -2.07]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.38,
+                "init_y": 2.62,
+                "init_a": 41.10,
+                "velocity": 0.98,
+                "goals": [[-0.41, -4.71], [5.00, 2.82], [5.19, -2.43], [2.69, 5.77]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -5.36,
+                "init_y": 0.76,
+                "init_a": 70.74,
+                "velocity": 0.82,
+                "goal_x": -7.83,
+                "goal_y": -2.70,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.64,
+                "init_y": -1.38,
+                "init_a": 131.93,
+                "velocity": 1.09,
+                "goals": [[2.86, -3.32], [4.30, -2.58], [-3.68, 1.54], [7.77, -3.08]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -4.62,
+                "init_y": 5.33,
+                "init_a": 11.41,
+                "velocity": 0.95,
+                "goals": [[6.82, 2.03], [6.46, -5.42], [-0.31, -3.13], [7.00, -5.36]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_78_stopped_high(tester):
+    # Pairs Moving: False
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 7
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.22,
+                "init_y": -1.46,
+                "init_a": 178.09,
+                "velocity": 0.94,
+                "goals": [[0.22, -1.46], [5.38, 1.23], [1.57, 1.09], [-0.84, 5.45]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.99,
+                "init_y": -2.10,
+                "init_a": 178.09,
+                "velocity": 0.94,
+                "goals": [[0.22, -1.46], [4.95, -4.13], [-1.89, 4.47], [5.36, -2.74]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -2.86,
+                "init_y": -0.75,
+                "init_a": -5.96,
+                "velocity": 1.13,
+                "goals": [[-2.86, -0.75], [6.74, -5.92], [4.20, -2.37], [6.49, 2.67]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.84,
+                "init_y": -0.57,
+                "init_a": -5.96,
+                "velocity": 1.13,
+                "goal_x": -2.86,
+                "goal_y": -0.75,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 3.81,
+                "init_y": 0.45,
+                "init_a": 124.19,
+                "velocity": 0.93,
+                "goals": [[2.35, 4.29], [-4.51, 4.29], [-1.63, -4.75], [-4.40, -4.61]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -1.43,
+                "init_y": -4.88,
+                "init_a": -71.90,
+                "velocity": 0.83,
+                "goals": [[5.33, -1.40], [0.76, -5.29], [1.54, 5.11], [6.99, -3.50]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 6.47,
+                "init_y": -3.56,
+                "init_a": -31.43,
+                "velocity": 0.94,
+                "goal_x": 1.28,
+                "goal_y": 2.97,
+                "n_actors": 7,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_79_stopped_high(tester):
+    # Pairs Moving: False
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 7
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -7.54,
+                "init_y": -5.32,
+                "init_a": -114.62,
+                "velocity": 0.92,
+                "goals": [[-7.54, -5.32], [-1.70, -2.73], [0.69, -5.93], [4.30, 4.50]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -8.44,
+                "init_y": -4.88,
+                "init_a": -114.62,
+                "velocity": 0.92,
+                "goals": [[-7.54, -5.32], [1.12, -4.46], [5.42, -4.99], [-0.26, -0.86]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 2.87,
+                "init_y": -3.35,
+                "init_a": 109.27,
+                "velocity": 0.89,
+                "goals": [[2.87, -3.35], [2.42, 2.18], [2.15, 1.69], [-4.56, -4.06]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 3.87,
+                "init_y": -3.25,
+                "init_a": 109.27,
+                "velocity": 0.89,
+                "goal_x": 2.87,
+                "goal_y": -3.35,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_single0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -2.31,
+                "init_y": -1.97,
+                "init_a": 123.27,
+                "velocity": 1.05,
+                "goal_x": -1.54,
+                "goal_y": 5.84,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.22,
+                "init_y": -2.80,
+                "init_a": -88.28,
+                "velocity": 0.92,
+                "goals": [[4.17, -2.22], [-7.64, 5.27], [7.84, 0.32], [-6.07, -1.95]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -2.82,
+                "init_y": 5.92,
+                "init_a": 165.60,
+                "velocity": 1.19,
+                "goals": [[1.65, -5.65], [-4.29, 2.31], [5.42, 3.83], [2.84, -4.31]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_80_stopped_high(tester):
+    # Pairs Moving: False
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 9
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -6.45,
+                "init_y": -3.35,
+                "init_a": -144.16,
+                "velocity": 0.82,
+                "goals": [[-6.45, -3.35], [-1.90, -0.19], [2.19, -3.02], [-7.30, -4.80]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -7.11,
+                "init_y": -4.10,
+                "init_a": -144.16,
+                "velocity": 0.82,
+                "goals": [[-6.45, -3.35], [2.70, -3.30], [7.08, 2.75], [5.73, 2.80]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 2.43,
+                "init_y": 4.67,
+                "init_a": -42.80,
+                "velocity": 1.11,
+                "goal_x": 2.43,
+                "goal_y": 4.67,
+                "n_actors": 9,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 3.28,
+                "init_y": 5.20,
+                "init_a": -42.80,
+                "velocity": 1.11,
+                "goals": [[2.43, 4.67], [-4.00, 4.87], [-7.54, -5.46], [-1.15, 3.24]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.82,
+                "init_y": 4.40,
+                "init_a": -82.79,
+                "velocity": 0.92,
+                "goals": [[3.44, 5.40], [-5.78, -5.20], [5.23, 5.17], [-4.61, 3.80]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -6.96,
+                "init_y": 2.58,
+                "init_a": -26.58,
+                "velocity": 0.87,
+                "goals": [[6.46, 2.05], [3.08, 3.55], [-2.04, 4.80], [1.89, 1.80]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.70,
+                "init_y": 1.83,
+                "init_a": -81.47,
+                "velocity": 1.15,
+                "goals": [[-0.51, -1.76], [-6.52, -2.85], [1.67, -4.84], [-5.64, -0.57]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single3',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.16,
+                "init_y": 1.19,
+                "init_a": -37.19,
+                "velocity": 0.86,
+                "goal_x": -5.04,
+                "goal_y": 3.70,
+                "n_actors": 9,
+            },
+        },
+        {
+            "name": 'actor_single4_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -6.89,
+                "init_y": -5.73,
+                "init_a": 35.40,
+                "velocity": 1.16,
+                "goals": [[-3.32, -2.47], [6.74, 0.15], [-3.32, 2.34], [-3.39, -0.83]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_81_stopped_high(tester):
+    # Pairs Moving: False
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 7
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.01,
+                "init_y": 0.38,
+                "init_a": 132.14,
+                "velocity": 0.82,
+                "goals": [[-0.01, 0.38], [1.40, -1.11], [2.01, 3.31], [-3.54, -0.48]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.30,
+                "init_y": 1.33,
+                "init_a": 132.14,
+                "velocity": 0.82,
+                "goal_x": -0.01,
+                "goal_y": 0.38,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 6.90,
+                "init_y": -2.01,
+                "init_a": 32.91,
+                "velocity": 1.03,
+                "goals": [[6.90, -2.01], [-3.77, 2.02], [5.92, -5.40], [-4.80, -1.34]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 6.39,
+                "init_y": -2.87,
+                "init_a": 32.91,
+                "velocity": 1.03,
+                "goals": [[6.90, -2.01], [6.47, -4.07], [2.51, -0.99], [1.67, -5.45]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.94,
+                "init_y": -0.32,
+                "init_a": 79.63,
+                "velocity": 1.15,
+                "goals": [[2.01, -4.61], [-2.13, 5.72], [-7.64, -3.47], [-1.82, 5.37]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.23,
+                "init_y": -3.67,
+                "init_a": -46.76,
+                "velocity": 1.10,
+                "goals": [[3.27, 5.92], [6.08, -5.89], [4.86, -5.31], [-5.05, 0.15]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.00,
+                "init_y": -0.40,
+                "init_a": -135.14,
+                "velocity": 1.03,
+                "goal_x": 1.92,
+                "goal_y": -4.35,
+                "n_actors": 7,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_82_stopped_high(tester):
+    # Pairs Moving: False
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 7
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 7.16,
+                "init_y": 0.99,
+                "init_a": -126.75,
+                "velocity": 1.12,
+                "goals": [[7.16, 0.99], [2.22, 1.45], [-3.54, 1.95], [-0.53, 4.72]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 7.43,
+                "init_y": 1.95,
+                "init_a": -126.75,
+                "velocity": 1.12,
+                "goals": [[7.16, 0.99], [-1.99, -2.12], [-5.35, 1.21], [-3.91, -5.44]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 2.48,
+                "init_y": -0.45,
+                "init_a": -27.87,
+                "velocity": 1.01,
+                "goals": [[2.48, -0.45], [-2.25, -4.15], [-6.12, 1.56], [2.10, 1.70]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.48,
+                "init_y": -0.53,
+                "init_a": -27.87,
+                "velocity": 1.01,
+                "goals": [[2.48, -0.45], [-7.51, -4.28], [-5.88, 1.86], [5.91, 2.74]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 2.39,
+                "init_y": 5.84,
+                "init_a": -164.92,
+                "velocity": 0.86,
+                "goal_x": -2.83,
+                "goal_y": 5.96,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_single1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.23,
+                "init_y": -2.81,
+                "init_a": -24.50,
+                "velocity": 1.18,
+                "goal_x": 0.90,
+                "goal_y": -0.63,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.30,
+                "init_y": 2.35,
+                "init_a": 40.39,
+                "velocity": 0.81,
+                "goals": [[-5.44, -0.74], [1.84, -5.70], [4.42, -5.14], [-4.29, 1.80]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_83_stopped_high(tester):
+    # Pairs Moving: False
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 8
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.90,
+                "init_y": 3.69,
+                "init_a": 93.93,
+                "velocity": 0.99,
+                "goal_x": 0.90,
+                "goal_y": 3.69,
                 "n_actors": 8,
             },
         },
         {
-            "name": 'actor_single7_child',
+            "name": 'actor_pair0_1_child',
             "module": "pedestrian.walk_sfm_child",
             "params": {
                 "radius": 0.25,
-                "init_x": 4.32,
-                "init_y": -4.30,
-                "init_a": -148.32,
-                "velocity": 1.12,
-                "goals": [[-5.24, -2.04], [-1.58, -4.34], [-5.74, -4.09], [-3.59, -1.88]],
+                "init_x": 0.05,
+                "init_y": 4.21,
+                "init_a": 93.93,
+                "velocity": 0.99,
+                "goals": [[0.90, 3.69], [6.66, -4.11], [3.56, -4.18], [5.41, 5.56]],
                 "change_interval_min": 1,
                 "change_interval_max": 2,
                 "change_probability": 1.0,
                 "velocity_range": [0.8, 1.2],
                 "n_actors": 8,
                 "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 7.38,
+                "init_y": 1.35,
+                "init_a": 11.15,
+                "velocity": 1.18,
+                "goals": [[7.38, 1.35], [1.29, -1.86], [7.62, -2.29], [1.82, 3.68]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 8.19,
+                "init_y": 1.95,
+                "init_a": 11.15,
+                "velocity": 1.18,
+                "goals": [[7.38, 1.35], [5.63, 0.25], [3.65, -1.95], [1.05, 1.85]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.03,
+                "init_y": -2.38,
+                "init_a": -82.60,
+                "velocity": 1.15,
+                "goal_x": -2.84,
+                "goal_y": 1.33,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -1.13,
+                "init_y": -0.33,
+                "init_a": 96.01,
+                "velocity": 1.08,
+                "goals": [[3.75, 4.82], [-4.68, -5.88], [-0.87, 2.91], [4.23, -0.66]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.92,
+                "init_y": -1.49,
+                "init_a": 123.12,
+                "velocity": 1.06,
+                "goals": [[7.39, -0.30], [2.36, -5.33], [-3.78, 2.49], [-0.31, -2.30]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single3_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.83,
+                "init_y": 2.97,
+                "init_a": 163.63,
+                "velocity": 0.97,
+                "goals": [[2.01, -2.50], [-7.75, 2.98], [6.83, 4.17], [-1.63, -3.55]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_84_walking_high(tester):
+    # Pairs Moving: True
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 8
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 7.05,
+                "init_y": -3.02,
+                "init_a": 23.60,
+                "velocity": 0.92,
+                "goals": [[-5.76, -4.85], [2.62, -5.19], [-1.46, 4.86], [-4.66, -4.71]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 7.91,
+                "init_y": -2.52,
+                "init_a": 23.60,
+                "velocity": 0.92,
+                "goals": [[-5.76, -4.85], [2.89, 4.10], [2.82, 3.93], [-0.73, -0.20]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -7.70,
+                "init_y": 0.75,
+                "init_a": -40.36,
+                "velocity": 0.84,
+                "goals": [[-4.51, -5.16], [-1.55, -1.36], [-2.67, 1.44], [4.42, -0.05]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -8.04,
+                "init_y": -0.19,
+                "init_a": -40.36,
+                "velocity": 0.84,
+                "goal_x": -4.51,
+                "goal_y": -5.16,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_single0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -4.87,
+                "init_y": 3.19,
+                "init_a": -53.55,
+                "velocity": 1.04,
+                "goal_x": -2.14,
+                "goal_y": -0.38,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.43,
+                "init_y": -1.02,
+                "init_a": -141.47,
+                "velocity": 0.87,
+                "goals": [[6.90, 1.19], [4.96, -0.82], [3.89, -0.28], [5.63, 4.03]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -7.49,
+                "init_y": 1.54,
+                "init_a": -117.03,
+                "velocity": 1.07,
+                "goals": [[0.48, -0.81], [-6.16, -0.96], [7.59, -1.58], [-6.27, -0.81]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single3_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -1.38,
+                "init_y": 3.85,
+                "init_a": -135.10,
+                "velocity": 0.88,
+                "goals": [[-4.01, -3.23], [4.97, 0.08], [2.78, -2.22], [-6.86, -1.64]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_85_stopped_high(tester):
+    # Pairs Moving: False
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 8
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.02,
+                "init_y": 2.61,
+                "init_a": -47.10,
+                "velocity": 0.97,
+                "goal_x": -3.02,
+                "goal_y": 2.61,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_pair0_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.70,
+                "init_y": 3.34,
+                "init_a": -47.10,
+                "velocity": 0.97,
+                "goal_x": -3.02,
+                "goal_y": 2.61,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.32,
+                "init_y": -2.63,
+                "init_a": 167.90,
+                "velocity": 0.87,
+                "goals": [[-0.32, -2.63], [4.13, 4.85], [-2.67, -2.60], [-3.61, -1.59]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -1.16,
+                "init_y": -2.08,
+                "init_a": 167.90,
+                "velocity": 0.87,
+                "goals": [[-0.32, -2.63], [7.33, 2.33], [-3.71, -5.77], [7.75, -3.96]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 3.11,
+                "init_y": -2.19,
+                "init_a": 110.59,
+                "velocity": 1.06,
+                "goals": [[-7.51, 4.66], [-5.95, -5.58], [6.01, -4.50], [-0.91, 4.28]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -1.30,
+                "init_y": -4.00,
+                "init_a": 157.21,
+                "velocity": 1.19,
+                "goals": [[-4.06, 5.03], [-3.01, -0.86], [4.44, 1.36], [-2.12, 0.12]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.48,
+                "init_y": 2.99,
+                "init_a": 107.28,
+                "velocity": 0.93,
+                "goals": [[2.41, -2.97], [5.38, 4.12], [-0.01, 1.56], [3.24, 2.71]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single3_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -7.81,
+                "init_y": -3.25,
+                "init_a": -14.28,
+                "velocity": 0.93,
+                "goals": [[6.59, 2.15], [2.80, -3.03], [1.89, 5.79], [-2.00, 3.91]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_86_stopped_high(tester):
+    # Pairs Moving: False
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 8
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.14,
+                "init_y": -3.34,
+                "init_a": -44.50,
+                "velocity": 0.91,
+                "goal_x": 4.14,
+                "goal_y": -3.34,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.15,
+                "init_y": -2.34,
+                "init_a": -44.50,
+                "velocity": 0.91,
+                "goals": [[4.14, -3.34], [7.35, -5.39], [6.47, -0.26], [-5.28, 0.64]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.69,
+                "init_y": -2.12,
+                "init_a": -138.46,
+                "velocity": 1.05,
+                "goal_x": 0.69,
+                "goal_y": -2.12,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.96,
+                "init_y": -3.09,
+                "init_a": -138.46,
+                "velocity": 1.05,
+                "goals": [[0.69, -2.12], [-5.15, -5.15], [-1.04, 0.20], [-0.70, 1.22]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -4.06,
+                "init_y": -4.46,
+                "init_a": -159.80,
+                "velocity": 0.98,
+                "goals": [[-0.77, -4.85], [-0.55, -4.01], [-0.39, 1.14], [2.94, -2.14]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.48,
+                "init_y": 3.58,
+                "init_a": 47.01,
+                "velocity": 1.05,
+                "goals": [[3.36, -5.42], [-6.17, -3.87], [-0.31, -5.21], [4.87, 4.19]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.56,
+                "init_y": 1.66,
+                "init_a": -109.24,
+                "velocity": 0.80,
+                "goals": [[-2.36, 3.39], [-2.07, -3.09], [-6.06, -3.78], [-7.82, -1.70]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single3_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 6.50,
+                "init_y": 4.98,
+                "init_a": 81.01,
+                "velocity": 1.16,
+                "goals": [[0.39, -3.17], [-5.80, -4.75], [-6.52, -0.27], [1.79, 2.26]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_87_walking_high(tester):
+    # Pairs Moving: True
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 8
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -7.10,
+                "init_y": -2.35,
+                "init_a": -3.83,
+                "velocity": 1.08,
+                "goals": [[5.78, 0.95], [6.16, -2.22], [4.10, 2.29], [-2.92, -5.21]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -8.00,
+                "init_y": -1.91,
+                "init_a": -3.83,
+                "velocity": 1.08,
+                "goals": [[5.78, 0.95], [-4.72, -2.40], [4.61, 3.82], [4.07, -5.54]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 2.26,
+                "init_y": 5.03,
+                "init_a": 23.30,
+                "velocity": 0.92,
+                "goal_x": 5.24,
+                "goal_y": -3.04,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.26,
+                "init_y": 5.11,
+                "init_a": 23.30,
+                "velocity": 0.92,
+                "goals": [[5.24, -3.04], [6.77, 5.61], [-3.11, -2.01], [-5.97, 2.95]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.07,
+                "init_y": 5.51,
+                "init_a": 143.54,
+                "velocity": 0.99,
+                "goals": [[4.63, 5.51], [-1.37, 4.63], [-2.28, 3.14], [2.90, -1.97]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -6.58,
+                "init_y": 3.11,
+                "init_a": -42.04,
+                "velocity": 0.83,
+                "goals": [[-4.66, -0.15], [7.47, -0.65], [-6.91, -3.74], [6.92, 1.96]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.41,
+                "init_y": -2.16,
+                "init_a": -86.81,
+                "velocity": 1.14,
+                "goal_x": 1.29,
+                "goal_y": 4.51,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_single3_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.35,
+                "init_y": -3.91,
+                "init_a": 11.04,
+                "velocity": 0.92,
+                "goals": [[-4.62, 5.58], [3.62, 1.52], [0.26, -3.09], [7.34, -3.22]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_88_stopped_high(tester):
+    # Pairs Moving: False
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 7
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.67,
+                "init_y": -1.74,
+                "init_a": -63.27,
+                "velocity": 0.82,
+                "goal_x": 1.67,
+                "goal_y": -1.74,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 2.30,
+                "init_y": -0.97,
+                "init_a": -63.27,
+                "velocity": 0.82,
+                "goals": [[1.67, -1.74], [0.28, 0.96], [2.57, 0.34], [-4.98, 5.30]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.91,
+                "init_y": -4.60,
+                "init_a": 71.80,
+                "velocity": 1.07,
+                "goal_x": 5.91,
+                "goal_y": -4.60,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.93,
+                "init_y": -4.80,
+                "init_a": 71.80,
+                "velocity": 1.07,
+                "goals": [[5.91, -4.60], [-2.90, 3.23], [-0.40, 3.34], [-7.13, 3.64]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 6.15,
+                "init_y": 2.28,
+                "init_a": 149.14,
+                "velocity": 0.80,
+                "goals": [[-3.71, 0.39], [-5.15, -1.76], [-1.53, -5.94], [6.28, -0.35]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.24,
+                "init_y": 5.62,
+                "init_a": -36.05,
+                "velocity": 1.10,
+                "goals": [[-7.02, -1.96], [-4.13, -1.43], [-4.84, -1.97], [2.66, -5.06]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -6.86,
+                "init_y": 2.70,
+                "init_a": -51.60,
+                "velocity": 0.83,
+                "goals": [[-7.69, -4.80], [3.97, -2.11], [2.84, 3.78], [7.70, 4.82]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_89_stopped_high(tester):
+    # Pairs Moving: False
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 7
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -1.11,
+                "init_y": 2.39,
+                "init_a": 128.30,
+                "velocity": 1.00,
+                "goal_x": -1.11,
+                "goal_y": 2.39,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -1.06,
+                "init_y": 1.39,
+                "init_a": 128.30,
+                "velocity": 1.00,
+                "goals": [[-1.11, 2.39], [0.97, -4.21], [-3.50, -3.68], [3.03, -5.26]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -4.99,
+                "init_y": -0.89,
+                "init_a": -171.32,
+                "velocity": 0.93,
+                "goal_x": -4.99,
+                "goal_y": -0.89,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.99,
+                "init_y": -0.92,
+                "init_a": -171.32,
+                "velocity": 0.93,
+                "goals": [[-4.99, -0.89], [1.39, 2.54], [-5.86, -2.27], [-0.99, 0.61]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 3.10,
+                "init_y": 1.38,
+                "init_a": -62.99,
+                "velocity": 0.83,
+                "goals": [[7.40, 5.93], [-0.34, 5.71], [-1.52, -1.61], [-6.36, -5.69]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.01,
+                "init_y": -1.61,
+                "init_a": -37.60,
+                "velocity": 0.87,
+                "goals": [[3.92, 0.83], [-2.50, 2.30], [-7.31, 3.35], [-3.60, 5.45]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -5.04,
+                "init_y": 1.09,
+                "init_a": 172.38,
+                "velocity": 1.10,
+                "goals": [[2.50, 4.84], [6.63, 4.56], [7.68, -3.23], [0.82, 0.89]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_90_walking_high(tester):
+    # Pairs Moving: True
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 9
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.06,
+                "init_y": -4.18,
+                "init_a": 49.74,
+                "velocity": 0.81,
+                "goal_x": 1.85,
+                "goal_y": 5.05,
+                "n_actors": 9,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.48,
+                "init_y": -3.27,
+                "init_a": 49.74,
+                "velocity": 0.81,
+                "goals": [[1.85, 5.05], [1.07, -4.86], [6.75, 4.41], [-0.21, -2.78]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.53,
+                "init_y": 2.85,
+                "init_a": 27.25,
+                "velocity": 1.05,
+                "goals": [[-0.40, 4.33], [-6.20, -4.58], [-0.22, -3.87], [4.57, 4.10]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.86,
+                "init_y": 1.91,
+                "init_a": 27.25,
+                "velocity": 1.05,
+                "goals": [[-0.40, 4.33], [6.21, -3.41], [4.20, -0.86], [6.04, 4.26]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.42,
+                "init_y": 4.08,
+                "init_a": 70.96,
+                "velocity": 1.19,
+                "goals": [[3.17, 3.62], [0.16, -4.32], [-7.70, -5.49], [-6.12, 4.89]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.31,
+                "init_y": 4.82,
+                "init_a": -44.84,
+                "velocity": 1.19,
+                "goal_x": -2.52,
+                "goal_y": -3.74,
+                "n_actors": 9,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 2.12,
+                "init_y": -0.16,
+                "init_a": 78.87,
+                "velocity": 1.18,
+                "goals": [[2.79, -2.65], [-7.85, 3.74], [-7.98, 3.03], [-6.54, 0.63]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single3_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.32,
+                "init_y": -1.51,
+                "init_a": 113.99,
+                "velocity": 1.14,
+                "goals": [[-1.04, 5.11], [-5.06, 0.53], [5.92, 1.76], [0.77, -3.83]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single4_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -6.85,
+                "init_y": -4.16,
+                "init_a": -100.60,
+                "velocity": 0.96,
+                "goals": [[-3.15, 4.15], [-0.71, -5.98], [0.42, 0.18], [5.35, 3.31]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_91_stopped_high(tester):
+    # Pairs Moving: False
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 7
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -6.96,
+                "init_y": 4.39,
+                "init_a": -13.42,
+                "velocity": 0.93,
+                "goal_x": -6.96,
+                "goal_y": 4.39,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -5.96,
+                "init_y": 4.50,
+                "init_a": -13.42,
+                "velocity": 0.93,
+                "goals": [[-6.96, 4.39], [-7.55, -2.82], [3.23, -4.80], [-2.08, 1.11]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -2.51,
+                "init_y": 4.82,
+                "init_a": -48.16,
+                "velocity": 1.02,
+                "goals": [[-2.51, 4.82], [3.64, -4.39], [-6.26, -0.23], [2.04, 2.90]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.51,
+                "init_y": 4.69,
+                "init_a": -48.16,
+                "velocity": 1.02,
+                "goals": [[-2.51, 4.82], [3.85, 3.62], [-3.96, -3.86], [-3.98, -0.19]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.75,
+                "init_y": -2.91,
+                "init_a": -108.30,
+                "velocity": 1.20,
+                "goals": [[-0.91, -0.02], [-7.23, 5.25], [1.96, -3.01], [0.25, -2.57]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -2.70,
+                "init_y": -4.45,
+                "init_a": 61.84,
+                "velocity": 1.11,
+                "goals": [[-6.31, 5.32], [-3.90, 5.16], [7.01, -1.88], [0.81, 5.26]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 2.58,
+                "init_y": -4.65,
+                "init_a": 113.75,
+                "velocity": 0.99,
+                "goal_x": 4.20,
+                "goal_y": 0.75,
+                "n_actors": 7,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_92_walking_high(tester):
+    # Pairs Moving: True
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 8
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 2.38,
+                "init_y": 5.48,
+                "init_a": 131.30,
+                "velocity": 1.07,
+                "goals": [[-3.22, -5.19], [-7.80, -4.16], [4.32, -3.93], [-7.61, -5.63]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 2.40,
+                "init_y": 4.48,
+                "init_a": 131.30,
+                "velocity": 1.07,
+                "goals": [[-3.22, -5.19], [3.44, -0.17], [-4.15, -0.57], [-6.14, 5.75]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.70,
+                "init_y": -0.09,
+                "init_a": -53.62,
+                "velocity": 0.85,
+                "goals": [[-3.26, -1.48], [4.98, 5.35], [0.91, 2.64], [3.15, 0.67]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.76,
+                "init_y": 0.91,
+                "init_a": -53.62,
+                "velocity": 0.85,
+                "goals": [[-3.26, -1.48], [-6.29, 5.77], [-0.27, 4.91], [-7.67, -4.92]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 3.96,
+                "init_y": -3.02,
+                "init_a": -117.92,
+                "velocity": 1.02,
+                "goal_x": 4.20,
+                "goal_y": -2.79,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.32,
+                "init_y": -4.57,
+                "init_a": 112.16,
+                "velocity": 0.91,
+                "goals": [[-2.21, 0.64], [-5.25, -5.72], [7.67, -4.67], [0.80, -2.11]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.76,
+                "init_y": 3.67,
+                "init_a": 6.84,
+                "velocity": 0.89,
+                "goals": [[0.04, -4.50], [3.15, -0.80], [7.39, -0.43], [4.43, 3.68]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single3',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -1.32,
+                "init_y": -4.07,
+                "init_a": 174.76,
+                "velocity": 1.08,
+                "goal_x": -2.29,
+                "goal_y": 4.25,
+                "n_actors": 8,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_93_walking_high(tester):
+    # Pairs Moving: True
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 7
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.83,
+                "init_y": 4.03,
+                "init_a": 26.10,
+                "velocity": 0.99,
+                "goals": [[-1.77, 3.82], [1.53, 3.05], [2.62, -1.09], [5.24, 5.70]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.51,
+                "init_y": 4.97,
+                "init_a": 26.10,
+                "velocity": 0.99,
+                "goals": [[-1.77, 3.82], [-6.47, -1.92], [5.72, 0.68], [7.49, -4.13]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.97,
+                "init_y": -3.55,
+                "init_a": -139.66,
+                "velocity": 0.89,
+                "goal_x": -4.21,
+                "goal_y": -5.96,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -2.97,
+                "init_y": -3.59,
+                "init_a": -139.66,
+                "velocity": 0.89,
+                "goals": [[-4.21, -5.96], [-4.38, -3.20], [-6.78, -1.31], [-4.93, 2.12]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -1.75,
+                "init_y": 5.55,
+                "init_a": 14.50,
+                "velocity": 1.05,
+                "goals": [[6.38, -4.82], [6.27, -1.78], [2.23, -0.11], [-7.77, 2.41]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.41,
+                "init_y": 2.45,
+                "init_a": -71.39,
+                "velocity": 1.02,
+                "goals": [[1.99, -4.98], [-2.86, 3.23], [-7.19, 4.03], [6.60, -4.57]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.46,
+                "init_y": 4.62,
+                "init_a": 112.00,
+                "velocity": 1.13,
+                "goal_x": -0.18,
+                "goal_y": -4.11,
+                "n_actors": 7,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_94_stopped_high(tester):
+    # Pairs Moving: False
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 8
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 2.89,
+                "init_y": 5.31,
+                "init_a": -3.78,
+                "velocity": 0.94,
+                "goal_x": 2.89,
+                "goal_y": 5.31,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_pair0_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 2.51,
+                "init_y": 6.23,
+                "init_a": -3.78,
+                "velocity": 0.94,
+                "goal_x": 2.89,
+                "goal_y": 5.31,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -1.03,
+                "init_y": -4.62,
+                "init_a": -91.41,
+                "velocity": 1.02,
+                "goals": [[-1.03, -4.62], [-5.98, -5.80], [5.52, -1.47], [-7.73, -0.90]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -1.34,
+                "init_y": -5.57,
+                "init_a": -91.41,
+                "velocity": 1.02,
+                "goals": [[-1.03, -4.62], [3.21, 1.88], [-4.62, -5.02], [3.40, 5.14]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -1.90,
+                "init_y": 5.02,
+                "init_a": 75.35,
+                "velocity": 1.19,
+                "goals": [[-2.50, -0.70], [4.15, -5.85], [-7.05, -5.63], [7.32, -0.58]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.65,
+                "init_y": -1.35,
+                "init_a": -47.70,
+                "velocity": 0.97,
+                "goals": [[-0.98, 0.12], [-0.64, -5.42], [2.91, -5.06], [-2.13, 2.24]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 7.03,
+                "init_y": 0.65,
+                "init_a": 128.01,
+                "velocity": 0.83,
+                "goals": [[3.19, 3.93], [1.85, 3.22], [-5.13, -2.63], [-5.77, 3.89]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single3_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -4.12,
+                "init_y": 3.61,
+                "init_a": 116.14,
+                "velocity": 1.14,
+                "goals": [[-3.49, 2.80], [-6.68, -5.13], [-6.59, -4.95], [4.89, -1.75]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_95_stopped_high(tester):
+    # Pairs Moving: False
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 8
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -6.54,
+                "init_y": -0.30,
+                "init_a": 117.02,
+                "velocity": 0.80,
+                "goals": [[-6.54, -0.30], [-7.36, -5.15], [3.21, 0.86], [6.20, 4.67]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -5.74,
+                "init_y": -0.90,
+                "init_a": 117.02,
+                "velocity": 0.80,
+                "goals": [[-6.54, -0.30], [-4.27, -3.22], [0.51, 4.49], [-6.95, -0.98]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -6.81,
+                "init_y": -0.97,
+                "init_a": 177.66,
+                "velocity": 1.08,
+                "goals": [[-6.81, -0.97], [7.56, -2.33], [0.11, 2.31], [3.87, -2.01]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -7.68,
+                "init_y": -0.48,
+                "init_a": 177.66,
+                "velocity": 1.08,
+                "goals": [[-6.81, -0.97], [0.63, 5.55], [-4.07, -3.32], [6.89, -0.21]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 7.57,
+                "init_y": -4.10,
+                "init_a": -113.57,
+                "velocity": 1.03,
+                "goals": [[0.55, -4.29], [3.68, 1.29], [3.82, 5.38], [-4.91, -0.00]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.46,
+                "init_y": -2.46,
+                "init_a": -1.37,
+                "velocity": 0.86,
+                "goal_x": 7.35,
+                "goal_y": -2.17,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 2.18,
+                "init_y": -5.24,
+                "init_a": -30.90,
+                "velocity": 1.11,
+                "goals": [[4.81, -1.33], [4.66, 5.68], [3.04, -2.48], [-7.61, -3.10]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single3',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 3.28,
+                "init_y": 0.47,
+                "init_a": -116.73,
+                "velocity": 0.82,
+                "goal_x": -5.06,
+                "goal_y": -5.11,
+                "n_actors": 8,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_96_walking_high(tester):
+    # Pairs Moving: True
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 9
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 7.04,
+                "init_y": -3.74,
+                "init_a": 30.13,
+                "velocity": 0.89,
+                "goals": [[-2.82, 3.08], [6.31, 4.18], [7.25, -0.64], [-3.63, 4.56]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 6.07,
+                "init_y": -3.47,
+                "init_a": 30.13,
+                "velocity": 0.89,
+                "goal_x": -2.82,
+                "goal_y": 3.08,
+                "n_actors": 9,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 6.37,
+                "init_y": 1.84,
+                "init_a": -21.00,
+                "velocity": 0.82,
+                "goals": [[2.84, -0.13], [-6.44, -0.30], [3.19, -4.46], [-3.29, 0.69]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.42,
+                "init_y": 2.15,
+                "init_a": -21.00,
+                "velocity": 0.82,
+                "goal_x": 2.84,
+                "goal_y": -0.13,
+                "n_actors": 9,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.67,
+                "init_y": 3.32,
+                "init_a": 113.88,
+                "velocity": 0.89,
+                "goals": [[4.87, -2.61], [2.11, -4.15], [-3.62, 1.74], [6.57, -3.42]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 3.25,
+                "init_y": 4.21,
+                "init_a": 26.08,
+                "velocity": 1.09,
+                "goals": [[-2.18, -1.43], [-4.86, -1.16], [5.14, 0.85], [6.96, -2.90]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -5.78,
+                "init_y": -2.80,
+                "init_a": -176.42,
+                "velocity": 1.13,
+                "goals": [[-7.31, -2.48], [-4.72, -2.59], [-2.78, 0.34], [-6.35, -3.72]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single3_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -5.07,
+                "init_y": -0.90,
+                "init_a": 106.82,
+                "velocity": 0.99,
+                "goals": [[7.27, 0.53], [-5.51, 0.20], [7.75, 0.15], [7.31, -3.30]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single4_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -1.49,
+                "init_y": 0.03,
+                "init_a": 13.65,
+                "velocity": 0.91,
+                "goals": [[4.14, -5.00], [-0.70, 5.04], [-6.50, 5.35], [1.59, -2.45]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_97_walking_high(tester):
+    # Pairs Moving: True
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 8
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 6.53,
+                "init_y": 0.99,
+                "init_a": -160.74,
+                "velocity": 0.94,
+                "goals": [[2.60, -2.87], [-2.00, 3.94], [2.56, -4.81], [5.46, -4.50]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 7.33,
+                "init_y": 1.60,
+                "init_a": -160.74,
+                "velocity": 0.94,
+                "goals": [[2.60, -2.87], [-2.04, 3.64], [7.43, -1.52], [-1.79, -4.49]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -2.91,
+                "init_y": -0.96,
+                "init_a": 75.76,
+                "velocity": 0.97,
+                "goals": [[-2.32, -4.17], [7.13, 5.89], [-1.38, -4.16], [4.30, 4.80]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -2.15,
+                "init_y": -0.30,
+                "init_a": 75.76,
+                "velocity": 0.97,
+                "goals": [[-2.32, -4.17], [3.84, -2.32], [1.74, 3.71], [1.15, 2.14]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.39,
+                "init_y": -0.57,
+                "init_a": -133.27,
+                "velocity": 0.99,
+                "goals": [[-0.17, -4.25], [-4.15, -1.59], [2.73, 2.40], [-4.78, -1.96]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.82,
+                "init_y": 1.14,
+                "init_a": 82.00,
+                "velocity": 0.89,
+                "goal_x": -6.57,
+                "goal_y": 5.79,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_single2',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 4.71,
+                "init_y": -0.66,
+                "init_a": -21.13,
+                "velocity": 0.87,
+                "goal_x": 4.26,
+                "goal_y": -5.22,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_single3_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.09,
+                "init_y": 3.57,
+                "init_a": -103.90,
+                "velocity": 0.86,
+                "goals": [[-6.88, 3.07], [1.39, -1.15], [-3.57, -0.81], [4.88, -1.58]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_98_walking_high(tester):
+    # Pairs Moving: True
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 9
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.67,
+                "init_y": 5.90,
+                "init_a": 58.44,
+                "velocity": 1.05,
+                "goals": [[-5.49, -0.88], [5.90, 3.71], [0.53, 0.13], [-5.32, 0.28]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 2.62,
+                "init_y": 6.23,
+                "init_a": 58.44,
+                "velocity": 1.05,
+                "goals": [[-5.49, -0.88], [-7.60, -2.14], [-2.32, 4.61], [4.56, -5.04]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -1.00,
+                "init_y": -4.89,
+                "init_a": -51.17,
+                "velocity": 0.92,
+                "goal_x": -6.17,
+                "goal_y": -2.00,
+                "n_actors": 9,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.68,
+                "init_y": -5.83,
+                "init_a": -51.17,
+                "velocity": 0.92,
+                "goals": [[-6.17, -2.00], [7.94, -5.69], [-3.44, 5.32], [6.47, 3.77]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.96,
+                "init_y": -2.65,
+                "init_a": -69.77,
+                "velocity": 0.81,
+                "goals": [[-0.54, -2.42], [-3.68, 1.26], [4.49, -0.28], [-5.39, -4.50]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.94,
+                "init_y": -3.58,
+                "init_a": -179.63,
+                "velocity": 1.17,
+                "goals": [[-1.00, 2.93], [-5.11, 4.38], [-0.99, 5.06], [-3.32, -1.48]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.94,
+                "init_y": -2.81,
+                "init_a": 128.03,
+                "velocity": 0.82,
+                "goals": [[-0.35, -3.38], [-0.48, 0.48], [-6.39, 2.95], [2.44, 4.75]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single3_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 6.62,
+                "init_y": -0.98,
+                "init_a": 0.26,
+                "velocity": 0.93,
+                "goals": [[-1.18, -4.67], [0.49, 5.81], [-7.96, -3.62], [3.75, 4.14]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 9,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single4',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 7.63,
+                "init_y": 3.92,
+                "init_a": -113.88,
+                "velocity": 1.07,
+                "goal_x": 4.80,
+                "goal_y": 4.32,
+                "n_actors": 9,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_99_stopped_high(tester):
+    # Pairs Moving: False
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 7
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 0.77,
+                "init_y": 2.15,
+                "init_a": -109.88,
+                "velocity": 0.91,
+                "goals": [[0.77, 2.15], [-7.45, 1.85], [0.57, 5.75], [-5.76, 4.59]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.52,
+                "init_y": 1.48,
+                "init_a": -109.88,
+                "velocity": 0.91,
+                "goals": [[0.77, 2.15], [-4.54, -0.58], [-0.28, -2.68], [-0.98, -0.34]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 7.24,
+                "init_y": -5.77,
+                "init_a": 94.01,
+                "velocity": 0.99,
+                "goals": [[7.24, -5.77], [5.66, -5.43], [-5.34, -1.87], [6.60, 5.81]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 6.65,
+                "init_y": -6.58,
+                "init_a": 94.01,
+                "velocity": 0.99,
+                "goal_x": 7.24,
+                "goal_y": -5.77,
+                "n_actors": 7,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -4.35,
+                "init_y": -5.99,
+                "init_a": -43.20,
+                "velocity": 0.94,
+                "goals": [[-1.22, 2.65], [-4.49, 3.13], [-2.84, -1.85], [5.44, 2.17]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 1.32,
+                "init_y": -0.58,
+                "init_a": -131.71,
+                "velocity": 1.19,
+                "goals": [[4.83, -4.33], [-7.63, -0.53], [-6.00, 5.59], [-3.89, -4.64]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 7,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -1.35,
+                "init_y": 0.48,
+                "init_a": -56.40,
+                "velocity": 1.13,
+                "goal_x": 1.13,
+                "goal_y": 1.01,
+                "n_actors": 7,
+            },
+        },
+    ])
+    
+    _add_metric_condition_lt(tester, "total_time", 75)
+    _add_metric_condition_lt(tester, "robot_path_length", 30.0)
+    _add_metric_condition_lt(tester, "robot_on_person_collision_count", 1)
+    
+    _goto_target1(tester)
+
+def tests_adult_20_child_80_test_case_100_stopped_high(tester):
+    # Pairs Moving: False
+    tester.check_collision()
+    tester.reset_position()
+    
+    n_actors = 8
+    
+    _setup_actors(tester, actors=[
+        {
+            "name": 'actor_pair0_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -0.41,
+                "init_y": -3.70,
+                "init_a": -13.51,
+                "velocity": 1.16,
+                "goals": [[-0.41, -3.70], [-1.95, 5.52], [3.17, -3.97], [-1.90, 4.59]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair0_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -1.04,
+                "init_y": -2.93,
+                "init_a": -13.51,
+                "velocity": 1.16,
+                "goals": [[-0.41, -3.70], [4.18, 3.46], [-7.92, 3.30], [1.24, -1.48]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.70,
+                "init_y": 0.93,
+                "init_a": -126.29,
+                "velocity": 0.96,
+                "goals": [[5.70, 0.93], [0.25, -0.89], [0.59, -3.51], [2.52, 3.66]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_pair1_1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.22,
+                "init_y": 0.05,
+                "init_a": -126.29,
+                "velocity": 0.96,
+                "goals": [[5.70, 0.93], [7.17, 1.99], [4.31, 3.79], [3.72, -1.25]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single0_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": -3.19,
+                "init_y": -5.62,
+                "init_a": 116.97,
+                "velocity": 0.92,
+                "goals": [[6.21, 4.51], [-1.22, -2.30], [-2.84, -4.61], [5.01, 5.73]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single1_child',
+            "module": "pedestrian.walk_sfm_child",
+            "params": {
+                "radius": 0.25,
+                "init_x": 3.14,
+                "init_y": 3.78,
+                "init_a": 161.95,
+                "velocity": 1.07,
+                "goals": [[7.95, -5.10], [7.12, -1.01], [-5.21, -5.43], [2.32, 3.27]],
+                "change_interval_min": 1,
+                "change_interval_max": 2,
+                "change_probability": 1.0,
+                "velocity_range": [0.8, 1.2],
+                "n_actors": 8,
+                "random_seed": 100,
+            },
+        },
+        {
+            "name": 'actor_single2',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": 5.09,
+                "init_y": 2.93,
+                "init_a": 84.73,
+                "velocity": 1.13,
+                "goal_x": -5.01,
+                "goal_y": 1.58,
+                "n_actors": 8,
+            },
+        },
+        {
+            "name": 'actor_single3',
+            "module": "pedestrian.walk_sfm",
+            "params": {
+                "radius": 0.25,
+                "init_x": -6.23,
+                "init_y": -4.61,
+                "init_a": 140.29,
+                "velocity": 1.12,
+                "goal_x": 0.60,
+                "goal_y": -4.75,
+                "n_actors": 8,
             },
         },
     ])
