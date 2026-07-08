@@ -1,3 +1,65 @@
+import math
+import time
+
+import rclpy
+from nav_msgs.msg import Path
+from rclpy.qos import DurabilityPolicy, QoSProfile
+
+
+NODE_1707899314416 = (10.4546, 2.9453)
+NODE_1707899322057 = (10.4602, 4.9904)
+NODE_1707899216479 = (10.4834, 8.1715)
+MID_1707899314416_1707899322057 = (
+    (NODE_1707899314416[0] + NODE_1707899322057[0]) / 2.0,
+    (NODE_1707899314416[1] + NODE_1707899322057[1]) / 2.0
+)
+
+
+def _distance_xy(point, xy):
+    return math.sqrt((point.x - xy[0])**2 + (point.y - xy[1])**2)
+
+
+def _has_pose_near(path, xy, tolerance):
+    return any(_distance_xy(pose.pose.position, xy) < tolerance for pose in path.poses)
+
+
+def _wait_path_all(tester, target_xy=None, min_poses=2, timeout=10):
+    qos = QoSProfile(depth=1, durability=DurabilityPolicy.TRANSIENT_LOCAL)
+    result = {"msg": None}
+
+    def path_callback(msg):
+        if len(msg.poses) < min_poses:
+            return
+        if target_xy is not None and _distance_xy(msg.poses[-1].pose.position, target_xy) > 0.5:
+            return
+        result["msg"] = msg
+
+    sub = tester.node.create_subscription(Path, "/path_all", path_callback, qos)
+    start = time.time()
+    while result["msg"] is None and time.time() - start < timeout:
+        rclpy.spin_once(tester.node, timeout_sec=0.1)
+    tester.node.destroy_subscription(sub)
+    return result["msg"]
+
+
+def _wait_plan(tester, target_xy=None, min_poses=2, timeout=10):
+    result = {"msg": None}
+
+    def plan_callback(msg):
+        if len(msg.poses) < min_poses:
+            return
+        if target_xy is not None and _distance_xy(msg.poses[-1].pose.position, target_xy) > 0.75:
+            return
+        result["msg"] = msg
+
+    sub = tester.node.create_subscription(Path, "/plan", plan_callback, 10)
+    start = time.time()
+    while result["msg"] is None and time.time() - start < timeout:
+        rclpy.spin_once(tester.node, timeout_sec=0.1)
+    tester.node.destroy_subscription(sub)
+    return result["msg"]
+
+
 def config(tester):
     tester.config['init_x'] = 0.0
     tester.config['init_y'] = 0.0
@@ -589,3 +651,77 @@ def test24_navigation_to_a_goal(tester):
     tester.reset_position(x=1.0, y=2.5, a=20.0)
     tester.goto_node('EDITOR_node_1707899314416')
     tester.wait_navigation_arrived(timeout=90)
+
+
+def test25_short_standard_link_goal(tester):
+    tester.reset_position(x=9.70, y=3.97, a=90.0)
+    tester.goto_node('EDITOR_node_1707899322057')
+    path_all = _wait_path_all(tester, target_xy=NODE_1707899322057, min_poses=2)
+    tester.assert_true(
+        action_name='check_short_path_all_received',
+        condition=path_all is not None
+    )
+    if path_all is None:
+        return
+
+    goal = path_all.poses[-1].pose.position
+    tester.info(
+        "short path_all goal: "
+        f"({goal.x:.3f},{goal.y:.3f}), "
+        "navcog goal: "
+        f"({NODE_1707899322057[0]:.3f},{NODE_1707899322057[1]:.3f})"
+    )
+    plan = _wait_plan(tester, target_xy=NODE_1707899322057, min_poses=2, timeout=20)
+    tester.assert_true(
+        action_name='check_short_plan_received',
+        condition=plan is not None
+    )
+    if plan is None:
+        return
+    plan_goal = plan.poses[-1].pose.position
+    tester.info(
+        "short plan goal: "
+        f"({plan_goal.x:.3f},{plan_goal.y:.3f}), "
+        "navcog goal: "
+        f"({NODE_1707899322057[0]:.3f},{NODE_1707899322057[1]:.3f})"
+    )
+    tester.assert_true(
+        action_name='check_short_plan_goal_is_navcog_goal',
+        condition=_distance_xy(plan_goal, NODE_1707899322057) < 0.5
+    )
+    tester.wait_navigation_completed(timeout=60)
+    tester.wait_for(seconds=1)
+    tester.wait_topic(
+        action_name='check_short_path_arrived_at_navcog_goal',
+        topic='/cabot/pose_log',
+        topic_type='cabot_msgs/msg/PoseLog',
+        condition=(
+            "math.sqrt((msg.pose.position.x - %.4f)**2 + "
+            "(msg.pose.position.y - %.4f)**2) < 0.75 and msg.floor == 1"
+        ) % NODE_1707899322057,
+        timeout=5,
+    )
+
+
+def test26_navcog_first_standard_link_midpoint(tester):
+    tester.reset_position(x=NODE_1707899314416[0], y=NODE_1707899314416[1], a=90.0)
+    tester.goto_node('EDITOR_node_1707899216479')
+    plan = _wait_plan(tester, target_xy=NODE_1707899216479, min_poses=10)
+    tester.assert_true(
+        action_name='check_standard_link_plan_received',
+        condition=plan is not None
+    )
+    if plan is None:
+        return
+
+    tester.info(
+        "plan first points: " + ", ".join(
+            f"({pose.pose.position.x:.3f},{pose.pose.position.y:.3f})"
+            for pose in plan.poses[:5]
+        )
+    )
+    tester.assert_true(
+        action_name='check_standard_link_midpoint',
+        condition=_has_pose_near(plan, MID_1707899314416_1707899322057, 0.25)
+    )
+    tester.cancel_navigation()
